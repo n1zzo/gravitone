@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class revolution : MonoBehaviour {
@@ -7,28 +7,25 @@ public class revolution : MonoBehaviour {
 	public int starY = 0;
 	public int bpm = 60;
 	public int beatsPerBar = 4;
-	float startTime = 0;
+	public float radius = 0.4f;
+	float twoPI = 2*Mathf.PI;
+	float currentAngle = 0;
+	float angularSpeed = 0;
 
 	// Use this for initialization
 	void Start () {
 		transform.position = new Vector3(0, radius, 0);
-
+		angularSpeed = bpm * twoPI	/ (60 * beatsPerBar);
 	}
 
 	// Update is called once per frame
 	void Update () {
-		transform.position = getPosition(Time.currentTime)
+		currentAngle += angularSpeed * Time.deltaTime;
+		transform.position = getPosition(currentAngle);
 	}
 
-	Vector3 getPosition (time timePassed) {
-		currentPosition = transform.position;
-		currentAngle = Mathf.Atan2(currentPosition.y-starY, currentPosition.x-starX);
-		nextAngle = currentAngle + angularSpeed * timePassed;
-	}
-
-	float AngularSpeed() {
-		# BPM are beats per minute, in a circle we have a bar with multiple beats.
-		return bpm * beatsPerBar * Mathf.PI	/ 60
+	Vector3 getPosition (float angle) {
+		return new Vector3(radius*Mathf.Sin(angle), radius*Mathf.Cos(angle),0);
 	}
 
 }
