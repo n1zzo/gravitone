@@ -12,7 +12,6 @@ public class revolution : MonoBehaviour {
 		float currentAngle = 0;
 		float angularSpeed = 0;
 		float error = 0.1f;
-		float lastPlayAngle = 0;
 		AudioSource kick;
 
     // Use this for initialization
@@ -27,55 +26,26 @@ public class revolution : MonoBehaviour {
 			kick.Play();
 		}
 
-
     // Update is called once per frame
     void Update () {
 			// At every frame the planet's position is updated
 			currentAngle += angularSpeed * Time.deltaTime;
 			transform.position = getPosition(currentAngle);
 
-			float angleDelay = checkPosition(currentAngle);
-			/*
-			Il kick deve suonare solo se non sta gi� suonando,
-			oppure se sta suonando ma l'angolo � maggiore del margine d'errore
-			(Questo per evitare colpi missati su velocit� alte, in cui bisogna tagliare la coda)
-			*/
-      if (angleDelay != -1 &&
-      	 (!(Mathf.Abs(currentAngle - lastPlayAngle) <= error) || !kick.isPlaying)) {
-				    lastPlayAngle = currentAngle;
-				    kick.PlayDelayed(angleDelay / angularSpeed);
-				}
+			// Plays the kick only if it's not yet playing
+			if (!kick.isPlaying && checkBeat(currentAngle)) {
+				kick.Play();
 			}
+		}
 
 		// Obtains the planet position from the planet's angle
 		Vector3 getPosition (float angle) {
 			return new Vector3(radius*Mathf.Sin(angle), radius*Mathf.Cos(angle),0);
 		}
 
-    /*
-    Fa si che il kick suona ogni quarto
-    ritorna l'offset tra l'angolo giusto e quello rilevato
-    o -1 se non deve suonare
-    */
-    float checkPosition (float angleC)
-    {
-      float angle = angleC % TWO_PI;
-
-      if (angle > TWO_PI - error && angle <= TWO_PI)
-        return TWO_PI - angle;
-
-      else if (angle > (Mathf.PI - error) && angle <= Mathf.PI)
-        return Mathf.PI - angle;
-
-      else if (angle > (Mathf.PI / 2 - error) && angle <= (Mathf.PI / 2))
-        return (Mathf.PI / 2) - angle;
-
-      else if (angle > (Mathf.PI * 3 / 2 - error) && angle <= (Mathf.PI * 3 / 2))
-        return (Mathf.PI * 3 / 2) - angle;
-
-      else
-        return -1f;
-
-    }
+		// Checks if the current angle corresponds to a beat within a given error range
+		bool checkBeat (float angle) {
+			return (angle % (TWO_PI / beatsPerBar) < error);
+		}
 
 }
