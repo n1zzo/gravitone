@@ -3,54 +3,54 @@ using System.Collections;
 
 public class revolution : MonoBehaviour {
 
-	public int starX = 0;
-	public int starY = 0;
-	public int bpm = 120;
-	public int beatsPerBar = 4;
-	public float radius = 1f;
-    AudioSource kick;
-	float twoPI = 2*Mathf.PI;
-	float currentAngle = 0;
-	float angularSpeed = 0;
-    float error = 0.1f;
-    float lastPlayAngle = 0;
+		public int starX = 0;
+		public int starY = 0;
+		public int bpm = 120;
+		public int beatsPerBar = 4;
+		public float radius = 1f;
+		const float TWO_PI = 2*Mathf.PI;
+		float currentAngle = 0;
+		float angularSpeed = 0;
+		float error = 0.1f;
+		float lastPlayAngle = 0;
+		AudioSource kick;
 
     // Use this for initialization
-    void Start () {
-        kick = GetComponent<AudioSource>();
-		transform.position = new Vector3(0, radius, 0);
-		angularSpeed = bpm * twoPI	/ (60 * beatsPerBar);
+		void Start () {
+			kick = GetComponent<AudioSource>();
+			transform.position = new Vector3(0, radius, 0);
+			// Angular speed is derived from BPMs
+			angularSpeed = bpm * TWO_PI	/ (60 * beatsPerBar);
 
-        // La prima volta missa il colpo
-        // a noi servirà il primo play quando verrà selezionato
-        // dopodichè verrà quantizzato
-        kick.Play();
-	}
+			// The first beat is always missing
+			// We trigger it manually at initialization
+			kick.Play();
+		}
 
 
-        // Update is called once per frame
+    // Update is called once per frame
     void Update () {
-		currentAngle += angularSpeed * Time.deltaTime;
-        transform.position = getPosition(currentAngle);
-        float angleDelay = checkPosition(currentAngle);
-        
-        /*
-        Il kick deve suonare solo se non sta già suonando, 
-        oppure se sta suonando ma l'angolo è maggiore del margine d'errore 
-        (Questo per evitare colpi missati su velocità alte, in cui bisogna tagliare la coda)
-        */
-        if (angleDelay != -1 && 
-                (!(Mathf.Abs(currentAngle - lastPlayAngle) <= error) || !kick.isPlaying))
-            {
-                lastPlayAngle = currentAngle;
-                kick.PlayDelayed(angleDelay / angularSpeed);
-            }
-                
-	}
+			// At every frame the planet's position is updated
+			currentAngle += angularSpeed * Time.deltaTime;
+			transform.position = getPosition(currentAngle);
 
-	Vector3 getPosition (float angle) {
-		return new Vector3(radius*Mathf.Sin(angle), radius*Mathf.Cos(angle),0);
-	}
+			float angleDelay = checkPosition(currentAngle);
+			/*
+			Il kick deve suonare solo se non sta giï¿½ suonando,
+			oppure se sta suonando ma l'angolo ï¿½ maggiore del margine d'errore
+			(Questo per evitare colpi missati su velocitï¿½ alte, in cui bisogna tagliare la coda)
+			*/
+      if (angleDelay != -1 &&
+      	 (!(Mathf.Abs(currentAngle - lastPlayAngle) <= error) || !kick.isPlaying)) {
+				    lastPlayAngle = currentAngle;
+				    kick.PlayDelayed(angleDelay / angularSpeed);
+				}
+			}
+
+		// Obtains the planet position from the planet's angle
+		Vector3 getPosition (float angle) {
+			return new Vector3(radius*Mathf.Sin(angle), radius*Mathf.Cos(angle),0);
+		}
 
     /*
     Fa si che il kick suona ogni quarto
@@ -59,23 +59,23 @@ public class revolution : MonoBehaviour {
     */
     float checkPosition (float angleC)
     {
-        float angle = angleC % twoPI;
+      float angle = angleC % TWO_PI;
 
-        if (angle > twoPI - error && angle <= twoPI)
-            return twoPI - angle;
+      if (angle > TWO_PI - error && angle <= TWO_PI)
+        return TWO_PI - angle;
 
-        else if (angle > (Mathf.PI - error) && angle <= Mathf.PI)
-            return Mathf.PI - angle;
+      else if (angle > (Mathf.PI - error) && angle <= Mathf.PI)
+        return Mathf.PI - angle;
 
-        else if (angle > (Mathf.PI / 2 - error) && angle <= (Mathf.PI / 2))
-            return (Mathf.PI / 2) - angle;
+      else if (angle > (Mathf.PI / 2 - error) && angle <= (Mathf.PI / 2))
+        return (Mathf.PI / 2) - angle;
 
-        else if (angle > (Mathf.PI * 3 / 2 - error) && angle <= (Mathf.PI * 3 / 2))
-            return (Mathf.PI * 3 / 2) - angle;
+      else if (angle > (Mathf.PI * 3 / 2 - error) && angle <= (Mathf.PI * 3 / 2))
+        return (Mathf.PI * 3 / 2) - angle;
 
-        else
-            return -1f;
-            
+      else
+        return -1f;
+
     }
 
 }
