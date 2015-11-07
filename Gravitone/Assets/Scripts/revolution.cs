@@ -13,6 +13,7 @@ public class revolution : MonoBehaviour {
 	const float TWO_PI = 2*Mathf.PI;
   int beatsPerSlot = 1;
   int totSlots = 4;
+  int lastBeat = -1;
   // While progress goes from 0 to 1 we complete one bar
   float progress = 0f;
   float timeSpeed = 0f;
@@ -60,6 +61,7 @@ public class revolution : MonoBehaviour {
     // Records in the array that you pressed a button
     if (!keyPressed && Input.GetKeyDown("space")) {
       Debug.Log("KEK!");
+			sound.Play();
       slots[(int) (progress * (float) totSlots)] = true;
       keyPressed = true;
     }
@@ -73,10 +75,13 @@ public class revolution : MonoBehaviour {
 			sound.Play();
 		}
     */
+		int currentBeat=(int) (progress * (float) totSlots);
 
-    // Plays the sound if the current slot is full
-    if (!sound.isPlaying && checkSlot(progress)) {
-      sound.Play();
+		// Plays the sound if the current slot is full
+    if (currentBeat!=lastBeat){
+      if (checkSlot(currentBeat) )
+      	sound.Play();
+      lastBeat=currentBeat;
     }
 	}
 
@@ -90,10 +95,9 @@ public class revolution : MonoBehaviour {
 		return progress % (1 / (float) beatsPerBar);
 	}
 
-  bool checkSlot (float progress) {
-		int progressQuantized=(int) (progress * (float) totSlots);
-		text1.text=progressQuantized.ToString();
-  	return slots[(int) (progress * (float) totSlots)];
+  bool checkSlot (int currentBeat) {
+		text1.text=currentBeat.ToString();
+  	return slots[currentBeat];
   }
 
 }
