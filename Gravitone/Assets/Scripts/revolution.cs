@@ -4,6 +4,7 @@ using System.Collections;
 public class revolution : MonoBehaviour {
 
 	public GameObject star;
+	public UnityEngine.UI.Text text1;
 	float starX;
 	float starY;
 	int bpm = 120;
@@ -90,6 +91,8 @@ public class revolution : MonoBehaviour {
 	}
 
   bool checkSlot (float progress) {
+		int progressQuantized=(int) (progress * (float) totSlots);
+		text1.text=progressQuantized.ToString();
   	return slots[(int) (progress * (float) totSlots)];
   }
 
