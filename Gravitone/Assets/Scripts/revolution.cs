@@ -60,14 +60,25 @@ public class revolution : MonoBehaviour {
 
     // Records in the array that you pressed a button
     if (!keyPressed && Input.GetKeyDown("space")) {
-      Debug.Log("KEK!");
-			sound.Play();
-      slots[(int) (progress * (float) totSlots)] = true;
+			var index=Mathf.RoundToInt(progress * (float) totSlots);
+
+			//If it's divided in N, then the Nth beat is the initial 0
+			if(index==totSlots)
+				index=0;
+
+			/*The instant sound feedback will be received neither
+			  when the slot is already occupied nor when the sound
+			  is quantified afterwards (to avoid double sounds)*/
+			if(!slots[index] && index == (int)(progress * (float) totSlots))
+					sound.Play();
+
+			slots[index] = true;
+
       keyPressed = true;
     }
+
     if (Input.GetKeyUp("space"))
       keyPressed = false;
-
 
     /*
 		// Plays the sound at every beat (only if it's not playing)
@@ -77,9 +88,9 @@ public class revolution : MonoBehaviour {
     */
 		int currentBeat=(int) (progress * (float) totSlots);
 
-		// Plays the sound if the current slot is full
+		// Plays the sound if the current slot is full, only one time
     if (currentBeat!=lastBeat){
-      if (checkSlot(currentBeat) )
+      if (checkSlot(currentBeat))
       	sound.Play();
       lastBeat=currentBeat;
     }
@@ -95,6 +106,7 @@ public class revolution : MonoBehaviour {
 		return progress % (1 / (float) beatsPerBar);
 	}
 
+// Checks if the slot is full
   bool checkSlot (int currentBeat) {
 		text1.text=currentBeat.ToString();
   	return slots[currentBeat];
