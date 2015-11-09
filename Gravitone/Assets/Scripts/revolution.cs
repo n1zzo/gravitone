@@ -14,20 +14,22 @@ public class revolution : MonoBehaviour {
   public int beatsPerSlot = 1;
   int totSlots = 0;
   int lastSlot = -1;
-	int countBeats=0;
-  // While progress goes from 0 to 1 we complete one bar
+
+	// While progress goes from 0 to 1 we complete one bar
   float progress = 0f;
-  float timeSpeed = 0f;
 	float currentAngle = 0f;
 	float error = 0.02f;
-	float scaleStep=0.03f;
+	float scaleStep=0.5f;
   bool[] slots = new bool[64];
 	AudioSource sound;
   bool keyPressed = false;
+	public bool initialUp=true;
+	public string fireKey="";
 
   // Use this for initialization
 	void Start () {
 
+		beatsPerBar = star.GetComponent<star>().beatsPerBar;
     totSlots = beatsPerSlot * beatsPerBar;
 
 		// Gets the x and y coordinates and bpm from the reference star
@@ -39,30 +41,28 @@ public class revolution : MonoBehaviour {
 		sound = GetComponent<AudioSource>();
 
 		// Sets the initial position
-		transform.position = new Vector3(0, radius, 0);
+		if(initialUp)
+			transform.position = new Vector3(0, radius, 0);
+		else
+			transform.position = new Vector3(0, -radius, 0);
 
-    // Time speed is derived from BPMs
-    timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
 	}
 
   // Update is called once per frame
   void Update () {
-    // Update the bar's progress
-    progress += timeSpeed * Time.deltaTime;
-
-		float scaleFactor = scaleStep * Time.deltaTime;
-		star.transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
-
-    // Avoid progress overflow
-    if (progress >= 1)
-      progress -= 1;
+    progress=star.GetComponent<star>().progress;
 
     // Calculate the planet's position
     currentAngle = progress * TWO_PI;
 		transform.position = getPosition(currentAngle);
 
+		if(transform.localScale.x>0.75){
+			float scaleFactor = scaleStep * Time.deltaTime;
+			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
+		}
+
     // Records in the array that you pressed a button
-    if (!keyPressed && Input.GetKeyDown("space")) {
+    if (!keyPressed && Input.GetKeyDown(fireKey)) {
 			var index=Mathf.RoundToInt(progress * (float) totSlots);
 
 			//If it's divided in N, then the Nth beat is the initial 0
@@ -72,15 +72,17 @@ public class revolution : MonoBehaviour {
 			/*The instant sound feedback will be received neither
 			  when the slot is already occupied nor when the sound
 			  is quantified afterwards (to avoid double sounds)*/
-			if(!slots[index] && index == (int)(progress * (float) totSlots))
-					sound.Play();
+			if(!slots[index] && index == (int)(progress * (float) totSlots)){
+				transform.localScale = new Vector3(1, 1, 1);
+				sound.Play();
+			}
 
 			slots[index] = true;
 
       keyPressed = true;
     }
 
-    if (Input.GetKeyUp("space"))
+    if (Input.GetKeyUp(fireKey))
       keyPressed = false;
 
     /*
@@ -93,25 +95,20 @@ public class revolution : MonoBehaviour {
 
 		// Plays the sound if the current slot is full, only one time
     if (currentSlot!=lastSlot){
-      if (checkSlot(currentSlot))
+      if (checkSlot(currentSlot)){
+				transform.localScale = new Vector3(1, 1, 1);
       	sound.Play();
-      lastSlot=currentSlot;
-			countBeats+=1;
-			if(countBeats==(beatsPerSlot)){
-				star.transform.localScale = new Vector3(0.25f, 0.25f, 1);
-				countBeats=0;
 			}
+      lastSlot=currentSlot;
     }
 	}
 
 	// Obtains the planet position from the planet's angle
 	Vector3 getPosition (float angle) {
-		return new Vector3(radius*Mathf.Sin(angle) + starX, radius*Mathf.Cos(angle) + starY, 0);
-	}
-
-	// Checks if the current angle corresponds to a beat within a given error range
- 	float checkBeat (float progress) {
-		return progress % (1 / (float) beatsPerBar);
+		if(initialUp)
+			return new Vector3(radius*Mathf.Sin(angle) + starX, radius*Mathf.Cos(angle) + starY, 0);
+		else
+			return new Vector3(radius*Mathf.Sin(-angle) + starX, radius*Mathf.Cos(-angle) + starY, 0);
 	}
 
 // Checks if the slot is full
