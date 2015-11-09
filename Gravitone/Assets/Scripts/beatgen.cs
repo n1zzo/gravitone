@@ -50,8 +50,8 @@ public class beatGen : MonoBehaviour {
 
 	void Beat() {
 		// il Da Farsi
-		foreach (GameObject subscriber in subscribers)
-					subscriber.playSlot(currentSlot);
+		foreach (GameObject subscriber in subscribers){}
+	//				subscriber.playSlot(currentSlot);
 	}
 
 }

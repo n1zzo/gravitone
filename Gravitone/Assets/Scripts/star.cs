@@ -12,9 +12,10 @@ public class star : MonoBehaviour {
 	int lastBeat=0;
 	public int beatsPerSlot = 1;
 	int totSlots = 0;
+	AudioSource sound;
 
 	// While progress goes from 0 to 1 we complete one bar
-  float progress = 0f;
+  public float progress = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +26,9 @@ public class star : MonoBehaviour {
 
 		// Time speed is derived from BPMs
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
+
+		// Loads the metronome clip
+		sound = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -42,8 +46,9 @@ public class star : MonoBehaviour {
 		int currentBeat=checkBeat(progress);
 
 		if(currentBeat!=lastBeat){
-			transform.localScale = new Vector3(0.25f, 0.25f, 1);
+			transform.localScale = new Vector3(1, 1, 1);
 			lastBeat=currentBeat;
+			sound.Play();
 		}
 	}
 

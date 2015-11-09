@@ -16,7 +16,7 @@ public class revolution : MonoBehaviour {
   int lastSlot = -1;
 
 	// While progress goes from 0 to 1 we complete one bar
-  float progress = 0f;
+  public float progress = 0f;
 	float currentAngle = 0f;
 	float error = 0.02f;
 	float scaleStep=0.5f;
