@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class beatGen : MonoBehaviour {
 
-	List<GameObject> subscribers = new List<GameObject>();
+	List<Subscriber> subscribers = new List<Subscriber>();
 
 	public int bpm = 60;
 	public int beatsPerBar = 4;
@@ -50,7 +50,7 @@ public class beatGen : MonoBehaviour {
 
 	void Beat() {
 		// il Da Farsi
-		foreach (GameObject subscriber in subscribers)
+		foreach (Subscriber subscriber in subscribers)
 					subscriber.playSlot(currentSlot);
 	}
 
