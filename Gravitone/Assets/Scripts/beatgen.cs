@@ -25,7 +25,7 @@ public class beatGen : MonoBehaviour {
   }
 
 	// Each GameObject that calls this is adddded to a list
-	void Subscribe (GameObject subscriber) {
+	void Subscribe (Subscriber subscriber) {
 		subscribers.Add(subscriber);
 	}
 
@@ -50,13 +50,10 @@ public class beatGen : MonoBehaviour {
 
 	void Beat() {
 		// il Da Farsi
-<<<<<<< HEAD
-		foreach (GameObject subscriber in subscribers){}
-	//				subscriber.playSlot(currentSlot);
-=======
+/*
 		foreach (Subscriber subscriber in subscribers)
-					subscriber.playSlot(currentSlot);
->>>>>>> ad455b4589bede56f192180bc503feb4a9fdfbe3
+					subscriber.playSlot(currentSlot);*/
+
 	}
 
 }
