@@ -45,6 +45,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -110,11 +111,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3068480a08ee4aa4a4e5273c63dfdcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  starX: 0
-  starY: 0
-  bpm: 120
+  star: {fileID: 0}
+  text1: {fileID: 0}
   beatsPerBar: 4
-  radius: 5
+  radius: 2
+  beatsPerSlot: 1
 --- !u!212 &21237852
 SpriteRenderer:
   m_ObjectHideFlags: 1

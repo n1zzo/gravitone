@@ -11,22 +11,22 @@ public class revolution : MonoBehaviour {
 	public int beatsPerBar = 4;
 	public float radius = 1f;
 	const float TWO_PI = 2*Mathf.PI;
-  int beatsPerSlot = 1;
-  int totSlots = 4;
-  int lastBeat = -1;
+  public int beatsPerSlot = 1;
+  int totSlots = 0;
+  int lastSlot = -1;
+	int countBeats=0;
   // While progress goes from 0 to 1 we complete one bar
   float progress = 0f;
   float timeSpeed = 0f;
 	float currentAngle = 0f;
 	float error = 0.02f;
+	float scaleStep=0.03f;
   bool[] slots = new bool[64];
 	AudioSource sound;
   bool keyPressed = false;
 
   // Use this for initialization
 	void Start () {
-
-		slots[16] = true;
 
     totSlots = beatsPerSlot * beatsPerBar;
 
@@ -49,6 +49,9 @@ public class revolution : MonoBehaviour {
   void Update () {
     // Update the bar's progress
     progress += timeSpeed * Time.deltaTime;
+
+		float scaleFactor = scaleStep * Time.deltaTime;
+		star.transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
 
     // Avoid progress overflow
     if (progress >= 1)
@@ -86,13 +89,18 @@ public class revolution : MonoBehaviour {
 			sound.Play();
 		}
     */
-		int currentBeat=(int) (progress * (float) totSlots);
+		int currentSlot=(int) (progress * (float) totSlots);
 
 		// Plays the sound if the current slot is full, only one time
-    if (currentBeat!=lastBeat){
-      if (checkSlot(currentBeat))
+    if (currentSlot!=lastSlot){
+      if (checkSlot(currentSlot))
       	sound.Play();
-      lastBeat=currentBeat;
+      lastSlot=currentSlot;
+			countBeats+=1;
+			if(countBeats==(beatsPerSlot)){
+				star.transform.localScale = new Vector3(0.25f, 0.25f, 1);
+				countBeats=0;
+			}
     }
 	}
 
@@ -107,9 +115,9 @@ public class revolution : MonoBehaviour {
 	}
 
 // Checks if the slot is full
-  bool checkSlot (int currentBeat) {
-		text1.text=currentBeat.ToString();
-  	return slots[currentBeat];
+  bool checkSlot (int currentSlot) {
+		text1.text=currentSlot.ToString();
+  	return slots[currentSlot];
   }
 
 }
