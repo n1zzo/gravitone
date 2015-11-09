@@ -29,7 +29,7 @@ public class revolution : MonoBehaviour {
   // Use this for initialization
 	void Start () {
 
-		beatsPerBar = star.GetComponent<star>().beatsPerBar;
+        beatsPerBar = star.GetComponent<star>().beatsPerBar;
     totSlots = beatsPerSlot * beatsPerBar;
 
 		// Gets the x and y coordinates and bpm from the reference star
@@ -94,7 +94,7 @@ public class revolution : MonoBehaviour {
 		int currentSlot=(int) (progress * (float) totSlots);
 
 		// Plays the sound if the current slot is full, only one time
-    if (currentSlot!=lastSlot){
+    if (currentSlot!=lastSlot){https://github.com/Stocarson/gravitone/archive/master.zip
       if (checkSlot(currentSlot)){
 				transform.localScale = new Vector3(1, 1, 1);
       	sound.Play();

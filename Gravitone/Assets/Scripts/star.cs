@@ -7,15 +7,19 @@ public class star : MonoBehaviour {
 	public float y = 0f;
 	public int bpm = 60;
 	public int beatsPerBar = 4;
-	float scaleStep=0.03f;
+	public float scaleStep=0.03f;
 	float timeSpeed = 0f;
 	int lastBeat=0;
+	public int beatsPerSlot = 1;
+	int totSlots = 0;
 
 	// While progress goes from 0 to 1 we complete one bar
-  public float progress = 0f;
+  float progress = 0f;
 
 	// Use this for initialization
 	void Start () {
+		totSlots = beatsPerSlot * beatsPerBar;
+
 		x = transform.position.x;
 		y = transform.position.y;
 

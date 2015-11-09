@@ -37,6 +37,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -65,7 +68,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -98,7 +100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403608, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 3.01999998
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 403608, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: m_LocalPosition.z
@@ -135,6 +137,27 @@ Prefab:
     - target: {fileID: 11406534, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: fireKey
       value: x
+      objectReference: {fileID: 0}
+    - target: {fileID: 21227154, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89336cca51aaf4719ae1516a382944f0,
+        type: 3}
+    - target: {fileID: 11406534, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+      propertyPath: radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21227154, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+      propertyPath: m_Color.r
+      value: .820689678
+      objectReference: {fileID: 0}
+    - target: {fileID: 21227154, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21227154, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
@@ -207,7 +230,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -266,7 +288,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4869403e3a344ae4aa40ceb2b107589f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a321809532d3428b8b4b48443dd16a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &810106422
 Transform:
@@ -276,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 810106420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .25, y: .25, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -295,6 +317,7 @@ MonoBehaviour:
   y: 0
   bpm: 120
   beatsPerBar: 4
+  scaleStep: .0299999993
   progress: 0
 --- !u!1 &876464191
 GameObject:
@@ -325,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &876464193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,7 +366,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &876464194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,11 +388,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 876464191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: .0500000007, y: 2.51999998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 930988455}
+  m_RootOrder: 0
 --- !u!1001 &902113727
 Prefab:
   m_ObjectHideFlags: 0
@@ -383,7 +406,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403608, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.51999998
+      value: -1.02999997
       objectReference: {fileID: 0}
     - target: {fileID: 403608, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: m_LocalPosition.z
@@ -407,7 +430,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 403608, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 185984, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: m_Name
@@ -447,15 +470,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11406534, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: radius
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 11406534, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
       propertyPath: fireKey
       value: space
       objectReference: {fileID: 0}
+    - target: {fileID: 21227154, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89336cca51aaf4719ae1516a382944f0,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &930988455 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 403608, guid: 3022ced9c605de142a49020b9a10d389, type: 2}
+  m_PrefabInternal: {fileID: 902113727}
 --- !u!1 &1720911311
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,12 +608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
