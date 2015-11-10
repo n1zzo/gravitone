@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class beatGen : MonoBehaviour {
+public class BeatGen : MonoBehaviour {
 
 	List<Subscriber> subscribers = new List<Subscriber>();
 
@@ -12,19 +12,26 @@ public class beatGen : MonoBehaviour {
 	int lastSlot=-1;
 	float timeSpeed = 0f;
 	int granularity = 0;
+	public float x = 0f;
+	public float y = 0f;
 
 	// While progress goes from 0 to 1 we complete one bar
-  float progress = 0f;
+  public float progress = 0f;
 
 	// Use this for initialization
 	void Start () {
+
+		// Get the current x and y coordinates
+		x = transform.position.x;
+		y = transform.position.y;
+
 		// Time s=peed is derived from BPMs
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
     granularity = beatsPerBar * subBeatsPerBeat;
   }
 
 	// Each GameObject that calls this is adddded to a list
-	void Subscribe (Subscriber subscriber) {
+	public void Subscribe (Subscriber subscriber) {
 		subscribers.Add(subscriber);
 	}
 

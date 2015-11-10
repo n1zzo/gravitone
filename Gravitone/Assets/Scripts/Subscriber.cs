@@ -14,7 +14,7 @@ abstract public class Subscriber : MonoBehaviour {
 	}
 
 	// This method is called for each beat
-	void Beat() {
+	public virtual void Beat(int currentSlot) {
 
 	}
 

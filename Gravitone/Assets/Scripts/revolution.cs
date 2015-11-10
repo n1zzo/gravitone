@@ -111,7 +111,7 @@ public class revolution : MonoBehaviour {
 			return new Vector3(radius*Mathf.Sin(-angle) + starX, radius*Mathf.Cos(-angle) + starY, 0);
 	}
 
-// Checks if the slot is full
+	// Checks if the slot is full
   bool checkSlot (int currentSlot) {
 		text1.text=currentSlot.ToString();
   	return slots[currentSlot];
