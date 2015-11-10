@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Subscriber : MonoBehaviour {
+abstract public class Subscriber : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -13,7 +13,7 @@ public class Subscriber : MonoBehaviour {
 
 	}
 
-	// This method is called by the dispatcher object
+	// This method is called for each beat
 	void Beat() {
 
 	}

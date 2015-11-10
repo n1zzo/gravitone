@@ -9,7 +9,6 @@ public class beatGen : MonoBehaviour {
 	public int bpm = 60;
 	public int beatsPerBar = 4;
 	public int subBeatsPerBeat = 4;
-	int currentSlot = 0;
 	int lastSlot=-1;
 	float timeSpeed = 0f;
 	int granularity = 0;
@@ -31,6 +30,7 @@ public class beatGen : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		int currentSlot = 0;
 
 		// Update the bar's progress
 		progress += timeSpeed * Time.deltaTime;
@@ -42,18 +42,15 @@ public class beatGen : MonoBehaviour {
 		currentSlot = (int)(progress * (float) granularity);
 
 		if(currentSlot!=lastSlot) {
-			currentSlot=lastSlot;
-      Beat();
+			lastSlot = currentSlot;
+      SendBeat(currentSlot);
     }
 
 	}
 
-	void Beat() {
-		// il Da Farsi
-/*
+	void SendBeat(int currentSlot) {
 		foreach (Subscriber subscriber in subscribers)
-					subscriber.playSlot(currentSlot);*/
-
+			subscriber.Beat(currentSlot);
 	}
 
 }
