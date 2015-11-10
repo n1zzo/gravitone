@@ -9,9 +9,11 @@ public class BeatGen : MonoBehaviour {
 	public int bpm = 60;
 	public int beatsPerBar = 4;
 	public int subBeatsPerBeat = 4;
-	int lastSlot=-1;
+	public int granularity = 0;
+	int lastSlot = 0;
 	float timeSpeed = 0f;
-	int granularity = 0;
+	AudioSource sound;
+
 	public float x = 0f;
 	public float y = 0f;
 
@@ -28,6 +30,9 @@ public class BeatGen : MonoBehaviour {
 		// Time s=peed is derived from BPMs
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
     granularity = beatsPerBar * subBeatsPerBeat;
+
+		// Loads the metronome clip
+		sound = GetComponent<AudioSource>();
   }
 
 	// Each GameObject that calls this is adddded to a list
@@ -51,6 +56,8 @@ public class BeatGen : MonoBehaviour {
 		if(currentSlot!=lastSlot) {
 			lastSlot = currentSlot;
       SendBeat(currentSlot);
+			if(currentSlot % beatsPerBar == 0)
+				sound.Play();
     }
 
 	}

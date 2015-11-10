@@ -8,14 +8,21 @@ public class Drum : Subscriber {
 	int currentSlot = 0;
 	int lastSlot = -1;
 	bool lastBeat = false;
-	int beatsPerBar = 4;
+	int beatsPerBar = 0;
+	int subBeatsPerBeat = 0;
+	int granularity = 0;
 	public string fireKey="";
 	AudioSource sound;
 	bool keyPressed = false;
+	bool[] slots = new bool[64];
 
 	// Use this for initialization
 	void Start () {
 		star.GetComponent<BeatGen>().Subscribe(this);
+		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
+		subBeatsPerBeat = star.GetComponent<BeatGen>().subBeatsPerBeat;
+
+		granularity = beatsPerBar * subBeatsPerBeat;
 
 		// Loads the drum clip
 		sound = GetComponent<AudioSource>();
@@ -29,38 +36,36 @@ public class Drum : Subscriber {
 
 		// Records in the array that you pressed a button
     if (!keyPressed && Input.GetKeyDown(fireKey)) {
-			var index=Mathf.RoundToInt(progress * (float) totSlots);
+			var index = Mathf.RoundToInt(progress * (float) granularity);
 
-			//If it's divided in N, then the Nth beat is the initial 0
-			if(index==totSlots)
-				index=0;
+			// If it's divided in N, then the Nth beat is the initial 0
+			if(index == granularity)
+				index = 0;
 
 			/*The instant sound feedback will be received neither
 			  when the slot is already occupied nor when the sound
 			  is quantified afterwards (to avoid double sounds)*/
-			if(!slots[index] && index == (int)(progress * (float) totSlots)){
+			if(!slots[index] && index == (int)(progress * (float) granularity)) {
 				transform.localScale = new Vector3(1, 1, 1);
 				sound.Play();
 			}
 
 			slots[index] = true;
-
       keyPressed = true;
     }
 
     if (Input.GetKeyUp(fireKey))
       keyPressed = false;
 
-		// Plays the sound if the current slot is full, only one time
+		// This is executed at every beat.
     if (lastBeat && currentSlot != lastSlot) {
-      if (checkSlot(currentSlot)) {
+      if (slots[currentSlot]) {
       	sound.Play();
 			}
       lastSlot=currentSlot;
+			lastBeat = false;
     }
 
-
-		lastBeat = false;
 	}
 
 	// This method is called for each beat
@@ -68,11 +73,5 @@ public class Drum : Subscriber {
 		this.currentSlot = currentSlot;
 		lastBeat = true;
 	}
-
-	// Checks if the slot is full
-  bool checkSlot (int currentSlot) {
-		text1.text=currentSlot.ToString();
-  	return slots[currentSlot];
-  }
 
 }

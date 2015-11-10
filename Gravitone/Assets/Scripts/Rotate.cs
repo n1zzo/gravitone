@@ -5,7 +5,7 @@ public class Rotate : MonoBehaviour {
 
 	public GameObject star;
 	public float radius = 1f;
-	// public bool clockwise = true;
+	public bool clockwise = true;
 	float starX;
 	float starY;
 	const float TWO_PI = 2*Mathf.PI;
@@ -35,7 +35,11 @@ public class Rotate : MonoBehaviour {
 
 	// Obtains the planet position from the planet's angle
 	Vector3 getPosition (float angle) {
-		return new Vector3(radius*Mathf.Sin(angle) + starX, radius*Mathf.Cos(angle) + starY, 0);
+		if(clockwise)
+			return new Vector3(radius*Mathf.Sin(angle) + starX, radius*Mathf.Cos(angle) + starY, 0);
+		else
+			return new Vector3(radius*Mathf.Sin(-angle) + starX, radius*Mathf.Cos(-angle) + starY, 0);
+
 	}
 
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public class Widen : Subscriber {
 
 	public GameObject star;
-	float scaleStep=0.5f;
+	public float scaleStep=0.5f;
 	int currentSlot = 0;
 	int lastSlot = -1;
 	bool lastBeat = false;
