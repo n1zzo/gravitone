@@ -12,8 +12,9 @@ public class Drum : Subscriber {
 	int subBeatsPerBeat = 0;
 	int granularity = 0;
 	public string fireKey="";
+	public string recordKey="";
+	public string cancelKey="";
 	AudioSource sound;
-	bool keyPressed = false;
 	bool[] slots = new bool[64];
 
 	// Use this for initialization
@@ -35,43 +36,54 @@ public class Drum : Subscriber {
 		float progress = star.GetComponent<BeatGen>().progress;
 
 		// Records in the array that you pressed a button
-    if (!keyPressed && Input.GetKeyDown(fireKey)) {
-			var index = Mathf.RoundToInt(progress * (float) granularity);
+    if (Input.GetKeyDown(fireKey)) {
+			// If he is recording the Rhythm will be memorized
+			if (isRecord()) {
+				var index = Mathf.RoundToInt(progress * (float) granularity);
 
-			// If it's divided in N, then the Nth beat is the initial 0
-			if(index == granularity)
-				index = 0;
+				// If it's divided in N, then the Nth beat is the initial 0
+				if(index == granularity)
+					index = 0;
 
-			/*The instant sound feedback will be received neither
-			  when the slot is already occupied nor when the sound
-			  is quantified afterwards (to avoid double sounds)*/
-			if(!slots[index] && index == (int)(progress * (float) granularity)) {
-				transform.localScale = new Vector3(1, 1, 1);
-				sound.Play();
-			}
+				/*The instant sound feedback will be received neither
+				  when the slot is already occupied nor when the sound
+				  is quantified afterwards (to avoid double sounds)*/
+				if(!slots[index] && index == (int)(progress * (float) granularity)) {
+					transform.localScale = new Vector3(1, 1, 1);
+					sound.Play();
+				}
 
-			slots[index] = true;
-      keyPressed = true;
-    }
+				slots[index] = true;
 
-    if (Input.GetKeyUp(fireKey))
-      keyPressed = false;
+	    }	else
+			// Instead , the sound is played
+					sound.Play();
+
+		}
 
 		// This is executed at every beat.
-    if (lastBeat && currentSlot != lastSlot) {
-      if (slots[currentSlot]) {
-      	sound.Play();
-			}
-      lastSlot=currentSlot;
-			lastBeat = false;
-    }
+	  if (lastBeat && currentSlot != lastSlot) {
+	    	if (slots[currentSlot]) {
+	      	sound.Play();
+				}
+	      lastSlot=currentSlot;
+				lastBeat = false;
+		}
 
+		// This erases the recorded Rhythm
+		if(Input.GetKeyDown(cancelKey))
+			for(int i=0; i<slots.Length; i++)
+						slots[i]=false;
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 		this.currentSlot = currentSlot;
 		lastBeat = true;
+	}
+
+	public bool isRecord(){
+		return  Input.GetKey(recordKey);
 	}
 
 }
