@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using LibPDBinding;
 
 public class BeatGen : MonoBehaviour {
 
@@ -31,8 +32,9 @@ public class BeatGen : MonoBehaviour {
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
     granularity = beatsPerBar * subBeatsPerBeat;
 
-		// Loads the metronome clip
+		// Loads the AudioSource component
 		sound = GetComponent<AudioSource>();
+		LibPD.SendBang("highBeat");
   }
 
 	// Each GameObject that calls this is adddded to a list
@@ -56,8 +58,11 @@ public class BeatGen : MonoBehaviour {
 		if(currentSlot!=lastSlot) {
 			lastSlot = currentSlot;
       SendBeat(currentSlot);
-			if(currentSlot % beatsPerBar == 0)
-				sound.Play();
+			if(currentSlot == 0)
+				LibPD.SendBang("highBeat");
+			else
+				if(currentSlot % beatsPerBar == 0)
+					LibPD.SendBang("lowBeat");
     }
 
 	}

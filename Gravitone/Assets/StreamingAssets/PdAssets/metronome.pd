@@ -1,4 +1,4 @@
-#N canvas 764 345 748 386 10;
+#N canvas 761 353 748 386 10;
 #X obj 118 207 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 9200 1;
 #X obj 115 227 mtof;
@@ -29,12 +29,13 @@
 #X msg 381 187 80;
 #X msg 115 185 92;
 #X text 183 16 Metronome component for the Gravitone project.;
+#X obj 306 326 +~;
 #X connect 0 0 1 0;
 #X connect 1 0 5 0;
 #X connect 3 0 4 0;
 #X connect 4 0 6 1;
 #X connect 5 0 6 0;
-#X connect 6 0 2 0;
+#X connect 6 0 24 0;
 #X connect 7 0 3 0;
 #X connect 7 1 8 0;
 #X connect 8 0 3 0;
@@ -45,7 +46,7 @@
 #X connect 13 0 14 0;
 #X connect 14 0 16 1;
 #X connect 15 0 16 0;
-#X connect 16 0 2 1;
+#X connect 16 0 24 1;
 #X connect 17 0 13 0;
 #X connect 17 1 18 0;
 #X connect 18 0 13 0;
@@ -53,3 +54,5 @@
 #X connect 20 0 21 0;
 #X connect 21 0 11 0;
 #X connect 22 0 0 0;
+#X connect 24 0 2 0;
+#X connect 24 0 2 1;

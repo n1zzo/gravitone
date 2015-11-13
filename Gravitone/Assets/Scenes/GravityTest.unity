@@ -37,6 +37,9 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+--- !u!127 &3
+LevelGameManager:
+  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -65,7 +68,6 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
-    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -85,64 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &153460506
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 440264, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 169952, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_Name
-      value: PlanetKick
-      objectReference: {fileID: 0}
-    - target: {fileID: 11474518, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: star
-      value: 
-      objectReference: {fileID: 810106420}
-    - target: {fileID: 11474518, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: text1
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 169952, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &804952610
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +155,6 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
-  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -242,7 +185,6 @@ GameObject:
   - 114: {fileID: 810106423}
   - 114: {fileID: 810106425}
   - 114: {fileID: 810106426}
-  - 114: {fileID: 810106427}
   m_Layer: 0
   m_Name: Star
   m_TagString: Untagged
@@ -315,13 +257,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6df1ff6872997814a9d66924f5c4f2bb, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -401,67 +342,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfPatch: metronome.pd
---- !u!114 &810106427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 810106420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8663bed4d4ea98c44bdc87e53bf1f594, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &902113727
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.0500000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.02999997
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 471616, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11437298, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: star
-      value: 
-      objectReference: {fileID: 810106420}
-    - target: {fileID: 181478, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: aa85572ab25f649d49517880b8fb822e, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &906869226
 Prefab:
   m_ObjectHideFlags: 0
@@ -504,6 +384,10 @@ Prefab:
     - target: {fileID: 21207912, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 169952, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
+      propertyPath: m_Name
+      value: PlanetKick
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11474518, guid: 9bbccb0875dcb46ec950048df3b32dc4, type: 2}
@@ -569,7 +453,7 @@ GameObject:
   - 114: {fileID: 952765402}
   - 114: {fileID: 952765403}
   m_Layer: 0
-  m_Name: PlanetSnare 1
+  m_Name: PlanetSnare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -587,7 +471,7 @@ Transform:
   m_Children:
   - {fileID: 1929848527}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!82 &952765399
 AudioSource:
   m_ObjectHideFlags: 0
@@ -604,7 +488,6 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -759,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ForceModuleActive: 0
+  m_AllowActivationOnStandalone: 0
 --- !u!114 &1929848525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,7 +661,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_ForceModuleActive: 0
+  m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1929848526
 MonoBehaviour:
   m_ObjectHideFlags: 0
