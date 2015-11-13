@@ -44,13 +44,7 @@ public class Drum : Subscriber {
 		float progress = star.GetComponent<BeatGen>().progress;
 
 		// Records in the array that you pressed a button
-
-	/* Retrieves the touch input
-		for (int i = 0; i < Input.touchCount; ++i)
-			if(Input.GetTouch(i).phase == TouchPhase.Began &&
-					checkPosition(Input.GetTouch(i).position)){*/
-
-	    if (Input.GetKeyDown(fireKey)) {
+	    if (checkFire()) {
 				// If he is recording the Rhythm will be memorized
 				if (isRecord()) {
 					var index = Mathf.RoundToInt(progress * (float) granularity);
@@ -103,9 +97,29 @@ public class Drum : Subscriber {
 // check if the user touches the right position
 	private bool checkPosition(Vector2 pos){
 		if(!isRight)
-			return pos.x<-1;
+			return pos.x<Screen.width/2;
 		else
-			return pos.x>1;
+			return pos.x>Screen.width/2;
+	}
+
+	private bool checkFire(){
+			//check if our current system info equals a desktop
+		 if(SystemInfo.deviceType == DeviceType.Desktop){
+		     //we are on a desktop device, so don't use touch
+		     return Input.GetKeyDown(fireKey);
+		 }
+		 //if it isn't a desktop, lets see if our device is a handheld device aka a mobile device
+		 else if(SystemInfo.deviceType == DeviceType.Handheld){
+		     //we are on a mobile device, so lets use touch input
+				 bool checkInput=false;
+			 		for (int i = 0; i < Input.touchCount; ++i)
+			 			if(Input.GetTouch(i).phase == TouchPhase.Began &&
+			 					checkPosition(Input.GetTouch(i).position))
+								checkInput=true;
+					return checkInput;
+		 }
+		 else
+		 	return false;
 	}
 
 	private void playDrum(){
