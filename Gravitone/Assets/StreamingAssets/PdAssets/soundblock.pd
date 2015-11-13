@@ -1,0 +1,31 @@
+#N canvas 248 464 450 300 10;
+#X obj 104 118 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 9200 1;
+#X obj 101 138 mtof;
+#X obj 238 118 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 237 179 vline~;
+#X obj 101 160 osc~;
+#X obj 152 199 *~;
+#X obj 238 68 t b b;
+#X obj 270 91 delay 10;
+#X obj 238 46 inlet;
+#X obj 152 230 outlet~;
+#X obj 101 46 inlet;
+#X obj 237 157 pack f f;
+#X obj 290 113 loadbang;
+#X msg 290 135 2, f 2;
+#X connect 0 0 1 0;
+#X connect 1 0 4 0;
+#X connect 2 0 11 0;
+#X connect 3 0 5 1;
+#X connect 4 0 5 0;
+#X connect 5 0 9 0;
+#X connect 6 0 2 0;
+#X connect 6 1 7 0;
+#X connect 7 0 2 0;
+#X connect 8 0 6 0;
+#X connect 10 0 0 0;
+#X connect 11 0 3 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 1;

@@ -1,58 +1,24 @@
-#N canvas 761 353 748 386 10;
-#X obj 118 207 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 9200 1;
-#X obj 115 227 mtof;
-#X obj 298 355 dac~;
-#X obj 252 207 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 252 229 vline~;
-#X obj 115 249 osc~;
-#X obj 166 288 *~;
-#X obj 252 157 t b b;
-#X obj 284 180 delay 10;
-#X obj 252 50 bng 100 250 50 0 empty highBeat highBeat 4 7 0 10 -258050
+#N canvas 755 369 440 402 10;
+#X obj 180 338 dac~;
+#X obj 46 78 bng 100 250 50 0 empty highBeat highBeat 4 7 0 10 -258050
 -1 -1;
-#X obj 115 163 loadbang;
-#X obj 384 209 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 8000 1;
-#X obj 381 229 mtof;
-#X obj 518 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 518 231 vline~;
-#X obj 381 251 osc~;
-#X obj 432 290 *~;
-#X obj 518 159 t b b;
-#X obj 550 182 delay 10;
-#X obj 518 52 bng 100 250 50 0 empty lowBeat lowBeat 4 7 0 10 -258602
+#X obj 46 183 loadbang;
+#X obj 276 78 bng 100 250 50 0 empty lowBeat lowBeat 4 7 0 10 -258602
 -1 -1;
-#X obj 381 165 loadbang;
-#X msg 381 187 80;
-#X msg 115 185 92;
-#X text 183 16 Metronome component for the Gravitone project.;
-#X obj 306 326 +~;
-#X connect 0 0 1 0;
-#X connect 1 0 5 0;
-#X connect 3 0 4 0;
-#X connect 4 0 6 1;
-#X connect 5 0 6 0;
-#X connect 6 0 24 0;
-#X connect 7 0 3 0;
-#X connect 7 1 8 0;
-#X connect 8 0 3 0;
-#X connect 9 0 7 0;
-#X connect 10 0 22 0;
-#X connect 11 0 12 0;
-#X connect 12 0 15 0;
-#X connect 13 0 14 0;
-#X connect 14 0 16 1;
-#X connect 15 0 16 0;
-#X connect 16 0 24 1;
-#X connect 17 0 13 0;
-#X connect 17 1 18 0;
-#X connect 18 0 13 0;
-#X connect 19 0 17 0;
-#X connect 20 0 21 0;
-#X connect 21 0 11 0;
-#X connect 22 0 0 0;
-#X connect 24 0 2 0;
-#X connect 24 0 2 1;
+#X obj 280 183 loadbang;
+#X msg 280 205 80;
+#X msg 46 205 92;
+#X text 53 11 Metronome component for the Gravitone project.;
+#X obj 180 316 +~;
+#X obj 46 227 soundblock;
+#X obj 280 227 soundblock;
+#X connect 1 0 9 1;
+#X connect 2 0 6 0;
+#X connect 3 0 10 1;
+#X connect 4 0 5 0;
+#X connect 5 0 10 0;
+#X connect 6 0 9 0;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X connect 9 0 8 0;
+#X connect 10 0 8 1;
