@@ -17,6 +17,9 @@ public class Drum : Subscriber {
 	AudioSource sound;
 	bool[] slots = new bool[64];
 
+	// is true if we consider the right part of the screen for the touch
+	public bool isRight=false;
+
 	// Use this for initialization
 	void Start () {
 		star.GetComponent<BeatGen>().Subscribe(this);
@@ -32,48 +35,59 @@ public class Drum : Subscriber {
 	// Update is called once per frame
 	void Update () {
 
+		if(transform.localScale.x>0.75){
+			float scaleFactor = scaleStep * Time.deltaTime;
+			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
+		}
+
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
 
 		// Records in the array that you pressed a button
-    if (Input.GetKeyDown(fireKey)) {
-			// If he is recording the Rhythm will be memorized
-			if (isRecord()) {
-				var index = Mathf.RoundToInt(progress * (float) granularity);
 
-				// If it's divided in N, then the Nth beat is the initial 0
-				if(index == granularity)
-					index = 0;
+	/* Retrieves the touch input
+		for (int i = 0; i < Input.touchCount; ++i)
+			if(Input.GetTouch(i).phase == TouchPhase.Began &&
+					checkPosition(Input.GetTouch(i).position)){*/
 
-				/*The instant sound feedback will be received neither
-				  when the slot is already occupied nor when the sound
-				  is quantified afterwards (to avoid double sounds)*/
-				if(!slots[index] && index == (int)(progress * (float) granularity)) {
-					transform.localScale = new Vector3(1, 1, 1);
-					sound.Play();
-				}
+	    if (Input.GetKeyDown(fireKey)) {
+				// If he is recording the Rhythm will be memorized
+				if (isRecord()) {
+					var index = Mathf.RoundToInt(progress * (float) granularity);
 
-				slots[index] = true;
+					// If it's divided in N, then the Nth beat is the initial 0
+					if(index == granularity)
+						index = 0;
 
-	    }	else
-			// Instead , the sound is played
-					sound.Play();
+					/*The instant sound feedback will be received neither
+					  when the slot is already occupied nor when the sound
+					  is quantified afterwards (to avoid double sounds)*/
+					if(!slots[index] && index == (int)(progress * (float) granularity)) {
+						transform.localScale = new Vector3(1, 1, 1);
+						playDrum();
+					}
 
-		}
+					slots[index] = true;
 
-		// This is executed at every beat.
-	  if (lastBeat && currentSlot != lastSlot) {
-	    	if (slots[currentSlot]) {
-	      	sound.Play();
-				}
-	      lastSlot=currentSlot;
-				lastBeat = false;
-		}
+		    }	else
+				// Instead , the sound is played
+						playDrum();
 
-		// This erases the recorded Rhythm
-		if(Input.GetKeyDown(cancelKey))
-			for(int i=0; i<slots.Length; i++)
-						slots[i]=false;
+			}
+
+			// This is executed at every beat.
+		  if (lastBeat && currentSlot != lastSlot) {
+		    	if (slots[currentSlot]) {
+		      	playDrum();
+					}
+		      lastSlot=currentSlot;
+					lastBeat = false;
+			}
+
+			// This erases the recorded Rhythm
+			if(Input.GetKeyDown(cancelKey))
+				for(int i=0; i<slots.Length; i++)
+							slots[i]=false;
 	}
 
 	// This method is called for each beat
@@ -84,6 +98,19 @@ public class Drum : Subscriber {
 
 	public bool isRecord(){
 		return  Input.GetKey(recordKey);
+	}
+
+// check if the user touches the right position
+	private bool checkPosition(Vector2 pos){
+		if(!isRight)
+			return pos.x<-1;
+		else
+			return pos.x>1;
+	}
+
+	private void playDrum(){
+		sound.Play();
+		transform.localScale = new Vector3(1, 1, 1);
 	}
 
 }
