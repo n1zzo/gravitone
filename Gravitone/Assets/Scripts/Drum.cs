@@ -90,7 +90,7 @@ public class Drum : Subscriber {
 		isRecord=!isRecord;
 	}
 
-// check if the user touches the right position
+	// check if the user touches the right position
 	private bool checkPosition(Vector2 pos){
 		if(!isRight)
 			return pos.x<Screen.width/2;
@@ -127,6 +127,13 @@ public class Drum : Subscriber {
 		// This erases the recorded Rhythm
 			for(int i=0; i<slots.Length; i++)
 						slots[i]=false;
+	}
+
+	// Get a deep copy of the slots array
+		public bool[] getDrumArray() {
+		bool[] copy = new bool[64];
+		System.Array.Copy(slots, copy, 64);
+		return copy;
 	}
 
 }
