@@ -12,7 +12,7 @@ public class Drum : Subscriber {
 	int subBeatsPerBeat = 0;
 	int granularity = 0;
 	public string fireKey="";
-	public string recordKey="";
+	public bool isRecord=false;
 	public string cancelKey="";
 	AudioSource sound;
 	bool[] slots = new bool[64];
@@ -46,7 +46,7 @@ public class Drum : Subscriber {
 		// Records in the array that you pressed a button
 	    if (checkFire()) {
 				// If he is recording the Rhythm will be memorized
-				if (isRecord()) {
+				if (isRecord) {
 					var index = Mathf.RoundToInt(progress * (float) granularity);
 
 					// If it's divided in N, then the Nth beat is the initial 0
@@ -78,10 +78,6 @@ public class Drum : Subscriber {
 					lastBeat = false;
 			}
 
-			// This erases the recorded Rhythm
-			if(Input.GetKeyDown(cancelKey))
-				for(int i=0; i<slots.Length; i++)
-							slots[i]=false;
 	}
 
 	// This method is called for each beat
@@ -90,8 +86,8 @@ public class Drum : Subscriber {
 		lastBeat = true;
 	}
 
-	public bool isRecord(){
-		return  Input.GetKey(recordKey);
+	public void changeRecord(){
+		isRecord=!isRecord;
 	}
 
 // check if the user touches the right position
@@ -125,6 +121,12 @@ public class Drum : Subscriber {
 	private void playDrum(){
 		sound.Play();
 		transform.localScale = new Vector3(1, 1, 1);
+	}
+
+	public void cancel(){
+		// This erases the recorded Rhythm
+			for(int i=0; i<slots.Length; i++)
+						slots[i]=false;
 	}
 
 }
