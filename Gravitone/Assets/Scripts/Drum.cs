@@ -34,10 +34,10 @@ public class Drum : Subscriber {
 	// Update is called once per frame
 	void Update () {
 //
-//		if(transform.localScale.x>0.75){
-//			float scaleFactor = scaleStep * Time.deltaTime;
-//			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
-//		}
+		if(transform.localScale.x>0.95){
+			float scaleFactor = scaleStep * Time.deltaTime;
+			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
+		}
 
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
