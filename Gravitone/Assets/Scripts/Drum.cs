@@ -13,7 +13,6 @@ public class Drum : Subscriber {
 	int granularity = 0;
 	public string fireKey="";
 	public bool isRecord=false;
-	public string cancelKey="";
 	AudioSource sound;
 	bool[] slots = new bool[64];
 
