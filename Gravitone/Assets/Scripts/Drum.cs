@@ -15,6 +15,8 @@ public class Drum : Subscriber {
 	public bool isRecord=false;
 	AudioSource sound;
 	bool[] slots = new bool[64];
+	bool[] prev = new bool[64];
+	bool isPreview=false;
 
 	// is true if we consider the right part of the screen for the touch
 	public bool isRight=false;
@@ -29,6 +31,8 @@ public class Drum : Subscriber {
 
 		// Loads the drum clip
 		sound = GetComponent<AudioSource>();
+
+		prev = GetComponent<DrumCompare>().get();
 	}
 
 	// Update is called once per frame
@@ -42,10 +46,12 @@ public class Drum : Subscriber {
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
 
+		if(!isPreview){
 		// Records in the array that you pressed a button
 	    if (checkFire()) {
 				// If he is recording the Rhythm will be memorized
 				if (isRecord) {
+
 					var index = Mathf.RoundToInt(progress * (float) granularity);
 
 					// If it's divided in N, then the Nth beat is the initial 0
@@ -65,17 +71,31 @@ public class Drum : Subscriber {
 		    }	else
 				// Instead , the sound is played
 						playDrum();
-
 			}
+					// This is executed at every beat.
+			if (lastBeat && currentSlot != lastSlot) {
+					if (slots[currentSlot])
+							playDrum();
 
-			// This is executed at every beat.
-		  if (lastBeat && currentSlot != lastSlot) {
-		    	if (slots[currentSlot]) {
-		      	playDrum();
-					}
-		      lastSlot=currentSlot;
+					lastSlot=currentSlot;
 					lastBeat = false;
 			}
+			
+		} else if ( progress>=0.97f) {
+				isPreview=false;
+
+		} else {
+			// This is executed at every beat.
+			if (lastBeat && currentSlot != lastSlot) {
+				if (prev[currentSlot])
+								playDrum();
+
+				lastSlot=currentSlot;
+				lastBeat = false;
+			}
+		}
+
+
 
 	}
 
@@ -110,7 +130,7 @@ public class Drum : Subscriber {
 			 		for (int i = 0; i < Input.touchCount; ++i)
 			 			if(Input.GetTouch(i).phase == TouchPhase.Began &&
 			 					checkPosition(Input.GetTouch(i).position))
-								checkInput=true;
+									checkInput=true;
 					return checkInput;
 		 }
 		 else
@@ -128,8 +148,14 @@ public class Drum : Subscriber {
 						slots[i]=false;
 	}
 
+	public void playPreview(){
+		star.GetComponent<BeatGen>().progress=0;
+		lastSlot=-1;
+		isPreview=true;
+	}
+
 	// Get a deep copy of the slots array
-		public bool[] getDrumArray() {
+	public bool[] getDrumArray() {
 		bool[] copy = new bool[64];
 		System.Array.Copy(slots, copy, 64);
 		return copy;

@@ -4,7 +4,7 @@ using System.Collections;
 public class DrumCompare : MonoBehaviour {
 
 	bool[] playerDrumArray;
-	bool[] targetDrumArray = new bool[64];
+	public bool[] targetDrumArray = new bool[64];
 	float correctness = 0;
 
 	// Use this for initialization
@@ -39,5 +39,9 @@ public class DrumCompare : MonoBehaviour {
 			else
 				correctness = 0;
 		}
+	}
+
+	public bool[] get(){
+		return targetDrumArray;
 	}
 }
