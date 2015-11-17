@@ -80,9 +80,6 @@ public class Drum : Subscriber {
 					lastSlot=currentSlot;
 					lastBeat = false;
 			}
-			
-		} else if ( progress>=0.97f) {
-				isPreview=false;
 
 		} else {
 			// This is executed at every beat.
@@ -152,6 +149,10 @@ public class Drum : Subscriber {
 		star.GetComponent<BeatGen>().progress=0;
 		lastSlot=-1;
 		isPreview=true;
+	}
+
+	public void stopPreview(){
+		isPreview=false;
 	}
 
 	// Get a deep copy of the slots array
