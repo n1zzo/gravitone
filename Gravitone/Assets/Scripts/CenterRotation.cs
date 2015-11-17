@@ -23,9 +23,6 @@ public class CenterRotation : Subscriber {
 	// Update is called once per frame
 	void Update () {
 
-		// Gets the current progress from the star
-		float progress = star.GetComponent<BeatGen>().progress;
-
 		transform.Rotate(0, 0, angularSpeed);
 
 	}

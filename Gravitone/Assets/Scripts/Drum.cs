@@ -4,19 +4,30 @@ using System.Collections;
 public class Drum : Subscriber {
 
 	public GameObject star;
-	float scaleStep=0.5f;
-	int currentSlot = 0;
-	int lastSlot = -1;
-	bool lastBeat = false;
-	int beatsPerBar = 0;
-	int subBeatsPerBeat = 0;
-	int granularity = 0;
 	public string fireKey="";
-	public bool isRecord=false;
-	AudioSource sound;
-	bool[] slots = new bool[64];
-	bool[] prev = new bool[64];
-	bool isPreview=false;
+	protected float scaleStep=0.5f;
+	protected int currentSlot = 0;
+	protected int lastSlot = -1;
+	protected bool lastBeat = false;
+	protected int beatsPerBar = 0;
+	protected int subBeatsPerBeat = 0;
+	protected int granularity = 0;
+	protected AudioSource sound;
+	protected bool[] slots = new bool[64];
+	protected bool[] prev = new bool[64];
+	protected float progress = 0f;
+
+	Drum currentState;
+	Drum drumRecord;
+	Drum drumPlay;
+	Drum drumPreview;
+
+	public Drum() {
+		drumRecord = new DrumRecord();
+		drumPlay = new DrumPlay();
+		drumPreview = new DrumPreview();
+		currentState = drumPlay;
+	}
 
 	// is true if we consider the right part of the screen for the touch
 	public bool isRight=false;
@@ -37,62 +48,25 @@ public class Drum : Subscriber {
 
 	// Update is called once per frame
 	void Update () {
-//
+
+		// If the scale is not at its default state, change it.
 		if(transform.localScale.x>0.95){
 			float scaleFactor = scaleStep * Time.deltaTime;
 			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
 		}
 
 		// Gets the current progress from the star
-		float progress = star.GetComponent<BeatGen>().progress;
+		progress = star.GetComponent<BeatGen>().progress;
 
-		if(!isPreview){
-		// Records in the array that you pressed a button
-	    if (checkFire()) {
-				// If he is recording the Rhythm will be memorized
-				if (isRecord) {
+		currentState.Update();
 
-					var index = Mathf.RoundToInt(progress * (float) granularity);
-
-					// If it's divided in N, then the Nth beat is the initial 0
-					if(index == granularity)
-						index = 0;
-
-					/*The instant sound feedback will be received neither
-					  when the slot is already occupied nor when the sound
-					  is quantified afterwards (to avoid double sounds)*/
-					if(!slots[index] && index == (int)(progress * (float) granularity)) {
-						transform.localScale = new Vector3(1, 1, 1);
-						playDrum();
-					}
-
-					slots[index] = true;
-
-		    }	else
-				// Instead , the sound is played
-						playDrum();
-			}
-					// This is executed at every beat.
-			if (lastBeat && currentSlot != lastSlot) {
-					if (slots[currentSlot])
-							playDrum();
-
-					lastSlot=currentSlot;
-					lastBeat = false;
-			}
-
-		} else {
-			// This is executed at every beat.
-			if (lastBeat && currentSlot != lastSlot) {
-				if (prev[currentSlot])
-								playDrum();
-
-				lastSlot=currentSlot;
-				lastBeat = false;
-			}
+		// This is executed at every beat.
+		if (lastBeat && currentSlot != lastSlot) {
+			if (prev[currentSlot])
+				playDrum();
+			lastSlot=currentSlot;
+			lastBeat = false;
 		}
-
-
 
 	}
 
@@ -102,8 +76,13 @@ public class Drum : Subscriber {
 		lastBeat = true;
 	}
 
-	public void changeRecord(){
-		isRecord=!isRecord;
+	public void toggleRecord() {
+		// If state is record, becomes play,
+		// in all other cases it becomes record.
+		if (currentState == drumRecord)
+			currentState = drumPlay;
+		else
+			currentState = drumRecord;
 	}
 
 	// check if the user touches the right position
@@ -114,7 +93,7 @@ public class Drum : Subscriber {
 			return pos.x>Screen.width/2;
 	}
 
-	private bool checkFire(){
+	protected bool checkFire(){
 			//check if our current system info equals a desktop
 		 if(SystemInfo.deviceType == DeviceType.Desktop){
 		     //we are on a desktop device, so don't use touch
@@ -134,7 +113,7 @@ public class Drum : Subscriber {
 		 	return false;
 	}
 
-	private void playDrum(){
+	protected void playDrum(){
 		sound.Play();
 		transform.localScale = new Vector3(1, 1, 1);
 	}
@@ -145,14 +124,19 @@ public class Drum : Subscriber {
 						slots[i]=false;
 	}
 
-	public void playPreview(){
+	public void playPreview() {
 		star.GetComponent<BeatGen>().progress=0;
 		lastSlot=-1;
-		isPreview=true;
+		// If state is preview, becomes play,
+		// in all other cases it becomes preview.
+		if (currentState == drumPreview)
+			currentState = drumPlay;
+		else
+			currentState = drumPreview;
 	}
 
-	public void stopPreview(){
-		isPreview=false;
+	public void stopPreview() {
+		currentState = drumPlay;
 	}
 
 	// Get a deep copy of the slots array
