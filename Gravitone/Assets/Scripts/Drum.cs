@@ -29,9 +29,6 @@ public class Drum : Subscriber {
 		currentState = drumPlay;
 	}
 
-	// is true if we consider the right part of the screen for the touch
-	public bool isRight=false;
-
 	// Use this for initialization
 	void Start () {
 		star.GetComponent<BeatGen>().Subscribe(this);
@@ -58,17 +55,11 @@ public class Drum : Subscriber {
 		// Gets the current progress from the star
 		progress = star.GetComponent<BeatGen>().progress;
 
-		currentState.Update();
-
-		// This is executed at every beat.
-		if (lastBeat && currentSlot != lastSlot) {
-			if (prev[currentSlot])
-				playDrum();
-			lastSlot=currentSlot;
-			lastBeat = false;
-		}
+		currentState.UpdateState();
 
 	}
+
+	public virtual void UpdateState(){}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
@@ -85,14 +76,6 @@ public class Drum : Subscriber {
 			currentState = drumRecord;
 	}
 
-	// check if the user touches the right position
-	private bool checkPosition(Vector2 pos){
-		if(!isRight)
-			return pos.x<Screen.width/2;
-		else
-			return pos.x>Screen.width/2;
-	}
-
 	protected bool checkFire(){
 			//check if our current system info equals a desktop
 		 if(SystemInfo.deviceType == DeviceType.Desktop){
@@ -104,8 +87,7 @@ public class Drum : Subscriber {
 		     //we are on a mobile device, so lets use touch input
 				 bool checkInput=false;
 			 		for (int i = 0; i < Input.touchCount; ++i)
-			 			if(Input.GetTouch(i).phase == TouchPhase.Began &&
-			 					checkPosition(Input.GetTouch(i).position))
+			 			if(Input.GetTouch(i).phase == TouchPhase.Began)
 									checkInput=true;
 					return checkInput;
 		 }
@@ -127,11 +109,7 @@ public class Drum : Subscriber {
 	public void playPreview() {
 		star.GetComponent<BeatGen>().progress=0;
 		lastSlot=-1;
-		// If state is preview, becomes play,
-		// in all other cases it becomes preview.
-		if (currentState == drumPreview)
-			currentState = drumPlay;
-		else
+		// in all cases it becomes preview.
 			currentState = drumPreview;
 	}
 

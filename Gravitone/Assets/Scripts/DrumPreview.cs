@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DrumPreview : Drum {
 
-	void Update() {
+	public override void UpdateState() {
 
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {

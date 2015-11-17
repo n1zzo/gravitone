@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DrumRecord : Drum {
 
-	void Update() {
+	public override void UpdateState() {
 
 		if (checkFire()) {
 
