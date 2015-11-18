@@ -58,14 +58,14 @@ public class Drum : Subscriber {
 
 	public void UpdatePlay() {
 
-		if (checkFire()) {
-			playDrum();
+		if (CheckFire()) {
+			PlayDrum();
 		}
 
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
 			if (slots[currentSlot])
-				playDrum();
+				PlayDrum();
 			lastSlot=currentSlot;
 			lastBeat = false;
 		}
@@ -76,7 +76,7 @@ public class Drum : Subscriber {
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
 			if (prev[currentSlot])
-				playDrum();
+				PlayDrum();
 			lastSlot = currentSlot;
 			lastBeat = false;
 		}
@@ -84,7 +84,7 @@ public class Drum : Subscriber {
 
 	public void UpdateRecord() {
 
-		if (checkFire()) {
+		if (CheckFire()) {
 
 			var index = Mathf.RoundToInt(progress * (float) granularity);
 
@@ -97,7 +97,7 @@ public class Drum : Subscriber {
 				is quantified afterwards (to avoid double sounds)*/
 			if(!slots[index] && index == (int)(progress * (float) granularity)) {
 				transform.localScale = new Vector3(1, 1, 1);
-				playDrum();
+				PlayDrum();
 			}
 
 			slots[index] = true;
@@ -106,19 +106,19 @@ public class Drum : Subscriber {
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
 			if (slots[currentSlot])
-				playDrum();
+				PlayDrum();
 			lastSlot=currentSlot;
 			lastBeat = false;
 		}
 	}
-	
+
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 		this.currentSlot = currentSlot;
 		lastBeat = true;
 	}
 
-	public void toggleRecord() {
+	public void ToggleRecord() {
 		// If state is record, becomes play,
 		// in all other cases it becomes record.
 		if (currentState == "drumRecord")
@@ -127,7 +127,7 @@ public class Drum : Subscriber {
 			currentState = "drumRecord";
 	}
 
-	protected bool checkFire(){
+	protected bool CheckFire(){
 			//check if our current system info equals a desktop
 		 if(SystemInfo.deviceType == DeviceType.Desktop){
 		     //we are on a desktop device, so don't use touch
@@ -146,30 +146,30 @@ public class Drum : Subscriber {
 		 	return false;
 	}
 
-	protected void playDrum(){
+	protected void PlayDrum(){
 		sound.Play();
 		transform.localScale = new Vector3(1, 1, 1);
 	}
 
-	public void cancel(){
+	public void Cancel(){
 		// This erases the recorded Rhythm
 			for(int i=0; i<slots.Length; i++)
 						slots[i]=false;
 	}
 
-	public void playPreview() {
+	public void PlayPreview() {
 		star.GetComponent<BeatGen>().progress=0;
 		lastSlot=-1;
 		// in all cases it becomes preview.
 			currentState = "drumPreview";
 	}
 
-	public void stopPreview() {
+	public void StopPreview() {
 		currentState = "drumPlay";
 	}
 
 	// Get a deep copy of the slots array
-	public bool[] getDrumArray() {
+	public bool[] GetDrumArray() {
 		bool[] copy = new bool[64];
 		System.Array.Copy(slots, copy, 64);
 		return copy;

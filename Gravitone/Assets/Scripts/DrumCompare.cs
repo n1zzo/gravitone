@@ -18,7 +18,7 @@ public class DrumCompare : MonoBehaviour {
 	}
 
 	void updatePlayerArray() {
-		playerDrumArray = this.GetComponent<Drum>().getDrumArray();
+		playerDrumArray = this.GetComponent<Drum>().GetDrumArray();
 	}
 
 	void compareArrays() {

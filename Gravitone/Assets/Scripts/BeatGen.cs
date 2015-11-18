@@ -13,7 +13,6 @@ public class BeatGen : MonoBehaviour {
 	public int granularity = 0;
 	int lastSlot = 0;
 	float timeSpeed = 0f;
-	AudioSource sound;
 
 	public float x = 0f;
 	public float y = 0f;
@@ -32,8 +31,6 @@ public class BeatGen : MonoBehaviour {
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
     granularity = beatsPerBar * subBeatsPerBeat;
 
-		// Loads the AudioSource component
-		sound = GetComponent<AudioSource>();
 		LibPD.SendBang("highBeat");
   }
 

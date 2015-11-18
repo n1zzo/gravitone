@@ -161,28 +161,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906869228}
-        m_MethodName: playPreview
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 952765403}
-        m_MethodName: playPreview
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 207715896}
         m_MethodName: SetActive
         m_Mode: 6
@@ -205,8 +183,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935581918}
-        m_MethodName: playPreview
+      - m_Target: {fileID: 721453209}
+        m_MethodName: SetPlayPreview
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -302,30 +280,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906869228}
-        m_MethodName: cancel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 952765403}
-        m_MethodName: cancel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1935581918}
-        m_MethodName: cancel
+      - m_Target: {fileID: 721453209}
+        m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -455,28 +411,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906869228}
-        m_MethodName: toggleRecord
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 952765403}
-        m_MethodName: toggleRecord
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 306461525}
         m_MethodName: SetActive
         m_Mode: 6
@@ -499,8 +433,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935581918}
-        m_MethodName: toggleRecord
+      - m_Target: {fileID: 721453209}
+        m_MethodName: SetRecord
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -539,6 +473,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306461525}
+--- !u!1 &407480667 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 184670, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+  m_PrefabInternal: {fileID: 628270307}
 --- !u!1 &622285329
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,28 +551,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906869228}
-        m_MethodName: toggleRecord
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 952765403}
-        m_MethodName: toggleRecord
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 622285329}
         m_MethodName: SetActive
         m_Mode: 6
@@ -657,8 +573,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935581918}
-        m_MethodName: toggleRecord
+      - m_Target: {fileID: 721453209}
+        m_MethodName: SetRecord
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -734,7 +650,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493588, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 21227058, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_SortingOrder
@@ -785,9 +701,56 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 184670, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: m_Name
+      value: PlanetHat
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &721453208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 721453210}
+  - 114: {fileID: 721453209}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &721453209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe5074ba6f3ab43d3a6930a89789b97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kick: {fileID: 1190351175}
+  snare: {fileID: 952765397}
+  hat: {fileID: 407480667}
+  currentInstrument: {fileID: 0}
+--- !u!4 &721453210
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &804952610
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +835,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1 &810106420
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +895,7 @@ Transform:
   m_LocalScale: {x: .949999988, y: .949999988, z: .949999988}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!114 &810106423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1109,7 +1072,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493588, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 184670, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_Name
@@ -1131,12 +1094,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &906869228 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd,
-    type: 2}
-  m_PrefabInternal: {fileID: 906869226}
-  m_Script: {fileID: 11500000, guid: 84d68bff458464867a0d9faf3bee5df6, type: 3}
 --- !u!1 &952765397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,7 +1125,7 @@ Transform:
   m_LocalScale: {x: .949999988, y: .949999988, z: .949999988}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!82 &952765399
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1359,7 +1316,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
+--- !u!1 &1190351175 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 184670, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+  m_PrefabInternal: {fileID: 906869226}
 --- !u!1 &1770329130
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1355,7 @@ RectTransform:
   - {fileID: 207715897}
   - {fileID: 1894443054}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1528,28 +1489,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 906869228}
-        m_MethodName: stopPreview
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 952765403}
-        m_MethodName: stopPreview
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1894443053}
         m_MethodName: SetActive
         m_Mode: 6
@@ -1572,8 +1511,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1935581918}
-        m_MethodName: stopPreview
+      - m_Target: {fileID: 721453209}
+        m_MethodName: SetStopPreview
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1688,10 +1627,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
---- !u!114 &1935581918 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd,
-    type: 2}
-  m_PrefabInternal: {fileID: 628270307}
-  m_Script: {fileID: 11500000, guid: 84d68bff458464867a0d9faf3bee5df6, type: 3}
+  m_RootOrder: 3
