@@ -88,7 +88,7 @@ public class LevelManager : Subscriber {
 
 	void ChangeState(){
 			currentIndex++;
-			if(drums[currentIndex]){
+			if((currentIndex < drums.Length) && drums[currentIndex]){
 				string oldState=currentInstrument.GetComponent<Drum>().GetCurrentState();
 				currentInstrument=drums[currentIndex];
 				drums[currentIndex].GetComponent<Drum>().SetCurrentState(oldState);
