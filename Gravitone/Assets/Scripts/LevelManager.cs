@@ -27,7 +27,7 @@ public class LevelManager : Subscriber {
 		granularity = beatsPerBar * subBeatsPerBeat;
 
 		currentInstrument=drums[currentIndex];
-		updatePlayerArray();
+		targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 	}
 
 	// Update is called once per frame
@@ -39,7 +39,7 @@ public class LevelManager : Subscriber {
 	public override void Beat(int currentSlot) {
 		// If one bar is complete, check the arrays completeness
 		if (currentSlot == granularity-1)
-			compareArrays();
+			CompareArrays();
 	}
 
 	public void SetRecord () {
@@ -59,12 +59,9 @@ public class LevelManager : Subscriber {
 	}
 
 
-		void updatePlayerArray() {
+	void CompareArrays() {
 			playerDrumArray = currentInstrument.GetComponent<Drum>().GetDrumArray();
-			targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
-		}
 
-		void compareArrays() {
 			int totalBeats = 0;
 			int hit = 0;
 			int wrong = 0;
@@ -79,22 +76,24 @@ public class LevelManager : Subscriber {
 			}
 
 			int balance = hit - wrong;
-			Debug.Log(balance.ToString() + hit.ToString() + wrong.ToString());
+
 			if(balance > 0)
 				correctness = (float)balance/(float)totalBeats;
 			else
 				correctness = 0;
 
 			if(correctness==1)
-				changeState();
-		}
+				ChangeState();
+	}
 
-		void changeState(){
+	void ChangeState(){
 			currentIndex++;
 			if(drums[currentIndex]){
+				string oldState=currentInstrument.GetComponent<Drum>().GetCurrentState();
 				currentInstrument=drums[currentIndex];
-				updatePlayerArray();
+				drums[currentIndex].GetComponent<Drum>().SetCurrentState(oldState);
+				targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 			}
-		}
+	}
 
 }

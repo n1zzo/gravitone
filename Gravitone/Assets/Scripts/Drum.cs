@@ -17,7 +17,6 @@ public class Drum : Subscriber {
 	protected float progress = 0f;
 	public bool[] targetDrumArray = new bool[64];
 
-
 	string currentState;
 
 	// Use this for initialization
@@ -171,6 +170,14 @@ public class Drum : Subscriber {
 		bool[] copy = new bool[64];
 		System.Array.Copy(slots, copy, 64);
 		return copy;
+	}
+
+	public string GetCurrentState(){
+		return currentState;
+	}
+
+	public void SetCurrentState(string newState){
+		currentState=newState;
 	}
 
 }
