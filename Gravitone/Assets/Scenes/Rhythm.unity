@@ -743,7 +743,7 @@ Prefab:
     - target: {fileID: 21227058, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ec92bf8b81a9040f8a7f3196ca75f9fa,
+      objectReference: {fileID: 21300000, guid: 5e1543370746d46989b2663a16170f81,
         type: 3}
     - target: {fileID: 11475198, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[2]
@@ -919,7 +919,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 20a121bc8a64b4dfab4856d3cf4dbb44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45f8802ec28c7499ba2d8181b5226fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &810106422
 Transform:
@@ -1123,6 +1123,11 @@ Prefab:
       propertyPath: star
       value: 
       objectReference: {fileID: 810106420}
+    - target: {fileID: 21227058, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec92bf8b81a9040f8a7f3196ca75f9fa,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_IsPrefabParent: 0
