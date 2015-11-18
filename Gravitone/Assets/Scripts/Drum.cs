@@ -17,17 +17,7 @@ public class Drum : Subscriber {
 	protected bool[] prev = new bool[64];
 	protected float progress = 0f;
 
-	Drum currentState;
-	Drum drumRecord;
-	Drum drumPlay;
-	Drum drumPreview;
-
-	public Drum() {
-		drumRecord = new DrumRecord();
-		drumPlay = new DrumPlay();
-		drumPreview = new DrumPreview();
-		currentState = drumPlay;
-	}
+	string currentState;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +31,8 @@ public class Drum : Subscriber {
 		sound = GetComponent<AudioSource>();
 
 		prev = GetComponent<DrumCompare>().get();
+
+		currentState = "drumPlay";
 	}
 
 	// Update is called once per frame
@@ -55,12 +47,71 @@ public class Drum : Subscriber {
 		// Gets the current progress from the star
 		progress = star.GetComponent<BeatGen>().progress;
 
-		currentState.UpdateState();
+		if(currentState=="drumPlay")
+			UpdatePlay();
+		else if ( currentState=="drumRecord")
+			UpdateRecord();
+		else
+			UpdatePreview();
 
 	}
 
-	public virtual void UpdateState(){}
+	public void UpdatePlay() {
 
+		if (checkFire()) {
+			playDrum();
+		}
+
+		// This is executed at every beat.
+		if (lastBeat && currentSlot != lastSlot) {
+			if (slots[currentSlot])
+				playDrum();
+			lastSlot=currentSlot;
+			lastBeat = false;
+		}
+	}
+
+	public void UpdatePreview() {
+
+		// This is executed at every beat.
+		if (lastBeat && currentSlot != lastSlot) {
+			if (prev[currentSlot])
+				playDrum();
+			lastSlot = currentSlot;
+			lastBeat = false;
+		}
+	}
+
+	public void UpdateRecord() {
+
+		if (checkFire()) {
+
+			var index = Mathf.RoundToInt(progress * (float) granularity);
+
+			// If it's divided in N, then the Nth beat is the initial 0
+			if(index == granularity)
+				index = 0;
+
+			/*The instant sound feedback will be received neither
+				when the slot is already occupied nor when the sound
+				is quantified afterwards (to avoid double sounds)*/
+			if(!slots[index] && index == (int)(progress * (float) granularity)) {
+				transform.localScale = new Vector3(1, 1, 1);
+				playDrum();
+			}
+
+			slots[index] = true;
+		}
+
+		// This is executed at every beat.
+		if (lastBeat && currentSlot != lastSlot) {
+			if (slots[currentSlot])
+				playDrum();
+			lastSlot=currentSlot;
+			lastBeat = false;
+		}
+	}
+	
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 		this.currentSlot = currentSlot;
@@ -70,10 +121,10 @@ public class Drum : Subscriber {
 	public void toggleRecord() {
 		// If state is record, becomes play,
 		// in all other cases it becomes record.
-		if (currentState == drumRecord)
-			currentState = drumPlay;
+		if (currentState == "drumRecord")
+			currentState = "drumPlay";
 		else
-			currentState = drumRecord;
+			currentState = "drumRecord";
 	}
 
 	protected bool checkFire(){
@@ -110,11 +161,11 @@ public class Drum : Subscriber {
 		star.GetComponent<BeatGen>().progress=0;
 		lastSlot=-1;
 		// in all cases it becomes preview.
-			currentState = drumPreview;
+			currentState = "drumPreview";
 	}
 
 	public void stopPreview() {
-		currentState = drumPlay;
+		currentState = "drumPlay";
 	}
 
 	// Get a deep copy of the slots array
