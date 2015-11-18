@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -209,6 +207,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 32409f3d9b7514293b31fa459319cefd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -306,6 +310,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 656509bc42fc0da459a5f397d67d8278, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -459,6 +469,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: bc524d947254842f28543c5c38975d32, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -599,6 +615,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -705,7 +727,40 @@ Prefab:
       propertyPath: m_Name
       value: PlanetHat
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[10]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[12]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[14]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11475198, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &721453208
@@ -735,10 +790,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5074ba6f3ab43d3a6930a89789b97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kick: {fileID: 1190351175}
-  snare: {fileID: 952765397}
-  hat: {fileID: 407480667}
-  currentInstrument: {fileID: 0}
+  drums:
+  - {fileID: 1190351175}
+  - {fileID: 952765397}
+  - {fileID: 407480667}
+  star: {fileID: 810106420}
 --- !u!4 &721453210
 Transform:
   m_ObjectHideFlags: 0
@@ -819,6 +875,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -910,7 +967,7 @@ MonoBehaviour:
   bpm: 128
   beatsPerBar: 4
   subBeatsPerBeat: 4
-  granularity: 0
+  granularity: 1
   x: 0
   y: 0
   progress: 0
@@ -929,6 +986,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1091,7 +1149,24 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: ec92bf8b81a9040f8a7f3196ca75f9fa,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[8]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[12]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11475198, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &952765397
@@ -1106,7 +1181,6 @@ GameObject:
   - 82: {fileID: 952765399}
   - 114: {fileID: 952765403}
   - 114: {fileID: 952765400}
-  - 114: {fileID: 952765402}
   m_Layer: 0
   m_Name: PlanetSnare
   m_TagString: Untagged
@@ -1142,6 +1216,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 0
   Mute: 0
+  Spatialize: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -1238,18 +1313,6 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 01a526789503443ada650e95fa7dccd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: .878000021}
---- !u!114 &952765402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 952765397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13733df2f9f0a4f0c98cb3f879afc106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDrumArray: 00000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &952765403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,6 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
   fireKey: z
+  targetDrumArray: 00000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,6 +1601,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 895cdffd6222c3d4eb2c7ea1887565f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1581,7 +1651,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
+  m_ForceModuleActive: 0
 --- !u!114 &1929848525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,7 +1670,7 @@ MonoBehaviour:
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
+  m_ForceModuleActive: 0
 --- !u!114 &1929848526
 MonoBehaviour:
   m_ObjectHideFlags: 0

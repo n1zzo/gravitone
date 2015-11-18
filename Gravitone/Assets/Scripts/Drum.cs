@@ -9,13 +9,14 @@ public class Drum : Subscriber {
 	protected int currentSlot = 0;
 	protected int lastSlot = -1;
 	protected bool lastBeat = false;
-	protected int beatsPerBar = 0;
-	protected int subBeatsPerBeat = 0;
+  int beatsPerBar = 4;
+  int subBeatsPerBeat = 4;
 	protected int granularity = 0;
 	protected AudioSource sound;
 	protected bool[] slots = new bool[64];
-	protected bool[] prev = new bool[64];
 	protected float progress = 0f;
+	public bool[] targetDrumArray = new bool[64];
+
 
 	string currentState;
 
@@ -24,13 +25,10 @@ public class Drum : Subscriber {
 		star.GetComponent<BeatGen>().Subscribe(this);
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
 		subBeatsPerBeat = star.GetComponent<BeatGen>().subBeatsPerBeat;
-
 		granularity = beatsPerBar * subBeatsPerBeat;
 
 		// Loads the drum clip
 		sound = GetComponent<AudioSource>();
-
-		prev = GetComponent<DrumCompare>().get();
 
 		currentState = "drumPlay";
 	}
@@ -75,7 +73,7 @@ public class Drum : Subscriber {
 
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
-			if (prev[currentSlot])
+			if (targetDrumArray[currentSlot])
 				PlayDrum();
 			lastSlot = currentSlot;
 			lastBeat = false;
