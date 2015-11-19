@@ -819,6 +819,7 @@ MonoBehaviour:
   - {fileID: 952765397}
   - {fileID: 407480667}
   star: {fileID: 810106420}
+  cam: {fileID: 804952610}
 --- !u!4 &721453210
 Transform:
   m_ObjectHideFlags: 0

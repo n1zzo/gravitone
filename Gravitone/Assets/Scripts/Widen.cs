@@ -6,7 +6,6 @@ public class Widen : Subscriber {
 	public GameObject star;
 	public float scaleStep=0.5f;
 	int currentSlot = 0;
-	int lastSlot = -1;
 	bool lastBeat = false;
 	int beatsPerBar = 4;
 
@@ -25,10 +24,9 @@ public class Widen : Subscriber {
 		}
 
 		// Plays the sound if the current slot is full, only one time
-    if (lastBeat && currentSlot % beatsPerBar == 0) {
+    if (lastBeat && currentSlot % beatsPerBar == 0) 
 			transform.localScale = new Vector3(1, 1, 1);
-      lastSlot=currentSlot;
-    }
+
 
 		lastBeat = false;
 	}

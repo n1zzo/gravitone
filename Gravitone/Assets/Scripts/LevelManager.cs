@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Timers;
 
 public class LevelManager : Subscriber {
 
 	public GameObject[] drums;
 	public GameObject star;
+	public GameObject cam;
+
+	GameObject currentInstrument;
 
 	int beatsPerBar = 4;
 	int subBeatsPerBeat = 4;
 	int granularity = 0;
-
-	GameObject currentInstrument;
-
 	int currentIndex=0;
 	int totalBeats=0;
 
@@ -20,13 +21,17 @@ public class LevelManager : Subscriber {
 
 	float correctness = 0;
 
+	static Timer aTimer;
+
 	// Use this for initialization
 	void Start () {
+
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
 		star.GetComponent<BeatGen>().Subscribe(this);
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
 		subBeatsPerBeat = star.GetComponent<BeatGen>().subBeatsPerBeat;
 		granularity = beatsPerBar * subBeatsPerBeat;
-
 		currentInstrument=drums[currentIndex];
 		currentInstrument.GetComponent<Drum>().SetActiveness(true);
 		targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
@@ -93,7 +98,7 @@ public class LevelManager : Subscriber {
 			currentIndex++;
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
-			if((currentIndex < drums.Length) && drums[currentIndex]){
+			if((currentIndex < drums.Length)){
 				string oldState=currentInstrument.GetComponent<Drum>().GetCurrentState();
 				currentInstrument=drums[currentIndex];
 				drums[currentIndex].GetComponent<Drum>().SetCurrentState(oldState);
@@ -103,7 +108,13 @@ public class LevelManager : Subscriber {
 				for(int i=0; i<granularity; i++)
 					if(targetDrumArray[i])
 						totalBeats++;
+			} else {
+				farCamera();
 			}
+	}
+
+	void farCamera(){
+				cam.GetComponent<Camera>().orthographicSize = 10;
 	}
 
 }
