@@ -16,6 +16,7 @@ public class Drum : Subscriber {
 	protected bool[] slots = new bool[64];
 	protected float progress = 0f;
 	public bool[] targetDrumArray = new bool[64];
+	bool isActive=false;
 
 	string currentState;
 
@@ -35,21 +36,25 @@ public class Drum : Subscriber {
 	// Update is called once per frame
 	void Update () {
 
-		// If the scale is not at its default state, change it.
-		if(transform.localScale.x>0.95){
-			float scaleFactor = scaleStep * Time.deltaTime;
-			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
-		}
-
 		// Gets the current progress from the star
 		progress = star.GetComponent<BeatGen>().progress;
 
-		if(currentState=="drumPlay")
+		if(!isActive){
+			widenEffect(0.95f);
 			UpdatePlay();
-		else if ( currentState=="drumRecord")
-			UpdateRecord();
-		else
-			UpdatePreview();
+		}
+		else{
+
+			if(currentState=="drumPlay")
+				UpdatePlay();
+
+			else if ( currentState=="drumRecord")
+				UpdateRecord();
+
+			else
+				UpdatePreview();
+
+		}
 
 	}
 
@@ -93,7 +98,6 @@ public class Drum : Subscriber {
 				when the slot is already occupied nor when the sound
 				is quantified afterwards (to avoid double sounds)*/
 			if(!slots[index] && index == (int)(progress * (float) granularity)) {
-				transform.localScale = new Vector3(1, 1, 1);
 				PlayDrum();
 			}
 
@@ -145,7 +149,7 @@ public class Drum : Subscriber {
 
 	protected void PlayDrum(){
 		sound.Play();
-		transform.localScale = new Vector3(1, 1, 1);
+		transform.localScale = new Vector3(1f,1f,1f);
 	}
 
 	public void Cancel(){
@@ -165,6 +169,18 @@ public class Drum : Subscriber {
 		currentState = "drumPlay";
 	}
 
+	public void widenEffect(float correctness){
+
+		if ( correctness==0)
+			correctness=0.10f;
+
+		// If the scale is not at its default state, change it.
+		if(transform.localScale.x>correctness){
+			float scaleFactor = scaleStep * Time.deltaTime;
+			transform.localScale -= new Vector3(scaleFactor, scaleFactor, 0);
+		}
+	}
+
 	// Get a deep copy of the slots array
 	public bool[] GetDrumArray() {
 		bool[] copy = new bool[64];
@@ -178,6 +194,10 @@ public class Drum : Subscriber {
 
 	public void SetCurrentState(string newState){
 		currentState=newState;
+	}
+
+	public void SetActiveness(bool activeness){
+		isActive=activeness;
 	}
 
 }
