@@ -21,8 +21,6 @@ public class LevelManager : Subscriber {
 
 	float correctness = 0;
 
-	static Timer aTimer;
-
 	// Use this for initialization
 	void Start () {
 
@@ -43,14 +41,15 @@ public class LevelManager : Subscriber {
 
 	// Update is called once per frame
 	void Update () {
-		currentInstrument.GetComponent<Drum>().widenEffect(correctness);
+
+			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
 		// check every beat if the array is correct
-			CompareArrays();
+				CompareArrays();
 	}
 
 	public void SetRecord () {
