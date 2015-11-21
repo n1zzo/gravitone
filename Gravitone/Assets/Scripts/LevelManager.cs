@@ -38,6 +38,8 @@ public class LevelManager : Subscriber {
 		for(int i=0; i<granularity; i++)
 			if(targetDrumArray[i])
 				totalBeats++;
+
+		farCameraLevel1();
 	}
 
 	// Update is called once per frame
@@ -110,12 +112,13 @@ public class LevelManager : Subscriber {
 					if(targetDrumArray[i])
 						totalBeats++;
 			} else {
-				farCamera();
+				farCameraLevel1();
 			}
 	}
 
-	void farCamera(){
-				cam.GetComponent<Camera>().orthographicSize = 10;
+	void farCameraLevel1(){
+				cam.GetComponent<SmoothCamera>().enabled = true;
+				cam.GetComponent<SmoothCamera>().setArrival(10f);
 	}
 
 	IEnumerator ShowMessage (string message, float delay) {
