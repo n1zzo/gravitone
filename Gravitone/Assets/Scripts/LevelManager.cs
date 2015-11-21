@@ -8,7 +8,7 @@ public class LevelManager : Subscriber {
 	public GameObject[] drums;
 	public GameObject star;
 	public GameObject cam;
-	public GameObject guiText;
+	public GameObject textField;
 
 	GameObject currentInstrument;
 
@@ -119,10 +119,10 @@ public class LevelManager : Subscriber {
 	}
 
 	IEnumerator ShowMessage (string message, float delay) {
-     guiText.GetComponent<Text>().text = message;
-     guiText.SetActive(true);
+     textField.GetComponent<Text>().text = message;
+     textField.SetActive(true);
      yield return new WaitForSeconds(delay);
-		 guiText.SetActive(false);
+		 textField.SetActive(false);
 	}
 
 }

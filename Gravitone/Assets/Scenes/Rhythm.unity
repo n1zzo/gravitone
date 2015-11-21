@@ -798,7 +798,7 @@ MonoBehaviour:
   - {fileID: 407480667}
   star: {fileID: 810106420}
   cam: {fileID: 804952610}
-  guiText: {fileID: 1642648028}
+  textField: {fileID: 1642648028}
 --- !u!4 &721453210
 Transform:
   m_ObjectHideFlags: 0
