@@ -130,25 +130,24 @@ public class Drum : Subscriber {
 
 	protected bool CheckFire(){
 
-		bool toReturn=false;
-
 		if(isActive){
 			//check if our current system info equals a desktop
 		 if(SystemInfo.deviceType == DeviceType.Desktop)
 		     //we are on a desktop device, so don't use touch
-		     toReturn= Input.GetKeyDown(fireKey);
+		     return Input.GetKeyDown(fireKey);
 
 		 //if it isn't a desktop, lets see if our device is a handheld device aka a mobile device
 		 else if(SystemInfo.deviceType == DeviceType.Handheld)
-		     //we are on a mobile device, so lets use touch input
-			 		for (int i = 0; i < Input.touchCount; ++i)
-			 			if(Input.GetTouch(i).phase == TouchPhase.Began)
-									toReturn=true;
-
+		  //we are on a mobile device, so lets use touch input
+			for (int i = 0; i < Input.touchCount; ++i)
+				if(Input.GetTouch(i).phase == TouchPhase.Began) {
+					Vector2 position = Input.GetTouch(i).position;
+					// [TODO] This position is now dependend from the screen size
+					if(position.x > 150 && position.x < 1100)
+						return true;
+				}
 		}
-
-		return toReturn;
-
+		return false;
 	}
 
 	protected void PlayDrum(){
