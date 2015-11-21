@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Timers;
+using UnityEngine.UI;
 
 public class LevelManager : Subscriber {
 
 	public GameObject[] drums;
 	public GameObject star;
 	public GameObject cam;
+	public GameObject guiText;
 
 	GameObject currentInstrument;
 
@@ -23,7 +25,6 @@ public class LevelManager : Subscriber {
 
 	// Use this for initialization
 	void Start () {
-
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
 		star.GetComponent<BeatGen>().Subscribe(this);
@@ -41,15 +42,15 @@ public class LevelManager : Subscriber {
 
 	// Update is called once per frame
 	void Update () {
-
-			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
+		currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		// check every beat if the array is correct
-				CompareArrays();
+		// check every bar if the array is correct
+		if(currentSlot%subBeatsPerBeat == 0)
+			CompareArrays();
 	}
 
 	public void SetRecord () {
@@ -93,7 +94,8 @@ public class LevelManager : Subscriber {
 				ChangeState();
 	}
 
-	void ChangeState(){
+	void ChangeState() {
+			StartCoroutine(ShowMessage("Stage Passed!", 2));
 			currentIndex++;
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
@@ -114,6 +116,13 @@ public class LevelManager : Subscriber {
 
 	void farCamera(){
 				cam.GetComponent<Camera>().orthographicSize = 10;
+	}
+
+	IEnumerator ShowMessage (string message, float delay) {
+     guiText.GetComponent<Text>().text = message;
+     guiText.SetActive(true);
+     yield return new WaitForSeconds(delay);
+		 guiText.SetActive(false);
 	}
 
 }
