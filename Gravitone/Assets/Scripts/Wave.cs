@@ -17,7 +17,6 @@ public class Wave : MonoBehaviour {
 		float scaleIncrement = (float) scaleSpeed * Time.deltaTime;
 		// Incrementally adapts to the target scale
 		transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0);
-		Debug.Log(scaleIncrement);
 	}
 
 }
