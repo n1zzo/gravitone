@@ -9,6 +9,7 @@ public class LevelManager : Subscriber {
 	public GameObject star;
 	public GameObject cam;
 	public GameObject textField;
+	public GameObject wave;
 
 	GameObject currentInstrument;
 
@@ -21,11 +22,13 @@ public class LevelManager : Subscriber {
 	bool[] playerDrumArray;
 	bool[] targetDrumArray;
 
+	int level=1;
+
 	float correctness = 0;
 
 	// Use this for initialization
 	void Start () {
-		Screen.orientation = ScreenOrientation.LandscapeLeft;
+		Screen.orientation = ScreenOrientation.LandscapeLeft ;
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
@@ -39,20 +42,25 @@ public class LevelManager : Subscriber {
 			if(targetDrumArray[i])
 				totalBeats++;
 
-		farCameraLevel1();
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-		currentInstrument.GetComponent<Drum>().widenEffect(correctness);
+		if(level == 1)
+			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
 		// check every bar if the array is correct
-		if(currentSlot%subBeatsPerBeat == 0)
+		if(level == 1 && currentSlot%subBeatsPerBeat == 0)
 			CompareArrays();
+		else if ( level ==2 ) {
+			if(currentSlot==0)
+				wave.SetActive(true);
+		}
 	}
 
 	public void SetRecord () {
@@ -73,6 +81,7 @@ public class LevelManager : Subscriber {
 
 
 	void CompareArrays() {
+
 			playerDrumArray = currentInstrument.GetComponent<Drum>().GetDrumArray();
 
 			int hit = 0;
@@ -92,13 +101,14 @@ public class LevelManager : Subscriber {
 			else
 				correctness = 0;
 
-			if(correctness==1)
+			if(correctness==1 || totalBeats==0)
 				ChangeState();
 	}
 
 	void ChangeState() {
 			StartCoroutine(ShowMessage("Stage Passed!", 2));
 			currentIndex++;
+			currentInstrument.transform.localScale= new Vector3 (1,1,1);
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
 			if((currentIndex < drums.Length)){
@@ -111,14 +121,17 @@ public class LevelManager : Subscriber {
 				for(int i=0; i<granularity; i++)
 					if(targetDrumArray[i])
 						totalBeats++;
-			} else {
-				farCameraLevel1();
-			}
+			} else
+				goToLevel2();
+
 	}
 
-	void farCameraLevel1(){
-				cam.GetComponent<SmoothCamera>().enabled = true;
-				cam.GetComponent<SmoothCamera>().setArrival(10f);
+	void goToLevel2(){
+		cam.GetComponent<SmoothCamera>().enabled = true;
+		cam.GetComponent<SmoothCamera>().setArrival(10f);
+		level=2;
+
+
 	}
 
 	IEnumerator ShowMessage (string message, float delay) {

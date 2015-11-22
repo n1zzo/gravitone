@@ -4,10 +4,14 @@ using System.Collections;
 public class Rotate : MonoBehaviour {
 
 	public GameObject star;
+	public GameObject wave;
 	public float radius = 1f;
 	public bool clockwise = true;
 	float starX;
 	float starY;
+	int currentBar=0;
+	int bars=4;
+	public int orbit=0;
 	const float TWO_PI = 2*Mathf.PI;
 
 	// Use this for initialization
@@ -17,6 +21,10 @@ public class Rotate : MonoBehaviour {
 		starX = star.GetComponent<BeatGen>().x;
 		starY = star.GetComponent<BeatGen>().y;
 
+		bars=wave.GetComponent<Wave>().bars;
+
+		radius=wave.GetComponent<Wave>().orbitsRadius[orbit];
+
 		// Sets the initial position
 		transform.position = new Vector3(0, radius, 0);
 
@@ -25,8 +33,18 @@ public class Rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
+
+		if(star.GetComponent<BeatGen>().endTrigger)
+			if(currentBar<bars-1)
+				currentBar++;
+			else
+				currentBar=0;
+
+
+		progress=(progress + currentBar)/bars;
 
 		// Calculate the planet's position
 		transform.position = getPosition(progress * TWO_PI);
