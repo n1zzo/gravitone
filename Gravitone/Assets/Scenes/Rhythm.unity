@@ -1569,6 +1569,7 @@ GameObject:
   - 114: {fileID: 1650730792}
   - 58: {fileID: 1650730791}
   - 50: {fileID: 1650730796}
+  - 114: {fileID: 1650730797}
   m_Layer: 0
   m_Name: ChordPlanet
   m_TagString: Untagged
@@ -1645,7 +1646,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1650730790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -360.034851, y: -231.76149, z: 10}
+  m_LocalPosition: {x: -358.709991, y: -231.76149, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 595726780}
@@ -1666,6 +1667,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1650730797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1650730790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308201be54be44374ba4297c58e8feee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star: {fileID: 810106420}
+  radius: 1
+  clockwise: 1
 --- !u!1 &1747900794
 GameObject:
   m_ObjectHideFlags: 0
