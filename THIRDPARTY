@@ -1,0 +1,4 @@
+This software uses a puredata implementation of the Karplus-Strong algorithm.
+The original implementation code was written by Colin Barry.
+The Karplus-Strong algorithm was invented by Alex Strong and Kevin Karplus.
+Thank you guys for this electroacoustic pearl.
