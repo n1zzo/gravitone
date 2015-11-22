@@ -10,6 +10,7 @@ public class Chord : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		//LibPD.SendFloat("midiNote", 57);
 		//LibPD.SendBang("m7");
 	}
@@ -18,5 +19,9 @@ public class Chord : MonoBehaviour {
 	void Update () {
 
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+    Debug.Log("A planet has been hit!");
+  }
 
 }
