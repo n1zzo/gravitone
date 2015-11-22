@@ -5,7 +5,6 @@ using LibPDBinding;
 public class DelayTest : Subscriber {
 
 	public GameObject star;
-	float scaleStep=0.5f;
 	int currentSlot = 0;
 	int lastSlot = -1;
 	bool lastBeat = false;
