@@ -11,8 +11,6 @@ public class Chord : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		//LibPD.SendFloat("midiNote", 57);
-		//LibPD.SendBang("m7");
 	}
 
 	// Update is called once per frame
@@ -21,7 +19,9 @@ public class Chord : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-    Debug.Log("A planet has been hit!");
+    // The planet has been hit by a wave
+		LibPD.SendFloat("midiNote", 57);
+		LibPD.SendBang("m7");
   }
 
 }

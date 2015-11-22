@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Wave : MonoBehaviour {
 
-	float scaleSpeed = .1f;
+	public float scaleSpeed = .1f;
 	CircleCollider2D circleCollider;
 	SpriteRenderer spriteRenderer;
 
@@ -19,11 +19,9 @@ public class Wave : MonoBehaviour {
 		// Incrementally adapts to the target scale
 		transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0);
 		Vector3 size = spriteRenderer.bounds.size;
-		circleCollider.radius = size.x / 2;
+		float radius = size.x * transform.localScale.x;
+		circleCollider.radius = (radius / 100f) + 40;
 
 	}
-	void OnTriggerEnter2D(Collider2D other) {
-    Debug.Log("A planet has been hit!");
-  }
 
 }
