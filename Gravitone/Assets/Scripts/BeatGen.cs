@@ -12,7 +12,6 @@ public class BeatGen : MonoBehaviour {
 	public int subBeatsPerBeat = 4;
 	public int granularity = 0;
 	public int lastSlot = 0;
-	public bool endTrigger=false;
 	float timeSpeed = 0f;
 
 	public float x = 0f;
@@ -48,11 +47,8 @@ public class BeatGen : MonoBehaviour {
 		progress += timeSpeed * Time.deltaTime;
 
 		// Avoid progress overflow
-		if (progress >= 1){
+		if (progress >= 1)
 			progress -= 1;
-			endTrigger=true;
-		} else
-			endTrigger=false;
 
 
 		currentSlot = (int)(progress * (float) granularity);

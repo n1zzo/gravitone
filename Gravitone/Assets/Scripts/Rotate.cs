@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Rotate : MonoBehaviour {
+public class Rotate : Subscriber {
 
 	public GameObject star;
 	public GameObject wave;
@@ -21,6 +21,8 @@ public class Rotate : MonoBehaviour {
 		starX = star.GetComponent<BeatGen>().x;
 		starY = star.GetComponent<BeatGen>().y;
 
+		star.GetComponent<BeatGen>().Subscribe(this);
+
 		bars=wave.GetComponent<Wave>().bars;
 
 		radius=wave.GetComponent<Wave>().orbitsRadius[orbit];
@@ -37,13 +39,6 @@ public class Rotate : MonoBehaviour {
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
 
-		if(star.GetComponent<BeatGen>().endTrigger)
-			if(currentBar<bars-1)
-				currentBar++;
-			else
-				currentBar=0;
-
-
 		progress=(progress + currentBar)/bars;
 
 		// Calculate the planet's position
@@ -57,7 +52,16 @@ public class Rotate : MonoBehaviour {
 			return new Vector3(radius*Mathf.Sin(angle) + starX, radius*Mathf.Cos(angle) + starY, 0);
 		else
 			return new Vector3(radius*Mathf.Sin(-angle) + starX, radius*Mathf.Cos(-angle) + starY, 0);
+	}
 
+	// This method is called for each beat
+	public override void Beat(int currentSlot) {
+			if(currentSlot==0){
+				if(currentBar<bars-1)
+					currentBar++;
+				else
+					currentBar=0;
+		 	}
 	}
 
 }

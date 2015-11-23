@@ -1010,7 +1010,6 @@ GameObject:
   - 82: {fileID: 810106424}
   - 114: {fileID: 810106423}
   - 114: {fileID: 810106426}
-  - 114: {fileID: 810106427}
   - 114: {fileID: 810106425}
   - 114: {fileID: 810106428}
   m_Layer: 0
@@ -1074,7 +1073,6 @@ MonoBehaviour:
   subBeatsPerBeat: 4
   granularity: 1
   lastSlot: 0
-  endTrigger: 0
   x: 0
   y: 0
   progress: 0
@@ -1175,18 +1173,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfPatch: metronome.pd
---- !u!114 &810106427
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 810106420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef6bc7411ac2fcf40810801844db43af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posText: {fileID: 0}
 --- !u!114 &810106428
 MonoBehaviour:
   m_ObjectHideFlags: 0
