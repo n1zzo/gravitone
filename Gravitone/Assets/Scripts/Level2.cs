@@ -6,7 +6,10 @@ public class Level2 : Subscriber {
 	public GameObject cam;
 	public GameObject star;
 	public GameObject wave;
+	public GameObject wavePrefab;
 	int numberOfThirdBeat=0;
+	int currentBar=0;
+	public int bars=4;
 
 	// Use this for initialization
 	void Start () {
@@ -28,8 +31,14 @@ public class Level2 : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		if(currentSlot==numberOfThirdBeat)
+		if(currentSlot==numberOfThirdBeat){
 				wave.SetActive(true);
+				if (currentBar==bars) {
+					Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+					currentBar=0;
+				}
+				currentBar++;
+			}
 
 	}
 }
