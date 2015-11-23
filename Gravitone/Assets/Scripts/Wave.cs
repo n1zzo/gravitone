@@ -3,10 +3,9 @@ using System.Collections;
 
 public class Wave : Subscriber {
 
-	public float scaleSpeed = .1f;
+	public float scaleSpeed;
 	public GameObject star;
 	public GameObject[] planets;
-	CircleCollider2D circleCollider;
 	SpriteRenderer spriteRenderer;
 	public float[] orbitsRadius;
 	public bool[] orbitSlots;
@@ -18,8 +17,6 @@ public class Wave : Subscriber {
 
 	// Use this for initialization
 	void Start () {
-		transform.localScale= new Vector3(0.1f,0.1f,0.1f);
-		circleCollider = this.GetComponent<CircleCollider2D>();
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		star.GetComponent<BeatGen>().Subscribe(this);
 		newGranularity = star.GetComponent<BeatGen>().granularity/newGranularityDivision;
@@ -27,12 +24,6 @@ public class Wave : Subscriber {
 
 	// Update is called once per frame
 	void Update () {
-		float scaleIncrement = (float) scaleSpeed * Time.deltaTime;
-		// Incrementally adapts to the target scale
-		transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0);
-		Vector3 size = spriteRenderer.bounds.size;
-		float radius = size.x * transform.localScale.x;
-		circleCollider.radius = (radius / 100f) + 40;
 
 	}
 
@@ -41,8 +32,9 @@ public class Wave : Subscriber {
 			if(currentSlot==0){
 				if(currentBar<bars-1)
 					currentBar++;
-				else
-					Destroy(this);
+				else{
+					GetComponent<Wave>().enabled=false;
+				}
 			}
 
 			int currentIndex=Mathf.CeilToInt(currentSlot/newGranularityDivision) + (newGranularity*currentBar);

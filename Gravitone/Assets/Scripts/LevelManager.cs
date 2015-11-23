@@ -7,9 +7,7 @@ public class LevelManager : Subscriber {
 
 	public GameObject[] drums;
 	public GameObject star;
-	public GameObject cam;
 	public GameObject textField;
-	public GameObject wave;
 
 	GameObject currentInstrument;
 
@@ -57,10 +55,7 @@ public class LevelManager : Subscriber {
 		// check every bar if the array is correct
 		if(level == 1 && currentSlot%subBeatsPerBeat == 0)
 			CompareArrays();
-		else if ( level ==2 ) {
-			if(currentSlot==0)
-				wave.SetActive(true);
-		}
+
 	}
 
 	public void SetRecord () {
@@ -127,11 +122,8 @@ public class LevelManager : Subscriber {
 	}
 
 	void goToLevel2(){
-		cam.GetComponent<SmoothCamera>().enabled = true;
-		cam.GetComponent<SmoothCamera>().setArrival(10f);
 		level=2;
-
-
+		GetComponent<Level2>().enabled=true;
 	}
 
 	IEnumerator ShowMessage (string message, float delay) {

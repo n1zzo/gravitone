@@ -862,6 +862,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 721453210}
   - 114: {fileID: 721453209}
+  - 114: {fileID: 721453211}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -885,9 +886,7 @@ MonoBehaviour:
   - {fileID: 952765397}
   - {fileID: 407480667}
   star: {fileID: 810106420}
-  cam: {fileID: 804952610}
   textField: {fileID: 1642648028}
-  wave: {fileID: 1747900794}
 --- !u!4 &721453210
 Transform:
   m_ObjectHideFlags: 0
@@ -900,6 +899,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &721453211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd44cacb35c33554cae3aae4f806f8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 804952610}
+  star: {fileID: 810106420}
+  wave: {fileID: 1747900794}
 --- !u!1 &804952610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,6 +1729,7 @@ GameObject:
   - 212: {fileID: 1747900796}
   - 114: {fileID: 1747900797}
   - 58: {fileID: 1747900798}
+  - 114: {fileID: 1747900799}
   m_Layer: 0
   m_Name: Wave
   m_TagString: Untagged
@@ -1772,7 +1786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4a748d9b70841bfb43e342e5bd9d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: .00999999978
+  scaleSpeed: .0199999996
   star: {fileID: 810106420}
   planets:
   - {fileID: 1650730790}
@@ -1787,7 +1801,7 @@ MonoBehaviour:
   - 1
   orbitSlots: 01000000000000000100000000000000010000000000000001000000000000000100000000000000000000000000000000000000000000000000000000000000
   bars: 4
-  newGranularity: 0
+  newGranularityDivision: 2
 --- !u!58 &1747900798
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1801,6 +1815,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 40
+--- !u!114 &1747900799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747900794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac2e7385b03c294d960001bc46b15cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: .0199999996
 --- !u!1 &1770329130
 GameObject:
   m_ObjectHideFlags: 0
