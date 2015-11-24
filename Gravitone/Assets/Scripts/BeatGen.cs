@@ -39,6 +39,11 @@ public class BeatGen : MonoBehaviour {
 		subscribers.Add(subscriber);
 	}
 
+	// Each GameObject that calls this is adddded to a list
+	public void Unsubscribe (Subscriber subscriber) {
+		subscribers.Remove(subscriber);
+	}
+
 	// Update is called once per frame
 	void Update () {
 		int currentSlot = 0;
@@ -66,7 +71,7 @@ public class BeatGen : MonoBehaviour {
 	}
 
 	void SendBeat(int currentSlot) {
-		foreach (Subscriber subscriber in subscribers)
+		foreach (Subscriber subscriber in subscribers.ToArray())
 			subscriber.Beat(currentSlot);
 	}
 

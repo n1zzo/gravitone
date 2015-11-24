@@ -966,6 +966,7 @@ GameObject:
   - 4: {fileID: 721453210}
   - 114: {fileID: 721453209}
   - 114: {fileID: 721453211}
+  - 114: {fileID: 721453212}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -984,12 +985,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe5074ba6f3ab43d3a6930a89789b97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drums:
-  - {fileID: 1190351175}
-  - {fileID: 952765397}
-  - {fileID: 407480667}
-  star: {fileID: 810106420}
-  textField: {fileID: 1642648028}
 --- !u!4 &721453210
 Transform:
   m_ObjectHideFlags: 0
@@ -1018,6 +1013,23 @@ MonoBehaviour:
   wave: {fileID: 1747900794}
   wavePrefab: {fileID: 196342, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
   bars: 4
+--- !u!114 &721453212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae00f18d97ce24a46b7fddba35d66309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drums:
+  - {fileID: 1190351175}
+  - {fileID: 952765397}
+  - {fileID: 407480667}
+  star: {fileID: 810106420}
+  textField: {fileID: 1642648028}
 --- !u!1 &804952610
 GameObject:
   m_ObjectHideFlags: 0
