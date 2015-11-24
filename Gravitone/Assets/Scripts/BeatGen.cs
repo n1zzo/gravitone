@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using LibPDBinding;
 
 public class BeatGen : MonoBehaviour {
 
@@ -31,7 +30,6 @@ public class BeatGen : MonoBehaviour {
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
     granularity = beatsPerBar * subBeatsPerBeat;
 
-		LibPD.SendBang("highBeat");
   }
 
 	// Each GameObject that calls this is adddded to a list
@@ -61,11 +59,6 @@ public class BeatGen : MonoBehaviour {
 		if(currentSlot!=lastSlot) {
 			lastSlot = currentSlot;
       SendBeat(currentSlot);
-			if(currentSlot == 0)
-				LibPD.SendBang("highBeat");
-			else
-				if(currentSlot % beatsPerBar == 0)
-					LibPD.SendBang("lowBeat");
     }
 
 	}

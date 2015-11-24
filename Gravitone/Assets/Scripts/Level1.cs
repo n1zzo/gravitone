@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using LibPDBinding;
 
 public class Level1 : Subscriber {
 
@@ -36,6 +37,7 @@ public class Level1 : Subscriber {
 			if(targetDrumArray[i])
 				totalBeats++;
 
+		LibPD.SendBang("highBeat");
 
 	}
 
@@ -44,14 +46,22 @@ public class Level1 : Subscriber {
 
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 
+
+
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
 		// check every bar if the array is correct
-		if(currentSlot%subBeatsPerBeat == 0)
+		if(currentSlot%subBeatsPerBeat == 0){
 			CompareArrays();
+
+			if(currentSlot == 0)
+				LibPD.SendBang("highBeat");
+			else
+					LibPD.SendBang("lowBeat");
+				}
 
 	}
 
