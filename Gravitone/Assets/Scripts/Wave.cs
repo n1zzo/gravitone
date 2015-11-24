@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Wave : Subscriber {
 
-	public float scaleSpeed;
 	public GameObject star;
 	public GameObject[] planets;
 	SpriteRenderer spriteRenderer;

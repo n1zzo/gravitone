@@ -4,7 +4,7 @@ using System.Collections;
 public class SecondWave : Subscriber {
 
 
-		public float scaleSpeed = .1f;
+		public float scaleSpeed=0.1f;
 		CircleCollider2D circleCollider;
 		SpriteRenderer spriteRenderer;
 
@@ -21,7 +21,7 @@ public class SecondWave : Subscriber {
 			transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0);
 			Vector3 size = spriteRenderer.bounds.size;
 			float radius = size.x * transform.localScale.x;
-			circleCollider.radius = (radius / 100f) + 40;
+			circleCollider.radius = (radius / 100f) + 7.5f;
 
 		}
 
