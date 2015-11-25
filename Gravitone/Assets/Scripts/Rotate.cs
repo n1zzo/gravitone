@@ -4,7 +4,6 @@ using System.Collections;
 public class Rotate : Subscriber {
 
 	public GameObject star;
-	public GameObject wave;
 	public float radius = 1f;
 	public bool clockwise = true;
 	float starX;
@@ -22,10 +21,6 @@ public class Rotate : Subscriber {
 		starY = star.GetComponent<BeatGen>().y;
 
 		star.GetComponent<BeatGen>().Subscribe(this);
-
-		bars=wave.GetComponent<Wave>().bars;
-
-		radius=wave.GetComponent<Wave>().orbitsRadius[orbit];
 
 		// Sets the initial position
 		transform.position = new Vector3(0, radius, 0);

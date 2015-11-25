@@ -4,7 +4,6 @@ using System.Collections;
 public class Wave : Subscriber {
 
 	public GameObject star;
-	public GameObject[] planets;
 	public GameObject[] rings;
 	SpriteRenderer spriteRenderer;
 	public float[] orbitsRadius;
@@ -39,11 +38,10 @@ public class Wave : Subscriber {
 
 			int currentIndex=Mathf.CeilToInt(currentSlot/newGranularityDivision) + (newGranularity*currentBar);
 
-			if(orbitSlots[currentIndex] && currentSlot%newGranularity==0 && currentOrbits<planets.Length){
+			if(currentOrbits<rings.Length && orbitSlots[currentIndex] && currentSlot%newGranularity==0){
 				orbitsRadius[currentOrbits] = spriteRenderer.bounds.extents.x;
 				rings[currentOrbits].SetActive(true);
 				rings[currentOrbits].GetComponent<Ring>().SetSize(transform.localScale);
-				planets[currentOrbits].SetActive(true);
 				currentOrbits++;
 		}
 	}
