@@ -203,4 +203,8 @@ public class Drum : Subscriber {
 		isActive=activeness;
 	}
 
+	public void Autocomplete(){
+		slots = targetDrumArray;
+	}
+
 }

@@ -10,7 +10,6 @@ public class Rotate : Subscriber {
 	float starY;
 	int currentBar=0;
 	int bars=4;
-	public int orbit=0;
 	const float TWO_PI = 2*Mathf.PI;
 
 	// Use this for initialization
@@ -57,6 +56,10 @@ public class Rotate : Subscriber {
 				else
 					currentBar=0;
 		 	}
+	}
+
+	public void setRadius (float rad){
+		radius=rad;
 	}
 
 }

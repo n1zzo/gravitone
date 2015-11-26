@@ -8,6 +8,7 @@ public class Level1 : Subscriber {
 	public GameObject[] drums;
 	public GameObject star;
 	public GameObject textField;
+	public GameObject canvas;
 
 	GameObject currentInstrument;
 
@@ -24,6 +25,8 @@ public class Level1 : Subscriber {
 
 	// Use this for initialization
 	void Start () {
+
+		canvas.SetActive(true);
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
@@ -128,9 +131,15 @@ public class Level1 : Subscriber {
 
 			} else{
 				star.GetComponent<BeatGen>().Unsubscribe(this);
+				canvas.SetActive(false);
 				GetComponent<LevelManager>().goToNextLevel();
 			}
 
+	}
+
+	public void Autocomplete(){
+		foreach (GameObject drum in drums)
+			drum.GetComponent<Drum>().Autocomplete();
 	}
 
 	IEnumerator ShowMessage (string message, float delay) {

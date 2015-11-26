@@ -8,8 +8,8 @@ public class LevelManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 			Screen.orientation = ScreenOrientation.LandscapeLeft ;
-			goToNextLevel();
 
+			BeginFromLevel2();
 	}
 
 	// Update is called once per frame
@@ -25,6 +25,10 @@ public class LevelManager : MonoBehaviour {
 			GetComponent<Level2>().enabled=true;
 		}
 
+	}
+
+	public void BeginFromLevel2(){
+		GetComponent<Level1>().Autocomplete();
 	}
 
 }

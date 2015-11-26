@@ -19,6 +19,8 @@ public class Level2 : Subscriber {
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 
+		wave.SetActive(true);
+
 		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-star.GetComponent<BeatGen>().subBeatsPerBeat;
 
 	}
@@ -32,13 +34,11 @@ public class Level2 : Subscriber {
 	public override void Beat(int currentSlot) {
 
 		if(currentSlot==numberOfThirdBeat){
-				wave.SetActive(true);
 				if (currentBar==bars) {
 					Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity);
 					currentBar=0;
 				}
 				currentBar++;
 			}
-
 	}
 }

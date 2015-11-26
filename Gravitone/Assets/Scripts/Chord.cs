@@ -4,6 +4,10 @@ using LibPDBinding;
 
 public class Chord : MonoBehaviour {
 
+	public string chordName="M";
+
+	public bool active=false;
+
 	// Use LibPD.SendFloat("midiNote", 60); to set the fundamental note to C.
 	// Then use LibPD.SendBang("M"); to play a major chord.
 	// Possible choices are: M, m, M7, m7, 7, dim.
@@ -19,9 +23,11 @@ public class Chord : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-    // The planet has been hit by a wave
-		LibPD.SendFloat("midiNote", 57);
-		LibPD.SendBang("m7");
+			if(active && other.gameObject.tag=="wave"){
+	    // The planet has been hit by a wave and he is in an orbit
+			LibPD.SendFloat("midiNote", 57);
+			LibPD.SendBang(chordName);
+		}
   }
 
 }

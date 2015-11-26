@@ -5,6 +5,7 @@ public class Ring : MonoBehaviour {
 
 	private GameObject planet;
 	private Vector3 size;
+	private bool hasPlanet=false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,16 @@ public class Ring : MonoBehaviour {
 	}
 
 	public float GetRadius() {
-		return size.x;
+		return GetComponent<SpriteRenderer>().bounds.extents.x;
 	}
+
+	public void SetItHas(){
+		hasPlanet=true;
+	}
+
+	public bool HasPlanet(){
+		return hasPlanet;
+	}
+
 
 }
