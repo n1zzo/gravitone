@@ -18,6 +18,7 @@ public class Drum : Subscriber {
 	public bool[] targetDrumArray = new bool[64];
 	bool isActive=false;
 
+	string previousState="drumPlay";
 	string currentState;
 
 	// Use this for initialization
@@ -138,12 +139,13 @@ public class Drum : Subscriber {
 
 		 //if it isn't a desktop, lets see if our device is a handheld device aka a mobile device
 		 else if(SystemInfo.deviceType == DeviceType.Handheld)
+
 		  //we are on a mobile device, so lets use touch input
 			for (int i = 0; i < Input.touchCount; ++i)
 				if(Input.GetTouch(i).phase == TouchPhase.Began) {
 					Vector2 position = Input.GetTouch(i).position;
-					// [TODO] This position is now dependend from the screen size
-					if(position.x > 150 && position.x < 1100)
+
+					if(position.x > Screen.width*15/100 && position.x < (Screen.width-Screen.width*15/100))
 						return true;
 				}
 		}
@@ -164,12 +166,14 @@ public class Drum : Subscriber {
 	public void PlayPreview() {
 		star.GetComponent<BeatGen>().progress=0;
 		lastSlot=-1;
+
+			previousState=currentState;
 		// in all cases it becomes preview.
 			currentState = "drumPreview";
 	}
 
 	public void StopPreview() {
-		currentState = "drumPlay";
+		currentState = previousState;
 	}
 
 	public void widenEffect(float correctness){

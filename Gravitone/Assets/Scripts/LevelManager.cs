@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 			Screen.orientation = ScreenOrientation.LandscapeLeft ;
 
-			BeginFromLevel2();
+			//BeginFromLevel2();
 	}
 
 	// Update is called once per frame
