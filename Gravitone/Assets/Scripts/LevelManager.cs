@@ -3,6 +3,8 @@ using System.Collections;
 
 public class LevelManager : MonoBehaviour {
 
+	public GameObject audioManager;
+
 	int level=1;
 
 	// Use this for initialization

@@ -9,6 +9,7 @@ public class Level1 : Subscriber {
 	public GameObject star;
 	public GameObject textField;
 	public GameObject canvas;
+	private GameObject metronome;
 
 	GameObject currentInstrument;
 
@@ -40,8 +41,10 @@ public class Level1 : Subscriber {
 			if(targetDrumArray[i])
 				totalBeats++;
 
-		LibPD.SendBang("highBeat");
+		GameObject audioManager = GetComponent<LevelManager>().audioManager;
+		metronome = audioManager.GetComponent<AudioManager>().GetMetronome();
 
+		metronome.GetComponent<Metronome>().HighBeat();
 	}
 
 	// Update is called once per frame
@@ -61,9 +64,9 @@ public class Level1 : Subscriber {
 			CompareArrays();
 
 			if(currentSlot == 0)
-				LibPD.SendBang("highBeat");
+				metronome.GetComponent<Metronome>().HighBeat();
 			else
-					LibPD.SendBang("lowBeat");
+					metronome.GetComponent<Metronome>().LowBeat();
 				}
 
 	}
