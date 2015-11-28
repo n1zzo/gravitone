@@ -3,15 +3,10 @@ using System.Collections;
 
 public class OfflineChord : MonoBehaviour, Chord {
 
-	// Use this for initialization
-	void Start () {
+	// Loads the chords clip in an on-demand fashion.
 
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
+	public AudioSource first;
+	public AudioSource second;
 
 	void Chord.Play(int note, string type) {
 
