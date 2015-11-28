@@ -10,6 +10,9 @@ public class ChordPlanet : MonoBehaviour {
 
 	public bool active=false;
 
+	public int baseNote;
+
+
 	// Use audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
 	// to play a chord, 57 is the target midi note, "M" is the chord type.
 	// Possible choices are: M, m, M7, m7, 7, dim.
@@ -27,7 +30,7 @@ public class ChordPlanet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 			if(active && other.gameObject.tag=="wave"){
 	    // The planet has been hit by a wave and he is in an orbit
-			audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
+			audioManager.GetComponent<AudioManager>().PlayChord(baseNote, chordName);
 		}
   }
 
