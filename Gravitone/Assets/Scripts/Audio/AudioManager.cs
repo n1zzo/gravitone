@@ -6,20 +6,26 @@ public class AudioManager : MonoBehaviour {
 	public bool online = true;
 	public GameObject OnlineMetronome;
 	public GameObject OfflineMetronome;
-	GameObject currentMetronome;
+	Metronome currentMetronome;
 
 	// Use this for initialization
 	void Start () {
 		if(online) {
-			currentMetronome = OnlineMetronome;
+			OnlineMetronome.SetActive(true);
+			currentMetronome = OnlineMetronome.GetComponent<OnlineMetronome>();
 		}
 		else {
-			currentMetronome = OfflineMetronome;
+			OfflineMetronome.SetActive(true);
+			currentMetronome = OfflineMetronome.GetComponent<OfflineMetronome>();
 		}
 	}
 
-	public GameObject GetMetronome () {
-		return currentMetronome;
+	public void HighBeat () {
+		currentMetronome.HighBeat();
+	}
+
+	public void LowBeat () {
+		currentMetronome.LowBeat();
 	}
 
 }
