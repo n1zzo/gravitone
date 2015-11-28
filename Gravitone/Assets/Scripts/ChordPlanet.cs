@@ -2,14 +2,16 @@
 using System.Collections;
 using LibPDBinding;
 
-public class Chord : MonoBehaviour {
+public class ChordPlanet : MonoBehaviour {
+
+	public GameObject audioManager;
 
 	public string chordName="M";
 
 	public bool active=false;
 
-	// Use LibPD.SendFloat("midiNote", 60); to set the fundamental note to C.
-	// Then use LibPD.SendBang("M"); to play a major chord.
+	// Use audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
+	// to play a chord, 57 is the target midi note, "M" is the chord type.
 	// Possible choices are: M, m, M7, m7, 7, dim.
 
 	// Use this for initialization
@@ -25,8 +27,7 @@ public class Chord : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 			if(active && other.gameObject.tag=="wave"){
 	    // The planet has been hit by a wave and he is in an orbit
-			LibPD.SendFloat("midiNote", 57);
-			LibPD.SendBang(chordName);
+			audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
 		}
   }
 

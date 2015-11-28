@@ -6,7 +6,10 @@ public class AudioManager : MonoBehaviour {
 	public bool online = true;
 	public GameObject OnlineMetronome;
 	public GameObject OfflineMetronome;
+	public GameObject OnlineChord;
+	public GameObject OfflineChord;
 	Metronome currentMetronome;
+	Chord currentChord;
 
 	// Use this for initialization
 	void Start () {
@@ -14,10 +17,16 @@ public class AudioManager : MonoBehaviour {
 			OnlineMetronome.SetActive(true);
 			currentMetronome = OnlineMetronome.GetComponent<OnlineMetronome>();
 			currentMetronome.HighBeat();
+
+			OnlineChord.SetActive(true);
+			currentChord = OnlineChord.GetComponent<OnlineChord>();
 		}
 		else {
 			OfflineMetronome.SetActive(true);
 			currentMetronome = OfflineMetronome.GetComponent<OfflineMetronome>();
+
+			OfflineChord.SetActive(true);
+			currentChord = OfflineChord.GetComponent<OfflineChord>();
 		}
 	}
 
@@ -27,6 +36,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void LowBeat () {
 		currentMetronome.LowBeat();
+	}
+
+	public void PlayChord(int note, string type) {
+		currentChord.Play(note, type);
 	}
 
 }

@@ -47,7 +47,7 @@ public class Drag : MonoBehaviour {
 					// We can adjust this to avoid the CHORD DELAY !!!!
 					GetComponent<CircleCollider2D>().radius=afterColliderRadius;
 
-					GetComponent<Chord>().active=true;
+					GetComponent<ChordPlanet>().active=true;
 
 					GetComponent<Drag>().enabled=false;
 			}
