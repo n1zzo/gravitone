@@ -764,8 +764,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11469432, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: afterColliderRadius
-      value: .5
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11469432, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1590554890}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
   m_IsPrefabParent: 0
@@ -1642,7 +1646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79f865a3d0143c68805df3d6d71b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  afterColliderRadius: .5
+  afterColliderRadius: 1
+  audioManager: {fileID: 1590554890}
 --- !u!114 &928358813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2003,7 +2008,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79f865a3d0143c68805df3d6d71b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  afterColliderRadius: .5
+  afterColliderRadius: 1
+  audioManager: {fileID: 1590554890}
 --- !u!114 &1136896604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,7 +2206,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2270,7 +2276,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2634,7 +2640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79f865a3d0143c68805df3d6d71b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  afterColliderRadius: .5
+  afterColliderRadius: 1
+  audioManager: {fileID: 1590554890}
 --- !u!114 &1589684508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,7 +2774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7736667c08294af9af9628a6bdb02a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  online: 1
+  online: 0
   OnlineMetronome: {fileID: 1873913821}
   OfflineMetronome: {fileID: 1203875340}
   OnlineChord: {fileID: 82383299}
