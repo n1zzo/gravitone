@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour {
 		if(online) {
 			OnlineMetronome.SetActive(true);
 			currentMetronome = OnlineMetronome.GetComponent<OnlineMetronome>();
+			currentMetronome.HighBeat();
 		}
 		else {
 			OfflineMetronome.SetActive(true);
