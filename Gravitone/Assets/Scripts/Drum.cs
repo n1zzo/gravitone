@@ -19,7 +19,7 @@ public class Drum : Subscriber {
 	bool isActive=false;
 
 	string previousState="drumPlay";
-	string currentState;
+	string currentState = "drumPlay";
 
 	// Use this for initialization
 	void Start () {
@@ -30,8 +30,6 @@ public class Drum : Subscriber {
 
 		// Loads the drum clip
 		sound = GetComponent<AudioSource>();
-
-		currentState = "drumPlay";
 	}
 
 	// Update is called once per frame
@@ -109,8 +107,10 @@ public class Drum : Subscriber {
 		if (lastBeat && currentSlot != lastSlot) {
 			if (slots[currentSlot])
 				PlayDrum();
+
 			lastSlot=currentSlot;
 			lastBeat = false;
+
 		}
 	}
 

@@ -34,6 +34,7 @@ public class Level1 : Subscriber {
 		subBeatsPerBeat = star.GetComponent<BeatGen>().subBeatsPerBeat;
 		granularity = beatsPerBar * subBeatsPerBeat;
 		currentInstrument=drums[currentIndex];
+		currentInstrument.SetActive(true);
 		currentInstrument.GetComponent<Drum>().SetActiveness(true);
 		targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 
@@ -43,17 +44,12 @@ public class Level1 : Subscriber {
 
 		audioManager = GetComponent<LevelManager>().audioManager;
 
-		//At this time the component isn't initialized yet, so we must skip the first beat
-		//audioManager.GetComponent<AudioManager>().HighBeat();
-
 	}
 
 	// Update is called once per frame
 	void Update () {
 
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
-
-
 
 	}
 
@@ -125,18 +121,22 @@ public class Level1 : Subscriber {
 
 				string oldState=currentInstrument.GetComponent<Drum>().GetCurrentState();
 				currentInstrument=drums[currentIndex];
+				currentInstrument.SetActive(true);
 				drums[currentIndex].GetComponent<Drum>().SetCurrentState(oldState);
 				currentInstrument.GetComponent<Drum>().SetActiveness(true);
 				targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 				totalBeats=0;
+
 				for(int i=0; i<granularity; i++)
 					if(targetDrumArray[i])
 						totalBeats++;
 
 			} else{
+
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				canvas.SetActive(false);
 				GetComponent<LevelManager>().goToNextLevel();
+
 			}
 
 	}
