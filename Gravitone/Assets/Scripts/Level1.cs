@@ -9,6 +9,7 @@ public class Level1 : Subscriber {
 	public GameObject star;
 	public GameObject textField;
 	public GameObject canvas;
+	public GameObject trail;
 	GameObject audioManager;
 
 	GameObject currentInstrument;
@@ -28,6 +29,7 @@ public class Level1 : Subscriber {
 	void Start () {
 
 		canvas.SetActive(true);
+		trail.SetActive(true);
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
@@ -135,6 +137,7 @@ public class Level1 : Subscriber {
 
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				canvas.SetActive(false);
+				trail.SetActive(false);
 				GetComponent<LevelManager>().goToNextLevel();
 
 			}

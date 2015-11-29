@@ -8,6 +8,7 @@ public class Rotate : Subscriber {
 	public bool clockwise = true;
 	float starX;
 	float starY;
+	float offsetAngle;
 	int currentBar=0;
 	int bars=4;
 	const float TWO_PI = 2*Mathf.PI;
@@ -21,8 +22,14 @@ public class Rotate : Subscriber {
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 
-		// Sets the initial position
-		transform.position = new Vector3(0, radius, 0);
+		float progress = star.GetComponent<BeatGen>().progress;
+
+		progress=(progress + currentBar)/bars;
+
+		offsetAngle = Mathf.Asin(transform.position.x/radius) - (progress * TWO_PI);
+
+		if(offsetAngle!=offsetAngle)
+				offsetAngle=0;
 
 	}
 
@@ -43,9 +50,9 @@ public class Rotate : Subscriber {
 	// Obtains the planet position from the planet's angle
 	Vector3 getPosition (float angle) {
 		if(clockwise)
-			return new Vector3(radius*Mathf.Sin(angle) + starX, radius*Mathf.Cos(angle) + starY, 0);
+			return new Vector3(radius*Mathf.Sin(angle + offsetAngle) + starX, radius*Mathf.Cos(angle + offsetAngle) + starY, 0);
 		else
-			return new Vector3(radius*Mathf.Sin(-angle) + starX, radius*Mathf.Cos(-angle) + starY, 0);
+			return new Vector3(radius*Mathf.Sin(-angle + offsetAngle) + starX, radius*Mathf.Cos(-angle + offsetAngle) + starY, 0);
 	}
 
 	// This method is called for each beat

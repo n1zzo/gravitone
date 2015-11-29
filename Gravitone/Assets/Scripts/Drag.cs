@@ -6,8 +6,7 @@ public class Drag : MonoBehaviour {
 	private Vector3 screenPoint;
 	private Vector3 offset;
 	private Collider2D lastCollision;
-	public float afterColliderRadius=1f;
-	public GameObject audioManager;
+	float afterColliderRadius;
 
 	// Use this for initialization
 	void Start () {
@@ -46,9 +45,8 @@ public class Drag : MonoBehaviour {
 					lastCollision.gameObject.GetComponent<Ring>().SetItHas();
 
 					// We can adjust this to avoid the CHORD DELAY !!!!
-					if(audioManager.GetComponent<AudioManager>().online)
-								afterColliderRadius=afterColliderRadius/2;
-								
+					afterColliderRadius=1f;
+
 					GetComponent<CircleCollider2D>().radius=afterColliderRadius;
 
 					GetComponent<ChordPlanet>().active=true;
