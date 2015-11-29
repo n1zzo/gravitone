@@ -18,6 +18,7 @@ public class Wave : Subscriber {
 	float screenAspect;
 	float cameraWidth;
 	bool active=false;
+	public GameObject Preview;
 
 	// Use this for initialization
 	void Start () {
@@ -62,6 +63,7 @@ public class Wave : Subscriber {
 
 			if(currentBar==bars){
 								star.GetComponent<BeatGen>().Unsubscribe(this);
+								Preview.GetComponent<HarmonyPreview>().orbitsRadius = orbitsRadius;
 								Destroy(this.gameObject);
 			}
 		}

@@ -1,4 +1,4 @@
-#N canvas 465 133 840 665 10;
+#N canvas 462 139 840 665 10;
 #N canvas 614 223 579 466 interface 0;
 #X obj 100 222 cnv 15 100 120 empty empty OSC 8 12 1 14 -258699 -262144
 0;
@@ -79,7 +79,7 @@
 #X coords 0 -1 1 1 300 240 1 100 100;
 #X restore 248 394 pd interface;
 #X obj 64 217 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 5400 1;
+-1 -1 0 1;
 #X obj 84 42 bng 15 250 50 0 empty M empty 17 7 0 10 -262144 -1 -1
 ;
 #X text 113 38 M;
@@ -3176,7 +3176,7 @@
 #X connect 46 0 32 0;
 #X restore 510 299 pd chord;
 #X obj 247 346 dac~;
-#N canvas 0 92 450 300 mutex 0;
+#N canvas 0 98 450 300 mutex 0;
 #X obj 120 75 i;
 #X obj 120 96 + 1;
 #X obj 114 23 inlet;
@@ -3279,6 +3279,36 @@
 #X obj 331 347 dac~;
 #X obj 419 348 dac~;
 #X obj 500 350 dac~;
+#X obj 680 400 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#N canvas 0 92 450 300 mutex 0;
+#X obj 120 75 i;
+#X obj 120 96 + 1;
+#X obj 114 23 inlet;
+#X obj 79 228 outlet;
+#X obj 143 229 outlet;
+#X obj 120 143 select 0 1 2 3;
+#X obj 120 119 % 4;
+#X obj 200 229 outlet;
+#X obj 257 229 outlet;
+#X connect 0 0 1 0;
+#X connect 1 0 0 1;
+#X connect 1 0 6 0;
+#X connect 2 0 0 0;
+#X connect 5 0 3 0;
+#X connect 5 1 4 0;
+#X connect 5 2 7 0;
+#X connect 5 3 8 0;
+#X connect 6 0 5 0;
+#X restore 678 430 pd mutex;
+#X obj 673 468 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 683 478 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 693 488 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 703 498 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 1 0 16 0;
 #X connect 1 0 17 0;
 #X connect 1 0 18 0;
@@ -3322,3 +3352,8 @@
 #X connect 25 1 17 6;
 #X connect 25 2 18 6;
 #X connect 25 3 19 6;
+#X connect 29 0 30 0;
+#X connect 30 0 31 0;
+#X connect 30 1 32 0;
+#X connect 30 2 33 0;
+#X connect 30 3 34 0;
