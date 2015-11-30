@@ -19,6 +19,7 @@ public class Wave : Subscriber {
 	float cameraWidth;
 	bool active=false;
 	public GameObject Preview;
+	public GameObject levelManager;
 
 	// Use this for initialization
 	void Start () {
@@ -65,6 +66,7 @@ public class Wave : Subscriber {
 			}
 
 			if(currentBar==bars){
+								levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
 								star.GetComponent<BeatGen>().Unsubscribe(this);
 								Destroy(this.gameObject);
 			}

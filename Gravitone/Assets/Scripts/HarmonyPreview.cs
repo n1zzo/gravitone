@@ -25,4 +25,9 @@ public class HarmonyPreview : MonoBehaviour {
 		i=0;
 	}
 
+	public void setPreview(int[] note, string[] typs){
+		notes=note;
+		types=typs;
+	}
+
 }

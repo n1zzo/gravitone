@@ -5,11 +5,16 @@ public class Drag : MonoBehaviour {
 
 	private Vector3 screenPoint;
 	private Vector3 offset;
-	private Collider2D lastCollision;
 	float afterColliderRadius;
+	public float[] radiusOrbits;
+	public int orbitNumber=0;
+
+	void Start(){}
 
 	void OnMouseDown () {
+
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
 			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
 	}
 
@@ -24,12 +29,19 @@ public class Drag : MonoBehaviour {
 			// Assign the planet to the nearest orbit.
 			// Get the radius from the orbit and give it to Rotate.cs
 			// Deactivate the drag functionality
-			if(lastCollision){
+			int count=0;
+			foreach (float orbit in radiusOrbits){
+				float x=transform.position.x;
+				float y=transform.position.y;
+				if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
+
+					Debug.Log(orbit);
+
+					orbitNumber=count;
 
 					GetComponent<Rotate>().enabled=true;
-					GetComponent<Rotate>().setRadius(lastCollision.gameObject.GetComponent<Ring>().GetRadius());
-					lastCollision.gameObject.GetComponent<Ring>().SetItHas();
-					lastCollision.gameObject.GetComponent<Ring>().SetPlanet(gameObject);
+
+					GetComponent<Rotate>().setRadius(orbit);
 
 					// We can adjust this to avoid the CHORD DELAY !!!!
 					afterColliderRadius=1f;
@@ -38,22 +50,16 @@ public class Drag : MonoBehaviour {
 
 					GetComponent<ChordPlanet>().active=true;
 
-					GetComponent<Drag>().enabled=false;
+					if(GetComponent<ChordPlanet>().active)
+						GetComponent<Drag>().enabled=false;
+
+					break;
+
+				}
+				count++;
 			}
+
 
 	}
-
-	void OnTriggerEnter2D(Collider2D other) {
-
-		//Only if it encounters an empty orbit there is a collision
-			if(other.gameObject.tag=="orbit"){
-				if(!other.gameObject.GetComponent<Ring>().HasPlanet())
-					lastCollision = other;
-				else
-					lastCollision = null;
-
-			}
-
-  }
 
 }
