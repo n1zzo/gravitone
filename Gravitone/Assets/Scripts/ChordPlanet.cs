@@ -30,8 +30,12 @@ public class ChordPlanet : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 			if(active && other.gameObject.tag=="wave"){
 	    // The planet has been hit by a wave and he is in an orbit
-			audioManager.GetComponent<AudioManager>().PlayChord(baseNote, chordName);
+			Play();
 		}
   }
+
+	public void Play() {
+		audioManager.GetComponent<AudioManager>().PlayChord(baseNote, chordName);
+	}
 
 }

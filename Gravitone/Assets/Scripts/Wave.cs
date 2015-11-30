@@ -57,15 +57,15 @@ public class Wave : Subscriber {
 						orbitsRadius[currentOrbits] = spriteRenderer.bounds.extents.x;
 						rings[currentOrbits].SetActive(true);
 						rings[currentOrbits].GetComponent<Ring>().SetSize(transform.localScale);
+						// Pass the current ring position to the preview object and create a planet
+						Preview.GetComponent<HarmonyPreview>().AddPlanet(orbitsRadius[currentOrbits]);
+						// Increment orbit number
 						currentOrbits++;
 					}
 			}
 
 			if(currentBar==bars){
 								star.GetComponent<BeatGen>().Unsubscribe(this);
-								// Pass the rings positions to the preview object and triggers the preview.
-								Preview.GetComponent<HarmonyPreview>().orbitsRadius = orbitsRadius;
-								Preview.GetComponent<HarmonyPreview>().StartPreview();
 								Destroy(this.gameObject);
 			}
 		}
