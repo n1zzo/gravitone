@@ -63,7 +63,9 @@ public class Wave : Subscriber {
 
 			if(currentBar==bars){
 								star.GetComponent<BeatGen>().Unsubscribe(this);
+								// Pass the rings positions to the preview object and triggers the preview.
 								Preview.GetComponent<HarmonyPreview>().orbitsRadius = orbitsRadius;
+								Preview.GetComponent<HarmonyPreview>().StartPreview();
 								Destroy(this.gameObject);
 			}
 		}

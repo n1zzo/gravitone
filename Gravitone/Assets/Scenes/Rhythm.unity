@@ -1231,6 +1231,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c7537e8e0c048c8ba6df37f398a013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previewPlanetPrefab: {fileID: 194956, guid: 6ec3c11d851c2472d859614361f3f9db, type: 2}
+  audioManager: {fileID: 1590554890}
   orbitsRadius: []
 --- !u!1 &721453208
 GameObject:
@@ -1308,6 +1310,7 @@ MonoBehaviour:
   star: {fileID: 810106420}
   textField: {fileID: 1642648028}
   canvas: {fileID: 1770329130}
+  trail: {fileID: 1494388173}
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0
