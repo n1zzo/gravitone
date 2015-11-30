@@ -58,7 +58,7 @@ public class Wave : Subscriber {
 						rings[currentOrbits].SetActive(true);
 						rings[currentOrbits].GetComponent<Ring>().SetSize(transform.localScale);
 						// Pass the current ring position to the preview object and create a planet
-						Preview.GetComponent<HarmonyPreview>().AddPlanet(orbitsRadius[currentOrbits]);
+						Preview.GetComponent<HarmonyPreview>().PlayPlanet(orbitsRadius[currentOrbits]);
 						// Increment orbit number
 						currentOrbits++;
 					}

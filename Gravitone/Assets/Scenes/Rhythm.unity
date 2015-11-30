@@ -1233,7 +1233,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewPlanetPrefab: {fileID: 194956, guid: 6ec3c11d851c2472d859614361f3f9db, type: 2}
   audioManager: {fileID: 1590554890}
-  orbitsRadius: []
 --- !u!1 &721453208
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,6 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc57519aea2ec894094cab257c4238f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 0}
 --- !u!212 &746159909
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2043,6 +2043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc57519aea2ec894094cab257c4238f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 0}
 --- !u!212 &1026266630
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2129,7 +2130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
   radius: 1
-  clockwise: 1
+  clockwise: 0
 --- !u!50 &1136896605
 Rigidbody2D:
   serializedVersion: 2
@@ -2673,6 +2674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc57519aea2ec894094cab257c4238f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 0}
 --- !u!212 &1387818924
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2872,7 +2874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
   radius: 1
-  clockwise: 1
+  clockwise: 0
 --- !u!50 &1589684509
 Rigidbody2D:
   serializedVersion: 2
@@ -3592,6 +3594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc57519aea2ec894094cab257c4238f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planet: {fileID: 0}
 --- !u!212 &2133724223
 SpriteRenderer:
   m_ObjectHideFlags: 0

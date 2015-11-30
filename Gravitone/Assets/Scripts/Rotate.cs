@@ -4,7 +4,7 @@ using System.Collections;
 public class Rotate : Subscriber {
 
 	public GameObject star;
-	public float radius = 1f;
+	public float radius;
 	public bool clockwise = true;
 	float starX;
 	float starY;
@@ -19,7 +19,7 @@ public class Rotate : Subscriber {
 		// Gets the x and y coordinates and bpm from the reference star
 		starX = star.GetComponent<BeatGen>().x;
 		starY = star.GetComponent<BeatGen>().y;
-
+		
 		star.GetComponent<BeatGen>().Subscribe(this);
 
 		float progress = star.GetComponent<BeatGen>().progress;
