@@ -1306,12 +1306,19 @@ MonoBehaviour:
   star: {fileID: 810106420}
   wave: {fileID: 1747900794}
   wavePrefab: {fileID: 196342, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
+  prev: {fileID: 714782745}
   bars: 4
   planets:
   - {fileID: 447429923}
   - {fileID: 1589684506}
   - {fileID: 928358811}
   - {fileID: 1136896602}
+  notes: 32000000320000003200000037000000
+  types:
+  - M
+  - m
+  - M7
+  - M7
 --- !u!114 &721453212
 MonoBehaviour:
   m_ObjectHideFlags: 0
