@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2ef1dca8963433d9649a85c97a44f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 128
+  bpm: 170
   beatsPerBar: 4
   subBeatsPerBeat: 4
   granularity: 1
@@ -2030,7 +2030,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
-  fireKey: z
   targetDrumArray: 00000000010000000000000001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &1026266627
 GameObject:
@@ -3047,7 +3046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1642648029
 RectTransform:
   m_ObjectHideFlags: 0

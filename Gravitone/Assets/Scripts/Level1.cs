@@ -19,9 +19,12 @@ public class Level1 : Subscriber {
 	int granularity = 0;
 	int currentIndex=0;
 	int totalBeats=0;
+	int barNumber=-1;
 
 	bool[] playerDrumArray;
 	bool[] targetDrumArray;
+	bool countdown=false;
+	bool checkInput;
 
 	float correctness = 0;
 
@@ -29,7 +32,6 @@ public class Level1 : Subscriber {
 	void Start () {
 
 		canvas.SetActive(true);
-		trail.SetActive(true);
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
@@ -53,22 +55,47 @@ public class Level1 : Subscriber {
 
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 
-			if(currentInstrument.GetComponent<Drum>().CheckFire())
-				CompareArrays();
+			if(currentInstrument.GetComponent<Drum>().CheckFire()){
+								checkInput=true;
+								if ( barNumber>2){
+												barNumber=-1;
+												Cancel();
+												correctness=0;
+								}
+			}
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
 		// check every bar if the array is correct
-		if(currentSlot%subBeatsPerBeat == 0){
-			CompareArrays();
+		int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
+		if(countdown && beat!=0) {
+			textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
+	 	} else if(countdown)
+			textField.GetComponent<Text>().text = "Prepare to Tap!";
+		else {
+			textField.GetComponent<Text>().text = "";
+		}
 
-			if(currentSlot == 0)
+			if(currentSlot == 0){
+					barNumber++;
+
+					switch(barNumber){
+						case 0: trail.SetActive(true); SetPlayPreview(); break;
+						case 1: SetStopPreview(); countdown=true; trail.SetActive(false); break;
+						case 2: trail.SetActive(true); countdown=false; checkInput=false; SetRecord(); break;
+						case 3: trail.SetActive(false);
+							if(checkInput){
+								SetRecord();
+								CompareArrays();
+							} else {barNumber=1; countdown=true;}break;
+					}
 					audioManager.GetComponent<AudioManager>().HighBeat();
-			else
+			}
+
+			else if(currentSlot%subBeatsPerBeat==0)
 					audioManager.GetComponent<AudioManager>().LowBeat();
-				}
 
 	}
 
@@ -113,17 +140,21 @@ public class Level1 : Subscriber {
 
 			if(correctness==1 || totalBeats==0)
 				ChangeState();
+
 	}
 
 	void ChangeState() {
-			StartCoroutine(ShowMessage("Stage Passed!", 2));
+
+
+			//StartCoroutine(ShowMessage("Stage Passed!", 2));
 			currentIndex++;
 			currentInstrument.transform.localScale= new Vector3 (1,1,1);
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
 
 			if((currentIndex < drums.Length)){
-
+				correctness=0;
+				barNumber=-1;
 				string oldState=currentInstrument.GetComponent<Drum>().GetCurrentState();
 				currentInstrument=drums[currentIndex];
 				currentInstrument.SetActive(true);
@@ -152,11 +183,11 @@ public class Level1 : Subscriber {
 			drum.GetComponent<Drum>().Autocomplete();
 	}
 
-	IEnumerator ShowMessage (string message, float delay) {
+/*	IEnumerator ShowMessage (string message, float delay) {
 		 textField.GetComponent<Text>().text = message;
 		 textField.SetActive(true);
 		 yield return new WaitForSeconds(delay);
 		 textField.SetActive(false);
-	}
+	}*/
 
 }

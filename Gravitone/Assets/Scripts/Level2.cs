@@ -46,7 +46,8 @@ public class Level2 : Subscriber {
 					currentBar=0;
 					score=0;
 					foreach(GameObject planet in planets)
-						if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
+						if(planet.GetComponent<Drag>().orbitNumber!=-1 && 
+									planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
 							score++;
 				}
 				currentBar++;
