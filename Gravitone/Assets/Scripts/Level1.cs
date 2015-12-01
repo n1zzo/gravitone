@@ -54,7 +54,6 @@ public class Level1 : Subscriber {
 	void Update () {
 
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
-
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
 								checkInput=true;
 								if ( barNumber>2){
@@ -67,6 +66,8 @@ public class Level1 : Subscriber {
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
+
+		CompareArrays();
 
 		// check every bar if the array is correct
 		int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);

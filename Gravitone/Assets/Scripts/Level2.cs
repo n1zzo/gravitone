@@ -41,17 +41,30 @@ public class Level2 : Subscriber {
 	public override void Beat(int currentSlot) {
 
 		if(currentSlot==numberOfThirdBeat){
-				if (currentBar==bars) {
-					Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity);
-					currentBar=0;
-					score=0;
-					foreach(GameObject planet in planets)
-						if(planet.GetComponent<Drag>().orbitNumber!=-1 && 
-									planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
+			if (currentBar==bars) {
+				Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+				currentBar=0;
+				score=0;
+				int placed = 0;
+				foreach(GameObject planet in planets)
+					if(planet.GetComponent<Drag>().orbitNumber!=-1) {
+						placed++;
+						if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
 							score++;
+					}
+				if(placed == notes.Length) {
+					// The player has placed all the planets check the score
+					if(score < notes.Length)
+						CollapsePlanets();
+					else
+						NextLevel();
 				}
-				currentBar++;
 			}
+			currentBar++;
+		}
+
+
+
 	}
 
 	public void setRadiusPlanets(float[] radius){
@@ -61,4 +74,13 @@ public class Level2 : Subscriber {
 		}
 	}
 
+	public void CollapsePlanets() {
+		Debug.Log("BOOOOM!");
+		score = 0;
+	}
+
+	public void NextLevel() {
+		Debug.Log("NEXT LEVEL!");
+		score = 0;
+	}
 }
