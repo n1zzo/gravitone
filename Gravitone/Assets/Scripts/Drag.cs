@@ -7,7 +7,7 @@ public class Drag : MonoBehaviour {
 	private Vector3 offset;
 	float afterColliderRadius;
 	public float[] radiusOrbits;
-	public int orbitNumber=0;
+	public int orbitNumber=-1;
 
 	void Start(){}
 

@@ -4,7 +4,7 @@ using System.Collections;
 public class Drum : Subscriber {
 
 	public GameObject star;
-	public string fireKey="";
+	string fireKey="m";
 	protected float scaleStep=0.5f;
 	protected int currentSlot = 0;
 	protected int lastSlot = -1;
@@ -129,7 +129,7 @@ public class Drum : Subscriber {
 			currentState = "drumRecord";
 	}
 
-	protected bool CheckFire(){
+	public bool CheckFire(){
 
 		if(isActive){
 			//check if our current system info equals a desktop

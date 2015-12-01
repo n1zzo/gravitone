@@ -53,6 +53,8 @@ public class Level1 : Subscriber {
 
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 
+			if(currentInstrument.GetComponent<Drum>().CheckFire())
+				CompareArrays();
 	}
 
 	// This method is called for each beat
@@ -98,6 +100,7 @@ public class Level1 : Subscriber {
 			for(int i=0; i<granularity; i++)
 				if(targetDrumArray[i] && playerDrumArray[i])
 						hit++;
+
 			 else if(playerDrumArray[i])
 						wrong++;
 
