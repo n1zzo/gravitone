@@ -18,7 +18,6 @@ public class Drum : Subscriber {
 	public bool[] targetDrumArray = new bool[64];
 	bool isActive=false;
 
-	string previousState="drumPlay";
 	string currentState = "drumPlay";
 
 	// Use this for initialization
@@ -59,10 +58,6 @@ public class Drum : Subscriber {
 
 	public void UpdatePlay() {
 
-		if (CheckFire()) {
-			PlayDrum();
-		}
-
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
 			if (slots[currentSlot])
@@ -70,6 +65,7 @@ public class Drum : Subscriber {
 			lastSlot=currentSlot;
 			lastBeat = false;
 		}
+		
 	}
 
 	public void UpdatePreview() {
@@ -164,16 +160,16 @@ public class Drum : Subscriber {
 	}
 
 	public void PlayPreview() {
-		star.GetComponent<BeatGen>().progress=0;
+
 		lastSlot=-1;
 
-			previousState=currentState;
+
 		// in all cases it becomes preview.
 			currentState = "drumPreview";
 	}
 
 	public void StopPreview() {
-		currentState = previousState;
+		currentState = "drumPlay";
 	}
 
 	public void widenEffect(float correctness){

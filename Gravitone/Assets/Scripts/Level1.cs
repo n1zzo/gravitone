@@ -56,10 +56,13 @@ public class Level1 : Subscriber {
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
 								checkInput=true;
-								if ( barNumber>2){
+								if ( barNumber>4){
 												barNumber=-1;
 												Cancel();
 												correctness=0;
+								} else if ( barNumber==0) {
+									barNumber++;
+									star.GetComponent<BeatGen>().progress=0.97f;
 								}
 			}
 	}
@@ -67,7 +70,8 @@ public class Level1 : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		CompareArrays();
+		// for testing purpose only
+		//CompareArrays();
 
 		// check every bar if the array is correct
 		int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
@@ -75,24 +79,32 @@ public class Level1 : Subscriber {
 			textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
 	 	} else if(countdown)
 			textField.GetComponent<Text>().text = "Prepare to Tap!";
-		else {
-			textField.GetComponent<Text>().text = "";
-		}
 
-			if(currentSlot == 0){
+			if(currentSlot == granularity-1){
+
+				if(barNumber!=0)
 					barNumber++;
 
-					switch(barNumber){
-						case 0: trail.SetActive(true); SetPlayPreview(); break;
-						case 1: SetStopPreview(); countdown=true; trail.SetActive(false); break;
-						case 2: trail.SetActive(true); countdown=false; checkInput=false; SetRecord(); break;
-						case 3: trail.SetActive(false);
-							if(checkInput){
-								SetRecord();
-								CompareArrays();
-							} else {barNumber=1; countdown=true;}break;
-					}
-					audioManager.GetComponent<AudioManager>().HighBeat();
+				if(barNumber==2){
+					SetStopPreview();
+					countdown=true;
+					trail.SetActive(false);
+				}
+
+			} else if ( currentSlot==0) {
+				audioManager.GetComponent<AudioManager>().HighBeat();
+
+				// Skip 1 because we will increase the barNumber 2 times
+				switch(barNumber){
+					case 0: trail.SetActive(true); SetPlayPreview(); textField.GetComponent<Text>().text = "Tap to Play!"; break;
+					case 3: trail.SetActive(true); countdown=false; textField.GetComponent<Text>().text = ""; checkInput=false; SetRecord(); break;
+					case 4:
+						if(checkInput){
+							star.GetComponent<BeatGen>().progress=0f;
+							SetRecord();
+							CompareArrays();
+						} else {trail.SetActive(false); barNumber=2; countdown=true;}break;
+				}
 			}
 
 			else if(currentSlot%subBeatsPerBeat==0)

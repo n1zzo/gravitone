@@ -2513,11 +2513,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1770329131}
   m_RootOrder: 0
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -803, y: -124}
-  m_SizeDelta: {x: 1500, y: 150}
-  m_Pivot: {x: .5, y: .5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 984, y: -175}
+  m_SizeDelta: {x: 1800, y: 207}
+  m_Pivot: {x: .499999881, y: .49999994}
 --- !u!114 &1642648030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2544,12 +2544,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 2
+    m_Alignment: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stage Passed!
+  m_Text: 
 --- !u!222 &1642648031
 CanvasRenderer:
   m_ObjectHideFlags: 0
