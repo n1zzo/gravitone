@@ -70,9 +70,6 @@ public class Level1 : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		// for testing purpose only
-		//CompareArrays();
-
 		// check every bar if the array is correct
 		int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
 		if(countdown && beat!=0) {
@@ -194,6 +191,7 @@ public class Level1 : Subscriber {
 	public void Autocomplete(){
 		foreach (GameObject drum in drums)
 			drum.GetComponent<Drum>().Autocomplete();
+			CompareArrays();
 	}
 
 /*	IEnumerator ShowMessage (string message, float delay) {
