@@ -1238,7 +1238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusOrbits: []
-  orbitNumber: 0
+  orbitNumber: -1
 --- !u!114 &928358813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,7 +1600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusOrbits: []
-  orbitNumber: 0
+  orbitNumber: -1
 --- !u!114 &1136896604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2346,7 +2346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radiusOrbits: []
-  orbitNumber: 0
+  orbitNumber: -1
 --- !u!114 &1589684508
 MonoBehaviour:
   m_ObjectHideFlags: 0
