@@ -8,6 +8,7 @@ TagManager:
   - star
   - planet
   - orbit
+  - dot
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - wave
   - orbit
   - planet
-  - 
+  - dot
   - 
   - 
   - 
@@ -44,4 +45,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: dot
+    uniqueID: 1169454939
+    locked: 0
+  - name: orbit
+    uniqueID: 4281165753
+    locked: 0
+  - name: planet
+    uniqueID: 3760061459
+    locked: 0
+  - name: star
+    uniqueID: 3372220773
+    locked: 0
+  - name: wave
+    uniqueID: 2077611781
     locked: 0

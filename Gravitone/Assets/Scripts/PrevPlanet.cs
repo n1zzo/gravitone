@@ -3,6 +3,8 @@ using System.Collections;
 
 public class PrevPlanet : MonoBehaviour {
 
+	public float speed = 0.01f;
+
 	// Use this for initialization
 	void Start () {
 
@@ -11,11 +13,11 @@ public class PrevPlanet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Color newColor = GetComponent<Renderer>().material.color;
-		newColor.a-=0.01f;
+		newColor.a-=speed;
 		if(newColor.a>0)
 			GetComponent<Renderer>().material.SetColor("_Color", newColor);
 		else
 			Destroy(this.gameObject);
-
 	}
+
 }

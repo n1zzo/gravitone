@@ -10,6 +10,7 @@ public class Level1 : Subscriber {
 	public GameObject textField;
 	public GameObject canvas;
 	public GameObject trail;
+	public GameObject[] dotPrefab;
 	GameObject audioManager;
 
 	GameObject currentInstrument;
@@ -53,32 +54,58 @@ public class Level1 : Subscriber {
 	// Update is called once per frame
 	void Update () {
 
-			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
-								checkInput=true;
-								if ( barNumber>4){
-												barNumber=-1;
+
+								if ( barNumber==4 || barNumber==3) {
+
+									int slot=currentInstrument.GetComponent<Drum>().UpdateRecord();
+
+									if(targetDrumArray[slot]){
+
+											Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
+											correctness += 1/(float)totalBeats;
+
+										}
+									else {
+										Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
+										if(correctness>0){
+												correctness -= 1/(float)totalBeats;
+											}
+									}
+								} else if ( barNumber>5){
+
 												Cancel();
-												correctness=0;
+
 								} else if ( barNumber==0) {
+
 									barNumber++;
 									star.GetComponent<BeatGen>().progress=0.97f;
+
 								}
+								checkInput=true;
 			}
+
+			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
+
 	}
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		CompareArrays();
+			if(barNumber==2){
+				int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
+				if(countdown && beat!=0) {
+					textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
+			 	} else if(countdown)
+					textField.GetComponent<Text>().text = "Prepare to Tap!";
+				if(currentSlot==granularity-1)
+					barNumber++;
+			}
 
-		int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
-		if(countdown && beat!=0) {
-			textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
-	 	} else if(countdown)
-			textField.GetComponent<Text>().text = "Prepare to Tap!";
 
-			if(currentSlot == granularity-1){
+			if ( currentSlot==0) {
+
+				audioManager.GetComponent<AudioManager>().HighBeat();
 
 				if(barNumber!=0)
 					barNumber++;
@@ -89,25 +116,51 @@ public class Level1 : Subscriber {
 					trail.SetActive(false);
 				}
 
-			} else if ( currentSlot==0) {
-				audioManager.GetComponent<AudioManager>().HighBeat();
-
-				// Skip 1 because we will increase the barNumber 2 times
+				// Skip 1 and 3 because we will increase the barNumber 2 times
 				switch(barNumber){
-					case 0: trail.SetActive(true); SetPlayPreview(); textField.GetComponent<Text>().text = "Tap to Play!"; break;
-					case 3: trail.SetActive(true); countdown=false; textField.GetComponent<Text>().text = ""; checkInput=false; SetRecord(); break;
+					case 0:
+						trail.SetActive(true);
+						trail.GetComponent<Trail>().SetInitialPosition();
+						SetPlayPreview();
+						textField.GetComponent<Text>().text = "Tap to Play!";
+						break;
 					case 4:
+						trail.SetActive(true);
+						trail.GetComponent<Trail>().SetInitialPosition();
+						countdown=false;
+						textField.GetComponent<Text>().text = "";
+						checkInput=false;
+						SetRecord();
+						break;
+					case 5:
 						if(checkInput){
 							star.GetComponent<BeatGen>().progress=0f;
 							SetRecord();
 							CompareArrays();
-						} else {trail.SetActive(false); barNumber=2; countdown=true;}break;
+						} else {
+							trail.SetActive(false);
+							barNumber=2;
+							countdown=true;
+						}
+						break;
 				}
 			}
 
 			else if(currentSlot%subBeatsPerBeat==0)
 					audioManager.GetComponent<AudioManager>().LowBeat();
 
+			if(trail.activeSelf && targetDrumArray[currentSlot])
+					Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
+
+			if(barNumber>4){
+
+				if(playerDrumArray[currentSlot] && targetDrumArray[currentSlot])
+						Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
+
+				else if(playerDrumArray[currentSlot])
+					Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
+
+			}
 	}
 
 	public void SetRecord () {
@@ -123,41 +176,33 @@ public class Level1 : Subscriber {
 	}
 
 	public void Cancel(){
+		correctness=0;
+		barNumber=-1;
+		destroyDots();
 		currentInstrument.GetComponent<Drum>().Cancel();
+		trail.SetActive(false);
+	}
+
+	private void destroyDots(){
+		GameObject[] dots = GameObject.FindGameObjectsWithTag("dot");
+		foreach (GameObject dot in dots)
+				Destroy(dot);
 	}
 
 
 	void CompareArrays() {
+		playerDrumArray=currentInstrument.GetComponent<Drum>().GetDrumArray();
 
-			playerDrumArray = currentInstrument.GetComponent<Drum>().GetDrumArray();
-
-			int hit = 0;
-			int wrong = 0;
-
-			// This could be optimized
-			for(int i=0; i<granularity; i++)
-				if(targetDrumArray[i] && playerDrumArray[i])
-						hit++;
-
-			 else if(playerDrumArray[i])
-						wrong++;
-
-			int balance = hit - Mathf.RoundToInt(wrong/2);
-
-			if(balance > 0)
-				correctness = (float)balance/(float)totalBeats;
-			else
-				correctness = 0;
-
-			if(correctness==1 || totalBeats==0)
+			if(correctness>0.95 || totalBeats==0)
 				ChangeState();
 
 	}
 
 	void ChangeState() {
 
-
-			//StartCoroutine(ShowMessage("Stage Passed!", 2));
+			destroyDots();
+			trail.SetActive(false);
+			textField.GetComponent<Text>().text = "Amazing!";
 			currentIndex++;
 			currentInstrument.transform.localScale= new Vector3 (1,1,1);
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
@@ -182,7 +227,6 @@ public class Level1 : Subscriber {
 
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				canvas.SetActive(false);
-				trail.SetActive(false);
 				GetComponent<LevelManager>().goToNextLevel();
 
 			}
@@ -195,7 +239,7 @@ public class Level1 : Subscriber {
 			correctness = 1;
 	}
 
-/*	IEnumerator ShowMessage (string message, float delay) {
+	/*IEnumerator ShowMessage (string message, float delay) {
 		 textField.GetComponent<Text>().text = message;
 		 textField.SetActive(true);
 		 yield return new WaitForSeconds(delay);
