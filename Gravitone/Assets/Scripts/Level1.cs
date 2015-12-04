@@ -11,8 +11,8 @@ public class Level1 : Subscriber {
 	public GameObject canvas;
 	public GameObject trail;
 	public GameObject[] dotPrefab;
-	GameObject audioManager;
 
+	GameObject audioManager;
 	GameObject currentInstrument;
 
 	int beatsPerBar = 4;
@@ -20,6 +20,8 @@ public class Level1 : Subscriber {
 	int granularity = 0;
 	int currentIndex=0;
 	int totalBeats=0;
+
+	//indicates our State. -1 is the first Start
 	int barNumber=-1;
 
 	bool[] playerDrumArray;
@@ -35,12 +37,15 @@ public class Level1 : Subscriber {
 		canvas.SetActive(true);
 
 		star.GetComponent<BeatGen>().Subscribe(this);
+
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
 		subBeatsPerBeat = star.GetComponent<BeatGen>().subBeatsPerBeat;
 		granularity = beatsPerBar * subBeatsPerBeat;
+
 		currentInstrument=drums[currentIndex];
 		currentInstrument.SetActive(true);
 		currentInstrument.GetComponent<Drum>().SetActiveness(true);
+
 		targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 
 		for(int i=0; i<granularity; i++)
@@ -56,35 +61,45 @@ public class Level1 : Subscriber {
 
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
 
+								/* States 4 and 3 are RECORDING States */
 								if ( barNumber==4 || barNumber==3) {
 
+									// call the Recording drum state and returns the memorized slot
 									int slot=currentInstrument.GetComponent<Drum>().UpdateRecord();
 
+									// We create a Dot and calculate the correctness according to
+									// the effective correctness
 									if(targetDrumArray[slot]){
 
 											Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
 											correctness += 1/(float)totalBeats;
 
 										}
-									else {
-										Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
-										if(correctness>0){
-												correctness -= 1/(float)totalBeats;
+										else {
+											Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
+											if(correctness>0){
+													correctness -= 1/(float)totalBeats;
 											}
-									}
-								} else if ( barNumber>5){
+										}
+
+									/*5 is first listen state, then there are the other listen States */
+									} else if ( barNumber>5){
 
 												Cancel();
 
+								//State 0 is the preview state. We go on only when there is a TAP
 								} else if ( barNumber==0) {
 
 									barNumber++;
 									star.GetComponent<BeatGen>().progress=0.97f;
 
 								}
+
+								// recognize if there has Been a Tap from when it was false
 								checkInput=true;
 			}
 
+			//call the function to give a limit to the planet's size according to the correctness
 			currentInstrument.GetComponent<Drum>().widenEffect(correctness);
 
 	}
@@ -92,12 +107,15 @@ public class Level1 : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
+			//Handle the Countdown if we are in Countdown State
 			if(barNumber==2){
 				int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
 				if(countdown && beat!=0) {
 					textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
 			 	} else if(countdown)
 					textField.GetComponent<Text>().text = "Prepare to Tap!";
+
+					// here we are passing to state 3, the PRE-recording state
 				if(currentSlot==granularity-1)
 					barNumber++;
 			}
@@ -110,20 +128,26 @@ public class Level1 : Subscriber {
 				if(barNumber!=0)
 					barNumber++;
 
-				if(barNumber==2){
-					SetStopPreview();
-					countdown=true;
-					trail.SetActive(false);
-				}
-
-				// Skip 1 and 3 because we will increase the barNumber 2 times
+				// Skip number 1 because we will increase the barNumber 2 times for the same state
+				// State 3 only corrects a quantization issue
 				switch(barNumber){
+
+					// Set Preview State
 					case 0:
 						trail.SetActive(true);
 						trail.GetComponent<Trail>().SetInitialPosition();
 						SetPlayPreview();
 						textField.GetComponent<Text>().text = "Tap to Play!";
 						break;
+
+					// Set Countdown State
+					case 2:
+						SetStopPreview();
+						countdown=true;
+						trail.SetActive(false);
+						break;
+
+					// Set Recording State
 					case 4:
 						trail.SetActive(true);
 						trail.GetComponent<Trail>().SetInitialPosition();
@@ -132,6 +156,8 @@ public class Level1 : Subscriber {
 						checkInput=false;
 						SetRecord();
 						break;
+
+					// Set listen State
 					case 5:
 						if(checkInput){
 							star.GetComponent<BeatGen>().progress=0f;
@@ -149,9 +175,11 @@ public class Level1 : Subscriber {
 			else if(currentSlot%subBeatsPerBeat==0)
 					audioManager.GetComponent<AudioManager>().LowBeat();
 
+			// SetS the target drum dots
 			if(trail.activeSelf && targetDrumArray[currentSlot])
 					Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
 
+			/*on the listen States we must reinsert the dots according to player's drum*/
 			if(barNumber>4){
 
 				if(playerDrumArray[currentSlot] && targetDrumArray[currentSlot])
@@ -178,17 +206,9 @@ public class Level1 : Subscriber {
 	public void Cancel(){
 		correctness=0;
 		barNumber=-1;
-		destroyDots();
 		currentInstrument.GetComponent<Drum>().Cancel();
 		trail.SetActive(false);
 	}
-
-	private void destroyDots(){
-		GameObject[] dots = GameObject.FindGameObjectsWithTag("dot");
-		foreach (GameObject dot in dots)
-				Destroy(dot);
-	}
-
 
 	void CompareArrays() {
 		playerDrumArray=currentInstrument.GetComponent<Drum>().GetDrumArray();
@@ -200,7 +220,6 @@ public class Level1 : Subscriber {
 
 	void ChangeState() {
 
-			destroyDots();
 			trail.SetActive(false);
 			textField.GetComponent<Text>().text = "Amazing!";
 			currentIndex++;
@@ -211,10 +230,8 @@ public class Level1 : Subscriber {
 			if((currentIndex < drums.Length)){
 				correctness=0;
 				barNumber=-1;
-				string oldState=currentInstrument.GetComponent<Drum>().GetCurrentState();
 				currentInstrument=drums[currentIndex];
 				currentInstrument.SetActive(true);
-				drums[currentIndex].GetComponent<Drum>().SetCurrentState(oldState);
 				currentInstrument.GetComponent<Drum>().SetActiveness(true);
 				targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 				totalBeats=0;
@@ -233,10 +250,15 @@ public class Level1 : Subscriber {
 
 	}
 
+	//for testing purposes only
 	public void Autocomplete(){
-		foreach (GameObject drum in drums)
+		foreach (GameObject drum in drums){
+			drum.SetActive(true);
 			drum.GetComponent<Drum>().Autocomplete();
+			currentInstrument=drum;
 			correctness = 1;
+			ChangeState();
+		}
 	}
 
 	/*IEnumerator ShowMessage (string message, float delay) {

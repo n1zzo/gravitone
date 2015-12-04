@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 			Screen.orientation = ScreenOrientation.LandscapeLeft ;
 
-			//BeginFromLevel2();
+			//GetComponent<Level1>().Autocomplete();
 	}
 
 	// Update is called once per frame
@@ -27,10 +27,6 @@ public class LevelManager : MonoBehaviour {
 			GetComponent<Level2>().enabled=true;
 		}
 
-	}
-
-	public void BeginFromLevel2(){
-		GetComponent<Level1>().Autocomplete();
 	}
 
 }
