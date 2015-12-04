@@ -724,8 +724,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 721453210}
   - 114: {fileID: 721453209}
-  - 114: {fileID: 721453211}
   - 114: {fileID: 721453212}
+  - 114: {fileID: 721453211}
+  - 114: {fileID: 721453213}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -808,6 +809,23 @@ MonoBehaviour:
   - {fileID: 125730, guid: 51b2089e8609bb945b169bbe6adb6c85, type: 2}
   - {fileID: 154746, guid: 3ede296a787e8354888adb9893463f65, type: 2}
   - {fileID: 119786, guid: 0beed8062b9eb0148a8075b3655ddec6, type: 2}
+--- !u!114 &721453213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6704e1c93b4043bfac0676c9018f612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 804952610}
+  planets:
+  - {fileID: 447429923}
+  - {fileID: 1589684506}
+  - {fileID: 928358811}
+  - {fileID: 1136896602}
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0
@@ -914,6 +932,7 @@ GameObject:
   - 124: {fileID: 804952612}
   - 81: {fileID: 804952611}
   - 114: {fileID: 804952616}
+  - 114: {fileID: 804952617}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -999,6 +1018,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3c83c80bbdf4e19a78f4a1c5bf1c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &804952617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804952610}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0eef38ac2c674a4fa882c9112e0d089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  distance: 3
+  height: 3
+  damping: 5
+  smoothRotation: 1
+  followBehind: 1
+  rotationDamping: 10
 --- !u!1 &810106420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,6 +1622,33 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 7.75
+--- !u!1 &1043019052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1043019053}
+  m_Layer: 0
+  m_Name: Melody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1043019053
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1043019052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1136896602
 GameObject:
   m_ObjectHideFlags: 0
@@ -2486,7 +2550,7 @@ Transform:
   - {fileID: 82383300}
   - {fileID: 1178610813}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!114 &1590554892
 MonoBehaviour:
   m_ObjectHideFlags: 0

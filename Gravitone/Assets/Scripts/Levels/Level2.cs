@@ -77,14 +77,14 @@ public class Level2 : Subscriber {
 		}
 	}
 
+	// Here we will put a collapsing animation
 	public void CollapsePlanets() {
 		RestorePositions();
 		score = 0;
 	}
 
 	public void NextLevel() {
-		Debug.Log("NEXT LEVEL!");
-		score = 0;
+		GetComponent<LevelManager>().goToNextLevel();
 	}
 
 	// Saves the initial position of the planets in an array
@@ -110,6 +110,11 @@ public class Level2 : Subscriber {
 			planet.GetComponent<ChordPlanet>().active=false;
 			i++;
 		}
+	}
+
+	// This is for testing purposes only
+	public void Autocomplete(){
+		// [TODO] set placed and score to pass to the next level
 	}
 
 }
