@@ -16,6 +16,7 @@ public class Level2 : Subscriber {
 	public int[] notes = new int[4] {50,50,50,55};
 	public string[] types = new string[4] {"M", "m", "M7", "M7"};
 	private Vector3[] initialPositions = new Vector3[4];
+	int restoreCount=0;
 
 	// Use this for initialization
 	void Start () {
@@ -81,7 +82,7 @@ public class Level2 : Subscriber {
 	public void CollapsePlanets() {
 		foreach(GameObject planet in planets) {
 			// Pass the restore positions method to the collapse script
-			planet.GetComponent<Collapse>().SetRestore(RestorePositions);
+			planet.GetComponent<Collapse>().SetRestore(proxyRestore);
 			planet.GetComponent<Collapse>().enabled=true;
 		}
 		score = 0;
@@ -100,9 +101,17 @@ public class Level2 : Subscriber {
 		}
 	}
 
+	public void proxyRestore(){
+		restoreCount++;
+		if(restoreCount==planets.Length)
+			RestorePositions();
+	}
+
 	// Reset all the planets to their initial states and positions
-	public void RestorePositions() {
+	void RestorePositions() {
+
 		int i = 0;
+
 		foreach(GameObject planet in planets) {
 			// Disable the rotation
 			planet.GetComponent<Rotate>().enabled=false;
@@ -114,6 +123,8 @@ public class Level2 : Subscriber {
 			planet.GetComponent<ChordPlanet>().active=false;
 			i++;
 		}
+
+		restoreCount=0;
 	}
 
 	// This is for testing purposes only
