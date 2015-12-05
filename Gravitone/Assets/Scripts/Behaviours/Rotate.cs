@@ -15,45 +15,38 @@ public class Rotate : Subscriber {
 
 	// Use this for initialization
 	void Start () {
-
 		// Gets the x and y coordinates and bpm from the reference star
 		starX = star.GetComponent<BeatGen>().x;
 		starY = star.GetComponent<BeatGen>().y;
-
 		star.GetComponent<BeatGen>().Subscribe(this);
-
 		float progress = star.GetComponent<BeatGen>().progress;
-
+		// Calculate the progress of the whole circumference
 		progress=(progress + currentBar)/bars;
-
-		offsetAngle = Mathf.Asin(transform.position.x/radius) - (progress * TWO_PI);
-
-		if(offsetAngle!=offsetAngle)
-				offsetAngle=0;
-
-
+		offsetAngle = OffsetFromPosition(progress);
 	}
 
 	// Update is called once per frame
 	void Update () {
-
-
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
-
+		// Calculate the progress of the whole circumference
 		progress=(progress + currentBar)/bars;
-
 		// Calculate the planet's position
 		transform.position = getPosition(progress * TWO_PI);
-
 	}
 
 	// Obtains the planet position from the planet's angle
 	Vector3 getPosition (float angle) {
-		if(clockwise)
-			return new Vector3(radius*Mathf.Sin(angle + offsetAngle) + starX, radius*Mathf.Cos(angle + offsetAngle) + starY, 0);
-		else
-			return new Vector3(radius*Mathf.Sin(-angle + offsetAngle + Mathf.PI) + starX, radius*Mathf.Cos(-angle + offsetAngle + Mathf.PI) + starY, 0);
+		// Apply initial offset
+		angle += offsetAngle;
+		// Consider counterclockwise option
+		if (!clockwise)
+			angle = -angle;
+		float x = radius*Mathf.Cos(angle);
+		float y = radius*Mathf.Sin(angle);
+		x += starX;
+		y += starY;
+		return new Vector3(x, y, 0);
 	}
 
 	// This method is called for each beat
@@ -66,8 +59,17 @@ public class Rotate : Subscriber {
 		 	}
 	}
 
-	public void setRadius (float rad){
-		radius=rad;
+	public void setRadius (float radius){
+		this.radius = radius;
+	}
+
+	private float OffsetFromPosition(float progress) {
+		float x = transform.position.x - starX;
+		float y = transform.position.y - starY;
+		float relativeAngle = Mathf.Atan2(y, x);
+		if(relativeAngle < 0)
+			relativeAngle += TWO_PI;
+		return relativeAngle - (progress*TWO_PI);
 	}
 
 }
