@@ -48,9 +48,9 @@ public class Drag : MonoBehaviour {
 		orbitNumber=count;
 
 		// Enable the rotation with the right radius
-		GetComponent<Rotate>().setRadius(orbit);
-		// Explicitly compute planet offset angle
-		GetComponent<Rotate>().ComputeOffset();
+		GetComponent<Rotate>().SetRadius(orbit);
+		// Force offset angle refresh
+		GetComponent<Rotate>().SetDirtyOffset();
 		// Enable the planet rotation
 		GetComponent<Rotate>().enabled=true;
 

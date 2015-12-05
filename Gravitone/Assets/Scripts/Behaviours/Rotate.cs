@@ -12,6 +12,7 @@ public class Rotate : Subscriber {
 	int currentBar=0;
 	int bars=4;
 	const float TWO_PI = 2*Mathf.PI;
+	private bool dirtyOffset = true;
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +24,10 @@ public class Rotate : Subscriber {
 
 	// Update is called once per frame
 	void Update () {
+		if (dirtyOffset) {
+			ComputeOffset();
+			dirtyOffset = false;
+		}
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
 		// Calculate the progress of the whole circumference
@@ -33,13 +38,11 @@ public class Rotate : Subscriber {
 
 	// Obtains the planet position from the planet's angle
 	private Vector3 getPosition (float angle) {
-
-		// Apply initial offset considering clockwise option
-		if(!clockwise)
-			angle += offsetAngle;
-		else
-			angle -= TWO_PI - offsetAngle;
-
+		// Apply initial offset
+		angle += offsetAngle;
+		// Consider clockwise option
+		if (clockwise)
+			angle = -angle;
 		float x = radius*Mathf.Cos(angle);
 		float y = radius*Mathf.Sin(angle);
 		x += starX;
@@ -57,7 +60,7 @@ public class Rotate : Subscriber {
 		 	}
 	}
 
-	public void setRadius (float radius){
+	public void SetRadius (float radius){
 		this.radius = radius;
 	}
 
@@ -70,11 +73,15 @@ public class Rotate : Subscriber {
 		offsetAngle = relativeAngle - (progress*TWO_PI);
 	}
 
-	public void ComputeOffset() {
+	private void ComputeOffset() {
 		float progress = star.GetComponent<BeatGen>().progress;
 		// Calculate the progress of the whole circumference
 		progress=(progress + currentBar)/bars;
 		OffsetFromPosition(progress);
+	}
+
+	public void SetDirtyOffset() {
+		dirtyOffset = true;
 	}
 
 }
