@@ -5,7 +5,7 @@ public class Rotate : Subscriber {
 
 	public GameObject star;
 	public float radius;
-	public bool clockwise = true;
+	public bool clockwise;
 	float starX;
 	float starY;
 	float offsetAngle;
@@ -33,11 +33,13 @@ public class Rotate : Subscriber {
 
 	// Obtains the planet position from the planet's angle
 	private Vector3 getPosition (float angle) {
-		// Apply initial offset
-		angle += offsetAngle;
-		// Consider clockwise option
-		if (clockwise)
-			angle = -angle;
+
+		// Apply initial offset considering clockwise option
+		if(!clockwise)
+			angle += offsetAngle;
+		else
+			angle -= TWO_PI - offsetAngle;
+
 		float x = radius*Mathf.Cos(angle);
 		float y = radius*Mathf.Sin(angle);
 		x += starX;
