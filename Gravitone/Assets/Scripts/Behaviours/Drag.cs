@@ -35,30 +35,31 @@ public class Drag : MonoBehaviour {
 				float y=transform.position.y;
 				if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
-					Debug.Log(orbit);
-
-					orbitNumber=count;
-
-					GetComponent<Rotate>().enabled=true;
-
-					GetComponent<Rotate>().setRadius(orbit);
-
-					// We can adjust this to avoid the CHORD DELAY !!!!
-					afterColliderRadius=1f;
-
-					GetComponent<CircleCollider2D>().radius=afterColliderRadius;
-
-					GetComponent<ChordPlanet>().active=true;
-
-					if(GetComponent<ChordPlanet>().active)
-						GetComponent<Drag>().enabled=false;
-
+					AssignToOrbit(orbit, count);
 					break;
 
 				}
 				count++;
 			}
+	}
 
+	public void AssignToOrbit(float orbit, int count) {
+
+		orbitNumber=count;
+
+		// Enable the rotation with the right radius
+		GetComponent<Rotate>().setRadius(orbit);
+		GetComponent<Rotate>().enabled=true;
+
+		// We can adjust this to avoid the CHORD DELAY !!!!
+		afterColliderRadius=1f;
+		GetComponent<CircleCollider2D>().radius=afterColliderRadius;
+
+		// Let the planet sound as the wave passes
+		GetComponent<ChordPlanet>().active=true;
+
+		// Disable the drag function
+		GetComponent<Drag>().enabled=false;
 
 	}
 
