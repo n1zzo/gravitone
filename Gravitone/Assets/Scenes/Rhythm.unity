@@ -170,7 +170,7 @@ Transform:
 --- !u!4 &389361213 stripped
 Transform:
   m_PrefabParentObject: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-  m_PrefabInternal: {fileID: 523395136}
+  m_PrefabInternal: {fileID: 2126870119}
 --- !u!1 &407480667 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 184670, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
@@ -182,7 +182,7 @@ Transform:
 --- !u!1 &447429923 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-  m_PrefabInternal: {fileID: 523395136}
+  m_PrefabInternal: {fileID: 2126870119}
 --- !u!1001 &498021299
 Prefab:
   m_ObjectHideFlags: 0
@@ -314,84 +314,6 @@ Prefab:
     m_RemovedComponents:
     - {fileID: 11463050, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &523395136
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 595726780}
-    m_Modifications:
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -16.1299992
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.53999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403920, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 1590554890}
-    - target: {fileID: 11462692, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: star
-      value: 
-      objectReference: {fileID: 810106420}
-    - target: {fileID: 11403920, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: baseNote
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469432, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: afterColliderRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469432, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: audioManager
-      value: 
-      objectReference: {fileID: 1590554890}
-    - target: {fileID: 21216672, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_SortingOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalScale.z
-      value: .899999976
-      objectReference: {fileID: 0}
-    - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 21216672, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_SortingLayerID
-      value: -534905837
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &561320943
 GameObject:
@@ -898,7 +820,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1073,7 +997,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1273,6 +1199,7 @@ GameObject:
   - 58: {fileID: 928358815}
   - 50: {fileID: 928358814}
   - 114: {fileID: 928358813}
+  - 114: {fileID: 928358818}
   - 114: {fileID: 928358812}
   m_Layer: 0
   m_Name: ChordPlanet (2)
@@ -1376,7 +1303,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1384,6 +1313,19 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 1370c144d6a864343ab36ac30ac0621a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &928358818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928358811}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  acceleration: 1
 --- !u!1 &952765397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,7 +1462,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1601,7 +1545,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1662,6 +1608,7 @@ GameObject:
   - 58: {fileID: 1136896606}
   - 50: {fileID: 1136896605}
   - 114: {fileID: 1136896604}
+  - 114: {fileID: 1136896609}
   - 114: {fileID: 1136896603}
   m_Layer: 0
   m_Name: ChordPlanet (3)
@@ -1765,7 +1712,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1773,6 +1722,19 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: c974aa6fdc0987f44b6238c8a77aed3b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1136896609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136896602}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  acceleration: 1
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1807,7 +1769,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2261,7 +2225,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2318,7 +2284,9 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2363,7 +2331,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2408,6 +2378,7 @@ GameObject:
   - 58: {fileID: 1589684510}
   - 50: {fileID: 1589684509}
   - 114: {fileID: 1589684508}
+  - 114: {fileID: 1589684513}
   - 114: {fileID: 1589684507}
   m_Layer: 0
   m_Name: ChordPlanet (1)
@@ -2511,7 +2482,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2519,6 +2492,19 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 2d361b8081f46284eb533d387e11d716, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1589684513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589684506}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  acceleration: 1
 --- !u!1 &1590554890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2977,6 +2963,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 595726780}
   m_RootOrder: 7
+--- !u!1001 &2126870119
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 595726780}
+    m_Modifications:
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -16.1299992
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.53999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462692, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: star
+      value: 
+      objectReference: {fileID: 810106420}
+    - target: {fileID: 11403920, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1590554890}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2133724220
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,7 +3073,9 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}

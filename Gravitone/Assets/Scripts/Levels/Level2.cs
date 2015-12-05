@@ -79,7 +79,11 @@ public class Level2 : Subscriber {
 
 	// Here we will put a collapsing animation
 	public void CollapsePlanets() {
-		RestorePositions();
+		foreach(GameObject planet in planets) {
+			// Pass the restore positions method to the collapse script
+			planet.GetComponent<Collapse>().SetRestore(RestorePositions);
+			planet.GetComponent<Collapse>().enabled=true;
+		}
 		score = 0;
 	}
 
@@ -97,7 +101,7 @@ public class Level2 : Subscriber {
 	}
 
 	// Reset all the planets to their initial states and positions
-	private void RestorePositions() {
+	public void RestorePositions() {
 		int i = 0;
 		foreach(GameObject planet in planets) {
 			// Disable the rotation

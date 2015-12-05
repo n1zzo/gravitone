@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour {
 			Screen.orientation = ScreenOrientation.LandscapeLeft ;
 
 			// Testing only: skip to level 2 or 3
-			//GetComponent<Level1>().Autocomplete();
+			GetComponent<Level1>().Autocomplete();
 			//GetComponent<Level2>().NextLevel();
 	}
 
