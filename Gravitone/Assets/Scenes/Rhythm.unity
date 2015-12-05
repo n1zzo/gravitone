@@ -383,7 +383,7 @@ Transform:
   m_GameObject: {fileID: 1589684506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.0499992, y: -2.86999989, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .899999976}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 595726780}
   m_RootOrder: 6
@@ -756,7 +756,7 @@ Transform:
   m_GameObject: {fileID: 1136896602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.0900002, y: -3.02999997, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .899999976}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 595726780}
   m_RootOrder: 8
@@ -820,9 +820,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -997,9 +995,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1201,7 +1197,7 @@ GameObject:
   - 114: {fileID: 928358813}
   - 114: {fileID: 928358818}
   - 114: {fileID: 928358812}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChordPlanet (2)
   m_TagString: planet
   m_Icon: {fileID: 0}
@@ -1303,9 +1299,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1324,8 +1318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  acceleration: 1
 --- !u!1 &952765397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,9 +1454,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1545,9 +1535,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1610,7 +1598,7 @@ GameObject:
   - 114: {fileID: 1136896604}
   - 114: {fileID: 1136896609}
   - 114: {fileID: 1136896603}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChordPlanet (3)
   m_TagString: planet
   m_Icon: {fileID: 0}
@@ -1712,9 +1700,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1733,8 +1719,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  acceleration: 1
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,9 +1753,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2225,9 +2207,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2284,9 +2264,7 @@ TrailRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2331,9 +2309,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2380,7 +2356,7 @@ GameObject:
   - 114: {fileID: 1589684508}
   - 114: {fileID: 1589684513}
   - 114: {fileID: 1589684507}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ChordPlanet (1)
   m_TagString: planet
   m_Icon: {fileID: 0}
@@ -2482,9 +2458,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -2503,8 +2477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  acceleration: 1
 --- !u!1 &1590554890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,7 +2931,7 @@ Transform:
   m_GameObject: {fileID: 928358811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.8500004, y: 2.45000005, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: .899999976}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 595726780}
   m_RootOrder: 7
@@ -3010,6 +2982,14 @@ Prefab:
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1590554890}
+    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
   m_IsPrefabParent: 0
@@ -3073,9 +3053,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}

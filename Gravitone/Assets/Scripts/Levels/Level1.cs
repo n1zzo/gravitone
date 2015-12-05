@@ -61,14 +61,14 @@ public class Level1 : Subscriber {
 
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
 
-								/* States 4 and 3 are RECORDING States */
+								// States 4 and 3 are RECORDING States
 								if ( barNumber==4 || barNumber==3) {
 
 									// call the Recording drum state and returns the memorized slot
 									int slot=currentInstrument.GetComponent<Drum>().UpdateRecord();
 
-									// We create a Dot and calculate the correctness according to
-									// the effective correctness
+									/* We create a Dot and calculate the correctness according to
+									the effective correctness*/
 									if(targetDrumArray[slot]){
 
 											Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
@@ -109,11 +109,11 @@ public class Level1 : Subscriber {
 
 			//Handle the Countdown if we are in Countdown State
 			if(barNumber==2){
+
 				int beat=Mathf.RoundToInt(currentSlot/beatsPerBar);
-				if(countdown && beat!=0) {
+
+				if(countdown)
 					textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
-			 	} else if(countdown)
-					textField.GetComponent<Text>().text = "Prepare to Tap!";
 
 					// here we are passing to state 3, the PRE-recording state
 				if(currentSlot==granularity-1)
@@ -179,7 +179,7 @@ public class Level1 : Subscriber {
 			if(trail.activeSelf && targetDrumArray[currentSlot])
 					Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
 
-			/*on the listen States we must reinsert the dots according to player's drum*/
+			//on the listen States we must reinsert the dots according to player's drum
 			if(barNumber>4){
 
 				if(playerDrumArray[currentSlot] && targetDrumArray[currentSlot])
