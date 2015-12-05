@@ -19,10 +19,6 @@ public class Rotate : Subscriber {
 		starX = star.GetComponent<BeatGen>().x;
 		starY = star.GetComponent<BeatGen>().y;
 		star.GetComponent<BeatGen>().Subscribe(this);
-		float progress = star.GetComponent<BeatGen>().progress;
-		// Calculate the progress of the whole circumference
-		progress=(progress + currentBar)/bars;
-		offsetAngle = OffsetFromPosition(progress);
 	}
 
 	// Update is called once per frame
@@ -36,11 +32,11 @@ public class Rotate : Subscriber {
 	}
 
 	// Obtains the planet position from the planet's angle
-	Vector3 getPosition (float angle) {
+	private Vector3 getPosition (float angle) {
 		// Apply initial offset
 		angle += offsetAngle;
-		// Consider counterclockwise option
-		if (!clockwise)
+		// Consider clockwise option
+		if (clockwise)
 			angle = -angle;
 		float x = radius*Mathf.Cos(angle);
 		float y = radius*Mathf.Sin(angle);
@@ -63,13 +59,20 @@ public class Rotate : Subscriber {
 		this.radius = radius;
 	}
 
-	private float OffsetFromPosition(float progress) {
+	private void OffsetFromPosition(float progress) {
 		float x = transform.position.x - starX;
 		float y = transform.position.y - starY;
 		float relativeAngle = Mathf.Atan2(y, x);
 		if(relativeAngle < 0)
 			relativeAngle += TWO_PI;
-		return relativeAngle - (progress*TWO_PI);
+		offsetAngle = relativeAngle - (progress*TWO_PI);
+	}
+
+	public void ComputeOffset() {
+		float progress = star.GetComponent<BeatGen>().progress;
+		// Calculate the progress of the whole circumference
+		progress=(progress + currentBar)/bars;
+		OffsetFromPosition(progress);
 	}
 
 }

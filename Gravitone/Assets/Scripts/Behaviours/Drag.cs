@@ -49,6 +49,9 @@ public class Drag : MonoBehaviour {
 
 		// Enable the rotation with the right radius
 		GetComponent<Rotate>().setRadius(orbit);
+		// Explicitly compute planet offset angle
+		GetComponent<Rotate>().ComputeOffset();
+		// Enable the planet rotation
 		GetComponent<Rotate>().enabled=true;
 
 		// We can adjust this to avoid the CHORD DELAY !!!!
