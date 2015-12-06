@@ -10,8 +10,10 @@ public class Level3 : MonoBehaviour {
 	void Start () {
 
 		// Set the camera to follow the first planet.
-		cam.GetComponent<SmoothFollow>().target = planets[0].transform;
-		cam.GetComponent<SmoothFollow>().enabled = true;
+		cam.GetComponent<SmoothFollow2D>().target = planets[0].transform;
+		cam.GetComponent<SmoothFollow2D>().enabled = true;
+		cam.GetComponent<SmoothCamera>().setArrival(4f);
+		cam.GetComponent<SmoothCamera>().enabled=true;
 
 	}
 
