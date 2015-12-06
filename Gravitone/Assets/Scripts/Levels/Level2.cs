@@ -17,6 +17,7 @@ public class Level2 : Subscriber {
 	public string[] types = new string[4] {"M", "m", "M7", "M7"};
 	private Vector3[] initialPositions = new Vector3[4];
 	int restoreCount=0;
+	bool isWaiting=false;
 
 	// Use this for initialization
 	void Start () {
@@ -56,13 +57,18 @@ public class Level2 : Subscriber {
 						if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
 							score++;
 					}
-				if(placed == notes.Length) {
+				if(isWaiting) {
 					// The player has placed all the planets check the score
 					if(score < notes.Length)
 						CollapsePlanets();
 					else
 						NextLevel();
 				}
+
+				if(placed == notes.Length)
+							isWaiting=true;
+				else
+							isWaiting=false;
 			}
 			currentBar++;
 		}

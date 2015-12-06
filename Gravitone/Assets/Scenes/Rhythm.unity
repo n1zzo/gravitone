@@ -183,6 +183,18 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
   m_PrefabInternal: {fileID: 2126870119}
+--- !u!114 &447429931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447429923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f52e4a0618c55f4f85f144dbcd25633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backward: 0
 --- !u!1001 &498021299
 Prefab:
   m_ObjectHideFlags: 0
@@ -382,7 +394,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589684506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.0499992, y: -2.86999989, z: 0}
+  m_LocalPosition: {x: -15, y: -4, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 595726780}
@@ -855,6 +867,7 @@ GameObject:
   - 81: {fileID: 804952611}
   - 114: {fileID: 804952616}
   - 114: {fileID: 804952617}
+  - 114: {fileID: 804952618}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -958,6 +971,19 @@ MonoBehaviour:
   smoothRotation: 1
   followBehind: 1
   rotationDamping: 10
+--- !u!114 &804952618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804952610}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466a0ea40f38c4a40a4c18c1633b4153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dampTime: .150000006
+  target: {fileID: 389361213}
 --- !u!1 &810106420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1223,7 @@ GameObject:
   - 114: {fileID: 928358813}
   - 114: {fileID: 928358818}
   - 114: {fileID: 928358812}
+  - 114: {fileID: 928358819}
   m_Layer: 11
   m_Name: ChordPlanet (2)
   m_TagString: planet
@@ -1318,6 +1345,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &928358819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928358811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f52e4a0618c55f4f85f144dbcd25633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backward: 0
 --- !u!1 &952765397
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,6 +1637,7 @@ GameObject:
   - 114: {fileID: 1136896604}
   - 114: {fileID: 1136896609}
   - 114: {fileID: 1136896603}
+  - 114: {fileID: 1136896610}
   m_Layer: 11
   m_Name: ChordPlanet (3)
   m_TagString: planet
@@ -1719,6 +1759,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1136896610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136896602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f52e4a0618c55f4f85f144dbcd25633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backward: 0
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2356,6 +2408,7 @@ GameObject:
   - 114: {fileID: 1589684508}
   - 114: {fileID: 1589684513}
   - 114: {fileID: 1589684507}
+  - 114: {fileID: 1589684514}
   m_Layer: 11
   m_Name: ChordPlanet (1)
   m_TagString: planet
@@ -2477,6 +2530,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce962e18e108246a68a7519d295bbed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1589684514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589684506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f52e4a0618c55f4f85f144dbcd25633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backward: 0
 --- !u!1 &1590554890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,11 +3009,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -16.1299992
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.53999996
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2989,6 +3054,10 @@ Prefab:
     - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}

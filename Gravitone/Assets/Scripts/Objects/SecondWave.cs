@@ -9,6 +9,7 @@ public class SecondWave : Subscriber {
 		SpriteRenderer spriteRenderer;
 		float screenAspect;
     float cameraWidth;
+		float offset=3f;
 
 		// Use this for initialization
 		void Start () {
@@ -27,7 +28,7 @@ public class SecondWave : Subscriber {
 			float radius = size.x * transform.localScale.x;
 			circleCollider.radius = (radius / 100f) + 7.4f;
 
-			if(GetComponent<SpriteRenderer>().bounds.extents.x>cameraWidth)
+			if(GetComponent<SpriteRenderer>().bounds.extents.x>cameraWidth+offset)
 							Destroy(this.gameObject);
 		}
 
