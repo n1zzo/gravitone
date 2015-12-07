@@ -241,6 +241,8 @@ public class Level1 : Subscriber {
 						totalBeats++;
 
 			} else{
+				foreach(GameObject drum in drums)
+					drum.GetComponent<Drum>().SetSecondPhase();
 
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				canvas.SetActive(false);

@@ -17,6 +17,8 @@ public class Drum : Subscriber {
 	protected float progress = 0f;
 	public bool[] targetDrumArray = new bool[64];
 	bool isActive=false;
+	Vector3 maxScale = new Vector3 (1f,1f,1f);
+	float maxSize=0.95f;
 
 	string currentState = "drumPlay";
 
@@ -38,7 +40,7 @@ public class Drum : Subscriber {
 		progress = star.GetComponent<BeatGen>().progress;
 
 		if(!isActive){
-			widenEffect(0.95f);
+			widenEffect(maxSize);
 			UpdatePlay();
 		}
 		else{
@@ -132,7 +134,7 @@ public class Drum : Subscriber {
 
 	protected void PlayDrum(){
 		sound.Play();
-		transform.localScale = new Vector3(1f,1f,1f);
+		transform.localScale = maxScale;
 	}
 
 	public void Cancel(){
@@ -187,6 +189,11 @@ public class Drum : Subscriber {
 
 	public void Autocomplete(){
 		slots = targetDrumArray;
+	}
+
+	public void SetSecondPhase(){
+		maxScale = new Vector3 (0.82f,0.82f,0.82f);
+		maxSize=0.76f;
 	}
 
 }

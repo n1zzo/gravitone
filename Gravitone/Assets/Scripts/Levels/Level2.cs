@@ -34,7 +34,7 @@ public class Level2 : Subscriber {
 
 		wave.SetActive(true);
 
-		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat*2);
+		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat);
 
 		SaveInitialPositions();
 
