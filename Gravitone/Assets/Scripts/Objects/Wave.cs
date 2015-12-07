@@ -44,7 +44,7 @@ public class Wave : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		if(currentSlot==star.GetComponent<BeatGen>().granularity-star.GetComponent<BeatGen>().subBeatsPerBeat)
+		if(currentSlot==levelManager.GetComponent<Level2>().GetNumberOfThirdBeat())
 						active=true;
 
 		if(active){
