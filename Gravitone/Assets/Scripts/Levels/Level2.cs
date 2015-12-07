@@ -4,6 +4,7 @@ using System.Collections;
 public class Level2 : Subscriber {
 
 	public GameObject cam;
+	public GameObject menucam;
 	public GameObject star;
 	public GameObject wave;
 	public GameObject wavePrefab;
@@ -24,9 +25,11 @@ public class Level2 : Subscriber {
 	// Use this for initialization
 	void Start () {
 
+		// Adjust the main cam and menu cam to the second level position
 		cam.GetComponent<SmoothCamera>().enabled = true;
-
 		cam.GetComponent<SmoothCamera>().setArrival(10.5f);
+		menucam.GetComponent<SmoothCamera>().enabled = true;
+		menucam.GetComponent<SmoothCamera>().setArrival(10.5f);
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 

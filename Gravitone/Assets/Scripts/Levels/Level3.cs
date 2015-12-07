@@ -4,6 +4,7 @@ using System.Collections;
 public class Level3 : MonoBehaviour {
 
 	public GameObject cam;
+	public GameObject menucam;
 	public GameObject[] planets;
 	public GameObject background;
 
@@ -19,11 +20,15 @@ public class Level3 : MonoBehaviour {
 			planet.GetComponent<Rotate>().enabled=false;
 		}
 
-		// Set the camera to follow the first planet.
+		// Set the camera and menu to follow the first planet.
 		cam.GetComponent<SmoothFollow2D>().target = planets[0].transform;
 		cam.GetComponent<SmoothFollow2D>().enabled = true;
 		cam.GetComponent<SmoothCamera>().setArrival(4f);
 		cam.GetComponent<SmoothCamera>().enabled=true;
+		menucam.GetComponent<SmoothFollow2D>().target = planets[0].transform;
+		menucam.GetComponent<SmoothFollow2D>().enabled = true;
+		menucam.GetComponent<SmoothCamera>().setArrival(4f);
+		menucam.GetComponent<SmoothCamera>().enabled=true;
 
 		planets[0].GetComponent<SpriteRenderer>().enabled=true;
 
