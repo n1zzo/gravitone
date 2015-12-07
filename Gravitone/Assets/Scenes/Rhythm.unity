@@ -708,6 +708,7 @@ MonoBehaviour:
   wave: {fileID: 1747900794}
   wavePrefab: {fileID: 196342, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
   prev: {fileID: 714782745}
+  autocomplete: 0
   bars: 4
   planets:
   - {fileID: 447429923}
@@ -868,6 +869,7 @@ GameObject:
   - 114: {fileID: 804952616}
   - 114: {fileID: 804952617}
   - 114: {fileID: 804952618}
+  - 114: {fileID: 804952619}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -984,6 +986,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dampTime: .150000006
   target: {fileID: 389361213}
+--- !u!114 &804952619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 804952610}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc6bde01469c7b4badee5362f191d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downsample: 1
+  blurSize: 3
+  blurIterations: 3
+  blurType: 0
+  blurShader: {fileID: 4800000, guid: f9d5fa183cd6b45eeb1491f74863cd91, type: 3}
 --- !u!1 &810106420
 GameObject:
   m_ObjectHideFlags: 0
