@@ -8,6 +8,7 @@ public class Level2 : Subscriber {
 	public GameObject wave;
 	public GameObject wavePrefab;
 	public GameObject prev;
+	public bool autocomplete=false;
 	private int numberOfThirdBeat=0;
 	private int currentBar=0;
 	public int bars=4;
@@ -19,10 +20,12 @@ public class Level2 : Subscriber {
 	int restoreCount=0;
 	bool isWaiting=false;
 
+
 	// Use this for initialization
 	void Start () {
 
 		cam.GetComponent<SmoothCamera>().enabled = true;
+
 		cam.GetComponent<SmoothCamera>().setArrival(10.5f);
 
 		star.GetComponent<BeatGen>().Subscribe(this);
@@ -82,6 +85,9 @@ public class Level2 : Subscriber {
 			planet.SetActive(true);
 			planet.GetComponent<Drag>().radiusOrbits=radius;
 		}
+
+		if(autocomplete)
+			Autocomplete();
 	}
 
 	// Here we will put a collapsing animation
@@ -136,6 +142,27 @@ public class Level2 : Subscriber {
 	// This is for testing purposes only
 	public void Autocomplete(){
 		// [TODO] set placed and score to pass to the next level
+		foreach (GameObject planet in planets)
+		{
+				planet.SetActive(true);
+				int index=0;
+				foreach (string note in types){
+					if(planet.GetComponent<ChordPlanet>().chordName==note)
+						if(planet.GetComponent<ChordPlanet>().baseNote==notes[index])
+								break;
+					index++;
+				}
+
+				float orbit = planet.GetComponent<Drag>().radiusOrbits[index];
+
+				planet.GetComponent<Rotate>().SetRadius(orbit);
+				planet.GetComponent<Rotate>().SetDirtyOffset();
+				planet.GetComponent<Rotate>().enabled=true;
+				planet.GetComponent<CircleCollider2D>().radius=1f;
+				planet.GetComponent<ChordPlanet>().active=true;
+				planet.GetComponent<Drag>().enabled=false;
+		}
+		NextLevel();
 	}
 
 }
