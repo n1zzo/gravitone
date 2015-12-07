@@ -143,10 +143,11 @@ public class Level2 : Subscriber {
 
 	// This is for testing purposes only
 	public void Autocomplete(){
-		// [TODO] set placed and score to pass to the next level
+		// [TODO] fix Bug: if you have two orbitS for the Same note,
+		// this will Set two planets in the first orbit
 		foreach (GameObject planet in planets)
 		{
-				planet.SetActive(true);
+				// Find the correct orbit comparing the note
 				int index=0;
 				foreach (string note in types){
 					if(planet.GetComponent<ChordPlanet>().chordName==note)
@@ -155,11 +156,13 @@ public class Level2 : Subscriber {
 					index++;
 				}
 
+				// Copied Drag On Mouse Up function for each planet
 				float orbit = planet.GetComponent<Drag>().radiusOrbits[index];
 
 				planet.GetComponent<Rotate>().SetRadius(orbit);
 				planet.GetComponent<Rotate>().SetDirtyOffset();
 				planet.GetComponent<Rotate>().enabled=true;
+				planet.GetComponent<SelfRotate>().enabled=true;
 				planet.GetComponent<CircleCollider2D>().radius=1f;
 				planet.GetComponent<ChordPlanet>().active=true;
 				planet.GetComponent<Drag>().enabled=false;

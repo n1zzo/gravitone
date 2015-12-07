@@ -7,7 +7,7 @@ using System.Collections;
         public float height = 3.0f;
         public float damping = 5.0f;
         public bool smoothRotation = true;
-        public bool followBehind = true;
+        public bool followBehind = false;
         public float rotationDamping = 10.0f;
 
         void Update () {
