@@ -53,6 +53,8 @@ public class Drag : MonoBehaviour {
 		GetComponent<Rotate>().SetDirtyOffset();
 		// Enable the planet rotation
 		GetComponent<Rotate>().enabled=true;
+		// Enable the planet revolution
+		GetComponent<SelfRotate>().enabled=true;
 
 		// We can adjust this to avoid the CHORD DELAY !!!!
 		afterColliderRadius=1f;

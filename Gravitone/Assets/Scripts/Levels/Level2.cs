@@ -127,6 +127,8 @@ public class Level2 : Subscriber {
 			planet.GetComponent<Drag>().orbitNumber=-1;
 			// Makes the planet mute again
 			planet.GetComponent<ChordPlanet>().active=false;
+			// Stops the planet revolution
+			planet.GetComponent<SelfRotate>().enabled=false;
 			i++;
 		}
 
