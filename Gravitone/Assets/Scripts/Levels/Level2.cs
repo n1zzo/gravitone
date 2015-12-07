@@ -34,7 +34,7 @@ public class Level2 : Subscriber {
 
 		wave.SetActive(true);
 
-		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-star.GetComponent<BeatGen>().subBeatsPerBeat;
+		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat*2);
 
 		SaveInitialPositions();
 
@@ -101,6 +101,7 @@ public class Level2 : Subscriber {
 	}
 
 	public void NextLevel() {
+		star.GetComponent<BeatGen>().Unsubscribe(this);
 		GetComponent<LevelManager>().goToNextLevel();
 	}
 
@@ -159,15 +160,19 @@ public class Level2 : Subscriber {
 				// Copied Drag On Mouse Up function for each planet
 				float orbit = planet.GetComponent<Drag>().radiusOrbits[index];
 
+				planet.GetComponent<Rotate>().enabled=true;
 				planet.GetComponent<Rotate>().SetRadius(orbit);
 				planet.GetComponent<Rotate>().SetDirtyOffset();
-				planet.GetComponent<Rotate>().enabled=true;
 				planet.GetComponent<SelfRotate>().enabled=true;
 				planet.GetComponent<CircleCollider2D>().radius=1f;
 				planet.GetComponent<ChordPlanet>().active=true;
 				planet.GetComponent<Drag>().enabled=false;
 		}
 		NextLevel();
+	}
+
+	public int GetNumberOfThirdBeat(){
+		return numberOfThirdBeat;
 	}
 
 }

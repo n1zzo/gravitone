@@ -62,6 +62,7 @@ public class Rotate : Subscriber {
 
 	public void SetRadius (float radius){
 		this.radius = radius;
+		Update();
 	}
 
 	private void OffsetFromPosition(float progress) {

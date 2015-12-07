@@ -52,12 +52,15 @@ TagManager:
   - name: orbit
     uniqueID: 4281165753
     locked: 0
-  - name: planet
+  - name: star
     uniqueID: 3760061459
     locked: 0
-  - name: star
+  - name: planet
     uniqueID: 3372220773
     locked: 0
   - name: wave
     uniqueID: 2077611781
+    locked: 0
+  - name: 
+    uniqueID: 784481583
     locked: 0
