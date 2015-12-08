@@ -23,7 +23,12 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void Disable() {
-
+		// Turn on the gaussian blur effect
+		cam.GetComponent<BlurOptimized>().enabled = false;
+		// Enable the menu camera
+		menucam.SetActive(false);
+		// Enable the target objects
+		menutree.SetActiveRecursively(false);
 	}
 
 }
