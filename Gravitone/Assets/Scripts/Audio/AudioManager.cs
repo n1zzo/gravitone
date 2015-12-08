@@ -8,8 +8,11 @@ public class AudioManager : MonoBehaviour {
 	public GameObject OfflineMetronome;
 	public GameObject OnlineChord;
 	public GameObject OfflineChord;
+	public GameObject OnlineStrings;
+	public GameObject OfflineStrings;
 	Metronome currentMetronome;
 	Chord currentChord;
+	Strings currentStrings;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +23,9 @@ public class AudioManager : MonoBehaviour {
 
 			OnlineChord.SetActive(true);
 			currentChord = OnlineChord.GetComponent<OnlineChord>();
+
+			OnlineStrings.SetActive(true);
+			currentStrings = OnlineStrings.GetComponent<OnlineStrings>();
 		}
 		else {
 			OfflineMetronome.SetActive(true);
@@ -27,6 +33,9 @@ public class AudioManager : MonoBehaviour {
 
 			OfflineChord.SetActive(true);
 			currentChord = OfflineChord.GetComponent<OfflineChord>();
+
+			OfflineStrings.SetActive(true);
+			currentStrings = OfflineStrings.GetComponent<OfflineStrings>();
 		}
 	}
 
@@ -40,6 +49,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayChord(int note, string type) {
 		currentChord.Play(note, type);
+	}
+
+	public void PlayStrings(int note) {
+		currentStrings.Play(note);
 	}
 
 }
