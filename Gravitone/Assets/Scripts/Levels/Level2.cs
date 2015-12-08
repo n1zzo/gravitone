@@ -190,4 +190,25 @@ public class Level2 : Subscriber {
 		return numberOfThirdBeat;
 	}
 
+	public void Restart(){
+		int ind=0;
+		float offset=Screen.height*6/100;
+		foreach(GameObject planet in planets){
+			planet.GetComponent<Rotate>().enabled=false;
+			planet.GetComponent<SelfRotate>().enabled=false;
+			planet.GetComponent<Drag>().enabled=true;
+			switch(ind){
+				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset, 1f)); break;
+				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
+				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - offset, 1f)); break;
+				case 3: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  offset, 1f)); break;
+				case 4: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height/2 - offset, 1f)); break;
+				case 5: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height/2 - offset, 1f)); break;
+				default: break;
+			}
+			ind++;
+		}
+		score=0;
+	}
+
 }

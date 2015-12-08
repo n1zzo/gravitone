@@ -11,11 +11,9 @@ public class LevelManager : MonoBehaviour {
 	void Start () {
 			Screen.orientation = ScreenOrientation.LandscapeLeft ;
 
-			// Testing only: show the menu
-			//GetComponent<Menu>().Enable();
-
 			// Testing only: skip to level 2 or 3
-			//GetComponent<Level1>().Autocomplete();
+
+			GetComponent<Level1>().Autocomplete();
 		  //GetComponent<Level2>().autocomplete=true;
 	}
 
@@ -36,6 +34,15 @@ public class LevelManager : MonoBehaviour {
 			GetComponent<Level1>().enabled=false;
 			GetComponent<Level2>().enabled=false;
 			GetComponent<Level3>().enabled=true;
+		}
+	}
+
+	public void Restart(){
+		switch(level){
+			case 1: GetComponent<Level1>().Restart(); break;
+			case 2: GetComponent<Level2>().Restart(); break;
+			case 3: GetComponent<Level3>().Restart(); break;
+			default: break;
 		}
 	}
 

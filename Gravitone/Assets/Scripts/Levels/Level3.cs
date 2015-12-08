@@ -38,4 +38,8 @@ public class Level3 : MonoBehaviour {
 	void Update () {
 
 	}
+
+	public void Restart(){
+
+	}
 }

@@ -196,4 +196,9 @@ public class Drum : Subscriber {
 		maxSize=0.76f;
 	}
 
+	public void Reset(){
+		slots = new bool[64];
+		isActive=false;
+	}
+
 }

@@ -8,7 +8,6 @@ public class Level1 : Subscriber {
 	public GameObject[] drums;
 	public GameObject star;
 	public GameObject textField;
-	public GameObject canvas;
 	public GameObject trail;
 	public GameObject[] dotPrefab;
 
@@ -18,23 +17,27 @@ public class Level1 : Subscriber {
 	int beatsPerBar = 4;
 	int subBeatsPerBeat = 4;
 	int granularity = 0;
-	int currentIndex=0;
-	int totalBeats=0;
+	int currentIndex;
+	int totalBeats;
 
 	//indicates our State. -1 is the first Start
-	int barNumber=-1;
+	int barNumber;
 
 	bool[] playerDrumArray;
 	bool[] targetDrumArray;
-	bool countdown=false;
+	bool countdown;
 	bool checkInput;
 
-	float correctness = 0;
+	float correctness;
 
 	// Use this for initialization
 	void Start () {
 
-		canvas.SetActive(true);
+		totalBeats=0;
+		barNumber=-1;
+		correctness=0;
+		countdown=false;
+		currentIndex=0;
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 
@@ -244,10 +247,9 @@ public class Level1 : Subscriber {
 				foreach(GameObject drum in drums)
 					drum.GetComponent<Drum>().SetSecondPhase();
 
+				textField.GetComponent<Text>().text = "";
 				star.GetComponent<BeatGen>().Unsubscribe(this);
-				canvas.SetActive(false);
 				GetComponent<LevelManager>().goToNextLevel();
-
 			}
 
 	}
@@ -269,5 +271,16 @@ public class Level1 : Subscriber {
 		 yield return new WaitForSeconds(delay);
 		 textField.SetActive(false);
 	}*/
+
+	public void Restart(){
+		star.GetComponent<BeatGen>().Unsubscribe(this);
+		correctness = 0;
+		foreach (GameObject drum in drums){
+			drum.SetActive(false);
+			drum.GetComponent<Drum>().Reset();
+		}
+		star.GetComponent<BeatGen>().progress=0;
+		Start();
+	}
 
 }

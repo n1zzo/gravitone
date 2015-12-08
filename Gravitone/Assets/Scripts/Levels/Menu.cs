@@ -5,30 +5,38 @@ using UnityStandardAssets.ImageEffects;
 public class Menu : MonoBehaviour {
 
 	public GameObject cam;
-	public GameObject menucam;
+	public GameObject menu;
 	public GameObject menutree;
-	public GameObject onlinelight;
-	public GameObject soundslight;
+	public GameObject text;
 
 	public void Enable() {
 		// Turn on the gaussian blur effect
 		cam.GetComponent<BlurOptimized>().enabled = true;
 		// Enable the menu camera
-		menucam.SetActive(true);
+		menu.SetActiveRecursively(true);
 		// Enable the target objects
-		menutree.SetActiveRecursively(true);
-		// Disable the active version of the buttons
-		onlinelight.SetActive(false);
-		soundslight.SetActive(false);
+		menutree.SetActive(true);
+
+		//Turn off the text on the first phase
+		text.SetActive(false);
+
+		Time.timeScale=0f;
 	}
 
 	public void Disable() {
-		// Turn on the gaussian blur effect
+		// Turn off the gaussian blur effect
 		cam.GetComponent<BlurOptimized>().enabled = false;
-		// Enable the menu camera
-		menucam.SetActive(false);
-		// Enable the target objects
-		menutree.SetActiveRecursively(false);
+
+		// Disable the menu camera
+		menu.SetActiveRecursively(false);
+
+		// Disable the target objects
+		menutree.SetActive(false);
+
+		//Turn on the text on the first phase
+		text.SetActive(true);
+
+		Time.timeScale=1f;
 	}
 
 }
