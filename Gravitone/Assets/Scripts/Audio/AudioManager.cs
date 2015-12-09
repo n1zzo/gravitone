@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour {
 	public GameObject OfflineChord;
 	public GameObject OnlineStrings;
 	public GameObject OfflineStrings;
+	public GameObject onlineButton;
 	Metronome currentMetronome;
 	Chord currentChord;
 	Strings currentStrings;
@@ -26,6 +27,9 @@ public class AudioManager : MonoBehaviour {
 
 			OnlineStrings.SetActive(true);
 			currentStrings = OnlineStrings.GetComponent<OnlineStrings>();
+
+			//Set the Button on if the online is selected
+			onlineButton.SetActive(online);
 		}
 		else {
 			OfflineMetronome.SetActive(true);
@@ -53,6 +57,16 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayStrings(int note) {
 		currentStrings.Play(note);
+	}
+
+	public void setOnline(){
+		online=true;
+		Start();
+	}
+
+	public void setOffline(){
+		online=false;
+		Start();
 	}
 
 }
