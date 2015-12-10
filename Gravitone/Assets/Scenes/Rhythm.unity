@@ -957,6 +957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
+  background: {fileID: 1148231658}
 --- !u!4 &721453210
 Transform:
   m_ObjectHideFlags: 0

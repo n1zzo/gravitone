@@ -155,6 +155,7 @@ public class Level1 : Subscriber {
 						trail.SetActive(true);
 						trail.GetComponent<Trail>().SetInitialPosition();
 						countdown=false;
+						GetComponent<LevelManager>().SetGreenBackground();
 						textField.GetComponent<Text>().text = "";
 						checkInput=false;
 						SetRecord();
@@ -170,6 +171,7 @@ public class Level1 : Subscriber {
 							trail.SetActive(false);
 							barNumber=2;
 							countdown=true;
+							GetComponent<LevelManager>().ResetBackground();
 						}
 						break;
 				}
@@ -211,6 +213,7 @@ public class Level1 : Subscriber {
 		barNumber=-1;
 		currentInstrument.GetComponent<Drum>().Cancel();
 		trail.SetActive(false);
+		GetComponent<LevelManager>().ResetBackground();
 	}
 
 	void CompareArrays() {
@@ -218,11 +221,13 @@ public class Level1 : Subscriber {
 
 			if(correctness>0.95 || totalBeats==0)
 				ChangeState();
+			else
+				GetComponent<LevelManager>().SetRedBackground();
 
 	}
 
 	void ChangeState() {
-
+			GetComponent<LevelManager>().ResetBackground();
 			trail.SetActive(false);
 			textField.GetComponent<Text>().text = "Amazing!";
 			currentIndex++;

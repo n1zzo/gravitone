@@ -4,6 +4,7 @@ using System.Collections;
 public class LevelManager : MonoBehaviour {
 
 	public GameObject audioManager;
+	public GameObject background;
 
 	int level=1;
 
@@ -13,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 
 			// Testing only: skip to level 2 or 3
 
-			GetComponent<Level1>().Autocomplete();
+			//GetComponent<Level1>().Autocomplete();
 		  //GetComponent<Level2>().autocomplete=true;
 	}
 
@@ -44,6 +45,18 @@ public class LevelManager : MonoBehaviour {
 			case 3: GetComponent<Level3>().Restart(); break;
 			default: break;
 		}
+	}
+
+	public void SetGreenBackground(){
+		background.GetComponent<SpriteRenderer>().color=Color.green;
+	}
+
+	public void SetRedBackground(){
+		background.GetComponent<SpriteRenderer>().color=Color.red;
+	}
+
+	public void ResetBackground(){
+		background.GetComponent<SpriteRenderer>().color=Color.white;
 	}
 
 }
