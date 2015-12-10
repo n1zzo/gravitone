@@ -10,7 +10,9 @@ public class AudioManager : MonoBehaviour {
 	public GameObject OfflineChord;
 	public GameObject OnlineStrings;
 	public GameObject OfflineStrings;
-	public GameObject onlineButton;
+  public GameObject onlineButton;
+	public GameObject onlineMelody;
+
 	Metronome currentMetronome;
 	Chord currentChord;
 	Strings currentStrings;
@@ -67,6 +69,10 @@ public class AudioManager : MonoBehaviour {
 	public void setOffline(){
 		online=false;
 		Start();
+	}
+
+	public void PlayMelody(){
+		onlineMelody.GetComponent<OnlineMelody>().Play();
 	}
 
 }
