@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Ring : MonoBehaviour {
 
-	public GameObject planet;
 	private Vector3 size;
-	private bool hasPlanet=false;
 
 	// Use this for initialization
 	void Start () {
@@ -25,18 +23,5 @@ public class Ring : MonoBehaviour {
 	public float GetRadius() {
 		return GetComponent<SpriteRenderer>().bounds.extents.x;
 	}
-
-	public void SetPlanet(GameObject planet) {
-		this.planet = planet;
-	}
-
-	public void SetItHas(){
-		hasPlanet=true;
-	}
-
-	public bool HasPlanet(){
-		return hasPlanet;
-	}
-
 
 }

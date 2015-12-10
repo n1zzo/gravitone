@@ -48,6 +48,7 @@ public class Wave : Subscriber {
 						active=true;
 
 		if(active){
+
 			if(currentSlot==0)
 							currentBar++;
 
@@ -68,8 +69,19 @@ public class Wave : Subscriber {
 			if(currentBar==bars){
 								levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
 								star.GetComponent<BeatGen>().Unsubscribe(this);
-								Destroy(this.gameObject);
+								gameObject.SetActive(false);
 			}
+
 		}
+	}
+
+	public void Restart(){
+		
+		transform.localScale = new Vector3(0.4f,0.4f,1);
+		Preview.GetComponent<HarmonyPreview>().StopPreview();
+		star.GetComponent<BeatGen>().Subscribe(this);
+		currentOrbits=0;
+		currentBar=-1;
+		bars=4;
 	}
 }

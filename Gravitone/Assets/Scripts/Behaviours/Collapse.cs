@@ -9,7 +9,6 @@ public class Collapse : MonoBehaviour {
 	private Action restore;
 
 	void Start () {
-		GetComponent<ChordPlanet>().active=false;
 		GetComponent<SpriteRenderer>().sortingOrder=1;
 	}
 

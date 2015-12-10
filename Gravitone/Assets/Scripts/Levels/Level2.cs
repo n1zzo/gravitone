@@ -20,6 +20,8 @@ public class Level2 : Subscriber {
 	private Vector3[] initialPositions = new Vector3[4];
 	int restoreCount=0;
 	bool isWaiting=false;
+	bool isPreview=false;
+	GameObject actualWave;
 
 
 	// Use this for initialization
@@ -39,8 +41,6 @@ public class Level2 : Subscriber {
 
 		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat);
 
-		SaveInitialPositions();
-
 	}
 
 	// Update is called once per frame
@@ -53,7 +53,16 @@ public class Level2 : Subscriber {
 
 		if(currentSlot==numberOfThirdBeat){
 			if (currentBar==bars) {
-				Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+				if(!isPreview)
+					actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+				else {
+						isPreview=false;
+						wave.SetActive(true);
+						wave.GetComponent<Wave>().Restart();
+						isWaiting=false;
+				}
+
 				currentBar=0;
 				score=0;
 				int placed = 0;
@@ -75,12 +84,10 @@ public class Level2 : Subscriber {
 							isWaiting=true;
 				else
 							isWaiting=false;
+
 			}
 			currentBar++;
 		}
-
-
-
 	}
 
 	public void setRadiusPlanets(float[] radius){
@@ -107,10 +114,17 @@ public class Level2 : Subscriber {
 
 	// Here we will put a collapsing animation
 	public void CollapsePlanets() {
+
+		isPreview=true;
+		currentBar=bars-1;
+		Destroy(actualWave);
+
 		foreach(GameObject planet in planets) {
 			// Pass the restore positions method to the collapse script
 			planet.GetComponent<Collapse>().SetRestore(proxyRestore);
+			planet.GetComponent<ChordPlanet>().active=false;
 			planet.GetComponent<Collapse>().enabled=true;
+			planet.GetComponent<Drag>().orbitNumber=-1;
 		}
 		score = 0;
 	}
@@ -118,15 +132,6 @@ public class Level2 : Subscriber {
 	public void NextLevel() {
 		star.GetComponent<BeatGen>().Unsubscribe(this);
 		GetComponent<LevelManager>().goToNextLevel();
-	}
-
-	// Saves the initial position of the planets in an array
-	private void SaveInitialPositions() {
-		int i = 0;
-		foreach(GameObject planet in planets) {
-			initialPositions[i] = planet.transform.position;
-			i++;
-		}
 	}
 
 	public void proxyRestore(){
@@ -138,20 +143,15 @@ public class Level2 : Subscriber {
 	// Reset all the planets to their initial states and positions
 	void RestorePositions() {
 
-		int i = 0;
-
 		foreach(GameObject planet in planets) {
 			// Disable the rotation
 			planet.GetComponent<Rotate>().enabled=false;
-			// Put the planet in its initial position
-			planet.transform.position = initialPositions[i];
-			// Resets the orbit of the planet
-			planet.GetComponent<Drag>().orbitNumber=-1;
-			// Makes the planet mute again
-			planet.GetComponent<ChordPlanet>().active=false;
+
 			// Stops the planet revolution
 			planet.GetComponent<SelfRotate>().enabled=false;
-			i++;
+
+			planet.SetActive(false);
+
 		}
 
 		restoreCount=0;
@@ -191,6 +191,8 @@ public class Level2 : Subscriber {
 	}
 
 	public void Restart(){
+		isPreview=false;
+		isWaiting=false;
 		int ind=0;
 		float offset=Screen.height*6/100;
 		foreach(GameObject planet in planets){
