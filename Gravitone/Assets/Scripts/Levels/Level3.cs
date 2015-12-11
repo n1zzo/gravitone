@@ -6,10 +6,10 @@ public class Level3 : MonoBehaviour {
 	public GameObject cam;
 	public GameObject[] planets;
 	public GameObject background;
+	private GameObject audioManager;
 
 	// Use this for initialization
 	void Start () {
-
 
 		background.GetComponent<Fade>().enabled=true;
 		background.GetComponent<Fade>().final=0.9f;
@@ -28,6 +28,9 @@ public class Level3 : MonoBehaviour {
 		cam.GetComponent<SmoothCamera>().enabled=true;
 
 		planets[0].GetComponent<SpriteRenderer>().enabled=true;
+
+		audioManager = GetComponent<LevelManager>().audioManager;
+		//audioManager.GetComponent<AudioManager>().PlayStrings(60);
 
 	}
 
