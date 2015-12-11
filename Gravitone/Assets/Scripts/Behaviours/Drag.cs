@@ -16,6 +16,10 @@ public class Drag : MonoBehaviour {
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
 			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+			GetComponent<ChordPlanet>().Play();
+
+			GetComponent<SelfRotate>().enabled=true;
 	}
 
 	void OnMouseDrag () {
@@ -25,6 +29,8 @@ public class Drag : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
+
+			GetComponent<SelfRotate>().enabled=false;
 
 			// Assign the planet to the nearest orbit.
 			// Get the radius from the orbit and give it to Rotate.cs
