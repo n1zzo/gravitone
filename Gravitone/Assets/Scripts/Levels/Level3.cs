@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Level3 : Subscriber {
+public class Level3 : MonoBehaviour {
 
 	public GameObject cam;
 	public GameObject[] planets;
 	public GameObject background;
 	private GameObject audioManager;
-	public GameObject star;
-	public GameObject[] pie;
 	public GameObject melody;
+	public GameObject piePieces;
 
 
 	// Use this for initialization
@@ -36,29 +35,12 @@ public class Level3 : Subscriber {
 		audioManager = GetComponent<LevelManager>().audioManager;
 		//audioManager.GetComponent<AudioManager>().PlayStrings(60);
 
-		pie=GameObject.FindGameObjectsWithTag("Pie");
-
-		foreach(GameObject piece in pie)
-			piece.SetActive(false);
-
-		star.GetComponent<BeatGen>().Subscribe(this);
+		piePieces.GetComponent<PieFill>().enabled=true;
 	}
 
 	// Update is called once per frame
 	void Update () {
 
-	}
-
-	public override void Beat(int currentSlot){
-		int currentPie=currentSlot%16;
-		int lastPie;
-		if(currentPie==0)
-			lastPie=15;
-		else
-			lastPie=currentPie-1;
-
-		pie[currentPie].SetActive(true);
-		pie[lastPie].SetActive(false);
 	}
 
 	public void Restart(){
