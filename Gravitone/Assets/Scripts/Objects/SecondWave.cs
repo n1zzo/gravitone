@@ -4,15 +4,16 @@ using System.Collections;
 public class SecondWave : Subscriber {
 
 
-		public float scaleSpeed=0.1f;
+		float scaleSpeed;
 		CircleCollider2D circleCollider;
 		SpriteRenderer spriteRenderer;
 		float screenAspect;
     float cameraWidth;
-		float offset=3f;
+    float offset = 3f;
 
 		// Use this for initialization
 		void Start () {
+			scaleSpeed=GameObject.FindWithTag("MainStar").GetComponent<BeatGen>().bpm * 0.2f / 128f;
 			circleCollider = this.GetComponent<CircleCollider2D>();
 			spriteRenderer = this.GetComponent<SpriteRenderer>();
 			screenAspect = (float)Screen.width / (float)Screen.height;

@@ -9,6 +9,8 @@ TagManager:
   - planet
   - orbit
   - dot
+  - Pie
+  - MainStar
   layers:
   - Default
   - TransparentFX

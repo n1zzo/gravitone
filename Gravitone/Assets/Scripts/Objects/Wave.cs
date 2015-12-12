@@ -13,7 +13,7 @@ public class Wave : Subscriber {
 	public int bars=4;
 	public int newGranularityDivision=2;
 	int newGranularity;
-	public float scaleSpeed=0.1f;
+	float scaleSpeed;
 	CircleCollider2D circleCollider;
 	float screenAspect;
 	float cameraWidth;
@@ -27,6 +27,7 @@ public class Wave : Subscriber {
 		star.GetComponent<BeatGen>().Subscribe(this);
 		newGranularity = star.GetComponent<BeatGen>().granularity/newGranularityDivision;
 		circleCollider = this.GetComponent<CircleCollider2D>();
+		scaleSpeed=star.GetComponent<BeatGen>().bpm * 0.2f / 128f;
 	}
 
 	// Update is called once per frame
@@ -76,7 +77,7 @@ public class Wave : Subscriber {
 	}
 
 	public void Restart(){
-		
+
 		transform.localScale = new Vector3(0.4f,0.4f,1);
 		Preview.GetComponent<HarmonyPreview>().StopPreview();
 		star.GetComponent<BeatGen>().Subscribe(this);
