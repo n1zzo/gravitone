@@ -8,16 +8,14 @@ public class Menu : MonoBehaviour {
 	public GameObject menu;
 	public GameObject menutree;
 	public GameObject text;
-	public GameObject background;
 
 	public void Enable() {
-		// Turn on the gaussian blur effect
+		// Turn on the gaussian blur epublic GameObject audioManager;ffect
 		cam.GetComponent<BlurOptimized>().enabled = true;
 		// Enable the menu camera
-		menu.SetActiveRecursively(true);
+		menu.SetActive(true);
 		// Enable the target objects
 		menutree.SetActive(true);
-		background.SetActive(true);
 
 		//Turn off the text on the first phase
 		text.SetActive(false);
@@ -26,13 +24,12 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void Disable() {
-		background.SetActive(false);
-
+		
 		// Turn off the gaussian blur effect
 		cam.GetComponent<BlurOptimized>().enabled = false;
 
 		// Disable the menu camera
-		menu.SetActiveRecursively(false);
+		menu.SetActive(false);
 
 		// Disable the target objects
 		menutree.SetActive(false);
