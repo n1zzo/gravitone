@@ -20,7 +20,7 @@ public class Melodies : Subscriber {
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
 
-		for (int i=0 ; i<melodyNotes.Length ; i++){
+		for (int i=0 ; i<16 ; i++){
 			playerNotes[i]=0;
 			if(melodyNotes[i]!=0)
 				totalNotes++;
@@ -50,7 +50,7 @@ public class Melodies : Subscriber {
 
 	private void Verify() {
 		int matching = 0;
-		for (int i=0 ; i<melodyNotes.Length ; i++)
+		for (int i=0 ; i<16; i++)
 				if(melodyNotes[i]!=0 && melodyNotes[i]==playerNotes[i])
 					matching++;
 
