@@ -17,6 +17,7 @@ public class Melodies : Subscriber {
 	private int granularity;
 	public GameObject[] planets;
 	private int currentPlanet;
+	public GameObject levelManager;
 	private List<GameObject> satellites = new List<GameObject>();
 
 	// Use this for initialization
@@ -68,12 +69,15 @@ public class Melodies : Subscriber {
 
 		if(correctness==1)
 			NextBar();
+
+
 	}
 
 	public void NextBar() {
 		currentBar++;
 		calculateTotalNotes();
 		currentPlanet++;
+		levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
 	}
 
 	public void calculateTotalNotes(){
