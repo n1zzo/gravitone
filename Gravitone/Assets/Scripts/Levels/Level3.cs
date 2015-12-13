@@ -27,7 +27,7 @@ public class Level3 : MonoBehaviour {
 		// Set the camera and menu to follow the first planet.
 		cam.GetComponent<SmoothFollow2D>().target = planets[0].transform;
 		cam.GetComponent<SmoothFollow2D>().enabled = true;
-		cam.GetComponent<SmoothCamera>().setArrival(5f);
+		cam.GetComponent<SmoothCamera>().setArrival(6f);
 		cam.GetComponent<SmoothCamera>().enabled=true;
 
 		planets[0].GetComponent<SpriteRenderer>().enabled=true;
@@ -35,7 +35,7 @@ public class Level3 : MonoBehaviour {
 		audioManager = GetComponent<LevelManager>().audioManager;
 		//audioManager.GetComponent<AudioManager>().PlayStrings(60);
 
-		piePieces.GetComponent<PieFill>().enabled=true;
+		//piePieces.GetComponent<PieFill>().enabled=true;
 	}
 
 	// Update is called once per frame

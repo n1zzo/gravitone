@@ -11,15 +11,19 @@ public class Melodies : Subscriber {
 	private int currentBar;
 	private int index;
 	private float correctness = 0;
+	private int totalNotes;
 
 	// Use this for initialization
 	void Start () {
+		totalNotes=0;
+
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
 
 		for (int i=0 ; i<melodyNotes.Length ; i++){
-			melodyNotes[i]=-1;
-			playerNotes[i]=-1;
+			playerNotes[i]=0;
+			if(melodyNotes[i]!=0)
+				totalNotes++;
 		}
 	}
 
@@ -35,7 +39,7 @@ public class Melodies : Subscriber {
 		index = currentSlot+currentBar*16;
 		// Play the user's saved note
 		int noteToPlay = playerNotes[index];
-		if(noteToPlay != -1)
+		if(noteToPlay != 0)
 			audioManager.GetComponent<AudioManager>().PlayStrings(noteToPlay);
 	}
 
@@ -45,16 +49,12 @@ public class Melodies : Subscriber {
 	}
 
 	private void Verify() {
-		int totalNotes = 0;
 		int matching = 0;
-		for(int i = 0; i < 64; i++) {
-			if(melodyNotes[i] != -1) {
-				totalNotes++;
-				if(melodyNotes[i]==playerNotes[i])
+		for (int i=0 ; i<melodyNotes.Length ; i++)
+				if(melodyNotes[i]!=0 && melodyNotes[i]==playerNotes[i])
 					matching++;
-			}
-		}
-		correctness = matching/totalNotes;
+
+		correctness = matching / totalNotes;
 	}
 
 	public void NextBar() {
