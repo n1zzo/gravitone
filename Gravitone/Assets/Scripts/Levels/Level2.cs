@@ -130,6 +130,7 @@ public class Level2 : Subscriber {
 	}
 
 	public void NextLevel() {
+		Destroy(actualWave);
 		star.GetComponent<BeatGen>().Unsubscribe(this);
 		GetComponent<LevelManager>().goToNextLevel();
 	}

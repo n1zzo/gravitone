@@ -13,6 +13,11 @@ public class Melodies : Subscriber {
 	void Start () {
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
+
+		for (int i=0 ; i<melodyNotes.Length ; i++){
+			melodyNotes[i]=-1;
+			playerNotes[i]=-1;
+		}
 	}
 
 	// Update is called once per frame
