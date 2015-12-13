@@ -159,7 +159,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -191,7 +191,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -496,7 +496,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -633,7 +633,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -694,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &461136836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1045,7 +1045,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -1077,7 +1077,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -1246,7 +1246,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1641,7 +1641,7 @@ MonoBehaviour:
   - {fileID: 1136896602}
   background: {fileID: 1624382808}
   melody: {fileID: 1043019052}
-  piePieces: {fileID: 0}
+  canvas: {fileID: 1250394221}
 --- !u!114 &721453214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -1855,7 +1855,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2733,7 +2733,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1760934129}
+      - m_Target: {fileID: 1043019055}
         m_MethodName: RecordNote
         m_Mode: 3
         m_Arguments:
@@ -2765,7 +2765,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6de4d71262e168d48831b5b787da8352, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3a54c634d2d86340a59b85561bdbe53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2868,6 +2868,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1043019053}
   - 212: {fileID: 1043019054}
+  - 114: {fileID: 1043019055}
   m_Layer: 0
   m_Name: Melody
   m_TagString: Untagged
@@ -2884,8 +2885,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1760934128}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!212 &1043019054
@@ -2914,6 +2914,21 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1043019055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1043019052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493fc0f909d8e450cae6747ba1dbd082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  star: {fileID: 810106420}
+  audioManager: {fileID: 1590554890}
+  melodyNotes: 000000000000000000000000000000003b000000000000000000000000000000430000000000000000000000000000003e000000000000000000000000000000000000000000000000000000000000003b0000000000000000000000000000004700000000000000000000000000000043000000000000000000000000000000000000000000000000000000000000003b00000000000000000000000000000047000000000000000000000000000000480000000000000000000000000000000000000000000000000000000000000000000000000000004700000048000000470000000000000043000000000000003e000000000000003b00000000000000
+  planets: []
 --- !u!1 &1072373395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3758,7 +3773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1210140689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3814,7 +3829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1250394222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4823,7 +4838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1695369250
 Transform:
   m_ObjectHideFlags: 0
@@ -4874,48 +4889,6 @@ MonoBehaviour:
   newGranularityDivision: 2
   Preview: {fileID: 714782745}
   levelManager: {fileID: 721453208}
---- !u!1 &1760934127
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1760934128}
-  - 114: {fileID: 1760934129}
-  m_Layer: 0
-  m_Name: Melodies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1760934128
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1760934127}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1043019053}
-  m_RootOrder: 0
---- !u!114 &1760934129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1760934127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493fc0f909d8e450cae6747ba1dbd082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  star: {fileID: 810106420}
-  audioManager: {fileID: 1590554890}
-  melodyNotes: 000000000000000000000000000000003b000000000000000000000000000000430000000000000000000000000000003e000000000000000000000000000000000000000000000000000000000000003b0000000000000000000000000000004700000000000000000000000000000043000000000000000000000000000000000000000000000000000000000000003b00000000000000000000000000000047000000000000000000000000000000480000000000000000000000000000000000000000000000000000000000000000000000000000004700000048000000470000000000000043000000000000003e000000000000003b00000000000000
 --- !u!1 &1770329130
 GameObject:
   m_ObjectHideFlags: 0

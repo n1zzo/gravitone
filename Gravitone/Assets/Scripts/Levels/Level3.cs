@@ -8,12 +8,13 @@ public class Level3 : MonoBehaviour {
 	public GameObject background;
 	private GameObject audioManager;
 	public GameObject melody;
-	public GameObject piePieces;
+	public GameObject canvas;
 
 
 	// Use this for initialization
 	void Start () {
 		melody.SetActive(true);
+		canvas.SetActive(true);
 		background.GetComponent<Fade>().enabled=true;
 		background.GetComponent<Fade>().final=0.9f;
 		background.GetComponent<SpriteRenderer>().enabled=true;
@@ -32,10 +33,11 @@ public class Level3 : MonoBehaviour {
 
 		planets[0].GetComponent<SpriteRenderer>().enabled=true;
 
+		melody.GetComponent<Melodies>().planets=planets;
+
 		audioManager = GetComponent<LevelManager>().audioManager;
 		//audioManager.GetComponent<AudioManager>().PlayStrings(60);
 
-		//piePieces.GetComponent<PieFill>().enabled=true;
 	}
 
 	// Update is called once per frame
@@ -44,6 +46,6 @@ public class Level3 : MonoBehaviour {
 	}
 
 	public void Restart(){
-
+		melody.GetComponent<Melodies>().calculateTotalNotes();
 	}
 }
