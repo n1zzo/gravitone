@@ -88,6 +88,7 @@ public class Melodies : Subscriber {
 			if(melodyNotes[i]!=0)
 				totalNotes++;
 		}
+		DeleteSatellites();
 	}
 
 	public GameObject GetCurrentPlanet(){
@@ -109,6 +110,12 @@ public class Melodies : Subscriber {
 		newSatellite.GetComponent<SatRotate>().ComputeOffset();
     satellites.Add(newSatellite);
   }
+
+	private void DeleteSatellites() {
+		foreach (GameObject satellite in satellites) {
+			Destroy(satellite);
+		}
+	}
 
 
 }
