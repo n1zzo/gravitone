@@ -62,8 +62,7 @@ public class Trail : MonoBehaviour {
 
 	public void SetInitialY(){
 				acty=MAXY;
-				actx=transform.position.x;
 				y=MAXY;
-				transform.position=new Vector3(actx,MAXY,-1f);
+				transform.position=new Vector3(transform.position.x,MAXY,-1f);
 	}
 }

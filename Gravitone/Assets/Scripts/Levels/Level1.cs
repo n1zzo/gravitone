@@ -124,7 +124,8 @@ public class Level1 : Subscriber {
 				if(currentSlot==granularity-1){
 					barNumber++;
 				}	else if(currentSlot==granularity-3){
-					trail.GetComponent<Trail>().SetInitialY();
+					if(!trail.activeSelf)
+						trail.GetComponent<Trail>().SetInitialY();
 					trail.SetActive(true);
 				}
 			}
@@ -158,6 +159,7 @@ public class Level1 : Subscriber {
 
 					// Set Recording State
 					case 4:
+						textField.GetComponent<Text>().text = "";
 						countdown=false;
 						GetComponent<LevelManager>().SetGreenBackground();
 						checkInput=false;
