@@ -22,8 +22,7 @@ public class Melodies : Subscriber {
 
 	// Use this for initialization
 	void Start () {
-		totalNotes=0;
-
+		
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
 
@@ -81,6 +80,8 @@ public class Melodies : Subscriber {
 	}
 
 	public void calculateTotalNotes(){
+		totalNotes=0;
+
 		for (int i=currentBar*granularity ; i<granularity +currentBar*granularity ; i++){
 			playerNotes[i]=0;
 			if(melodyNotes[i]!=0)
