@@ -15,8 +15,8 @@ public class Level2 : Subscriber {
 	public int bars=4;
 	public GameObject[] planets;
 	private int score;
-	public int[] notes = new int[4] {50,50,50,55};
-	public string[] types = new string[4] {"M", "m", "M7", "M7"};
+	public int[] notes;
+	public string[] types;
 	private Vector3[] initialPositions = new Vector3[4];
 	int restoreCount=0;
 	bool isWaiting=false;

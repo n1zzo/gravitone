@@ -5,8 +5,8 @@ public class HarmonyPreview : MonoBehaviour {
 
 	public GameObject previewPlanetPrefab;
 	public GameObject audioManager;
-	private int[] notes = new int[4] {50,50,50,55};
-	private string[] types = new string[4] {"M", "m", "M7", "M7"};
+	private int[] notes;
+	private string[] types;
 	private int i = 0;
 
 	public void PlayPlanet(float radius) {

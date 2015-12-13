@@ -1318,12 +1318,12 @@ MonoBehaviour:
   - {fileID: 1589684506}
   - {fileID: 928358811}
   - {fileID: 1136896602}
-  notes: 32000000320000003200000037000000
+  notes: 37000000370000003c0000003c000000
   types:
   - M
+  - M7
+  - M
   - m
-  - M7
-  - M7
 --- !u!114 &721453212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,9 +2162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: M7
+  chordName: M
   active: 0
-  baseNote: 50
+  baseNote: 60
 --- !u!212 &928358817
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2478,7 +2478,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2072979233}
   - {fileID: 1967472025}
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -2767,9 +2766,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: M7
+  chordName: m
   active: 0
-  baseNote: 55
+  baseNote: 60
 --- !u!212 &1136896608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4278,9 +4277,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: m
+  chordName: M7
   active: 0
-  baseNote: 50
+  baseNote: 55
 --- !u!212 &1589684512
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4376,7 +4375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7736667c08294af9af9628a6bdb02a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  online: 0
+  online: 1
   OnlineMetronome: {fileID: 1873913821}
   OfflineMetronome: {fileID: 1203875340}
   OnlineChord: {fileID: 82383299}
@@ -5239,7 +5238,7 @@ Transform:
   - {fileID: 399177983}
   - {fileID: 1134974397}
   m_Father: {fileID: 1043019053}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1967472026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5334,7 +5333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2026966012
 Transform:
   m_ObjectHideFlags: 0
@@ -5493,47 +5492,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2059390206}
---- !u!1 &2072979232
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2072979233}
-  - 114: {fileID: 2072979234}
-  m_Layer: 0
-  m_Name: Melodies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2072979233
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072979232}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1043019053}
-  m_RootOrder: 0
---- !u!114 &2072979234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2072979232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 493fc0f909d8e450cae6747ba1dbd082, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  star: {fileID: 810106420}
-  audioManager: {fileID: 1590554890}
 --- !u!1 &2084938203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5757,10 @@ Prefab:
     - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403920, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: baseNote
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
