@@ -22,7 +22,7 @@ public class Melodies : Subscriber {
 
 	// Use this for initialization
 	void Start () {
-		
+
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
 
@@ -56,6 +56,7 @@ public class Melodies : Subscriber {
 		playerNotes[index] = note;
 		audioManager.GetComponent<AudioManager>().PlayStrings(note);
 		Verify();
+		PlaceSatellite(note);
 	}
 
 	private void Verify() {
@@ -93,17 +94,19 @@ public class Melodies : Subscriber {
 		return planets[currentPlanet];
 	}
 
-	private void PlaceSatellite() {
+	private void PlaceSatellite(int note) {
     Vector3 initialPosition = new Vector3(0, 0, 0);
     GameObject newSatellite = Instantiate(satellitePrefab, initialPosition, Quaternion.identity) as GameObject;
 		// Get current planet's position
 		GameObject planet = planets[currentPlanet];
 		float x = planet.transform.position.x;
 		float y = planet.transform.position.y;
-		float radius = 4f;
+		float radius = 2f + ((note%12)*0.25f);
 		// Set satellite rotation parameters
-    newSatellite.GetComponent<Rotate>().SetOffset(x, y);
-		newSatellite.GetComponent<Rotate>().SetRadius(radius);
+		newSatellite.GetComponent<SatRotate>().star = this.star;
+    newSatellite.GetComponent<SatRotate>().SetOffset(x, y);
+		newSatellite.GetComponent<SatRotate>().SetRadius(radius);
+		newSatellite.GetComponent<SatRotate>().ComputeOffset();
     satellites.Add(newSatellite);
   }
 
