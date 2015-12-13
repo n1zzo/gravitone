@@ -6,7 +6,6 @@ public class SatRotate : MonoBehaviour {
 	public GameObject star;
 	public float radius;
 	public bool clockwise;
-	private int currentBar=0;
 	private const float TWO_PI = 2*Mathf.PI;
 	private float offsetX;
 	private float offsetY;
