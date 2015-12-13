@@ -6,19 +6,17 @@ public class Rotate : Subscriber {
 	public GameObject star;
 	public float radius;
 	public bool clockwise;
-	float starX;
-	float starY;
-	float offsetAngle;
-	int currentBar=0;
-	int bars=4;
-	const float TWO_PI = 2*Mathf.PI;
+	private float offsetAngle;
+	private int currentBar=0;
+	private int bars=4;
+	private const float TWO_PI = 2*Mathf.PI;
 	private bool dirtyOffset = true;
+	private float offsetX;
+	private float offsetY;
 
 	// Use this for initialization
 	void Start () {
 		// Gets the x and y coordinates and bpm from the reference star
-		starX = star.GetComponent<BeatGen>().x;
-		starY = star.GetComponent<BeatGen>().y;
 		star.GetComponent<BeatGen>().Subscribe(this);
 	}
 
@@ -45,8 +43,8 @@ public class Rotate : Subscriber {
 			angle = -angle;
 		float x = radius*Mathf.Cos(angle);
 		float y = radius*Mathf.Sin(angle);
-		x += starX;
-		y += starY;
+		x += offsetX;
+		y += offsetY;
 		return new Vector3(x, y, 0);
 	}
 
@@ -66,8 +64,8 @@ public class Rotate : Subscriber {
 	}
 
 	private void OffsetFromPosition(float progress) {
-		float x = transform.position.x - starX;
-		float y = transform.position.y - starY;
+		float x = transform.position.x + offsetX;
+		float y = transform.position.y + offsetY;
 		float relativeAngle = Mathf.Atan2(y, x);
 		if(relativeAngle < 0)
 			relativeAngle += TWO_PI;
@@ -83,6 +81,11 @@ public class Rotate : Subscriber {
 
 	public void SetDirtyOffset() {
 		dirtyOffset = true;
+	}
+
+	public void SetOffset(float x, float y) {
+		this.offsetX = x;
+		this.offsetY = y;
 	}
 
 }
