@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 
 			// Testing only: skip to level 2 or 3
 
-			GetComponent<Level1>().Autocomplete();
+			//GetComponent<Level1>().Autocomplete();
 		  //GetComponent<Level2>().autocomplete=true;
 	}
 

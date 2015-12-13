@@ -118,9 +118,15 @@ public class Level1 : Subscriber {
 				if(countdown)
 					textField.GetComponent<Text>().text = (beatsPerBar - beat).ToString();
 
+
+
 					// here we are passing to state 3, the PRE-recording state
-				if(currentSlot==granularity-1)
+				if(currentSlot==granularity-1){
 					barNumber++;
+				}	else if(currentSlot==granularity-3){
+					trail.GetComponent<Trail>().SetInitialY();
+					trail.SetActive(true);
+				}
 			}
 
 
@@ -152,11 +158,8 @@ public class Level1 : Subscriber {
 
 					// Set Recording State
 					case 4:
-						trail.SetActive(true);
-						trail.GetComponent<Trail>().SetInitialPosition();
 						countdown=false;
 						GetComponent<LevelManager>().SetGreenBackground();
-						textField.GetComponent<Text>().text = "";
 						checkInput=false;
 						SetRecord();
 						break;
