@@ -11,7 +11,7 @@ public class Level2 : Subscriber {
 	public GameObject prev;
 	public bool autocomplete=false;
 	private int numberOfThirdBeat=0;
-	private int currentBar=0;
+	public int currentBar=0;
 	public int bars=4;
 	public GameObject[] planets;
 	private int score;
@@ -97,7 +97,7 @@ public class Level2 : Subscriber {
 			planet.SetActive(true);
 			planet.GetComponent<Drag>().radiusOrbits=radius;
 			switch(ind){
-				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset, 1f)); break;
+				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;
 				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
 				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - offset, 1f)); break;
 				case 3: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  offset, 1f)); break;
@@ -201,7 +201,7 @@ public class Level2 : Subscriber {
 			planet.GetComponent<SelfRotate>().enabled=false;
 			planet.GetComponent<Drag>().enabled=true;
 			switch(ind){
-				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset, 1f)); break;
+				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;
 				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
 				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - offset, 1f)); break;
 				case 3: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  offset, 1f)); break;

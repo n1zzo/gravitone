@@ -12,9 +12,19 @@ public class SatRotate : MonoBehaviour {
 	private float x;
 	private float y;
 	private float offsetAngle;
+	public GameObject planet;
+
+	void Start(){
+		ComputeOffset();
+	}
 
 	// Update is called once per frame
 	void Update () {
+		float x = planet.transform.position.x;
+		float y = planet.transform.position.y;
+
+    SetOffset(x, y);
+		
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
 		// Calculate the planet's position

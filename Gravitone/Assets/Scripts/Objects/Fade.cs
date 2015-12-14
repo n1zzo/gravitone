@@ -15,11 +15,15 @@ public class Fade : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
 		Color newColor = GetComponent<Renderer>().material.color;
+
 		newColor.a+=speed;
+
 		if(newColor.a<final)
 			GetComponent<Renderer>().material.SetColor("_Color", newColor);
 		else
 			GetComponent<Fade>().enabled=false;
+			
 	}
 }
