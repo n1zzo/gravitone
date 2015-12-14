@@ -716,7 +716,7 @@ Transform:
   - {fileID: 850900698}
   - {fileID: 1326257697}
   m_Father: {fileID: 595726780}
-  m_RootOrder: 5
+  m_RootOrder: 8
 --- !u!1 &407480667 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 184670, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
@@ -743,7 +743,7 @@ GameObject:
   - 114: {fileID: 447429927}
   - 114: {fileID: 447429924}
   m_Layer: 11
-  m_Name: ChordPlanet
+  m_Name: ChordPlanet4
   m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,10 +858,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: M
+  chordName: M7
   active: 0
-  baseNote: 55
-  order: 0
+  baseNote: 67
+  order: 3
 --- !u!212 &447429934
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1320,7 +1320,7 @@ Transform:
   - {fileID: 605006867}
   - {fileID: 947645693}
   m_Father: {fileID: 595726780}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &595726779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,10 +1351,10 @@ Transform:
   - {fileID: 2133724221}
   - {fileID: 746159907}
   - {fileID: 1387818922}
-  - {fileID: 389361213}
   - {fileID: 580579905}
-  - {fileID: 2005880094}
   - {fileID: 730069540}
+  - {fileID: 2005880094}
+  - {fileID: 389361213}
   - {fileID: 714782746}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1867,12 +1867,12 @@ MonoBehaviour:
   - {fileID: 1589684506}
   - {fileID: 928358811}
   - {fileID: 1136896602}
-  notes: 37000000370000003c0000003c000000
+  notes: 3c0000003e0000004000000043000000
   types:
   - M
-  - M7
   - M
   - m
+  - M7
 --- !u!114 &721453212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1908,10 +1908,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 804952610}
   planets:
-  - {fileID: 447429923}
   - {fileID: 1589684506}
-  - {fileID: 928358811}
   - {fileID: 1136896602}
+  - {fileID: 928358811}
+  - {fileID: 447429923}
   background: {fileID: 1624382808}
   melody: {fileID: 1043019052}
   canvas: {fileID: 1250394221}
@@ -1945,7 +1945,7 @@ Transform:
   - {fileID: 1624334864}
   - {fileID: 1476017769}
   m_Father: {fileID: 595726780}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!1 &746159906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2358,7 +2358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2ef1dca8963433d9649a85c97a44f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 128
+  bpm: 80
   beatsPerBar: 4
   subBeatsPerBeat: 4
   granularity: 1
@@ -2696,7 +2696,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[4]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[8]
@@ -2704,7 +2704,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[12]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 493588, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_LocalScale.x
@@ -2750,6 +2750,10 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: -534905837
       objectReference: {fileID: 0}
+    - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: targetDrumArray.Array.data[10]
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11475198, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
@@ -2772,7 +2776,7 @@ GameObject:
   - 114: {fileID: 928358819}
   - 114: {fileID: 928358820}
   m_Layer: 11
-  m_Name: ChordPlanet (2)
+  m_Name: ChordPlanet3
   m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2851,9 +2855,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: M
+  chordName: m
   active: 0
-  baseNote: 60
+  baseNote: 64
   order: 2
 --- !u!212 &928358817
 SpriteRenderer:
@@ -3180,7 +3184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
-  targetDrumArray: 00000000010000000000000001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  targetDrumArray: 00000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!1 &990276596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,8 +3463,8 @@ MonoBehaviour:
   - {fileID: 177730, guid: 4c9acdf9261d6cb4bac7546e0fc5a733, type: 2}
   levelManager: {fileID: 721453208}
   planets: []
-  notes: 3b0000003e0000004000000042000000430000004700000048000000
-  melodyNotes: 000000000000000000000000000000003b000000000000000000000000000000430000000000000000000000000000003e000000000000000000000000000000000000000000000000000000000000003b0000000000000000000000000000004700000000000000000000000000000043000000000000000000000000000000000000000000000000000000000000003b000000000000000000000000000000470000000000000000000000000000004800000000000000000000000000000000000000000000000000000000000000470000000000000000000000000000003e0000000000000000000000000000003b000000000000000000000000000000
+  notes: 3c0000003e0000004000000042000000430000004500000047000000
+  melodyNotes: 3c0000000000000040000000000000004300000000000000000000000000000042000000000000000000000000000000000000000000000000000000000000003e000000000000000000000000000000430000000000000045000000000000004200000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000004300000000000000000000000000000045000000000000000000000000000000420000000000000000000000000000003e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   barPrefab: {fileID: 176578, guid: 016d8d404115bd5449cdf3975b66986b, type: 2}
 --- !u!1 &1072373395
 GameObject:
@@ -3589,7 +3593,7 @@ GameObject:
   - 114: {fileID: 1136896610}
   - 114: {fileID: 1136896611}
   m_Layer: 11
-  m_Name: ChordPlanet (3)
+  m_Name: ChordPlanet2
   m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3668,10 +3672,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: m
+  chordName: M
   active: 0
-  baseNote: 60
-  order: 3
+  baseNote: 62
+  order: 1
 --- !u!212 &1136896608
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5256,7 +5260,7 @@ GameObject:
   - 114: {fileID: 1589684514}
   - 114: {fileID: 1589684515}
   m_Layer: 11
-  m_Name: ChordPlanet (1)
+  m_Name: ChordPlanet1
   m_TagString: planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5269,7 +5273,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589684506}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef79f865a3d0143c68805df3d6d71b82, type: 3}
   m_Name: 
@@ -5335,10 +5339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  chordName: M7
+  chordName: M
   active: 0
-  baseNote: 55
-  order: 1
+  baseNote: 60
+  order: 0
 --- !u!212 &1589684512
 SpriteRenderer:
   m_ObjectHideFlags: 0

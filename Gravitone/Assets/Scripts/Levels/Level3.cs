@@ -20,11 +20,17 @@ public class Level3 : MonoBehaviour {
 		background.GetComponent<Fade>().final=0.9f;
 		background.GetComponent<SpriteRenderer>().enabled=true;
 
+		GameObject[] planetCopy=planets;
+
 		foreach(GameObject planet in planets){
+			Debug.Log(planet);
 			planet.GetComponent<SpriteRenderer>().enabled=false;
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<Drag>().enabled=false;
+			planetCopy[planet.GetComponent<ChordPlanet>().order]=planet;
 		}
+
+		planets=planetCopy;
 
 		// Set the camera and menu to follow the first planet.
 		cam.GetComponent<SmoothFollow2D>().target = planets[0].transform;

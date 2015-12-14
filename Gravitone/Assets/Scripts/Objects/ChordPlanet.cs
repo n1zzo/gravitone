@@ -12,6 +12,7 @@ public class ChordPlanet : MonoBehaviour {
 
 	public int baseNote;
 
+	public int order;
 
 	// Use audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
 	// to play a chord, 57 is the target midi note, "M" is the chord type.

@@ -220,8 +220,10 @@ public class Melodies : Subscriber {
 
 
 		foreach (GameObject satellite in satellites) {
+
 			if(satellite && satellite.activeSelf)
 				satellite.GetComponent<SpriteRenderer>().enabled=true;
+
 		}
 	}
 
@@ -231,8 +233,9 @@ public class Melodies : Subscriber {
 	}
 
 	public void TogglePreview() {
+
 		preview = true;
 		star.GetComponent<BeatGen>().progress=0;
-	}
 
+	}
 }
