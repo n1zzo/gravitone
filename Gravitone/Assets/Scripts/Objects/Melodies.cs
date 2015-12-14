@@ -209,12 +209,13 @@ public class Melodies : Subscriber {
 		}
 	}
 
-	public void EnablePreview() {
-		this.preview = true;
+	private void PushPreviewActions() {
+		GameObject currentPlanet = GetCurrentPlanet();
+		currentPlanet.GetComponent<Buttonize>().action = TogglePreview;
 	}
 
-	public void DisablePreview() {
-		this.preview = false;
+	public void TogglePreview() {
+		this.preview = !this.preview;
 	}
 
 }
