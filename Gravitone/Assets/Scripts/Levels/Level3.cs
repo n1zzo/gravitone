@@ -35,6 +35,8 @@ public class Level3 : MonoBehaviour {
 
 		planets[0].GetComponent<SpriteRenderer>().enabled=true;
 
+		planets[0].SetActiveRecursively(true);
+
 		melody.GetComponent<Melodies>().planets=planets;
 
 		audioManager = GetComponent<LevelManager>().audioManager;

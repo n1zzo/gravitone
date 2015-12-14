@@ -20,6 +20,7 @@ public class Melodies : Subscriber {
 	public GameObject levelManager;
 	private GameObject[] satellites = new GameObject[64];
 	private bool completed=false;
+	public int[] notes= new int[7];
 
 
 	// Use this for initialization
@@ -71,7 +72,9 @@ public class Melodies : Subscriber {
 			audioManager.GetComponent<AudioManager>().PlayStrings(noteToPlay);
 	}
 
-	public void RecordNote(int note) {
+	public void RecordNote(int number) {
+
+		int note=notes[number];
 
 		index = Mathf.RoundToInt(star.GetComponent<BeatGen>().progress * (float) granularity);
 
@@ -84,7 +87,7 @@ public class Melodies : Subscriber {
 
 		playerNotes[index] = note;
 		audioManager.GetComponent<AudioManager>().PlayStrings(note);
-		PlaceSatellite(note);
+		PlaceSatellite(note, number);
 	}
 
 	private void Verify() {
@@ -104,10 +107,11 @@ public class Melodies : Subscriber {
 	public void NextBar() {
 		currentBar++;
 		if(currentBar!=4){
+			planets[currentPlanet].SetActiveRecursively(false);
 			calculateTotalNotes();
 			currentPlanet++;
+			planets[currentPlanet].SetActiveRecursively(true);
 			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
-			//Verify();
 		} else {
 			completed=true;
 			RestoreSatellites();
@@ -135,14 +139,14 @@ public class Melodies : Subscriber {
 		return planets[currentPlanet];
 	}
 
-	private void PlaceSatellite(int note) {
+	private void PlaceSatellite(int note, int number) {
 		if(playerNotes[index]!=0 && !completed)
 			Destroy(satellites[index]);
 
     Vector3 initialPosition = new Vector3(0, 0, 0);
     GameObject newSatellite = Instantiate(satellitePrefab, initialPosition, Quaternion.identity) as GameObject;
 
-		float radius = 2f + ((note%12)*0.25f);
+		float radius = 2f + (number*0.25f);
 
 		// Set satellite rotation parameters
 		newSatellite.GetComponent<SatRotate>().star = this.star;
@@ -159,6 +163,9 @@ public class Melodies : Subscriber {
 	}
 
 	private void RestoreSatellites() {
+		foreach(GameObject planet in planets)
+			planet.SetActiveRecursively(true);
+
 		foreach (GameObject satellite in satellites) {
 			if(satellite)
 				satellite.GetComponent<SpriteRenderer>().enabled=true;
