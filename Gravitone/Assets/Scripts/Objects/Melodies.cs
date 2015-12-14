@@ -6,7 +6,7 @@ public class Melodies : Subscriber {
 
 	public GameObject star;
 	public GameObject audioManager;
-	public GameObject satellitePrefab;
+	public GameObject[] satellitePrefab;
 	public GameObject levelManager;
 	public GameObject[] planets;
 	public int[] notes= new int[7];
@@ -92,12 +92,19 @@ public class Melodies : Subscriber {
 		// Else play the user's recorded melody
 		else
 			noteToPlay = playerNotes[index];
+
 		// If there was a note...play it!
 		if(noteToPlay != 0)
 			audioManager.GetComponent<AudioManager>().PlayStrings(noteToPlay);
+
+		if(currentSlot==granularity-1)
+			preview=false;
+
 	}
 
 	public void RecordNote(int number) {
+
+		preview=false;
 
 		int note=notes[number];
 
@@ -175,7 +182,7 @@ public class Melodies : Subscriber {
 		}
 
     Vector3 initialPosition = new Vector3(0, 0, 0);
-    GameObject newSatellite = Instantiate(satellitePrefab, initialPosition, Quaternion.identity) as GameObject;
+    GameObject newSatellite = Instantiate(satellitePrefab[number], initialPosition, Quaternion.identity) as GameObject;
 
 		float radius = 2f + (number*0.25f);
 
@@ -215,12 +222,12 @@ public class Melodies : Subscriber {
 	}
 
 	private void PushPreviewActions() {
-		GameObject currentPlanet = GetCurrentPlanet();
-		currentPlanet.GetComponent<Buttonize>().action = TogglePreview;
+		planets[currentPlanet].GetComponent<Buttonize>().action = TogglePreview;
 	}
 
 	public void TogglePreview() {
-		this.preview = !this.preview;
+		preview = true;
+		star.GetComponent<BeatGen>().progress=0;
 	}
 
 }
