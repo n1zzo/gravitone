@@ -7,6 +7,9 @@ public class Melodies : Subscriber {
 	public GameObject star;
 	public GameObject audioManager;
 	public GameObject satellitePrefab;
+	public GameObject levelManager;
+	public GameObject[] planets;
+	public int[] notes= new int[7];
 	public int[] melodyNotes = new int[64];
 	private int[] playerNotes = new int[64];
 	private int currentSlot;
@@ -15,12 +18,10 @@ public class Melodies : Subscriber {
 	private float correctness = 0;
 	private int totalNotes;
 	private int granularity;
-	public GameObject[] planets;
 	private int currentPlanet;
-	public GameObject levelManager;
 	private GameObject[] satellites = new GameObject[64];
 	private bool completed=false;
-	public int[] notes= new int[7];
+	private bool preview=false;
 
 
 	// Use this for initialization
@@ -66,8 +67,13 @@ public class Melodies : Subscriber {
 		// Find current index of array
 		index = currentSlot+currentBar*granularity;
 
-		// Play the user's saved note
-		int noteToPlay = playerNotes[index];
+		// If the preview is active play the target melody
+		if (preview)
+			int noteToPlay = melodyNotes[index];
+		// Else play the user's recorded melody
+		else
+			int noteToPlay = playerNotes[index];
+		// If there was a note...play it!
 		if(noteToPlay != 0)
 			audioManager.GetComponent<AudioManager>().PlayStrings(noteToPlay);
 	}
@@ -172,5 +178,12 @@ public class Melodies : Subscriber {
 		}
 	}
 
+	public void EnablePreview() {
+		this.preview = true;
+	}
+
+	public void DisablePreview() {
+		this.preview = false;
+	}
 
 }
