@@ -146,9 +146,12 @@ public class Melodies : Subscriber {
 			planets[currentPlanet].SetActiveRecursively(true);
 			bars[currentPlanet].SetActive(true);
 			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
+
 			// Push the preview toggle action to the planets
 			PushPreviewActions();
+
 		} else {
+
 			completed=true;
 			RestoreSatellites();
 			levelManager.GetComponent<Level3>().NextLevel();
@@ -156,6 +159,7 @@ public class Melodies : Subscriber {
 			star.GetComponent<BeatGen>().Subscribe(levelManager.GetComponent<Level2>());
 			levelManager.GetComponent<Level2>().currentBar=1;
 			currentBar=0;
+
 		}
 
 	}
@@ -222,6 +226,7 @@ public class Melodies : Subscriber {
 	}
 
 	private void PushPreviewActions() {
+		planets[currentPlanet].GetComponent<CircleCollider2D>().radius=2f;
 		planets[currentPlanet].GetComponent<Buttonize>().action = TogglePreview;
 	}
 
