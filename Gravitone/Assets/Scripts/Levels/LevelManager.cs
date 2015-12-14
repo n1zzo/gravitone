@@ -30,18 +30,15 @@ public class LevelManager : MonoBehaviour {
 			GetComponent<Level1>().enabled=false;
 			GetComponent<Level2>().enabled=true;
 			GetComponent<Level3>().enabled=false;
-			GetComponent<Level4>().enabled=false;
 		}
 		else if(level==3){
 			GetComponent<Level1>().enabled=false;
 			GetComponent<Level2>().enabled=false;
 			GetComponent<Level3>().enabled=true;
-			GetComponent<Level4>().enabled=false;
 		} else if (level==4) {
 			GetComponent<Level1>().enabled=false;
 			GetComponent<Level2>().enabled=false;
 			GetComponent<Level3>().enabled=false;
-			GetComponent<Level4>().enabled=true;
 		}
 	}
 
