@@ -741,6 +741,7 @@ GameObject:
   - 114: {fileID: 447429929}
   - 114: {fileID: 447429928}
   - 114: {fileID: 447429927}
+  - 114: {fileID: 447429924}
   m_Layer: 11
   m_Name: ChordPlanet
   m_TagString: planet
@@ -748,6 +749,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &447429924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447429923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &447429927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,6 +2769,7 @@ GameObject:
   - 114: {fileID: 928358818}
   - 114: {fileID: 928358812}
   - 114: {fileID: 928358819}
+  - 114: {fileID: 928358820}
   m_Layer: 11
   m_Name: ChordPlanet (2)
   m_TagString: planet
@@ -2890,6 +2903,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backward: 0
+--- !u!114 &928358820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928358811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947645692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3554,6 +3578,7 @@ GameObject:
   - 114: {fileID: 1136896609}
   - 114: {fileID: 1136896603}
   - 114: {fileID: 1136896610}
+  - 114: {fileID: 1136896611}
   m_Layer: 11
   m_Name: ChordPlanet (3)
   m_TagString: planet
@@ -3687,6 +3712,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backward: 0
+--- !u!114 &1136896611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136896602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -5208,6 +5244,7 @@ GameObject:
   - 114: {fileID: 1589684513}
   - 114: {fileID: 1589684507}
   - 114: {fileID: 1589684514}
+  - 114: {fileID: 1589684515}
   m_Layer: 11
   m_Name: ChordPlanet (1)
   m_TagString: planet
@@ -5341,6 +5378,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backward: 1
+--- !u!114 &1589684515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589684506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590554890
 GameObject:
   m_ObjectHideFlags: 0
