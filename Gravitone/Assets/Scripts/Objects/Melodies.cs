@@ -21,6 +21,8 @@ public class Melodies : Subscriber {
 	private GameObject[] satellites = new GameObject[64];
 	private bool completed=false;
 	public int[] notes= new int[7];
+	public GameObject barPrefab;
+	private GameObject[] bars= new GameObject[6];
 
 
 	// Use this for initialization
@@ -34,6 +36,19 @@ public class Melodies : Subscriber {
 		calculateTotalNotes();
 
 		currentPlanet=0;
+
+		int count=0;
+
+		foreach (GameObject planet in planets){
+			bars[count]= Instantiate(barPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			bars[count].GetComponent<Bars>().planet=planet;
+
+			if(count!=0)
+				bars[count].SetActive(false);
+
+			count++;
+		}
+
 
 	}
 
@@ -108,9 +123,11 @@ public class Melodies : Subscriber {
 		currentBar++;
 		if(currentBar!=4){
 			planets[currentPlanet].SetActiveRecursively(false);
+			bars[currentPlanet].SetActive(false);
 			calculateTotalNotes();
 			currentPlanet++;
 			planets[currentPlanet].SetActiveRecursively(true);
+			bars[currentPlanet].SetActive(true);
 			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
 		} else {
 			completed=true;
@@ -163,8 +180,14 @@ public class Melodies : Subscriber {
 	}
 
 	private void RestoreSatellites() {
-		foreach(GameObject planet in planets)
+		int count=0;
+
+		foreach(GameObject planet in planets){
 			planet.SetActiveRecursively(true);
+			bars[count].SetActive(true);
+			count++;
+		}
+
 
 		foreach (GameObject satellite in satellites) {
 			if(satellite)
