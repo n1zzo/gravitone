@@ -50,6 +50,8 @@ public class Melodies : Subscriber {
 			count++;
 		}
 
+		// Push the preview toggle action to the planets
+		PushPreviewActions();
 
 	}
 
@@ -146,6 +148,8 @@ public class Melodies : Subscriber {
 			levelManager.GetComponent<Level2>().currentBar=1;
 			currentBar=0;
 		}
+		// Push the preview toggle action to the planets
+		PushPreviewActions();
 	}
 
 	public void calculateTotalNotes(bool destroySat){
