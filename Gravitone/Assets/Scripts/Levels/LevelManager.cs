@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour {
 			// Testing only: skip to level 2 or 3
 
 			GetComponent<Level1>().Autocomplete();
-		  GetComponent<Level2>().autocomplete=true;
+		  //GetComponent<Level2>().autocomplete=true;
 	}
 
 	// Update is called once per frame
@@ -57,6 +57,10 @@ public class LevelManager : MonoBehaviour {
 
 	public void SetRedBackground(){
 		background.GetComponent<SpriteRenderer>().color=Color.red;
+	}
+
+	public void SetGreyBackground(){
+		background.GetComponent<SpriteRenderer>().color=Color.grey;
 	}
 
 	public void ResetBackground(){

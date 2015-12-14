@@ -80,8 +80,10 @@ public class Level2 : Subscriber {
 						NextLevel();
 				}
 
-				if(placed == notes.Length)
-							isWaiting=true;
+				if(placed == notes.Length){
+					isWaiting=true;
+					GetComponent<LevelManager>().SetGreyBackground();
+				}
 				else
 							isWaiting=false;
 
@@ -114,7 +116,6 @@ public class Level2 : Subscriber {
 
 	// Here we will put a collapsing animation
 	public void CollapsePlanets() {
-
 		isPreview=true;
 		currentBar=bars-1;
 		Destroy(actualWave);
@@ -136,6 +137,7 @@ public class Level2 : Subscriber {
 	}
 
 	public void proxyRestore(){
+		GetComponent<LevelManager>().ResetBackground();
 		restoreCount++;
 		if(restoreCount==planets.Length)
 			RestorePositions();
