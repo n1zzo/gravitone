@@ -8,15 +8,14 @@ public class Menu : MonoBehaviour {
 	public GameObject menu;
 	public GameObject menutree;
 	public GameObject text;
-	public string blurEffect = "BlurOptimized";
 
 	public void Enable() {
-		// Use non-optimized blur for android platform
-		if (Application.platform == RuntimePlatform.Android)
-			blurEffect = "Blur";
 
-		// Turn on the gaussian blur epublic GameObject audioManager;ffect
-		cam.GetComponent<blurEffect>().enabled = true;
+		// Turn on the gaussian blur epublic GameObject audioManager;
+		if (Application.platform == RuntimePlatform.Android)
+			cam.GetComponent<Blur>().enabled = true;
+		else
+			cam.GetComponent<BlurOptimized>().enabled = true;
 		// Enable the menu camera
 		menu.SetActive(true);
 		// Enable the target objects
@@ -30,10 +29,11 @@ public class Menu : MonoBehaviour {
 
 	public void Disable() {
 
-
-
-		// Turn off the gaussian blur effect
-		cam.GetComponent<blurEffect>().enabled = false;
+		// Turn on the gaussian blur epublic GameObject audioManager;
+		if (Application.platform == RuntimePlatform.Android)
+			cam.GetComponent<Blur>().enabled = false;
+		else
+			cam.GetComponent<BlurOptimized>().enabled = false;
 
 		// Disable the menu camera
 		menu.SetActive(false);
