@@ -29,7 +29,7 @@ public class Menu : MonoBehaviour {
 
 	public void Disable() {
 
-		// Turn on the gaussian blur epublic GameObject audioManager;
+		// Turn on the gaussian blur
 		if (Application.platform == RuntimePlatform.Android)
 			cam.GetComponent<Blur>().enabled = false;
 		else
