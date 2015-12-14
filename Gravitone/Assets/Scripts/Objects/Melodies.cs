@@ -45,6 +45,8 @@ public class Melodies : Subscriber {
 
 	// currentSlot ranges from 0 to 15
 	public override void Beat(int currentSlot){
+		int noteToPlay = 0;
+
 		if(currentSlot==0){
 			if(!completed){
 
@@ -69,10 +71,10 @@ public class Melodies : Subscriber {
 
 		// If the preview is active play the target melody
 		if (preview)
-			int noteToPlay = melodyNotes[index];
+			noteToPlay = melodyNotes[index];
 		// Else play the user's recorded melody
 		else
-			int noteToPlay = playerNotes[index];
+			noteToPlay = playerNotes[index];
 		// If there was a note...play it!
 		if(noteToPlay != 0)
 			audioManager.GetComponent<AudioManager>().PlayStrings(noteToPlay);
