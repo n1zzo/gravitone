@@ -34,7 +34,7 @@ public class Melodies : Subscriber {
 
 		granularity=star.GetComponent<BeatGen>().granularity;
 
-		calculateTotalNotes();
+		calculateTotalNotes(false);
 
 		currentPlanet=0;
 
@@ -132,7 +132,7 @@ public class Melodies : Subscriber {
 		if(currentBar!=4){
 			planets[currentPlanet].SetActiveRecursively(false);
 			bars[currentPlanet].SetActive(false);
-			calculateTotalNotes();
+			calculateTotalNotes(false);
 			currentPlanet++;
 			planets[currentPlanet].SetActiveRecursively(true);
 			bars[currentPlanet].SetActive(true);
@@ -148,7 +148,7 @@ public class Melodies : Subscriber {
 		}
 	}
 
-	public void calculateTotalNotes(){
+	public void calculateTotalNotes(bool destroySat){
 		totalNotes=0;
 
 		for (int i=currentBar*granularity ; i<granularity +currentBar*granularity ; i++){
@@ -157,7 +157,7 @@ public class Melodies : Subscriber {
 				totalNotes++;
 		}
 
-		DeleteSatellites();
+		DeleteSatellites(destroySat);
 	}
 
 	public GameObject GetCurrentPlanet(){
@@ -165,8 +165,9 @@ public class Melodies : Subscriber {
 	}
 
 	private void PlaceSatellite(int note, int number) {
-		if(playerNotes[index]!=0 && !completed)
+		if(playerNotes[index]!=0 && !completed){
 			Destroy(satellites[index]);
+		}
 
     Vector3 initialPosition = new Vector3(0, 0, 0);
     GameObject newSatellite = Instantiate(satellitePrefab, initialPosition, Quaternion.identity) as GameObject;
@@ -180,10 +181,15 @@ public class Melodies : Subscriber {
     satellites[index]=newSatellite;
   }
 
-	private void DeleteSatellites() {
-		foreach (GameObject satellite in satellites) {
-			if(satellite)
-				satellite.GetComponent<SpriteRenderer>().enabled=false;
+	private void DeleteSatellites(bool destroySat) {
+
+		for(int i=currentPlanet*granularity; i<granularity*(currentPlanet+1); i++) {
+			if(satellites[i]){
+				if(destroySat)
+					satellites[i].SetActive(false);
+				else
+					satellites[i].GetComponent<SpriteRenderer>().enabled=false;
+			}
 		}
 	}
 
@@ -198,7 +204,7 @@ public class Melodies : Subscriber {
 
 
 		foreach (GameObject satellite in satellites) {
-			if(satellite)
+			if(satellite && satellite.activeSelf)
 				satellite.GetComponent<SpriteRenderer>().enabled=true;
 		}
 	}

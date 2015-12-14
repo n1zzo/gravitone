@@ -50,7 +50,7 @@ public class Level3 : MonoBehaviour {
 	}
 
 	public void Restart(){
-		melody.GetComponent<Melodies>().calculateTotalNotes();
+		melody.GetComponent<Melodies>().calculateTotalNotes(true);
 	}
 
 	public void changeCamera(int number){
