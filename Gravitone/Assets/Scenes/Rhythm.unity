@@ -717,18 +717,6 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
   m_PrefabInternal: {fileID: 2126870119}
---- !u!114 &447429931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 447429923}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f52e4a0618c55f4f85f144dbcd25633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backward: 1
 --- !u!1 &461136835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2543,7 @@ GameObject:
   - 114: {fileID: 928358818}
   - 114: {fileID: 928358812}
   - 114: {fileID: 928358819}
+  - 114: {fileID: 928358820}
   m_Layer: 11
   m_Name: ChordPlanet (2)
   m_TagString: planet
@@ -2688,6 +2677,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backward: 0
+--- !u!114 &928358820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928358811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947645692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,60 +2953,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
   targetDrumArray: 00000000010000000000000001010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
---- !u!1 &987801784
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 987801785}
-  - 212: {fileID: 987801786}
-  m_Layer: 0
-  m_Name: orbit (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &987801785
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987801784}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .0970000029, y: .0970000029, z: 1}
-  m_Children: []
-  m_Father: {fileID: 389361213}
-  m_RootOrder: 2
---- !u!212 &987801786
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 987801784}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -922746523
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4ada536a41a99c549b6c61f2588a21be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &990276596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,10 +3222,10 @@ MonoBehaviour:
   star: {fileID: 810106420}
   audioManager: {fileID: 1590554890}
   satellitePrefab: {fileID: 177730, guid: 75ed3794d640146db8018cf5cd0533af, type: 2}
-  melodyNotes: 000000000000000000000000000000003b000000000000000000000000000000430000000000000000000000000000003e000000000000000000000000000000000000000000000000000000000000003b0000000000000000000000000000004700000000000000000000000000000043000000000000000000000000000000000000000000000000000000000000003b000000000000000000000000000000470000000000000000000000000000004800000000000000000000000000000000000000000000000000000000000000470000000000000000000000000000003e0000000000000000000000000000003b000000000000000000000000000000
-  planets: []
   levelManager: {fileID: 721453208}
+  planets: []
   notes: 3b0000003e0000004000000042000000430000004700000048000000
+  melodyNotes: 000000000000000000000000000000003b000000000000000000000000000000430000000000000000000000000000003e000000000000000000000000000000000000000000000000000000000000003b0000000000000000000000000000004700000000000000000000000000000043000000000000000000000000000000000000000000000000000000000000003b000000000000000000000000000000470000000000000000000000000000004800000000000000000000000000000000000000000000000000000000000000470000000000000000000000000000003e0000000000000000000000000000003b000000000000000000000000000000
   barPrefab: {fileID: 176578, guid: 016d8d404115bd5449cdf3975b66986b, type: 2}
 --- !u!1 &1072373395
 GameObject:
@@ -3406,6 +3352,7 @@ GameObject:
   - 114: {fileID: 1136896609}
   - 114: {fileID: 1136896603}
   - 114: {fileID: 1136896610}
+  - 114: {fileID: 1136896611}
   m_Layer: 11
   m_Name: ChordPlanet (3)
   m_TagString: planet
@@ -3539,6 +3486,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backward: 0
+--- !u!114 &1136896611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1136896602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,60 +4122,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1695369250}
   m_RootOrder: 1
---- !u!1 &1220851306
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1220851308}
-  - 212: {fileID: 1220851307}
-  m_Layer: 0
-  m_Name: orbit (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!212 &1220851307
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220851306}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -922746523
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4ada536a41a99c549b6c61f2588a21be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1220851308
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1220851306}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .112999998, y: .112999998, z: 1}
-  m_Children: []
-  m_Father: {fileID: 389361213}
-  m_RootOrder: 3
 --- !u!1 &1250394221
 GameObject:
   m_ObjectHideFlags: 0
@@ -4943,60 +4847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 810106420}
---- !u!1 &1495629152
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1495629153}
-  - 212: {fileID: 1495629154}
-  m_Layer: 0
-  m_Name: orbit (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1495629153
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495629152}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .0810000002, y: .0810000002, z: 1}
-  m_Children: []
-  m_Father: {fileID: 389361213}
-  m_RootOrder: 1
---- !u!212 &1495629154
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1495629152}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -922746523
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4ada536a41a99c549b6c61f2588a21be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1531807803
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,6 +4963,7 @@ GameObject:
   - 114: {fileID: 1589684513}
   - 114: {fileID: 1589684507}
   - 114: {fileID: 1589684514}
+  - 114: {fileID: 1589684515}
   m_Layer: 11
   m_Name: ChordPlanet (1)
   m_TagString: planet
@@ -5246,6 +5097,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backward: 1
+--- !u!114 &1589684515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1589684506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1566b9bdc9b8460494ab9e9abb0312b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1590554890
 GameObject:
   m_ObjectHideFlags: 0
@@ -6410,60 +6272,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2059390206}
---- !u!1 &2098925425
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2098925426}
-  - 212: {fileID: 2098925427}
-  m_Layer: 0
-  m_Name: orbit
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2098925426
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098925425}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .064000003, y: .064000003, z: 1}
-  m_Children: []
-  m_Father: {fileID: 389361213}
-  m_RootOrder: 0
---- !u!212 &2098925427
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2098925425}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -922746523
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4ada536a41a99c549b6c61f2588a21be, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2122361121
 GameObject:
   m_ObjectHideFlags: 0
@@ -6656,30 +6464,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11462692, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: star
-      value: 
-      objectReference: {fileID: 810106420}
     - target: {fileID: 11403920, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
       propertyPath: audioManager
       value: 
       objectReference: {fileID: 1590554890}
-    - target: {fileID: 411044, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 127720, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403920, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
-      propertyPath: baseNote
-      value: 55
-      objectReference: {fileID: 0}
+    - target: {fileID: 11462692, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
+      propertyPath: star
+      value: 
+      objectReference: {fileID: 810106420}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3037bf55271e49f9aeebd67b0df0789, type: 2}
   m_IsPrefabParent: 0
