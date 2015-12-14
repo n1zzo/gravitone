@@ -9,9 +9,13 @@ public class Drag : MonoBehaviour {
 	public float[] radiusOrbits;
 	public int orbitNumber=-1;
 
-	void Start(){}
+	void Start(){
 
-	void OnMouseDown () {
+		GetComponent<Buttonize>().action = handleMouseDown;
+
+	}
+
+	public void handleMouseDown () {
 
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
@@ -20,33 +24,37 @@ public class Drag : MonoBehaviour {
 			GetComponent<ChordPlanet>().Play();
 
 			GetComponent<SelfRotate>().enabled=true;
+
 	}
 
 	void OnMouseDrag () {
+		if(GetComponent<Drag>().enabled){
 			Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 			Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
 			transform.position = cursorPosition;
+		}
 	}
 
 	void OnMouseUp () {
+		if(GetComponent<Drag>().enabled){
+					GetComponent<SelfRotate>().enabled=false;
 
-			GetComponent<SelfRotate>().enabled=false;
+					// Assign the planet to the nearest orbit.
+					// Get the radius from the orbit and give it to Rotate.cs
+					// Deactivate the drag functionality
+					int count=0;
+					foreach (float orbit in radiusOrbits){
+						float x=transform.position.x;
+						float y=transform.position.y;
+						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
-			// Assign the planet to the nearest orbit.
-			// Get the radius from the orbit and give it to Rotate.cs
-			// Deactivate the drag functionality
-			int count=0;
-			foreach (float orbit in radiusOrbits){
-				float x=transform.position.x;
-				float y=transform.position.y;
-				if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
+							AssignToOrbit(orbit, count);
+							break;
 
-					AssignToOrbit(orbit, count);
-					break;
-
-				}
-				count++;
-			}
+						}
+						count++;
+					}
+		}
 	}
 
 	public void AssignToOrbit(float orbit, int count) {

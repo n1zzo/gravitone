@@ -139,6 +139,8 @@ public class Melodies : Subscriber {
 			planets[currentPlanet].SetActiveRecursively(true);
 			bars[currentPlanet].SetActive(true);
 			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
+			// Push the preview toggle action to the planets
+			PushPreviewActions();
 		} else {
 			completed=true;
 			RestoreSatellites();
@@ -148,8 +150,7 @@ public class Melodies : Subscriber {
 			levelManager.GetComponent<Level2>().currentBar=1;
 			currentBar=0;
 		}
-		// Push the preview toggle action to the planets
-		PushPreviewActions();
+
 	}
 
 	public void calculateTotalNotes(bool destroySat){

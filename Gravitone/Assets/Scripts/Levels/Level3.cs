@@ -24,7 +24,6 @@ public class Level3 : MonoBehaviour {
 			planet.GetComponent<SpriteRenderer>().enabled=false;
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<Drag>().enabled=false;
-			planet.GetComponent<CircleCollider2D>().enabled=false;
 		}
 
 		// Set the camera and menu to follow the first planet.
@@ -64,7 +63,6 @@ public class Level3 : MonoBehaviour {
 			planet.GetComponent<SpriteRenderer>().enabled=true;
 			planet.GetComponent<Rotate>().enabled=true;
 			planet.GetComponent<Drag>().enabled=false;
-			planet.GetComponent<CircleCollider2D>().enabled=true;
 		}
 		// Set the camera and menu to follow the first planet.
 		cam.GetComponent<SmoothFollow2D>().enabled = false;
