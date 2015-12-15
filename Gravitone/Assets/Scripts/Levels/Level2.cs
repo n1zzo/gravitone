@@ -22,6 +22,7 @@ public class Level2 : Subscriber {
 	bool isWaiting=false;
 	bool isPreview=false;
 	GameObject actualWave;
+	bool completed=false;
 
 
 	// Use this for initialization
@@ -64,29 +65,30 @@ public class Level2 : Subscriber {
 				}
 
 				currentBar=0;
-				score=0;
-				int placed = 0;
-				foreach(GameObject planet in planets)
-					if(planet.GetComponent<Drag>().orbitNumber!=-1) {
-						placed++;
-						if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
-							score++;
-					}
-				if(isWaiting) {
-					// The player has placed all the planets check the score
-					if(score < notes.Length)
-						CollapsePlanets();
-					else
-						NextLevel();
-				}
+				if(!completed){
+						score=0;
+						int placed = 0;
+						foreach(GameObject planet in planets)
+							if(planet.GetComponent<Drag>().orbitNumber!=-1) {
+								placed++;
+								if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
+									score++;
+							}
+						if(isWaiting) {
+							// The player has placed all the planets check the score
+							if(score < notes.Length)
+								CollapsePlanets();
+							else
+								NextLevel();
+						}
 
-				if(placed == notes.Length){
-					isWaiting=true;
-					GetComponent<LevelManager>().SetGreyBackground();
-				}
-				else
+						if(placed == notes.Length){
+							isWaiting=true;
+							GetComponent<LevelManager>().SetGreyBackground();
+						}
+						else
 							isWaiting=false;
-
+				}
 			}
 			currentBar++;
 		}
@@ -131,6 +133,7 @@ public class Level2 : Subscriber {
 	}
 
 	public void NextLevel() {
+		completed=true;
 		Destroy(actualWave);
 		star.GetComponent<BeatGen>().Unsubscribe(this);
 		GetComponent<LevelManager>().goToNextLevel();
