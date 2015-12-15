@@ -6,7 +6,7 @@ public class OnlineMetronome : MonoBehaviour, Metronome {
 
 	void Start() {
 		// Set puredata output gain
-		LibPD.SendFloat("gain", 1f);
+		LibPD.SendFloat("gain", 0.7f);
 	}
 
 	void Metronome.HighBeat () {
