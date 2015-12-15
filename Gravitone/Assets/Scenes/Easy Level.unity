@@ -1810,6 +1810,7 @@ GameObject:
   - 114: {fileID: 721453211}
   - 114: {fileID: 721453213}
   - 114: {fileID: 721453214}
+  - 114: {fileID: 721453215}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1932,6 +1933,17 @@ MonoBehaviour:
   menutree: {fileID: 1871253826}
   text: {fileID: 1642648028}
   melodyCanvas: {fileID: 1250394221}
+--- !u!114 &721453215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00da455feba31149be54a6a0bd803c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0
@@ -4534,7 +4546,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1323067577}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 721453215}
+        m_MethodName: NextLevelButton
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: menu
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1323067577
