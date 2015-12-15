@@ -7,6 +7,7 @@ public class Melodies : Subscriber {
 	public GameObject star;
 	public GameObject audioManager;
 	public GameObject[] satellitePrefab;
+	public GameObject satelliteDark;
 	public GameObject levelManager;
 	public GameObject[] planets;
 	public int[] notes= new int[7];
@@ -86,8 +87,12 @@ public class Melodies : Subscriber {
 		index = currentSlot+currentBar*granularity;
 
 		// If the preview is active play the target melody
-		if (preview)
+		if(preview) {
 			noteToPlay = melodyNotes[index];
+			// Place the dark satellite (the second parameter is the radius)
+			if(noteToPlay != 0)
+				PlaceSatellite(noteToPlay, noteToPlay % 5);
+		}
 		// Else play the user's recorded melody
 		else
 			noteToPlay = playerNotes[index];
@@ -183,8 +188,13 @@ public class Melodies : Subscriber {
 			Destroy(satellites[index]);
 		}
 
-    Vector3 initialPosition = new Vector3(0, 0, 0);
-    GameObject newSatellite = Instantiate(satellitePrefab[number], initialPosition, Quaternion.identity) as GameObject;
+		// Select the prefab of the satellite that will be placed
+		GameObject prefab;
+		if(preview)
+			prefab = satelliteDark;
+		else
+			prefab = satellitePrefab[number];
+    GameObject newSatellite = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
 		float radius = 2f + (number*0.25f);
 
