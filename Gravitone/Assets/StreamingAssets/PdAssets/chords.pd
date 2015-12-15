@@ -1,5 +1,5 @@
-#N canvas 830 86 840 665 10;
-#N canvas 614 223 579 466 interface 0;
+#N canvas 495 299 840 735 10;
+#N canvas 611 229 579 466 interface 0;
 #X obj 100 222 cnv 15 100 120 empty empty OSC 8 12 1 14 -258699 -262144
 0;
 #X obj 201 222 cnv 15 200 120 empty empty AMP 8 12 1 14 -260818 -262144
@@ -56,6 +56,8 @@
 -62784 -262144 -1 508.475 256;
 #X obj 112 254 vradio 12 1 0 5 empty empty OCT 0 -6 1 8 -262144 -1
 -262144 0;
+#X obj 284 38 r ampDecay;
+#X obj 156 39 r filterDecay;
 #X connect 3 0 18 0;
 #X connect 3 0 22 0;
 #X connect 4 0 21 0;
@@ -76,10 +78,12 @@
 #X connect 11 0 23 0;
 #X connect 32 0 26 0;
 #X connect 32 0 12 0;
+#X connect 33 0 11 0;
+#X connect 34 0 6 0;
 #X coords 0 -1 1 1 300 240 1 100 100;
-#X restore 248 394 pd interface;
+#X restore 257 477 pd interface;
 #X obj 64 217 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 5700 1;
 #X obj 84 42 bng 15 250 50 0 empty M empty 17 7 0 10 -262144 -1 -1
 ;
 #X text 113 38 M;
@@ -119,11 +123,11 @@
 #X connect 5 3 8 0;
 #X connect 6 0 5 0;
 #X restore 84 65 pd mutex;
-#N canvas 1957 115 976 558 chord 1;
+#N canvas 49 121 976 558 chord 0;
 #X msg 113 113 4;
 #X msg 158 112 7;
 #X msg 201 110 0;
-#N canvas 1463 267 450 300 sum~ 1;
+#N canvas 1460 273 450 300 sum~ 0;
 #X obj 60 24 inlet~;
 #X obj 137 24 inlet~;
 #X obj 215 23 inlet~;
@@ -883,11 +887,11 @@
 #X connect 45 0 26 0;
 #X connect 46 0 32 0;
 #X restore 255 302 pd chord;
-#N canvas 31 151 976 558 chord 1;
+#N canvas 22 169 976 558 chord 1;
 #X msg 113 113 4;
 #X msg 158 112 7;
 #X msg 201 110 0;
-#N canvas 1026 645 450 300 sum~ 1;
+#N canvas 1023 651 450 300 sum~ 0;
 #X obj 60 24 inlet~;
 #X obj 137 24 inlet~;
 #X obj 215 23 inlet~;
@@ -1647,11 +1651,11 @@
 #X connect 45 0 26 0;
 #X connect 46 0 32 0;
 #X restore 343 301 pd chord;
-#N canvas -29 332 976 558 chord 1;
+#N canvas 0 350 976 558 chord 1;
 #X msg 113 113 4;
 #X msg 158 112 7;
 #X msg 201 110 0;
-#N canvas 1026 645 450 300 sum~ 1;
+#N canvas 1023 651 450 300 sum~ 0;
 #X obj 60 24 inlet~;
 #X obj 137 24 inlet~;
 #X obj 215 23 inlet~;
@@ -2411,11 +2415,11 @@
 #X connect 45 0 26 0;
 #X connect 46 0 32 0;
 #X restore 426 302 pd chord;
-#N canvas 789 165 976 558 chord 1;
+#N canvas 786 171 976 558 chord 0;
 #X msg 113 113 4;
 #X msg 158 112 7;
 #X msg 201 110 0;
-#N canvas 1026 645 450 300 sum~ 1;
+#N canvas 1017 663 450 300 sum~ 1;
 #X obj 60 24 inlet~;
 #X obj 137 24 inlet~;
 #X obj 215 23 inlet~;
@@ -3175,7 +3179,7 @@
 #X connect 45 0 26 0;
 #X connect 46 0 32 0;
 #X restore 510 299 pd chord;
-#X obj 247 346 dac~;
+#X obj 241 441 dac~;
 #N canvas 0 98 450 300 mutex 0;
 #X obj 120 75 i;
 #X obj 120 96 + 1;
@@ -3276,10 +3280,10 @@
 #X connect 5 3 8 0;
 #X connect 6 0 5 0;
 #X restore 750 63 pd mutex;
-#X obj 331 347 dac~;
-#X obj 419 348 dac~;
-#X obj 500 350 dac~;
-#X obj 680 400 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 325 442 dac~;
+#X obj 413 443 dac~;
+#X obj 494 445 dac~;
+#X obj 689 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #N canvas 0 92 450 300 mutex 0;
 #X obj 120 75 i;
@@ -3300,15 +3304,71 @@
 #X connect 5 2 7 0;
 #X connect 5 3 8 0;
 #X connect 6 0 5 0;
-#X restore 678 430 pd mutex;
-#X obj 673 468 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore 687 513 pd mutex;
+#X obj 682 551 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 683 478 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 692 561 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 693 488 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 702 571 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 703 498 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 712 581 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#X obj 598 328 r gain;
+#N canvas 80 202 450 300 gain~ 0;
+#X obj 80 50 inlet~;
+#X obj 283 53 inlet;
+#X obj 195 209 outlet~;
+#X obj 195 143 *~;
+#X obj 246 81 pack 10;
+#X obj 246 103 vline~;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X restore 252 371 pd gain~;
+#N canvas 80 202 450 300 gain~ 0;
+#X obj 80 50 inlet~;
+#X obj 283 53 inlet;
+#X obj 195 209 outlet~;
+#X obj 195 143 *~;
+#X obj 246 81 pack 10;
+#X obj 246 103 vline~;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X restore 346 370 pd gain~;
+#N canvas 80 202 450 300 gain~ 0;
+#X obj 80 50 inlet~;
+#X obj 283 53 inlet;
+#X obj 195 209 outlet~;
+#X obj 195 143 *~;
+#X obj 246 81 pack 10;
+#X obj 246 103 vline~;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X restore 431 368 pd gain~;
+#N canvas 80 202 450 300 gain~ 0;
+#X obj 80 50 inlet~;
+#X obj 283 53 inlet;
+#X obj 195 209 outlet~;
+#X obj 195 143 *~;
+#X obj 246 81 pack 10;
+#X obj 246 103 vline~;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X restore 511 367 pd gain~;
+#X obj 661 313 loadbang;
+#X msg 661 335 1;
+#X text 636 290 Default volume;
 #X connect 1 0 16 0;
 #X connect 1 0 17 0;
 #X connect 1 0 18 0;
@@ -3324,14 +3384,10 @@
 #X connect 15 1 17 1;
 #X connect 15 2 18 1;
 #X connect 15 3 19 1;
-#X connect 16 0 20 0;
-#X connect 16 0 20 1;
-#X connect 17 0 26 0;
-#X connect 17 0 26 1;
-#X connect 18 0 27 0;
-#X connect 18 0 27 1;
-#X connect 19 0 28 0;
-#X connect 19 0 28 1;
+#X connect 16 0 36 0;
+#X connect 17 0 37 0;
+#X connect 18 0 38 0;
+#X connect 19 0 39 0;
 #X connect 21 0 16 2;
 #X connect 21 1 17 2;
 #X connect 21 2 18 2;
@@ -3357,3 +3413,20 @@
 #X connect 30 1 32 0;
 #X connect 30 2 33 0;
 #X connect 30 3 34 0;
+#X connect 35 0 39 1;
+#X connect 35 0 38 1;
+#X connect 35 0 37 1;
+#X connect 35 0 36 1;
+#X connect 36 0 20 0;
+#X connect 36 0 20 1;
+#X connect 37 0 26 0;
+#X connect 37 0 26 1;
+#X connect 38 0 27 0;
+#X connect 38 0 27 1;
+#X connect 39 0 28 0;
+#X connect 39 0 28 1;
+#X connect 40 0 41 0;
+#X connect 41 0 36 1;
+#X connect 41 0 37 1;
+#X connect 41 0 38 1;
+#X connect 41 0 39 1;
