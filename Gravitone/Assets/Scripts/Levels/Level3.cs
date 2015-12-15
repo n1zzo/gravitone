@@ -68,6 +68,7 @@ public class Level3 : MonoBehaviour {
 	}
 
 	public void NextLevel(){
+		
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=true;
 			planet.GetComponent<Rotate>().enabled=true;
