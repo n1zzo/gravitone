@@ -47,6 +47,8 @@ public class Level3 : MonoBehaviour {
 		audioManager = GetComponent<LevelManager>().audioManager;
 		//audioManager.GetComponent<AudioManager>().PlayStrings(60);
 
+		melody.GetComponent<Melodies>().TogglePreview();
+
 	}
 
 	// Update is called once per frame
@@ -56,6 +58,7 @@ public class Level3 : MonoBehaviour {
 
 	public void Restart(){
 		melody.GetComponent<Melodies>().calculateTotalNotes(true);
+		melody.GetComponent<Melodies>().TogglePreview();
 	}
 
 	public void changeCamera(int number){

@@ -54,8 +54,6 @@ public class Melodies : Subscriber {
 		// Push the preview toggle action to the planets
 		PushPreviewActions();
 
-		TogglePreview();
-
 	}
 
 	// Update is called once per frame
