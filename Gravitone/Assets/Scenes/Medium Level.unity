@@ -1860,6 +1860,7 @@ MonoBehaviour:
   wavePrefab: {fileID: 196342, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
   prev: {fileID: 714782745}
   autocomplete: 0
+  numberOfThirdBeat: 0
   currentBar: 0
   bars: 4
   planets:
@@ -5269,7 +5270,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589684506}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef79f865a3d0143c68805df3d6d71b82, type: 3}
   m_Name: 

@@ -68,6 +68,7 @@ public class Melodies : Subscriber {
 			if(!completed){
 
 					planets[currentPlanet].GetComponent<ChordPlanet>().Play();
+					Verify();
 
 			} else {
 
@@ -77,8 +78,6 @@ public class Melodies : Subscriber {
 						currentBar=0;
 
 			}
-			if(!completed)
-				Verify();
 		}
 
 		this.currentSlot = currentSlot;
@@ -159,7 +158,6 @@ public class Melodies : Subscriber {
 			star.GetComponent<BeatGen>().Subscribe(levelManager.GetComponent<Level2>());
 			levelManager.GetComponent<Level2>().currentBar=1;
 			currentBar=0;
-
 		}
 
 	}
@@ -214,6 +212,7 @@ public class Melodies : Subscriber {
 
 		foreach(GameObject planet in planets){
 			planet.SetActiveRecursively(true);
+			planet.GetComponent<CircleCollider2D>().radius=1f;
 			bars[count].SetActive(true);
 			count++;
 		}

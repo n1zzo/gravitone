@@ -10,7 +10,7 @@ public class Level2 : Subscriber {
 	public GameObject wavePrefab;
 	public GameObject prev;
 	public bool autocomplete=false;
-	private int numberOfThirdBeat=0;
+	public int numberOfThirdBeat=0;
 	public int currentBar=0;
 	public int bars=4;
 	public GameObject[] planets;
