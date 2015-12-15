@@ -4,7 +4,7 @@ using LibPDBinding;
 
 public class OnlineChord : MonoBehaviour, Chord {
 
-	public GameObject star
+	public GameObject star;
 
 	// Use LibPD.SendFloat("midiNote", 60); to set the fundamental note to C.
 	// Then use LibPD.SendBang("M"); to play a major chord.
