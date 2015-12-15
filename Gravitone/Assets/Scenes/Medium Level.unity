@@ -1931,6 +1931,7 @@ MonoBehaviour:
   menu: {fileID: 1695369249}
   menutree: {fileID: 1871253826}
   text: {fileID: 1642648028}
+  melodyCanvas: {fileID: 1250394221}
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0
@@ -3458,6 +3459,7 @@ MonoBehaviour:
   - {fileID: 177730, guid: 4a53aea39e526cf4e90ad9a0720ccd03, type: 2}
   - {fileID: 177730, guid: b9aa825e9bc2a1c41b90c657f5fe4549, type: 2}
   - {fileID: 177730, guid: 4c9acdf9261d6cb4bac7546e0fc5a733, type: 2}
+  satelliteDark: {fileID: 195716, guid: 02bbf70233ed54579a3717447f51f844, type: 2}
   levelManager: {fileID: 721453208}
   planets: []
   notes: 3b0000003e0000004000000042000000430000004700000048000000

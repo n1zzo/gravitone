@@ -8,6 +8,8 @@ public class Menu : MonoBehaviour {
 	public GameObject menu;
 	public GameObject menutree;
 	public GameObject text;
+	public GameObject melodyCanvas;
+	private bool isCanvas;
 
 	public void Enable() {
 
@@ -20,6 +22,12 @@ public class Menu : MonoBehaviour {
 		menu.SetActive(true);
 		// Enable the target objects
 		menutree.SetActive(true);
+
+		if(melodyCanvas.activeSelf){
+			isCanvas=true;
+			melodyCanvas.SetActive(false);
+		} else
+			isCanvas=false;
 
 		//Turn off the text on the first phase
 		text.SetActive(false);
@@ -44,6 +52,10 @@ public class Menu : MonoBehaviour {
 		//Turn on the text on the first phase
 		text.SetActive(true);
 
+		if(isCanvas){
+			melodyCanvas.SetActive(true);
+			isCanvas=false;
+		}
 
 		Time.timeScale=1f;
 	}

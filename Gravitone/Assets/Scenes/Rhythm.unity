@@ -1931,6 +1931,7 @@ MonoBehaviour:
   menu: {fileID: 1695369249}
   menutree: {fileID: 1871253826}
   text: {fileID: 1642648028}
+  melodyCanvas: {fileID: 1250394221}
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0

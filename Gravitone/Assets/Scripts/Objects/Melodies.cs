@@ -54,6 +54,8 @@ public class Melodies : Subscriber {
 		// Push the preview toggle action to the planets
 		PushPreviewActions();
 
+		TogglePreview();
+
 	}
 
 	// Update is called once per frame
@@ -91,7 +93,7 @@ public class Melodies : Subscriber {
 			noteToPlay = melodyNotes[index];
 			// Place the dark satellite (the second parameter is the radius)
 			if(noteToPlay != 0)
-				PlaceSatellite(noteToPlay, noteToPlay % 5);
+				PlaceSatellite(noteToPlay, GetIndex(noteToPlay));
 		}
 		// Else play the user's recorded melody
 		else
@@ -126,6 +128,14 @@ public class Melodies : Subscriber {
 		PlaceSatellite(note, number);
 	}
 
+	private int GetIndex(int note){
+		for (int i=0; i<7; i++)
+			if(notes[i]==note)
+				return i;
+
+		return -1;
+	}
+
 	private void Verify() {
 		int matching = 0;
 		for (int i=currentBar*granularity ; i<(granularity + currentBar*granularity); i++)
@@ -153,6 +163,8 @@ public class Melodies : Subscriber {
 
 			// Push the preview toggle action to the planets
 			PushPreviewActions();
+
+			TogglePreview();
 
 		} else {
 
@@ -190,10 +202,13 @@ public class Melodies : Subscriber {
 
 		// Select the prefab of the satellite that will be placed
 		GameObject prefab;
-		if(preview)
+		if(preview){
 			prefab = satelliteDark;
+			Destroy(satellites[index]);
+		}
 		else
 			prefab = satellitePrefab[number];
+
     GameObject newSatellite = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
 		float radius = 2f + (number*0.25f);
@@ -244,7 +259,7 @@ public class Melodies : Subscriber {
 	public void TogglePreview() {
 
 		preview = true;
-		star.GetComponent<BeatGen>().progress=0;
+		star.GetComponent<BeatGen>().progress=1f;
 
 	}
 }
