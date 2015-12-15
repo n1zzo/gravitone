@@ -1686,7 +1686,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8233220, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_Volume
-      value: .699999988
+      value: .600000024
       objectReference: {fileID: 0}
     - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[16]
@@ -2750,7 +2750,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8233220, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_Volume
-      value: .699999988
+      value: .610000014
       objectReference: {fileID: 0}
     - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[9]
@@ -3081,7 +3081,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 90497c5e7d615ae4288283bae3f6278b, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .699999988
+  m_Volume: .600000024
   m_Pitch: 1
   Loop: 0
   Mute: 0
