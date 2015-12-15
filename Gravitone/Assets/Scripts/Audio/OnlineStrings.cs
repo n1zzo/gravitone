@@ -8,6 +8,11 @@ public class OnlineStrings : MonoBehaviour, Strings {
 	// note to be played, and will be played instantly after the method
 	// is called.
 
+	void Start() {
+		// Set puredata output gain
+		LibPD.SendFloat("gain", 0.6f);
+	}
+
 	void Strings.Play(int note) {
 		LibPD.SendFloat("noteIn", note);
 	}
