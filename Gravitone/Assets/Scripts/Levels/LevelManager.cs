@@ -74,4 +74,8 @@ public class LevelManager : MonoBehaviour {
 			GetComponent<Level2>().autocomplete=true;
 	}
 
+	public int GetLevel(){
+		return level;
+	}
+
 }

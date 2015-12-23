@@ -71,18 +71,18 @@ public class Wave : Subscriber {
 								levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
 								star.GetComponent<BeatGen>().Unsubscribe(this);
 								gameObject.SetActive(false);
+								active=false;
 			}
 
 		}
 	}
 
 	public void Restart(){
-
-		transform.localScale = new Vector3(0.4f,0.4f,1);
-		Preview.GetComponent<HarmonyPreview>().StopPreview();
-		star.GetComponent<BeatGen>().Subscribe(this);
 		currentOrbits=0;
 		currentBar=-1;
 		bars=4;
+		transform.localScale = new Vector3(0.4f,0.4f,1);
+		Preview.GetComponent<HarmonyPreview>().StopPreview();
+		star.GetComponent<BeatGen>().Subscribe(this);
 	}
 }

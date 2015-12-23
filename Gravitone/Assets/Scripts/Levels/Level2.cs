@@ -232,4 +232,12 @@ public class Level2 : Subscriber {
 		placed=0;
 	}
 
+	public void PlayPreview(){
+		if(GetComponent<LevelManager>().GetLevel()==2 && wave.activeSelf==false){
+			currentBar=0;
+			wave.SetActive(true);
+			wave.GetComponent<Wave>().Restart();
+		}
+	}
+
 }
