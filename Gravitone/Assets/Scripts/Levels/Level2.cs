@@ -15,6 +15,7 @@ public class Level2 : Subscriber {
 	public int bars=4;
 	public GameObject[] planets;
 	private int score;
+	private int placed;
 	public int[] notes;
 	public string[] types;
 	private Vector3[] initialPositions = new Vector3[4];
@@ -55,6 +56,18 @@ public class Level2 : Subscriber {
 		if(currentSlot==numberOfThirdBeat){
 			if (currentBar==bars) {
 
+				if(isWaiting) {
+					completed=true;
+
+					// The player has placed all the planets check the score
+					if(score < notes.Length)
+						CollapsePlanets();
+					else
+						NextLevel();
+
+					isPreview=true;
+				}
+
 				if(!isPreview)
 					actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 				else {
@@ -65,33 +78,28 @@ public class Level2 : Subscriber {
 				}
 
 				currentBar=0;
-				if(!completed){
-						score=0;
-						int placed = 0;
-						foreach(GameObject planet in planets)
-							if(planet.GetComponent<Drag>().orbitNumber!=-1) {
-								placed++;
-								if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
-									score++;
-							}
-						if(isWaiting) {
-							// The player has placed all the planets check the score
-							if(score < notes.Length)
-								CollapsePlanets();
-							else
-								NextLevel();
-						}
 
-						if(placed == notes.Length){
-							isWaiting=true;
-							GetComponent<LevelManager>().SetGreyBackground();
-						}
-						else
-							isWaiting=false;
-				}
 			}
 			currentBar++;
 		}
+	}
+
+	public void CheckCorrectness(){
+
+					score=0;
+					placed ++;
+					foreach(GameObject planet in planets)
+						if(planet.GetComponent<Drag>().orbitNumber!=-1)
+							if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
+								score++;
+
+					if(placed == notes.Length){
+						isWaiting=true;
+						GetComponent<LevelManager>().SetGreyBackground();
+					}
+					else
+						isWaiting=false;
+
 	}
 
 	public void setRadiusPlanets(float[] radius){
@@ -118,18 +126,21 @@ public class Level2 : Subscriber {
 
 	// Here we will put a collapsing animation
 	public void CollapsePlanets() {
-		isPreview=true;
+		isWaiting=false;
+		completed=false;
 		currentBar=bars-1;
 		Destroy(actualWave);
 
 		foreach(GameObject planet in planets) {
+
 			// Pass the restore positions method to the collapse script
-			planet.GetComponent<Collapse>().SetRestore(proxyRestore);
 			planet.GetComponent<ChordPlanet>().active=false;
 			planet.GetComponent<Collapse>().enabled=true;
+			planet.GetComponent<Collapse>().SetRestore(proxyRestore);
+			planet.GetComponent<Drag>().enabled=true;
+			planet.GetComponent<CircleCollider2D>().radius=2.5f;
 			planet.GetComponent<Drag>().orbitNumber=-1;
 		}
-		score = 0;
 	}
 
 	public void NextLevel() {
@@ -150,17 +161,15 @@ public class Level2 : Subscriber {
 	void RestorePositions() {
 
 		foreach(GameObject planet in planets) {
-			// Disable the rotation
-			planet.GetComponent<Rotate>().enabled=false;
-
-			// Stops the planet revolution
-			planet.GetComponent<SelfRotate>().enabled=false;
-
 			planet.SetActive(false);
-
+			planet.GetComponent<Collapse>().enabled=false;
+			planet.GetComponent<Rotate>().enabled=false;
+			planet.GetComponent<SelfRotate>().enabled=false;
 		}
 
 		restoreCount=0;
+
+		placed=0;
 	}
 
 	// This is for testing purposes only
@@ -197,6 +206,7 @@ public class Level2 : Subscriber {
 	}
 
 	public void Restart(){
+
 		isPreview=false;
 		isWaiting=false;
 		int ind=0;
@@ -205,6 +215,8 @@ public class Level2 : Subscriber {
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<SelfRotate>().enabled=false;
 			planet.GetComponent<Drag>().enabled=true;
+			planet.GetComponent<ChordPlanet>().active=false;
+			planet.GetComponent<CircleCollider2D>().radius=2.5f;
 			switch(ind){
 				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;
 				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
@@ -217,6 +229,7 @@ public class Level2 : Subscriber {
 			ind++;
 		}
 		score=0;
+		placed=0;
 	}
 
 }

@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour {
 
 			// Testing only: skip to level 2 or 3
 
-			//GetComponent<Level1>().Autocomplete();
+			GetComponent<Level1>().Autocomplete();
 		  //GetComponent<Level2>().autocomplete=true;
 	}
 
@@ -65,6 +65,13 @@ public class LevelManager : MonoBehaviour {
 
 	public void ResetBackground(){
 		background.GetComponent<SpriteRenderer>().color=Color.white;
+	}
+
+	public void Autocomplete(){
+		if(level==1)
+			GetComponent<Level1>().Autocomplete();
+		else if (level==2)
+			GetComponent<Level2>().autocomplete=true;
 	}
 
 }

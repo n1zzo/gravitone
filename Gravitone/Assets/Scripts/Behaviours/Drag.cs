@@ -8,10 +8,13 @@ public class Drag : MonoBehaviour {
 	float afterColliderRadius;
 	public float[] radiusOrbits;
 	public int orbitNumber=-1;
+	GameObject levelManager;
 
 	void Start(){
 
 		GetComponent<Buttonize>().action = handleMouseDown;
+
+		levelManager=GameObject.FindWithTag("LevelManager");
 
 	}
 
@@ -49,6 +52,7 @@ public class Drag : MonoBehaviour {
 						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
 							AssignToOrbit(orbit, count);
+							levelManager.GetComponent<Level2>().CheckCorrectness();
 							break;
 
 						}
