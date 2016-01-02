@@ -49,8 +49,8 @@ public class LevelParser : MonoBehaviour {
 		star.GetComponent<BeatGen>().granularity = N["data"]["star"]["granularity"].AsInt;
 		// Fill in the chords
 		for (int i = 0; i < 4; i++) {
-			chordPlanet[i].GetComponent<ChordPlanet>().chordName = N["data"]["chords"]["name"];
-			chordPlanet[i].GetComponent<ChordPlanet>().baseNote = N["data"]["chords"]["note"].AsInt;
+			chordPlanet[i].GetComponent<ChordPlanet>().chordName = N["data"]["chords"][i]["name"];
+			chordPlanet[i].GetComponent<ChordPlanet>().baseNote = N["data"]["chords"][i]["note"].AsInt;
 			chordPlanet[i].GetComponent<ChordPlanet>().order = i;
 		}
 		// ...And the melody
