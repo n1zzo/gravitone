@@ -618,7 +618,7 @@
 #X obj 156 191 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 9600 1;
 #X obj 456 190 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 1600 1;
+-1 -1 1400 1;
 #X obj 156 327 / 127;
 #X obj 456 326 / 127;
 #X obj 156 349 pack 0 10;
@@ -630,10 +630,10 @@
 #X obj 157 145 loadbang;
 #X obj 453 144 loadbang;
 #X msg 157 167 96;
-#X msg 454 166 16;
 #X obj 307 145 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 1700 1;
+-1 -1 0 1;
 #X text 316 124 Slide me to play!;
+#X msg 454 166 14;
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 1 0 4 0;
@@ -653,8 +653,8 @@
 #X connect 14 0 2 1;
 #X connect 14 0 2 0;
 #X connect 15 0 17 0;
-#X connect 16 0 18 0;
+#X connect 16 0 20 0;
 #X connect 17 0 5 0;
-#X connect 18 0 6 0;
-#X connect 19 0 3 0;
-#X connect 19 0 4 0;
+#X connect 18 0 3 0;
+#X connect 18 0 4 0;
+#X connect 20 0 6 0;
