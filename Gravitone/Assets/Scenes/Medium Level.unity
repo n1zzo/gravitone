@@ -1976,16 +1976,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b4ae8a9ca3f4b1795808a66484f581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 1
+  levelNumber: 1
   planetKick: {fileID: 1190351175}
   planetSnare: {fileID: 952765397}
   planetHat: {fileID: 407480667}
-  star: {fileID: 0}
-  ChordPlanet:
+  star: {fileID: 810106420}
+  chordPlanet:
   - {fileID: 447429923}
   - {fileID: 1589684506}
   - {fileID: 928358811}
   - {fileID: 1136896602}
+  melody: {fileID: 1043019052}
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0

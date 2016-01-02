@@ -10,6 +10,7 @@ public class LevelParser : MonoBehaviour {
 	public GameObject planetHat;
 	public GameObject star;
 	public GameObject[] chordPlanet = new GameObject[4];
+	public GameObject melody;
 	private string toParse;
 
 	// Use this for initialization
@@ -51,6 +52,13 @@ public class LevelParser : MonoBehaviour {
 			chordPlanet[i].GetComponent<ChordPlanet>().chordName = N["data"]["chords"]["name"];
 			chordPlanet[i].GetComponent<ChordPlanet>().baseNote = N["data"]["chords"]["note"].AsInt;
 			chordPlanet[i].GetComponent<ChordPlanet>().order = i;
+		}
+		// ...And the melody
+		for (int i = 0; i < 7; i++) {
+			melody.GetComponent<Melodies>().notes[i] = N["data"]["notes"][i].AsInt;
+		}
+		for (int i = 0; i < 64; i++) {
+			melody.GetComponent<Melodies>().melodyNotes[i] = N["data"]["melody"][i].AsInt;
 		}
 	}
 
