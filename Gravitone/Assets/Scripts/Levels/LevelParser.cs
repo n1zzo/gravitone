@@ -20,7 +20,6 @@ public class LevelParser : MonoBehaviour {
 		toParse = currentLevel.text;
 		var N = JSON.Parse(toParse);
 		for (int i = 0; i < 64; i++) {
-			Debug.Log(N["data"]["lol"]);
 			if (N["data"]["kickArray"][i].AsInt == 0)
 				planetKick.GetComponent<Drum>().targetDrumArray[i] = false;
 			else
