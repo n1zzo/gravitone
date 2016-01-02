@@ -88,6 +88,8 @@ public class Level1 : Subscriber {
 					if(!playerDrumArray[slot])
 						correctness += 1/(float)totalBeats;
 
+					GetComponent<LevelManager>().SetGreenBackground();
+
 				}	else if(checkInput) {
 
 					Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
@@ -155,7 +157,7 @@ public class Level1 : Subscriber {
 	void ChangeState() {
 			GetComponent<LevelManager>().ResetBackground();
 			textField.GetComponent<Text>().text = "Amazing!";
-			currentInstrument.GetComponent<Drum>().SetInitialVolume();
+			//currentInstrument.GetComponent<Drum>().SetInitialVolume();
 			currentInstrument.GetComponent<Drum>().SetCurrentState("drumPlay");
 			currentIndex++;
 			currentInstrument.transform.localScale= new Vector3 (1,1,1);

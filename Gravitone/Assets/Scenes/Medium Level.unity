@@ -1815,7 +1815,7 @@ GameObject:
   - 114: {fileID: 721453216}
   m_Layer: 0
   m_Name: LevelManager
-  m_TagString: Untagged
+  m_TagString: LevelManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1957,6 +1957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b43688632cfd04da99966be21c9ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  step: .100000001
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0

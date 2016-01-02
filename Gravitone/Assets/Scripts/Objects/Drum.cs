@@ -32,7 +32,7 @@ public class Drum : Subscriber {
 		// Loads the drum clip
 		sound = GetComponent<AudioSource>();
 
-		SetInitialVolume();
+		//SetInitialVolume();
 	}
 
 	// Update is called once per frame
@@ -78,8 +78,11 @@ public class Drum : Subscriber {
 
 				if(currentState=="drumRecord" && !slots[currentSlot])
 					sound.volume=0.3f;
+				else
+					SetInitialVolume();
 
 				PlayDrum();
+
 			}
 
 			lastSlot = currentSlot;
