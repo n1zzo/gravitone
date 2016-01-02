@@ -20,7 +20,10 @@ public class Drag : MonoBehaviour {
 
 	public void handleMouseDown () {
 
-			GetComponent<Rotate>().enabled=false;
+			if(orbitNumber!=-1){
+				GetComponent<Rotate>().enabled=false;
+				levelManager.GetComponent<Level2>().RemovePlaced();
+			}
 
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
@@ -75,16 +78,6 @@ public class Drag : MonoBehaviour {
 		GetComponent<Rotate>().enabled=true;
 		// Enable the planet revolution
 		GetComponent<SelfRotate>().enabled=true;
-
-		// We can adjust this to avoid the CHORD DELAY !!!!
-		/*afterColliderRadius=1f;
-		GetComponent<CircleCollider2D>().radius=afterColliderRadius;*/
-
-		// Let the planet sound as the wave passes
-		GetComponent<ChordPlanet>().active=true;
-
-		// Disable the drag function
-		//GetComponent<Drag>().enabled=false;
 
 	}
 

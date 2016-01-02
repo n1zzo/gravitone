@@ -95,11 +95,21 @@ public class Level2 : Subscriber {
 
 					if(placed == notes.Length){
 						isWaiting=true;
+						DisablePlanets();
 						GetComponent<LevelManager>().SetGreyBackground();
 					}
 					else
 						isWaiting=false;
 
+	}
+
+	public void RemovePlaced(){
+		placed --;
+	}
+
+	protected void DisablePlanets(){
+		foreach(GameObject planet in planets)
+			planet.GetComponent<ChordPlanet>().DisablePlanet();
 	}
 
 	public void setRadiusPlanets(float[] radius){
