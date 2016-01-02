@@ -12,7 +12,6 @@ public class BloomControl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mainCamera = GameObject.FindWithTag("MainCamera");
-		Debug.Log(mainCamera.GetComponent<BloomOptimized>().intensity);
 	}
 
 	// Update is called once per frame
