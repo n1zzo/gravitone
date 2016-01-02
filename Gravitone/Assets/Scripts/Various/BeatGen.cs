@@ -13,18 +13,11 @@ public class BeatGen : MonoBehaviour {
 	public int lastSlot = 0;
 	float timeSpeed = 0f;
 
-	public float x = 0f;
-	public float y = 0f;
-
 	// While progress goes from 0 to 1 we complete one bar
   public float progress = 0f;
 
 	// Use this for initialization
 	void Start () {
-
-		// Get the current x and y coordinates
-		x = transform.position.x;
-		y = transform.position.y;
 
 		// Time s=peed is derived from BPMs
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
