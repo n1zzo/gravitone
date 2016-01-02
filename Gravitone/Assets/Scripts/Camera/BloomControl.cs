@@ -4,10 +4,10 @@ using UnityStandardAssets.ImageEffects;
 
 public class BloomControl : MonoBehaviour {
 
+	public float step=0.05f;
 	private GameObject mainCamera;
 	private float MAX_INTENSITY = 2.5f;
 	private float intensity;
-	private float step=0.1f;
 
 	// Use this for initialization
 	void Start () {
