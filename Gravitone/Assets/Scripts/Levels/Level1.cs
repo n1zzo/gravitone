@@ -19,9 +19,9 @@ public class Level1 : Subscriber {
 	int granularity = 0;
 	int currentIndex;
 	int totalBeats;
+	int currentBar;
 
 	bool[] targetDrumArray;
-	bool countdown;
 	bool checkInput;
 
 	float correctness;
@@ -31,8 +31,8 @@ public class Level1 : Subscriber {
 
 		totalBeats=0;
 		correctness=0;
-		countdown=false;
 		currentIndex=0;
+		currentBar=0;
 
 		star.GetComponent<BeatGen>().Subscribe(this);
 
@@ -60,7 +60,7 @@ public class Level1 : Subscriber {
 	// Update is called once per frame
 	void Update () {
 
-			if(currentInstrument.GetComponent<Drum>().CheckFire()){
+			if(currentInstrument.GetComponent<Drum>().CheckFire() && currentBar>1){
 
 				currentInstrument.GetComponent<Drum>().SetInitialVolume();
 
@@ -112,10 +112,13 @@ public class Level1 : Subscriber {
 
 				if(!checkInput){
 					SetPlayPreview();
-					textField.GetComponent<Text>().text = "Tap to Play!";
+					if(currentBar>0)
+						textField.GetComponent<Text>().text = "Tap to Play!";
 				} else{
 					GetComponent<LevelManager>().SetGreenBackground();
 				}
+
+				currentBar++;
 
 			} else if(currentSlot==0)
 							audioManager.GetComponent<AudioManager>().HighBeat();
@@ -161,6 +164,7 @@ public class Level1 : Subscriber {
 			checkInput=false;
 
 			if((currentIndex < drums.Length)){
+				currentBar=0;
 				correctness=0;
 				currentInstrument=drums[currentIndex];
 				currentInstrument.SetActive(true);
@@ -173,6 +177,8 @@ public class Level1 : Subscriber {
 						totalBeats++;
 
 			} else{
+				currentBar=0;
+
 				foreach(GameObject drum in drums)
 					drum.GetComponent<Drum>().SetSecondPhase();
 
