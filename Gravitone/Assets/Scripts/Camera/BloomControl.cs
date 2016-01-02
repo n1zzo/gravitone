@@ -2,12 +2,12 @@
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
 
-public class BloomContol : MonoBehaviour {
+public class BloomControl : MonoBehaviour {
 
 	private GameObject mainCamera;
 	private float MAX_INTENSITY = 2.5f;
 	private float intensity;
-	private float step;
+	private float step=0.1f;
 
 	// Use this for initialization
 	void Start () {

@@ -81,6 +81,7 @@ public class Level1 : Subscriber {
 
 					Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
 					correctness += 1/(float)totalBeats;
+					GetComponent<BloomControl>().BloomPulse();
 
 				}	else if(checkInput) {
 
