@@ -20,6 +20,8 @@ public class Drag : MonoBehaviour {
 
 	public void handleMouseDown () {
 
+			GetComponent<Rotate>().enabled=false;
+
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
 			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
@@ -75,14 +77,14 @@ public class Drag : MonoBehaviour {
 		GetComponent<SelfRotate>().enabled=true;
 
 		// We can adjust this to avoid the CHORD DELAY !!!!
-		afterColliderRadius=1f;
-		GetComponent<CircleCollider2D>().radius=afterColliderRadius;
+		/*afterColliderRadius=1f;
+		GetComponent<CircleCollider2D>().radius=afterColliderRadius;*/
 
 		// Let the planet sound as the wave passes
 		GetComponent<ChordPlanet>().active=true;
 
 		// Disable the drag function
-		GetComponent<Drag>().enabled=false;
+		//GetComponent<Drag>().enabled=false;
 
 	}
 
