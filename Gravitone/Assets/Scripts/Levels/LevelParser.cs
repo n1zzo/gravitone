@@ -4,11 +4,12 @@ using SimpleJSON;
 
 public class LevelParser : MonoBehaviour {
 
-	public int number = 1;
+	public int levelNumber = 1;
 	public GameObject planetKick;
 	public GameObject planetSnare;
 	public GameObject planetHat;
 	public GameObject star;
+	public GameObject[] chordPlanet = new GameObject[4];
 	private string toParse;
 
 	// Use this for initialization
@@ -18,7 +19,7 @@ public class LevelParser : MonoBehaviour {
 
 	void LoadLevel() {
 		// Load the JSON file from Resources folder
-		TextAsset currentLevel = Resources.Load("Levels/Level"+number) as TextAsset;
+		TextAsset currentLevel = Resources.Load("Levels/Level"+levelNumber) as TextAsset;
 		toParse = currentLevel.text;
 		var N = JSON.Parse(toParse);
 		// Fill the drum arrays from the JSON file
@@ -45,6 +46,12 @@ public class LevelParser : MonoBehaviour {
 		star.GetComponent<BeatGen>().beatsPerBar = N["data"]["star"]["beatsPerBar"].AsInt;
 		star.GetComponent<BeatGen>().subBeatsPerBeat = N["data"]["star"]["subBeatsPerBeat"].AsInt;
 		star.GetComponent<BeatGen>().granularity = N["data"]["star"]["granularity"].AsInt;
+		// Fill in the chords
+		for (int i = 0; i < 4; i++) {
+			chordPlanet[i].GetComponent<ChordPlanet>().chordName = N["data"]["chords"]["name"];
+			chordPlanet[i].GetComponent<ChordPlanet>().baseNote = N["data"]["chords"]["note"].AsInt;
+			chordPlanet[i].GetComponent<ChordPlanet>().order = i;
+		}
 	}
 
 }

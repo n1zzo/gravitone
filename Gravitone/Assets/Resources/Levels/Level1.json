@@ -15,6 +15,24 @@
             "beatsPerBar": 4,
             "subBeatsPerBeat": 4,
             "granularity": 1
-        }
+        },
+        "chords": [
+            {
+                "name": "M",
+                "note": 55
+            },
+            {
+                "name": "M7",
+                "note": 55
+            },
+            {
+                "name": "M",
+                "note": 60
+            },
+            {
+                "name": "m",
+                "note": 60
+            }
+        ]
     }
 }

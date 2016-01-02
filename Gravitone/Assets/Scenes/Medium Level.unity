@@ -1980,6 +1980,12 @@ MonoBehaviour:
   planetKick: {fileID: 1190351175}
   planetSnare: {fileID: 952765397}
   planetHat: {fileID: 407480667}
+  star: {fileID: 0}
+  ChordPlanet:
+  - {fileID: 447429923}
+  - {fileID: 1589684506}
+  - {fileID: 928358811}
+  - {fileID: 1136896602}
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0
@@ -2435,8 +2441,6 @@ MonoBehaviour:
   subBeatsPerBeat: 4
   granularity: 1
   lastSlot: 0
-  x: 0
-  y: 0
   progress: 0
 --- !u!114 &810106425
 MonoBehaviour:
