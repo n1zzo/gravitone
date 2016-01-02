@@ -99,17 +99,18 @@ public class Level1 : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-			if ( currentSlot==0) {
-
-				CompareArrays();
-				audioManager.GetComponent<AudioManager>().HighBeat();
+			if ( currentSlot==granularity-1) {
 
 				if(!checkInput){
 					SetPlayPreview();
 					textField.GetComponent<Text>().text = "Tap to Play!";
+				} else{
+					CompareArrays();
 				}
 
-			}
+			} else if(currentSlot==0)
+							audioManager.GetComponent<AudioManager>().HighBeat();
+
 
 			else if(currentSlot%subBeatsPerBeat==0)
 					audioManager.GetComponent<AudioManager>().LowBeat();
