@@ -85,9 +85,8 @@ public class Level1 : Subscriber {
 				}	else if(checkInput) {
 
 					Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
-					if(correctness>0){
-										correctness -= 1/(float)totalBeats;
-					}
+					correctness=0;
+					GetComponent<LevelManager>().SetRedBackground();
 				}
 			}
 
@@ -145,7 +144,8 @@ public class Level1 : Subscriber {
 				ChangeState();
 			else{
 				currentInstrument.GetComponent<Drum>().Reset();
-				correctness=0;
+				if(checkInput)
+					GetComponent<LevelManager>().SetGreenBackground();
 			}
 	}
 
@@ -156,6 +156,7 @@ public class Level1 : Subscriber {
 			currentInstrument.transform.localScale= new Vector3 (1,1,1);
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
+			checkInput=false;
 
 			if((currentIndex < drums.Length)){
 				correctness=0;
@@ -164,7 +165,6 @@ public class Level1 : Subscriber {
 				currentInstrument.GetComponent<Drum>().SetActiveness(true);
 				targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 				totalBeats=0;
-				checkInput=false;
 
 				for(int i=0; i<granularity; i++)
 					if(targetDrumArray[i])
@@ -174,7 +174,6 @@ public class Level1 : Subscriber {
 				foreach(GameObject drum in drums)
 					drum.GetComponent<Drum>().SetSecondPhase();
 
-				checkInput=false;
 				trail.SetActive(false);
 				textField.GetComponent<Text>().text = "";
 				star.GetComponent<BeatGen>().Unsubscribe(this);
