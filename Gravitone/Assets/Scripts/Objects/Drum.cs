@@ -48,7 +48,7 @@ public class Drum : Subscriber {
 			if(currentState=="drumPlay")
 				UpdatePlay();
 
-			else if ( currentState=="drumPreview")
+			else
 				UpdatePreview();
 
 		}
@@ -80,10 +80,10 @@ public class Drum : Subscriber {
 
 	public int UpdateRecord() {
 
-
-			PlayDrum();
-
 			int index = Mathf.RoundToInt(progress * (float) granularity);
+
+			if(!targetDrumArray[index])
+				PlayDrum();
 
 			// If it's divided in N, then the Nth beat is the initial 0
 			if(index == granularity)
@@ -198,7 +198,6 @@ public class Drum : Subscriber {
 
 	public void Reset(){
 		slots = new bool[64];
-		isActive=false;
 	}
 
 }
