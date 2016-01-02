@@ -31,6 +31,8 @@ public class Drum : Subscriber {
 
 		// Loads the drum clip
 		sound = GetComponent<AudioSource>();
+
+		SetInitialVolume();
 	}
 
 	// Update is called once per frame
@@ -71,11 +73,20 @@ public class Drum : Subscriber {
 
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
-			if (targetDrumArray[currentSlot])
+
+			if (targetDrumArray[currentSlot]){
+
+				if(currentState=="drumRecord" && !slots[currentSlot])
+					sound.volume=0.3f;
+
 				PlayDrum();
+			}
+
 			lastSlot = currentSlot;
 			lastBeat = false;
+
 		}
+
 	}
 
 	public int UpdateRecord() {
@@ -137,6 +148,10 @@ public class Drum : Subscriber {
 		transform.localScale = maxScale;
 	}
 
+	public void SetInitialVolume(){
+		sound.volume=0.6f;
+	}
+
 	public void Cancel(){
 		// This erases the recorded Rhythm
 			for(int i=0; i<slots.Length; i++)
@@ -149,7 +164,7 @@ public class Drum : Subscriber {
 
 
 		// in all cases it becomes preview.
-			currentState = "drumPreview";
+		currentState = "drumPreview";
 	}
 
 	public void StopPreview() {

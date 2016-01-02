@@ -63,6 +63,8 @@ public class Level1 : Subscriber {
 
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
 
+				currentInstrument.GetComponent<Drum>().SetInitialVolume();
+
 				if(!checkInput){
 					textField.GetComponent<Text>().text = "";
 					GetComponent<LevelManager>().SetGreenBackground();
@@ -87,8 +89,12 @@ public class Level1 : Subscriber {
 
 					Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
 					correctness=0;
+					currentInstrument.GetComponent<Drum>().Reset();
 					GetComponent<LevelManager>().SetRedBackground();
 				}
+
+				if(correctness>0.95 || totalBeats==0)
+					ChangeState();
 			}
 
 			//call the function to give a limit to the planet's size according to the correctness
@@ -105,7 +111,7 @@ public class Level1 : Subscriber {
 					SetPlayPreview();
 					textField.GetComponent<Text>().text = "Tap to Play!";
 				} else{
-					CompareArrays();
+					GetComponent<LevelManager>().SetGreenBackground();
 				}
 
 			} else if(currentSlot==0)
@@ -140,20 +146,11 @@ public class Level1 : Subscriber {
 		GetComponent<LevelManager>().ResetBackground();
 	}
 
-	void CompareArrays() {
-
-			if(correctness>0.95 || totalBeats==0)
-				ChangeState();
-			else{
-				currentInstrument.GetComponent<Drum>().Reset();
-				if(checkInput)
-					GetComponent<LevelManager>().SetGreenBackground();
-			}
-	}
-
 	void ChangeState() {
 			GetComponent<LevelManager>().ResetBackground();
 			textField.GetComponent<Text>().text = "Amazing!";
+			currentInstrument.GetComponent<Drum>().SetInitialVolume();
+			currentInstrument.GetComponent<Drum>().SetCurrentState("drumPlay");
 			currentIndex++;
 			currentInstrument.transform.localScale= new Vector3 (1,1,1);
 			currentInstrument.GetComponent<Drum>().SetActiveness(false);
