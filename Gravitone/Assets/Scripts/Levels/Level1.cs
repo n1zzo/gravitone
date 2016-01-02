@@ -20,7 +20,6 @@ public class Level1 : Subscriber {
 	int currentIndex;
 	int totalBeats;
 
-	bool[] playerDrumArray;
 	bool[] targetDrumArray;
 	bool countdown;
 	bool checkInput;
@@ -74,6 +73,8 @@ public class Level1 : Subscriber {
 					checkInput=true;
 				}
 
+				bool[] playerDrumArray=currentInstrument.GetComponent<Drum>().GetDrumArray();
+
 				// call the Recording drum state and returns the memorized slot
 				int slot=currentInstrument.GetComponent<Drum>().UpdateRecord();
 
@@ -82,8 +83,10 @@ public class Level1 : Subscriber {
 				if(targetDrumArray[slot] && checkInput){
 
 					Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
-					correctness += 1/(float)totalBeats;
 					GetComponent<BloomControl>().BloomPulse();
+
+					if(!playerDrumArray[slot])
+						correctness += 1/(float)totalBeats;
 
 				}	else if(checkInput) {
 
