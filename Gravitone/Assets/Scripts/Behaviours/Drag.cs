@@ -22,7 +22,15 @@ public class Drag : MonoBehaviour {
 
 			if(orbitNumber!=-1){
 				GetComponent<Rotate>().enabled=false;
+
 				levelManager.GetComponent<Level2>().RemovePlaced();
+
+				GameObject[] previews = GameObject.FindGameObjectsWithTag("PreviewPlanet");
+				foreach (GameObject preview in previews)
+					if(preview.GetComponent<PrevPlanet>().position==orbitNumber){
+						preview.SetActive(true);
+						break;
+					}
 			}
 
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
@@ -57,6 +65,13 @@ public class Drag : MonoBehaviour {
 						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
 							AssignToOrbit(orbit, count);
+							GameObject[] previews = GameObject.FindGameObjectsWithTag("PreviewPlanet");
+							foreach (GameObject preview in previews)
+								if(preview.GetComponent<PrevPlanet>().position==count){
+									preview.SetActive(false);
+									break;
+								}
+
 							levelManager.GetComponent<Level2>().CheckCorrectness();
 							break;
 

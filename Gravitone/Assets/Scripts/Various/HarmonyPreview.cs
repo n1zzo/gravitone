@@ -4,20 +4,27 @@ using System.Collections;
 public class HarmonyPreview : MonoBehaviour {
 
 	public GameObject previewPlanetPrefab;
-	public GameObject audioManager;
 	private int[] notes;
 	private string[] types;
 	private int i = 0;
 
 	public void PlayPlanet(float radius) {
+
+		GameObject preview;
+
 		switch(i){
-			case 0:Instantiate(previewPlanetPrefab, new Vector3(0, -radius, 0), Quaternion.identity); break;
-			case 1:Instantiate(previewPlanetPrefab, new Vector3(-radius,0, 0), Quaternion.identity); break;
-			case 2:Instantiate(previewPlanetPrefab, new Vector3(0, radius, 0), Quaternion.identity); break;
-			case 3:Instantiate(previewPlanetPrefab, new Vector3(radius, 0, 0), Quaternion.identity); break;
+			case 0:preview = Instantiate(previewPlanetPrefab, new Vector3(0, -radius, 0), Quaternion.identity) as GameObject; break;
+			case 1:preview = Instantiate(previewPlanetPrefab, new Vector3(-radius,0, 0), Quaternion.identity) as GameObject; break;
+			case 2:preview = Instantiate(previewPlanetPrefab, new Vector3(0, radius, 0), Quaternion.identity) as GameObject; break;
+			case 3:preview = Instantiate(previewPlanetPrefab, new Vector3(radius, 0, 0), Quaternion.identity) as GameObject; break;
+			default: preview= Instantiate(previewPlanetPrefab, new Vector3(radius, 0, 0), Quaternion.identity) as GameObject; break;
 		}
 
-		audioManager.GetComponent<AudioManager>().PlayChord(notes[i], types[i]);
+		preview.GetComponent<PrevPlanet>().baseNote=notes[i];
+		preview.GetComponent<PrevPlanet>().chordName=types[i];
+		preview.GetComponent<PrevPlanet>().position=i;
+		preview.GetComponent<PrevPlanet>().Play();
+
 		i++;
 	}
 

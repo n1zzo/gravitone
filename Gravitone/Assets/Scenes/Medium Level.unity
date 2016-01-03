@@ -1797,7 +1797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previewPlanetPrefab: {fileID: 194956, guid: 6ec3c11d851c2472d859614361f3f9db, type: 2}
-  audioManager: {fileID: 1590554890}
 --- !u!1 &721453208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5513,7 +5512,7 @@ GameObject:
   - 114: {fileID: 1590554892}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
