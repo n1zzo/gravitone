@@ -18,7 +18,6 @@ public class Level2 : Subscriber {
 	private int placed;
 	public int[] notes;
 	public string[] types;
-	private Vector3[] initialPositions = new Vector3[4];
 	int restoreCount=0;
 	bool isWaiting=false;
 	bool isPreview=false;
@@ -88,26 +87,34 @@ public class Level2 : Subscriber {
 
 	public void CheckCorrectness(){
 
-		score=0;
 		placed ++;
-		foreach(GameObject planet in planets)
-			if(planet.GetComponent<Drag>().orbitNumber!=-1)
-				if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
-					score++;
 
 		if(placed == notes.Length){
+
+			score=0;
+			foreach(GameObject planet in planets)
+				if(planet.GetComponent<Drag>().orbitNumber!=-1)
+					if(CheckPlanet(planet))
+						score++;
+
 			isWaiting=true;
 			DisablePlanets();
 			GetComponent<LevelManager>().SetGreyBackground();
-			/*
-			Destroy(actualWave);
-			actualWave=Instantiate(wavePrefab, initialPositions[0], Quaternion.identity) as GameObject;
-			star.GetComponent<BeatGen>().progress=0;*/
-
+			/* begin the preview from the beginning But 1st note missing or overlapping
+			currentBar=1;
+			actualWave.transform.localScale=wave.GetComponent<Wave>().rings[0].transform.localScale;
+			star.GetComponent<BeatGen>().progress=0f;*/
 		}
 		else
 			isWaiting=false;
 
+	}
+
+	bool CheckPlanet(GameObject planet){
+		int num=planet.GetComponent<Drag>().orbitNumber;
+
+		return planet.GetComponent<ChordPlanet>().chordName==types[num] &&
+						planet.GetComponent<ChordPlanet>().baseNote==notes[num];
 	}
 
 	public void RemovePlaced(){

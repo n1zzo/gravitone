@@ -123,7 +123,7 @@ public class Level1 : Subscriber {
 				currentBar++;
 
 			} else if(currentSlot==0)
-							audioManager.GetComponent<AudioManager>().HighBeat();
+					audioManager.GetComponent<AudioManager>().HighBeat();
 
 
 			else if(currentSlot%subBeatsPerBeat==0)
