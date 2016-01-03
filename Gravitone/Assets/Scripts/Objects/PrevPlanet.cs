@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PrevPlanet : MonoBehaviour {
 
-	public float speed = 0.01f;
 	public int position=-1;
 	public string chordName;
 	public int baseNote;
@@ -24,20 +23,11 @@ public class PrevPlanet : MonoBehaviour {
 		Play();
 	}
 
-	void DissolveAndDestroy(){
-		Color newColor = GetComponent<Renderer>().material.color;
-		newColor.a-=speed;
-		if(newColor.a>0)
-			GetComponent<Renderer>().material.SetColor("_Color", newColor);
-		else
-			Destroy(this.gameObject);
-	}
-
 	public void Play() {
 
 		if(!audioManager)
 			audioManager=GameObject.FindWithTag("AudioManager");
-	
+
 		audioManager.GetComponent<AudioManager>().PlayChord(baseNote, chordName);
 	}
 

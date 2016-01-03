@@ -43,6 +43,8 @@ public class Level2 : Subscriber {
 
 		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat);
 
+
+
 	}
 
 	// Update is called once per frame
@@ -97,6 +99,11 @@ public class Level2 : Subscriber {
 			isWaiting=true;
 			DisablePlanets();
 			GetComponent<LevelManager>().SetGreyBackground();
+			/*
+			Destroy(actualWave);
+			actualWave=Instantiate(wavePrefab, initialPositions[0], Quaternion.identity) as GameObject;
+			star.GetComponent<BeatGen>().progress=0;*/
+
 		}
 		else
 			isWaiting=false;
