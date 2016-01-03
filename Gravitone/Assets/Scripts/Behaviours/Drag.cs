@@ -25,7 +25,7 @@ public class Drag : MonoBehaviour {
 
 				levelManager.GetComponent<Level2>().RemovePlaced();
 
-				GameObject[] previews = GameObject.FindGameObjectsWithTag("PreviewPlanet");
+				GameObject[] previews = GameObject.FindWithTag("Preview").GetComponent<HarmonyPreview>().GetPreviews();
 				foreach (GameObject preview in previews)
 					if(preview.GetComponent<PrevPlanet>().position==orbitNumber){
 						preview.SetActive(true);
@@ -53,6 +53,9 @@ public class Drag : MonoBehaviour {
 
 	void OnMouseUp () {
 		if(GetComponent<Drag>().enabled){
+			
+					orbitNumber=-1;
+
 					GetComponent<SelfRotate>().enabled=false;
 
 					// Assign the planet to the nearest orbit.
@@ -64,15 +67,17 @@ public class Drag : MonoBehaviour {
 						float y=transform.position.y;
 						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
-							AssignToOrbit(orbit, count);
+
 							GameObject[] previews = GameObject.FindGameObjectsWithTag("PreviewPlanet");
+
 							foreach (GameObject preview in previews)
-								if(preview.GetComponent<PrevPlanet>().position==count){
+								if(preview.GetComponent<PrevPlanet>().position==count && preview.activeSelf){
+									AssignToOrbit(orbit, count);
 									preview.SetActive(false);
+									levelManager.GetComponent<Level2>().CheckCorrectness();
 									break;
 								}
 
-							levelManager.GetComponent<Level2>().CheckCorrectness();
 							break;
 
 						}

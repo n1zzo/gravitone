@@ -21,6 +21,7 @@ public class Wave : Subscriber {
 	public GameObject Preview;
 	public GameObject levelManager;
 
+
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
@@ -78,11 +79,18 @@ public class Wave : Subscriber {
 	}
 
 	public void Restart(){
+		DestroyPreviews();
 		currentOrbits=0;
 		currentBar=-1;
 		bars=4;
 		transform.localScale = new Vector3(0.4f,0.4f,1);
 		Preview.GetComponent<HarmonyPreview>().StopPreview();
 		star.GetComponent<BeatGen>().Subscribe(this);
+	}
+
+	public void DestroyPreviews(){
+		GameObject[] previews = Preview.GetComponent<HarmonyPreview>().GetPreviews();
+		foreach (GameObject preview in previews)
+			Destroy(preview);
 	}
 }

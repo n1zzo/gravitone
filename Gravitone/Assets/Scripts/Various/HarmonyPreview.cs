@@ -7,23 +7,21 @@ public class HarmonyPreview : MonoBehaviour {
 	private int[] notes;
 	private string[] types;
 	private int i = 0;
+	GameObject[] previews = new GameObject[4];
 
 	public void PlayPlanet(float radius) {
 
-		GameObject preview;
-
 		switch(i){
-			case 0:preview = Instantiate(previewPlanetPrefab, new Vector3(0, -radius, 0), Quaternion.identity) as GameObject; break;
-			case 1:preview = Instantiate(previewPlanetPrefab, new Vector3(-radius,0, 0), Quaternion.identity) as GameObject; break;
-			case 2:preview = Instantiate(previewPlanetPrefab, new Vector3(0, radius, 0), Quaternion.identity) as GameObject; break;
-			case 3:preview = Instantiate(previewPlanetPrefab, new Vector3(radius, 0, 0), Quaternion.identity) as GameObject; break;
-			default: preview= Instantiate(previewPlanetPrefab, new Vector3(radius, 0, 0), Quaternion.identity) as GameObject; break;
+			case 0:previews[i] = Instantiate(previewPlanetPrefab, new Vector3(0, -radius, 0), Quaternion.identity) as GameObject; break;
+			case 1:previews[i]= Instantiate(previewPlanetPrefab, new Vector3(-radius,0, 0), Quaternion.identity) as GameObject; break;
+			case 2:previews[i] = Instantiate(previewPlanetPrefab, new Vector3(0, radius, 0), Quaternion.identity) as GameObject; break;
+			case 3:previews[i] = Instantiate(previewPlanetPrefab, new Vector3(radius, 0, 0), Quaternion.identity) as GameObject; break;
 		}
 
-		preview.GetComponent<PrevPlanet>().baseNote=notes[i];
-		preview.GetComponent<PrevPlanet>().chordName=types[i];
-		preview.GetComponent<PrevPlanet>().position=i;
-		preview.GetComponent<PrevPlanet>().Play();
+		previews[i].GetComponent<PrevPlanet>().baseNote=notes[i];
+		previews[i].GetComponent<PrevPlanet>().chordName=types[i];
+		previews[i].GetComponent<PrevPlanet>().position=i;
+		previews[i].GetComponent<PrevPlanet>().Play();
 
 		i++;
 	}
@@ -37,4 +35,7 @@ public class HarmonyPreview : MonoBehaviour {
 		types=typs;
 	}
 
+	public GameObject[] GetPreviews(){
+		return previews;
+	}
 }
