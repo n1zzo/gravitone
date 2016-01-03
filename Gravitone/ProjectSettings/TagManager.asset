@@ -12,6 +12,9 @@ TagManager:
   - Pie
   - MainStar
   - LevelManager
+  - PreviewPlanet
+  - AudioManager
+  - Preview
   layers:
   - Default
   - TransparentFX

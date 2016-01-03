@@ -847,7 +847,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.98908448
+  m_Radius: 2.5
 --- !u!114 &447429933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,7 +1774,7 @@ GameObject:
   - 114: {fileID: 714782747}
   m_Layer: 0
   m_Name: Preview
-  m_TagString: Untagged
+  m_TagString: Preview
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1803,7 +1803,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previewPlanetPrefab: {fileID: 194956, guid: 6ec3c11d851c2472d859614361f3f9db, type: 2}
-  audioManager: {fileID: 1590554890}
 --- !u!1 &721453208
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,7 +2917,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.98908448
+  m_Radius: 2.5
 --- !u!114 &928358816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3792,7 +3791,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.98908448
+  m_Radius: 2.5
 --- !u!114 &1136896607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5488,7 +5487,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.98908448
+  m_Radius: 2.5
 --- !u!114 &1589684511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5580,7 +5579,7 @@ GameObject:
   - 114: {fileID: 1590554892}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

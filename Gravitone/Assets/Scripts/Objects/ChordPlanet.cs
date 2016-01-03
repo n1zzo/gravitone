@@ -29,15 +29,29 @@ public class ChordPlanet : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-			if(active && other.gameObject.tag=="wave"){
+		if(active && other.gameObject.tag=="wave"){
 
 	    // The planet has been hit by a wave and he is in an orbit
-				Play();
+			Play();
+
 		}
+
   }
 
 	public void Play() {
 		audioManager.GetComponent<AudioManager>().PlayChord(baseNote, chordName);
+	}
+
+	public void DisablePlanet(){
+
+		// We can adjust this to avoid the CHORD DELAY !!!!
+		GetComponent<CircleCollider2D>().radius=1f;
+
+		// Let the planet sound as the wave passes
+		GetComponent<ChordPlanet>().active=true;
+
+		// Disable the drag function
+		GetComponent<Drag>().enabled=false;
 	}
 
 }

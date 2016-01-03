@@ -20,6 +20,19 @@ public class Drag : MonoBehaviour {
 
 	public void handleMouseDown () {
 
+			if(orbitNumber!=-1){
+				GetComponent<Rotate>().enabled=false;
+
+				levelManager.GetComponent<Level2>().RemovePlaced();
+
+				GameObject[] previews = GameObject.FindWithTag("Preview").GetComponent<HarmonyPreview>().GetPreviews();
+				foreach (GameObject preview in previews)
+					if(preview.GetComponent<PrevPlanet>().position==orbitNumber){
+						preview.SetActive(true);
+						break;
+					}
+			}
+
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
 
 			offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
@@ -40,6 +53,9 @@ public class Drag : MonoBehaviour {
 
 	void OnMouseUp () {
 		if(GetComponent<Drag>().enabled){
+			
+					orbitNumber=-1;
+
 					GetComponent<SelfRotate>().enabled=false;
 
 					// Assign the planet to the nearest orbit.
@@ -51,8 +67,17 @@ public class Drag : MonoBehaviour {
 						float y=transform.position.y;
 						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
-							AssignToOrbit(orbit, count);
-							levelManager.GetComponent<Level2>().CheckCorrectness();
+
+							GameObject[] previews = GameObject.FindGameObjectsWithTag("PreviewPlanet");
+
+							foreach (GameObject preview in previews)
+								if(preview.GetComponent<PrevPlanet>().position==count && preview.activeSelf){
+									AssignToOrbit(orbit, count);
+									preview.SetActive(false);
+									levelManager.GetComponent<Level2>().CheckCorrectness();
+									break;
+								}
+
 							break;
 
 						}
@@ -73,16 +98,6 @@ public class Drag : MonoBehaviour {
 		GetComponent<Rotate>().enabled=true;
 		// Enable the planet revolution
 		GetComponent<SelfRotate>().enabled=true;
-
-		// We can adjust this to avoid the CHORD DELAY !!!!
-		afterColliderRadius=1f;
-		GetComponent<CircleCollider2D>().radius=afterColliderRadius;
-
-		// Let the planet sound as the wave passes
-		GetComponent<ChordPlanet>().active=true;
-
-		// Disable the drag function
-		GetComponent<Drag>().enabled=false;
 
 	}
 

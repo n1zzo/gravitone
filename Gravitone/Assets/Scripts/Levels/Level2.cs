@@ -86,20 +86,30 @@ public class Level2 : Subscriber {
 
 	public void CheckCorrectness(){
 
-					score=0;
-					placed ++;
-					foreach(GameObject planet in planets)
-						if(planet.GetComponent<Drag>().orbitNumber!=-1)
-							if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
-								score++;
+		score=0;
+		placed ++;
+		foreach(GameObject planet in planets)
+			if(planet.GetComponent<Drag>().orbitNumber!=-1)
+				if(planet.GetComponent<ChordPlanet>().chordName==types[planet.GetComponent<Drag>().orbitNumber])
+					score++;
 
-					if(placed == notes.Length){
-						isWaiting=true;
-						GetComponent<LevelManager>().SetGreyBackground();
-					}
-					else
-						isWaiting=false;
+		if(placed == notes.Length){
+			isWaiting=true;
+			DisablePlanets();
+			GetComponent<LevelManager>().SetGreyBackground();
+		}
+		else
+			isWaiting=false;
 
+	}
+
+	public void RemovePlaced(){
+		placed --;
+	}
+
+	protected void DisablePlanets(){
+		foreach(GameObject planet in planets)
+			planet.GetComponent<ChordPlanet>().DisablePlanet();
 	}
 
 	public void setRadiusPlanets(float[] radius){
