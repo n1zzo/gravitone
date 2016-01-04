@@ -100,10 +100,19 @@ public class Level2 : Subscriber {
 			isWaiting=true;
 			DisablePlanets();
 			GetComponent<LevelManager>().SetGreyBackground();
-			/* begin the preview from the beginning But 1st note missing or overlapping
-			currentBar=1;
-			actualWave.transform.localScale=wave.GetComponent<Wave>().rings[0].transform.localScale;
-			star.GetComponent<BeatGen>().progress=0f;*/
+
+			//Stop to avoid Overlap
+			planets[0].GetComponent<ChordPlanet>().Stop();
+
+			// begin the preview from the beginning
+			currentBar=0;
+			Destroy(actualWave);
+			actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+			actualWave.transform.localScale=new Vector3(0.472f, 0.472f, 1);
+			star.GetComponent<BeatGen>().progress=0f;
+
+			//first planet is missing
+			GetFirstOrbitPlanet().GetComponent<ChordPlanet>().Play();
 		}
 		else
 			isWaiting=false;
@@ -114,7 +123,7 @@ public class Level2 : Subscriber {
 		int num=planet.GetComponent<Drag>().orbitNumber;
 
 		return planet.GetComponent<ChordPlanet>().chordName==types[num] &&
-						planet.GetComponent<ChordPlanet>().baseNote==notes[num];
+			planet.GetComponent<ChordPlanet>().baseNote==notes[num];
 	}
 
 	public void RemovePlaced(){
@@ -252,7 +261,6 @@ public class Level2 : Subscriber {
 			}
 			ind++;
 		}
-		score=0;
 		placed=0;
 	}
 
@@ -262,6 +270,14 @@ public class Level2 : Subscriber {
 			wave.SetActive(true);
 			wave.GetComponent<Wave>().Restart();
 		}
+	}
+
+	GameObject GetFirstOrbitPlanet(){
+		foreach (GameObject planet in planets)
+			if(planet.GetComponent<Drag>().orbitNumber==0)
+				return planet;
+
+		return null;
 	}
 
 }

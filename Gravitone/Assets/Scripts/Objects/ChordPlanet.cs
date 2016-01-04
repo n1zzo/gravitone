@@ -42,6 +42,10 @@ public class ChordPlanet : MonoBehaviour {
 		audioManager.GetComponent<AudioManager>().PlayChord(baseNote, chordName);
 	}
 
+	public void Stop() {
+		audioManager.GetComponent<AudioManager>().StopChord();
+	}
+
 	public void DisablePlanet(){
 
 		// We can adjust this to avoid the CHORD DELAY !!!!

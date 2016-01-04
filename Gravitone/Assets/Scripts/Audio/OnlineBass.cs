@@ -14,6 +14,6 @@ public class OnlineBass : MonoBehaviour, Strings {
 	}
 
 	void Strings.Play(int note) {
-		LibPD.SendFloat("noteIn", note);
+		LibPD.SendFloat("notein", note);
 	}
 }
