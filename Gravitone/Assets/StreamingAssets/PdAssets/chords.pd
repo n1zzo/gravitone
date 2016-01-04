@@ -1,4 +1,4 @@
-#N canvas 2813 130 840 735 10;
+#N canvas 2936 102 840 735 10;
 #N canvas 611 229 579 466 interface 0;
 #X obj 100 222 cnv 15 100 120 empty empty OSC 8 12 1 14 -258699 -262144
 0;
@@ -83,7 +83,7 @@
 #X coords 0 -1 1 1 300 240 1 100 100;
 #X restore 42 441 pd interface;
 #X obj 331 198 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6000 1;
+-1 -1 5600 1;
 #X obj 73 52 bng 15 250 50 0 empty M empty 17 7 0 10 -262144 -1 -1
 ;
 #X text 102 48 M;
@@ -123,7 +123,7 @@
 #X connect 3 3 8 0;
 #X connect 4 0 3 0;
 #X restore 73 75 pd mutex;
-#N canvas 1994 417 976 558 chord 0;
+#N canvas 1942 128 976 558 chord 0;
 #X msg 113 113 4;
 #X msg 158 112 7;
 #X msg 201 110 0;
@@ -175,7 +175,7 @@
 #X obj 421 77 t b b b;
 #X obj 551 76 t b b b;
 #X obj 679 75 t b b b;
-#N canvas 991 136 471 666 synth1 0;
+#N canvas 2506 208 471 666 synth1 0;
 #X obj 163 577 *~ 0.2;
 #X obj 162 463 bp~ 100 3;
 #X obj 162 489 hip~ 60;
@@ -242,7 +242,7 @@
 #X obj 201 414 t b f;
 #X obj 199 347 t b f;
 #X obj 191 438 + 20;
-#N canvas 491 129 450 300 envelope 0;
+#N canvas 2293 137 450 300 envelope 0;
 #X obj 175 243 line;
 #X msg 194 219 1 \$1;
 #X msg 150 218 0 \$1;
@@ -258,6 +258,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -271,6 +274,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -415,6 +420,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -428,6 +436,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -572,6 +582,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -585,6 +598,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -729,6 +744,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -742,6 +760,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -1039,6 +1059,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -1052,6 +1075,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -1196,6 +1221,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -1209,6 +1237,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -1353,6 +1383,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -1366,6 +1399,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -1510,6 +1545,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -1523,6 +1561,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -1819,6 +1859,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -1832,6 +1875,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -1976,6 +2021,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -1989,6 +2037,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -2133,6 +2183,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -2146,6 +2199,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -2290,6 +2345,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -2303,6 +2361,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -2599,6 +2659,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -2612,6 +2675,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -2756,6 +2821,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -2769,6 +2837,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -2913,6 +2983,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -2926,6 +2999,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -3070,6 +3145,9 @@
 #X text 236 88 <-- set floats nicely;
 #X obj 150 173 del 50;
 #X text 151 9 envelope subpatch;
+#X obj 55 196 r stop;
+#X msg 55 218 0 50;
+#X text 21 175 manual chord stop;
 #X connect 0 0 4 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
@@ -3083,6 +3161,8 @@
 #X connect 9 0 2 0;
 #X connect 10 0 1 0;
 #X connect 13 0 9 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X restore 179 517 pd envelope;
 #X obj 163 540 *~;
 #X obj 162 90 r \$0-oscf;
@@ -3448,6 +3528,10 @@ and press a button to hear the corresponding chord;
 #X msg 535 544 0.4;
 #X msg 642 544 0.6;
 #X msg 694 544 0.8;
+#X obj 73 204 bng 15 250 50 0 empty empty empty 17 7 0 10 -258113 -258113
+-1;
+#X obj 73 224 s stop;
+#X text 34 177 Stop all the chords;
 #X connect 1 0 16 0;
 #X connect 1 0 17 0;
 #X connect 1 0 18 0;
@@ -3496,3 +3580,4 @@ and press a button to hear the corresponding chord;
 #X connect 53 0 46 0;
 #X connect 54 0 48 0;
 #X connect 55 0 49 0;
+#X connect 56 0 57 0;
