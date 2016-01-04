@@ -23,4 +23,8 @@ public class OfflineChord : MonoBehaviour, Chord {
 			}
 	}
 
+	void Chord.Stop() {
+		//[TODO] Implement offline chord stop.
+	}
+
 }

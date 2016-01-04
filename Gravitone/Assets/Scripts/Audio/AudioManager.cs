@@ -60,6 +60,10 @@ public class AudioManager : MonoBehaviour {
 		currentChord.Play(note, type);
 	}
 
+	public void StopChord() {
+		currentChord.Stop();
+	}
+
 	public void PlayStrings(int note) {
 		currentStrings.Play(note);
 	}

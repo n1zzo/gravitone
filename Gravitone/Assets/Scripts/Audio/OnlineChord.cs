@@ -27,4 +27,8 @@ public class OnlineChord : MonoBehaviour, Chord {
 		LibPD.SendBang(type);
 	}
 
+	void Chord.Stop() {
+		LibPD.SendBang("stop");
+	}
+
 }
