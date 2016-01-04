@@ -11,9 +11,11 @@ public class AudioManager : MonoBehaviour {
 	public GameObject OnlineStrings;
 	public GameObject OfflineStrings;
 	public GameObject onlineButton;
+	public GameObject OnlineBass;
 	Metronome currentMetronome;
 	Chord currentChord;
 	Strings currentStrings;
+	Strings currentBass;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +29,9 @@ public class AudioManager : MonoBehaviour {
 
 			OnlineStrings.SetActive(true);
 			currentStrings = OnlineStrings.GetComponent<OnlineStrings>();
+
+			//[TODO] Implement offline bass
+			currentBass = OnlineBass.GetComponent<OnlineBass>();
 
 			//Set the Button on if the online is selected
 			onlineButton.SetActive(online);
@@ -57,6 +62,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayStrings(int note) {
 		currentStrings.Play(note);
+	}
+
+	public void PlayBass(int note) {
+		currentBass.Play(note);
 	}
 
 	public void setOnline(){

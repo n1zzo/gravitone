@@ -728,6 +728,58 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 493588, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
   m_PrefabInternal: {fileID: 628270307}
+--- !u!1 &436436156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 436436157}
+  - 114: {fileID: 436436159}
+  - 114: {fileID: 436436158}
+  m_Layer: 0
+  m_Name: OnlineBass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436436157
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436436156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1590554891}
+  m_RootOrder: 6
+--- !u!114 &436436158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436436156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95efbf86a05c44260b4d430d85d4389a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &436436159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436436156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddd7126671a149b438214686024633b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameOfPatch: doublebass.pd
 --- !u!1 &447429923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5600,6 +5652,7 @@ Transform:
   - {fileID: 1178610813}
   - {fileID: 682301906}
   - {fileID: 1955263616}
+  - {fileID: 436436157}
   m_Father: {fileID: 0}
   m_RootOrder: 11
 --- !u!114 &1590554892
@@ -5621,6 +5674,7 @@ MonoBehaviour:
   OnlineStrings: {fileID: 682301905}
   OfflineStrings: {fileID: 1955263615}
   onlineButton: {fileID: 1460377457}
+  OnlineBass: {fileID: 436436156}
 --- !u!1 &1598796854
 GameObject:
   m_ObjectHideFlags: 0
