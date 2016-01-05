@@ -1111,7 +1111,7 @@ Prefab:
     - target: {fileID: 21229744, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 331ddd3ea3d4f7942af6ce2a01aba28a,
+      objectReference: {fileID: 21300000, guid: 0e5e24a45b6c84f6fb25c99569c43102,
         type: 3}
     - target: {fileID: 434080, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
       propertyPath: m_LocalScale.x
