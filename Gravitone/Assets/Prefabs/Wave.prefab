@@ -55,9 +55,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 0}
-  rings: []
-  orbitsRadius: []
-  orbitSlots: 
+  rings:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  orbitsRadius:
+  - 0
+  - 0
+  - 0
+  - 0
+  orbitSlots: 01000000000000000100000000000000010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000
   bars: 4
   newGranularityDivision: 2
   Preview: {fileID: 0}

@@ -6185,6 +6185,22 @@ Prefab:
       value: 
       objectReference: {fileID: 810106420}
     - target: {fileID: 11463050, guid: 3fa2452fa1a7e4ea591cf17c4bd8a62f, type: 2}
+      propertyPath: rings.Array.data[0]
+      value: 
+      objectReference: {fileID: 1026266627}
+    - target: {fileID: 11463050, guid: 3fa2452fa1a7e4ea591cf17c4bd8a62f, type: 2}
+      propertyPath: rings.Array.data[1]
+      value: 
+      objectReference: {fileID: 2133724220}
+    - target: {fileID: 11463050, guid: 3fa2452fa1a7e4ea591cf17c4bd8a62f, type: 2}
+      propertyPath: rings.Array.data[2]
+      value: 
+      objectReference: {fileID: 746159906}
+    - target: {fileID: 11463050, guid: 3fa2452fa1a7e4ea591cf17c4bd8a62f, type: 2}
+      propertyPath: rings.Array.data[3]
+      value: 
+      objectReference: {fileID: 1387818921}
+    - target: {fileID: 11463050, guid: 3fa2452fa1a7e4ea591cf17c4bd8a62f, type: 2}
       propertyPath: Preview
       value: 
       objectReference: {fileID: 714782745}
