@@ -14,6 +14,8 @@ public class Wave : Subscriber {
 	public int newGranularityDivision=2;
 	int newGranularity;
 	float scaleSpeed;
+	float transparencySpeed;
+	float transparency;
 	CircleCollider2D circleCollider;
 	float screenAspect;
 	float cameraWidth;
@@ -29,6 +31,9 @@ public class Wave : Subscriber {
 		newGranularity = star.GetComponent<BeatGen>().granularity/newGranularityDivision;
 		circleCollider = this.GetComponent<CircleCollider2D>();
 		scaleSpeed=star.GetComponent<BeatGen>().bpm * 0.2f / 128f;
+		transparencySpeed=star.GetComponent<BeatGen>().bpm * 0.2f / 128f;
+		transparencySpeed*=0.5f;
+		transparency = 1f;
 	}
 
 	// Update is called once per frame
@@ -40,6 +45,9 @@ public class Wave : Subscriber {
 			Vector3 size = spriteRenderer.bounds.extents;
 			float radius = size.x * transform.localScale.x;
 			circleCollider.radius = (radius / 100f) + 7.4f;
+			// Ajdust wave opacity
+			float transparencyIncrement = (float) transparencySpeed * Time.deltaTime;
+			SetTransparency(transparency - transparencyIncrement);
 		}
 	}
 
@@ -93,4 +101,10 @@ public class Wave : Subscriber {
 		foreach (GameObject preview in previews)
 			Destroy(preview);
 	}
+
+	public void SetTransparency(float level){
+		transparency = level;
+		spriteRenderer.color = new Color(1f,1f,1f,level);
+	}
+
 }
