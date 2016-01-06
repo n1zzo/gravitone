@@ -15,6 +15,7 @@ TagManager:
   - PreviewPlanet
   - AudioManager
   - Preview
+  - Melody
   layers:
   - Default
   - TransparentFX

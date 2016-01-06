@@ -13,9 +13,13 @@ public class SatRotate : MonoBehaviour {
 	private float y;
 	private float offsetAngle;
 	public GameObject planet;
+	public bool prev;
+	public int index;
+	GameObject melody;
 
 	void Start(){
 		ComputeOffset();
+		melody=GameObject.FindWithTag("Melody");
 	}
 
 	// Update is called once per frame
@@ -24,7 +28,7 @@ public class SatRotate : MonoBehaviour {
 		float y = planet.transform.position.y;
 
     SetOffset(x, y);
-		
+
 		// Gets the current progress from the star
 		float progress = star.GetComponent<BeatGen>().progress;
 		// Calculate the planet's position
@@ -70,6 +74,11 @@ public class SatRotate : MonoBehaviour {
 		// Set satellite initial position
 		x = offsetX + 4f;
 		y = offsetY;
+	}
+
+	void OnMouseDown(){
+		if(!prev)
+			melody.GetComponent<Melodies>().DestroySat(index);
 	}
 
 }

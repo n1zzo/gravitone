@@ -54,4 +54,8 @@ public class BassPlayer : Subscriber {
 
 	}
 
+	public void ResetCurrentBar(){
+		currentBar=0;
+	}
+
 }

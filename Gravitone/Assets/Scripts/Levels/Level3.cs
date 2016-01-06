@@ -80,6 +80,10 @@ public class Level3 : MonoBehaviour {
 
 		canvas.SetActive(false);
 
+		bass.GetComponent<BassPlayer>().ResetCurrentBar();
+
+		GetComponent<LevelManager>().goToNextLevel();
+
 		background.GetComponent<SpriteRenderer>().enabled=false;
 
 	}

@@ -213,6 +213,7 @@ public class Melodies : Subscriber {
 			prefab = satellitePrefab[number];
 
     GameObject newSatellite = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+		newSatellite.GetComponent<SatRotate>().index=index;
 
 		float radius = 2f + (number*0.25f);
 
@@ -222,6 +223,11 @@ public class Melodies : Subscriber {
 		newSatellite.GetComponent<SatRotate>().SetRadius(radius);
     satellites[index]=newSatellite;
   }
+
+	public void DestroySat(int index){
+		Destroy(satellites[index]);
+		playerNotes[index] = 0;
+	}
 
 	private void DeleteSatellites(bool destroySat) {
 

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 493540}
   - 212: {fileID: 21233060}
   - 114: {fileID: 11433572}
+  - 58: {fileID: 5864648}
   m_Layer: 0
   m_Name: SatelliteDark
   m_TagString: Untagged
@@ -29,6 +30,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!58 &5864648
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195716}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 10
 --- !u!114 &11433572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -44,6 +58,8 @@ MonoBehaviour:
   radius: 0
   clockwise: 0
   planet: {fileID: 0}
+  prev: 1
+  index: 0
 --- !u!212 &21233060
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -69,7 +85,7 @@ SpriteRenderer:
   m_SortingLayerID: -922746523
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6b4fa0296f9a1497997e18127504709a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -79,15 +95,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Sprite
@@ -101,6 +117,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.y
       value: .0260000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: prev
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
