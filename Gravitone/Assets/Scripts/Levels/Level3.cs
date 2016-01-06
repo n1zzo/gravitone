@@ -6,7 +6,6 @@ public class Level3 : MonoBehaviour {
 	public GameObject cam;
 	public GameObject[] planets;
 	public GameObject background;
-	private GameObject audioManager;
 	public GameObject melody;
 	public GameObject canvas;
 
@@ -40,12 +39,9 @@ public class Level3 : MonoBehaviour {
 
 		planets[0].GetComponent<SpriteRenderer>().enabled=true;
 
-		planets[0].SetActiveRecursively(true);
+		planets[0].SetActive(true);
 
 		melody.GetComponent<Melodies>().planets=planets;
-
-		audioManager = GetComponent<LevelManager>().audioManager;
-		//audioManager.GetComponent<AudioManager>().PlayStrings(60);
 
 		melody.GetComponent<Melodies>().TogglePreview();
 
@@ -68,7 +64,7 @@ public class Level3 : MonoBehaviour {
 	}
 
 	public void NextLevel(){
-		
+
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=true;
 			planet.GetComponent<Rotate>().enabled=true;

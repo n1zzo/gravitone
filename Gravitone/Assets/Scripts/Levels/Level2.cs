@@ -22,7 +22,6 @@ public class Level2 : Subscriber {
 	bool isWaiting=false;
 	bool isPreview=false;
 	GameObject actualWave;
-	bool completed=false;
 
 
 	// Use this for initialization
@@ -58,7 +57,6 @@ public class Level2 : Subscriber {
 			if (currentBar==bars) {
 
 				if(isWaiting) {
-					completed=true;
 
 					// The player has placed all the planets check the score
 					if(score < notes.Length)
@@ -160,7 +158,6 @@ public class Level2 : Subscriber {
 	// Here we will put a collapsing animation
 	public void CollapsePlanets() {
 		isWaiting=false;
-		completed=false;
 		currentBar=bars-1;
 		Destroy(actualWave);
 
@@ -177,7 +174,6 @@ public class Level2 : Subscriber {
 	}
 
 	public void NextLevel() {
-		completed=true;
 		Destroy(actualWave);
 		star.GetComponent<BeatGen>().Unsubscribe(this);
 		GetComponent<LevelManager>().goToNextLevel();

@@ -152,11 +152,11 @@ public class Melodies : Subscriber {
 	public void NextBar() {
 		currentBar++;
 		if(currentBar!=4){
-			planets[currentPlanet].SetActiveRecursively(false);
+			planets[currentPlanet].SetActive(false);
 			bars[currentPlanet].SetActive(false);
 			calculateTotalNotes(false);
 			currentPlanet++;
-			planets[currentPlanet].SetActiveRecursively(true);
+			planets[currentPlanet].SetActive(true);
 			bars[currentPlanet].SetActive(true);
 			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
 
@@ -235,7 +235,7 @@ public class Melodies : Subscriber {
 		int count=0;
 
 		foreach(GameObject planet in planets){
-			planet.SetActiveRecursively(true);
+			planet.SetActive(true);
 			planet.GetComponent<CircleCollider2D>().radius=1f;
 			bars[count].SetActive(true);
 			count++;
