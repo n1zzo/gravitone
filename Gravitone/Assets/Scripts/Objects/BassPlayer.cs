@@ -10,10 +10,12 @@ public class BassPlayer : Subscriber {
 	public GameObject melody;
 	int currentBar=-1;
 	int bars=4;
+	int granularity;
 
 	// Use this for initialization
 	void Start () {
 		star.GetComponent<BeatGen>().Subscribe(this);
+		granularity=star.GetComponent<BeatGen>().granularity;
 	}
 
 	// Update is called once per frame
@@ -46,7 +48,7 @@ public class BassPlayer : Subscriber {
 
 			audioManager.GetComponent<AudioManager>().PlayBass(note);
 
-		} else if ( kick.GetComponent<Drum>().targetDrumArray[currentSlot+1] ) {
+		} else if ( kick.GetComponent<Drum>().targetDrumArray[currentSlot+1] || currentSlot==granularity-1 ) {
 			audioManager.GetComponent<AudioManager>().StopBass();
 		}
 
