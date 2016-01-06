@@ -45,7 +45,7 @@ public class Wave : Subscriber {
 			transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0);
 			Vector3 size = spriteRenderer.bounds.extents;
 			float radius = size.x * transform.localScale.x;
-			circleCollider.radius = (radius / 100f) + 7.4f;
+			circleCollider.radius = (radius / 100f) + 19.25f;
 			// Ajdust wave opacity
 			float transparencyIncrement = (float) transparencySpeed * Time.deltaTime;
 			SetTransparency(transparency - transparencyIncrement);
@@ -55,8 +55,9 @@ public class Wave : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		if(currentSlot==levelManager.GetComponent<Level2>().GetNumberOfThirdBeat())
-						active=true;
+		if(currentSlot==levelManager.GetComponent<Level2>().GetNumberOfThirdBeat()){
+			active=true;
+		}
 
 		if(active){
 
@@ -91,8 +92,8 @@ public class Wave : Subscriber {
 		DestroyPreviews();
 		currentOrbits=0;
 		currentBar=-1;
-		bars=4;
-		transform.localScale = new Vector3(0.4f,0.4f,1);
+		transform.localScale = new Vector3(0.151f,0.151f,1);
+		transparency = 1f;
 		Preview.GetComponent<HarmonyPreview>().StopPreview();
 		star.GetComponent<BeatGen>().Subscribe(this);
 	}

@@ -106,7 +106,7 @@ public class Level2 : Subscriber {
 			currentBar=0;
 			Destroy(actualWave);
 			actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-			actualWave.transform.localScale=new Vector3(0.472f, 0.472f, 1);
+			actualWave.transform.localScale=new Vector3(0.186f, 0.186f, 1);
 			star.GetComponent<BeatGen>().progress=0f;
 
 			//first planet is missing

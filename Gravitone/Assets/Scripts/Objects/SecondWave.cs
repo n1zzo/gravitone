@@ -34,7 +34,7 @@ public class SecondWave : Subscriber {
 			transform.localScale += new Vector3(scaleIncrement, scaleIncrement, 0);
 			Vector3 size = spriteRenderer.bounds.extents;
 			float radius = size.x * transform.localScale.x;
-			circleCollider.radius = (radius / 100f) + 7.4f;
+			circleCollider.radius = (radius / 100f) + 19.25f;
 
 			if(GetComponent<SpriteRenderer>().bounds.extents.x>cameraWidth+offset)
 							Destroy(this.gameObject);
