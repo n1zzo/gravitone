@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour {
 	Metronome currentMetronome;
 	Chord currentChord;
 	Strings currentStrings;
-	Strings currentBass;
+	Bass currentBass;
 
 	// Use this for initialization
 	void Start () {
@@ -70,6 +70,10 @@ public class AudioManager : MonoBehaviour {
 
 	public void PlayBass(int note) {
 		currentBass.Play(note);
+	}
+
+	public void StopBass() {
+		currentBass.Stop();
 	}
 
 	public void setOnline(){

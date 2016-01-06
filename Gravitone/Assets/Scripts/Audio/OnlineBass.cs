@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using LibPDBinding;
 
-public class OnlineBass : MonoBehaviour, Strings {
+public class OnlineBass : MonoBehaviour, Bass {
 
 	// The note parameter of the play function represents the target midi
 	// note to be played, and will be played instantly after the method
@@ -13,7 +13,16 @@ public class OnlineBass : MonoBehaviour, Strings {
 		LibPD.SendFloat("gain", 0.6f);
 	}
 
-	void Strings.Play(int note) {
-		LibPD.SendFloat("notein", note);
+	void Bass.Play(int note) {
+		LibPD.SendFloat("bassNote", note);
 	}
+
+	void Bass.Stop() {
+		LibPD.SendBang("stop");
+	}
+
+	void Bass.SetDecay(int decay) {
+		LibPD.SendFloat("decay", decay);
+	}
+	
 }
