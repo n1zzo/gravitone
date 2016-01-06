@@ -16,12 +16,13 @@ public class SecondWave : Subscriber {
 		// Use this for initialization
 		void Start () {
 			star = GameObject.FindGameObjectsWithTag("MainStar")[0];
-			scaleSpeed=GameObject.FindWithTag("MainStar").GetComponent<BeatGen>().bpm * 0.2f / 128f;
+			// The first float is half of the scale of the wave, 128 is our standard bpm.
+			scaleSpeed=GameObject.FindWithTag("MainStar").GetComponent<BeatGen>().bpm * 0.0757f / 128f;
 			circleCollider = this.GetComponent<CircleCollider2D>();
 			spriteRenderer = this.GetComponent<SpriteRenderer>();
 			screenAspect = (float)Screen.width / (float)Screen.height;
 	    cameraWidth = Camera.main.orthographicSize * screenAspect;
-			transparencySpeed=star.GetComponent<BeatGen>().bpm * 0.2f / 128f;
+			transparencySpeed=star.GetComponent<BeatGen>().bpm * 0.15f / 128f;
 			transparencySpeed*=0.5f;
 			transparency = 1f;
 		}

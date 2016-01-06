@@ -30,8 +30,9 @@ public class Wave : Subscriber {
 		star.GetComponent<BeatGen>().Subscribe(this);
 		newGranularity = star.GetComponent<BeatGen>().granularity/newGranularityDivision;
 		circleCollider = this.GetComponent<CircleCollider2D>();
-		scaleSpeed=star.GetComponent<BeatGen>().bpm * 0.2f / 128f;
-		transparencySpeed=star.GetComponent<BeatGen>().bpm * 0.2f / 128f;
+		// The first float is half of the scale of the wave, 128 is our standard bpm.
+		scaleSpeed=star.GetComponent<BeatGen>().bpm * 0.0757f / 128f;
+		transparencySpeed=star.GetComponent<BeatGen>().bpm * 0.15f / 128f;
 		transparencySpeed*=0.5f;
 		transparency = 1f;
 	}
