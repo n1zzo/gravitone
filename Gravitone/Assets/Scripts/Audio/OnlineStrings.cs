@@ -10,10 +10,10 @@ public class OnlineStrings : MonoBehaviour, Strings {
 
 	void Start() {
 		// Set puredata output gain
-		LibPD.SendFloat("gain", 0.6f);
+		LibPD.SendFloat("stringsGain", 0.6f);
 	}
 
 	void Strings.Play(int note) {
-		LibPD.SendFloat("noteIn", note);
+		LibPD.SendFloat("stringsNote", note);
 	}
 }

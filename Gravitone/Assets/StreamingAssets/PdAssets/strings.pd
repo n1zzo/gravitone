@@ -1,4 +1,4 @@
-#N canvas 928 145 942 639 10;
+#N canvas 2254 101 942 639 10;
 #X obj 88 191 loadbang;
 #X msg 83 221 0.995;
 #X msg 126 221 5700;
@@ -8,7 +8,7 @@
 #X msg 53 221 8;
 #X obj 159 247 s \$0-strum_speed_ctrl;
 #X msg 166 222 8;
-#X obj 331 240 hsl 128 15 0 127 0 0 empty noteIn empty -2 -8 0 10 -262144
+#X obj 331 240 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 535 273 s \$0-width;
 #X obj 578 252 s \$0-decay;
@@ -120,10 +120,11 @@ delay line;
 #X connect 4 0 5 0;
 #X connect 5 0 3 1;
 #X restore 328 449 pd gain~;
-#X obj 432 418 r gain;
-#X obj 495 403 loadbang;
-#X msg 495 425 1;
+#X obj 535 405 loadbang;
+#X msg 535 427 1;
 #X text 470 380 Default volume;
+#X obj 432 418 r stringsGain;
+#X obj 226 318 r stringsNote;
 #X connect 0 0 6 0;
 #X connect 0 0 1 0;
 #X connect 0 0 2 0;
@@ -145,6 +146,7 @@ delay line;
 #X connect 25 0 9 0;
 #X connect 26 0 19 0;
 #X connect 26 0 19 1;
-#X connect 27 0 26 1;
-#X connect 28 0 29 0;
-#X connect 29 0 26 1;
+#X connect 27 0 28 0;
+#X connect 28 0 26 1;
+#X connect 30 0 26 1;
+#X connect 31 0 20 0;

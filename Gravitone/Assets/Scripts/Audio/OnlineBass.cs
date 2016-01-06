@@ -10,7 +10,7 @@ public class OnlineBass : MonoBehaviour, Bass {
 
 	void Start() {
 		// Set puredata output gain
-		LibPD.SendFloat("gain", 0.6f);
+		LibPD.SendFloat("bassGain", 0.6f);
 	}
 
 	void Bass.Play(int note) {
@@ -18,11 +18,11 @@ public class OnlineBass : MonoBehaviour, Bass {
 	}
 
 	void Bass.Stop() {
-		LibPD.SendBang("stopb");
+		LibPD.SendBang("bassStop");
 	}
 
 	void Bass.SetDecay(int decay) {
-		LibPD.SendFloat("decay", decay);
+		LibPD.SendFloat("bassDecay", decay);
 	}
 
 }
