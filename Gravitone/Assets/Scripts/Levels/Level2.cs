@@ -100,7 +100,7 @@ public class Level2 : Subscriber {
 			GetComponent<LevelManager>().SetGreyBackground();
 
 			//Stop to avoid Overlap
-			planets[0].GetComponent<ChordPlanet>().Stop();
+			//planets[0].GetComponent<ChordPlanet>().Stop();
 
 			// begin the preview from the beginning
 			currentBar=0;
