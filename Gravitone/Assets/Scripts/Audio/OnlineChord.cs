@@ -12,7 +12,7 @@ public class OnlineChord : MonoBehaviour, Chord {
 
 	void Start() {
 		// Set puredata output gain
-		LibPD.SendFloat("gain", 1f);
+		LibPD.SendFloat("gain", 0.6f);
 
 		// Set the decays according to the star's BPM
 		int bpm = star.GetComponent<BeatGen>().bpm;
