@@ -18,11 +18,11 @@ public class OnlineBass : MonoBehaviour, Bass {
 	}
 
 	void Bass.Stop() {
-		LibPD.SendBang("stop");
+		LibPD.SendBang("stopb");
 	}
 
 	void Bass.SetDecay(int decay) {
 		LibPD.SendFloat("decay", decay);
 	}
-	
+
 }

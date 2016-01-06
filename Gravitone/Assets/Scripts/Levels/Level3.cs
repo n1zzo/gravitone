@@ -8,12 +8,14 @@ public class Level3 : MonoBehaviour {
 	public GameObject background;
 	public GameObject melody;
 	public GameObject canvas;
+	public GameObject bass;
 
 
 	// Use this for initialization
 	void Start () {
 		melody.SetActive(true);
 		canvas.SetActive(true);
+		bass.SetActive(true);
 
 		background.GetComponent<Fade>().enabled=true;
 		background.GetComponent<Fade>().final=0.9f;

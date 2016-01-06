@@ -194,6 +194,10 @@ public class Melodies : Subscriber {
 		return planets[currentPlanet];
 	}
 
+	public int GetCurrentPlanetNum(){
+		return currentPlanet;
+	}
+
 	private void PlaceSatellite(int note, int number) {
 		if(playerNotes[index]!=0 && !completed){
 			Destroy(satellites[index]);
