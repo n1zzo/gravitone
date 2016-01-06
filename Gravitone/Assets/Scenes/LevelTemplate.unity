@@ -1839,7 +1839,7 @@ MonoBehaviour:
   background: {fileID: 1624382808}
   melody: {fileID: 1043019052}
   canvas: {fileID: 1250394221}
-  bass: {fileID: 0}
+  bass: {fileID: 907238193}
 --- !u!114 &721453214
 MonoBehaviour:
   m_ObjectHideFlags: 0
