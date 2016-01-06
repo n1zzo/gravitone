@@ -227,6 +227,7 @@ public class Level2 : Subscriber {
 				planet.GetComponent<ChordPlanet>().active=true;
 				planet.GetComponent<Drag>().enabled=false;
 		}
+		wave.GetComponent<Wave>().DestroyPreviews();
 		NextLevel();
 	}
 

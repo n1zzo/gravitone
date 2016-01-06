@@ -156,7 +156,7 @@ public class Melodies : Subscriber {
 			bars[currentPlanet].SetActive(false);
 			calculateTotalNotes(false);
 			currentPlanet++;
-			planets[currentPlanet].SetActive(true);
+			planets[currentPlanet].SetActiveRecursively(true);
 			bars[currentPlanet].SetActive(true);
 			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
 
