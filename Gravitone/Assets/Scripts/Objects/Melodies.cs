@@ -261,7 +261,7 @@ public class Melodies : Subscriber {
 	}
 
 	private void PushPreviewActions() {
-		planets[currentPlanet].GetComponent<CircleCollider2D>().radius=2f;
+		planets[currentPlanet].GetComponent<CircleCollider2D>().radius=2.5f;
 		planets[currentPlanet].GetComponent<Buttonize>().action = TogglePreview;
 	}
 

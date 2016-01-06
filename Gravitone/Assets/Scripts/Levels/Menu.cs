@@ -10,6 +10,11 @@ public class Menu : MonoBehaviour {
 	public GameObject text;
 	public GameObject melodyCanvas;
 	private bool isCanvas;
+	private GameObject audioManager;
+
+	void Start(){
+		audioManager=GameObject.FindWithTag("AudioManager");
+	}
 
 	public void Enable() {
 
@@ -31,6 +36,8 @@ public class Menu : MonoBehaviour {
 
 		//Turn off the text on the first phase
 		text.SetActive(false);
+
+		audioManager.GetComponent<AudioManager>().StopBass();
 
 		Time.timeScale=0f;
 	}

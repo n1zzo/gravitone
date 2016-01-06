@@ -709,7 +709,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447429923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 4, z: 0}
+  m_LocalPosition: {x: -15, y: 4, z: -.0500000007}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 1829251992}
@@ -1233,7 +1233,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1589684506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: -4, z: 0}
+  m_LocalPosition: {x: -15, y: -4, z: -.0500000007}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 1627936148}
@@ -1908,7 +1908,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1136896602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.0900002, y: -3.02999997, z: 0}
+  m_LocalPosition: {x: 16.0900002, y: -3.02999997, z: -.0500000007}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 2146573046}
@@ -1928,7 +1928,7 @@ GameObject:
   - 212: {fileID: 746159909}
   - 114: {fileID: 746159908}
   - 58: {fileID: 746159910}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: biggest ring1 (2)
   m_TagString: orbit
   m_Icon: {fileID: 0}
@@ -3351,7 +3351,7 @@ GameObject:
   - 212: {fileID: 1026266630}
   - 114: {fileID: 1026266629}
   - 58: {fileID: 1026266631}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: biggest ring1
   m_TagString: orbit
   m_Icon: {fileID: 0}
@@ -4866,7 +4866,7 @@ GameObject:
   - 212: {fileID: 1387818924}
   - 114: {fileID: 1387818923}
   - 58: {fileID: 1387818925}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: biggest ring1 (3)
   m_TagString: orbit
   m_Icon: {fileID: 0}
@@ -6640,7 +6640,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 928358811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.8500004, y: 2.45000005, z: 0}
+  m_LocalPosition: {x: 15.8500004, y: 2.45000005, z: -.0500000007}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children:
   - {fileID: 848276818}
@@ -6998,7 +6998,7 @@ GameObject:
   - 212: {fileID: 2133724223}
   - 114: {fileID: 2133724222}
   - 58: {fileID: 2133724224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: biggest ring1 (1)
   m_TagString: orbit
   m_Icon: {fileID: 0}

@@ -5,7 +5,6 @@ public class SatRotate : MonoBehaviour {
 
 	public GameObject star;
 	public float radius;
-	public bool clockwise;
 	private const float TWO_PI = 2*Mathf.PI;
 	private float offsetX;
 	private float offsetY;
@@ -39,9 +38,7 @@ public class SatRotate : MonoBehaviour {
 	private Vector3 getPosition (float angle) {
 		// Apply initial offset
 		angle += offsetAngle;
-		// Consider clockwise option
-		if (clockwise)
-			angle = -angle;
+
 		float x = radius*Mathf.Cos(angle);
 		float y = radius*Mathf.Sin(angle);
 		x += offsetX;
@@ -71,6 +68,7 @@ public class SatRotate : MonoBehaviour {
 	public void SetOffset(float x, float y) {
 		this.offsetX = x;
 		this.offsetY = y;
+
 		// Set satellite initial position
 		x = offsetX + 4f;
 		y = offsetY;
