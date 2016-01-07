@@ -7,4 +7,6 @@ interface Bass {
 
   void SetDecay(int decay);
 
+	void SetVolume(float value);
+
 }

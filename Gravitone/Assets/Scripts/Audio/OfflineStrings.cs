@@ -14,4 +14,8 @@ public class OfflineStrings : MonoBehaviour, Strings {
 		sample.pitch = newpitch;
 		sample.Play();
 	}
+
+	void Strings.SetVolume(float value) {
+		sample.volume = value;
+	}
 }

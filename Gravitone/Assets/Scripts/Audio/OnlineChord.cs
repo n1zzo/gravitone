@@ -31,4 +31,9 @@ public class OnlineChord : MonoBehaviour, Chord {
 		LibPD.SendBang("chordStop");
 	}
 
+	void Chord.SetVolume(float value) {
+		// Set puredata output gain
+		LibPD.SendFloat("chordGain", value);
+	}
+
 }

@@ -5,4 +5,6 @@ interface Chord {
 
 	void Stop();
 
+	void SetVolume(float value);
+
 }

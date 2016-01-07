@@ -27,4 +27,9 @@ public class OfflineChord : MonoBehaviour, Chord {
 		//[TODO] Implement offline chord stop.
 	}
 
+	void Chord.SetVolume(float value) {
+		first.volume = value;
+		second.volume = value;
+	}
+
 }

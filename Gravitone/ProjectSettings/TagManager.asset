@@ -16,6 +16,7 @@ TagManager:
   - AudioManager
   - Preview
   - Melody
+  - Drum
   layers:
   - Default
   - TransparentFX

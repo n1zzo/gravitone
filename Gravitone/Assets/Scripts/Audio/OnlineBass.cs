@@ -25,4 +25,9 @@ public class OnlineBass : MonoBehaviour, Bass {
 		LibPD.SendFloat("bassDecay", decay);
 	}
 
+	void Bass.SetVolume(float value) {
+		// Set puredata output gain
+		LibPD.SendFloat("bassGain", value);
+	}
+
 }

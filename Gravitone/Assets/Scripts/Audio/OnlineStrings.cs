@@ -16,4 +16,9 @@ public class OnlineStrings : MonoBehaviour, Strings {
 	void Strings.Play(int note) {
 		LibPD.SendFloat("stringsNote", note);
 	}
+
+	void Strings.SetVolume(float value) {
+		// Set puredata output gain
+		LibPD.SendFloat("stringsGain", value);
+	}
 }

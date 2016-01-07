@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour {
 
@@ -16,9 +17,15 @@ public class AudioManager : MonoBehaviour {
 	Chord currentChord;
 	Strings currentStrings;
 	Bass currentBass;
+	List<AudioSource> drum = new List<AudioSource>();
 
 	// Use this for initialization
 	void Start () {
+		// Get drum audiosources
+		foreach (GameObject element in GameObject.FindGameObjectsWithTag("Drum")) {
+			drum.Add(element.GetComponent<AudioSource>());
+		}
+
 		if(online) {
 			OnlineMetronome.SetActive(true);
 			currentMetronome = OnlineMetronome.GetComponent<OnlineMetronome>();
@@ -74,6 +81,24 @@ public class AudioManager : MonoBehaviour {
 
 	public void StopBass() {
 		currentBass.Stop();
+	}
+
+	void SetDrumVolume(float value) {
+		foreach (AudioSource source in drum) {
+			source.volume = value;
+		}
+	}
+
+	void SetChordsVolume(float value) {
+		currentChord.SetVolume(value);
+	}
+
+	void SetStringsVolume(float value) {
+		currentStrings.SetVolume(value);
+	}
+
+	void SetBassVolume(float value) {
+		currentBass.SetVolume(value);
 	}
 
 	public void setOnline(){
