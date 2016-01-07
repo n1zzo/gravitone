@@ -18,7 +18,7 @@ public class Level3 : MonoBehaviour {
 		bass.SetActive(true);
 
 		background.GetComponent<Fade>().enabled=true;
-		background.GetComponent<Fade>().final=0.9f;
+		background.GetComponent<Fade>().final=0.3f;
 		background.GetComponent<SpriteRenderer>().enabled=true;
 
 		GameObject[] planetCopy=planets;

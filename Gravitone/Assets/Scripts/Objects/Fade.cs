@@ -24,6 +24,6 @@ public class Fade : MonoBehaviour {
 			GetComponent<Renderer>().material.SetColor("_Color", newColor);
 		else
 			GetComponent<Fade>().enabled=false;
-			
+
 	}
 }

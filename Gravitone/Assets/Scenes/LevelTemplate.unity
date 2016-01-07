@@ -5669,7 +5669,7 @@ GameObject:
   - 212: {fileID: 1624382810}
   - 114: {fileID: 1624382809}
   m_Layer: 0
-  m_Name: background_black_big
+  m_Name: WhiteBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5711,7 +5711,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -534905837
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 8574901e95e5141328f650d264c32102, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 861eedde01a754a6b8fb2589a954eef4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1624382811
 Transform:
