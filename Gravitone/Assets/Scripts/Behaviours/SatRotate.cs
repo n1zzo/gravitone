@@ -46,18 +46,14 @@ public class SatRotate : MonoBehaviour {
 		return new Vector3(x, y, 0);
 	}
 
-	private void OffsetFromPosition(float progress) {
+	public void ComputeOffset() {
+		float progress = star.GetComponent<BeatGen>().progress;
 		float x = transform.position.x + offsetX;
 		float y = transform.position.y + offsetY;
 		float relativeAngle = Mathf.Atan2(y, x);
 		if(relativeAngle < 0)
 			relativeAngle += TWO_PI;
 		offsetAngle = relativeAngle - (progress*TWO_PI);
-	}
-
-	public void ComputeOffset() {
-		float progress = star.GetComponent<BeatGen>().progress;
-		OffsetFromPosition(progress);
 	}
 
 	public void SetRadius (float radius){
