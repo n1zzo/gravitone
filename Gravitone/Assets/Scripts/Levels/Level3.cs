@@ -9,10 +9,20 @@ public class Level3 : MonoBehaviour {
 	public GameObject melody;
 	public GameObject canvas;
 	public GameObject bass;
+	private GameObject audioManager;
 
 
 	// Use this for initialization
 	void Start () {
+
+		audioManager = GetComponent<LevelManager>().audioManager;
+
+		// Set intruments gain levels
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
+		audioManager.GetComponent<AudioManager>().SetChordsVolume(0.6f);
+		audioManager.GetComponent<AudioManager>().SetStringsVolume(1f);
+		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
+
 		melody.SetActive(true);
 		canvas.SetActive(true);
 		bass.SetActive(true);

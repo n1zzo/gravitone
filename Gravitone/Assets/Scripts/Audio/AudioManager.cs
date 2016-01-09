@@ -83,21 +83,21 @@ public class AudioManager : MonoBehaviour {
 		currentBass.Stop();
 	}
 
-	void SetDrumVolume(float value) {
+	public void SetDrumVolume(float value) {
 		foreach (AudioSource source in drum) {
 			source.volume = value;
 		}
 	}
 
-	void SetChordsVolume(float value) {
+	public void SetChordsVolume(float value) {
 		currentChord.SetVolume(value);
 	}
 
-	void SetStringsVolume(float value) {
+	public void SetStringsVolume(float value) {
 		currentStrings.SetVolume(value);
 	}
 
-	void SetBassVolume(float value) {
+	public void SetBassVolume(float value) {
 		currentBass.SetVolume(value);
 	}
 

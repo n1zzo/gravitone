@@ -29,6 +29,14 @@ public class Level1 : Subscriber {
 	// Use this for initialization
 	void Start () {
 
+		audioManager = GetComponent<LevelManager>().audioManager;
+
+		// Set intruments gain levels
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(1f);
+		//audioManager.GetComponent<AudioManager>().SetChordsVolume(0.6f);
+		//audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
+		//audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
+
 		totalBeats=0;
 		correctness=0;
 		currentIndex=0;
@@ -50,7 +58,7 @@ public class Level1 : Subscriber {
 			if(targetDrumArray[i])
 				totalBeats++;
 
-		audioManager = GetComponent<LevelManager>().audioManager;
+
 
 		trail.SetActive(true);
 		trail.GetComponent<Trail>().SetInitialPosition();
