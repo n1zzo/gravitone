@@ -20,7 +20,7 @@ public class Level3 : MonoBehaviour {
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
 		audioManager.GetComponent<AudioManager>().SetChordsVolume(0.6f);
-		audioManager.GetComponent<AudioManager>().SetStringsVolume(1f);
+		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.8f);
 		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
 
 		melody.SetActive(true);
@@ -69,13 +69,20 @@ public class Level3 : MonoBehaviour {
 		melody.GetComponent<Melodies>().TogglePreview();
 	}
 
-	public void changeCamera(int number){
+	public void ChangeCamera(int number){
 		planets[number-1].GetComponent<SpriteRenderer>().enabled=false;
 		planets[number].GetComponent<SpriteRenderer>().enabled=true;
 		cam.GetComponent<SmoothFollow2D>().target = planets[number].transform;
 	}
 
+	private void EliminateBars() {
+		foreach (GameObject bar in GameObject.FindGameObjectsWithTag("Bar")) {
+			bar.GetComponent<SpriteRenderer>().enabled=false;
+		}
+	}
+
 	public void NextLevel(){
+		EliminateBars();
 
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=true;

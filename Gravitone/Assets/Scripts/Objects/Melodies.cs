@@ -44,6 +44,7 @@ public class Melodies : Subscriber {
 		foreach (GameObject planet in planets){
 			bars[count]= Instantiate(barPrefab, Vector3.zero, Quaternion.identity) as GameObject;
 			bars[count].GetComponent<Bars>().planet=planet;
+			bars[count].tag = "Bar";
 
 			if(count!=0)
 				bars[count].SetActive(false);
@@ -158,7 +159,7 @@ public class Melodies : Subscriber {
 			currentPlanet++;
 			planets[currentPlanet].SetActiveRecursively(true);
 			bars[currentPlanet].SetActive(true);
-			levelManager.GetComponent<Level3>().changeCamera(currentPlanet);
+			levelManager.GetComponent<Level3>().ChangeCamera(currentPlanet);
 
 			// Push the preview toggle action to the planets
 			PushPreviewActions();

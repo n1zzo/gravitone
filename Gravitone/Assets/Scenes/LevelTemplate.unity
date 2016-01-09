@@ -1735,6 +1735,7 @@ GameObject:
   - 114: {fileID: 721453212}
   - 114: {fileID: 721453211}
   - 114: {fileID: 721453213}
+  - 114: {fileID: 721453218}
   - 114: {fileID: 721453214}
   - 114: {fileID: 721453215}
   - 114: {fileID: 721453216}
@@ -1907,6 +1908,17 @@ MonoBehaviour:
   - {fileID: 928358811}
   - {fileID: 1136896602}
   melody: {fileID: 1043019052}
+--- !u!114 &721453218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721453208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c32a83259a24f4469d2c8f79dca1bc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0
@@ -5373,6 +5385,10 @@ Prefab:
     - target: {fileID: 176578, guid: 016d8d404115bd5449cdf3975b66986b, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 176578, guid: 016d8d404115bd5449cdf3975b66986b, type: 2}
+      propertyPath: m_TagString
+      value: Bar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 016d8d404115bd5449cdf3975b66986b, type: 2}

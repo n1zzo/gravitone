@@ -17,6 +17,7 @@ TagManager:
   - Preview
   - Melody
   - Drum
+  - Bar
   layers:
   - Default
   - TransparentFX
