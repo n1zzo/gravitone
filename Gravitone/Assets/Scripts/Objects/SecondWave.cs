@@ -36,15 +36,17 @@ public class SecondWave : Subscriber {
 			float radius = size.x * transform.localScale.x;
 			circleCollider.radius = (radius / 100f) + 19.25f;
 
-			if(GetComponent<SpriteRenderer>().bounds.extents.x>cameraWidth+offset)
-							Destroy(this.gameObject);
-							// Ajdust wave opacity
+			// Ajdust wave opacity
 			float transparencyIncrement = (float) transparencySpeed * Time.deltaTime;
 			SetTransparency(transparency - transparencyIncrement);
 		}
 
 		public void SetTransparency(float level){
 			transparency = level;
+
+			if(level<=0)
+				Destroy(this.gameObject);
+
 			spriteRenderer.color = new Color(1f,1f,1f,level);
 		}
 

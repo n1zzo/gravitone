@@ -46,10 +46,10 @@ public class Wave : Subscriber {
 			Vector3 size = spriteRenderer.bounds.extents;
 			float radius = size.x * transform.localScale.x;
 			circleCollider.radius = (radius / 100f) + 19.25f;
-			// Ajdust wave opacity
-			float transparencyIncrement = (float) transparencySpeed * Time.deltaTime;
-			SetTransparency(transparency - transparencyIncrement);
 		}
+		// Ajdust wave opacity
+		float transparencyIncrement = (float) transparencySpeed * Time.deltaTime;
+		SetTransparency(transparency - transparencyIncrement);
 	}
 
 	// This method is called for each beat
@@ -81,7 +81,7 @@ public class Wave : Subscriber {
 			if(currentBar==bars){
 								levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
 								star.GetComponent<BeatGen>().Unsubscribe(this);
-								gameObject.SetActive(false);
+								//gameObject.SetActive(false);
 								active=false;
 			}
 
@@ -106,6 +106,10 @@ public class Wave : Subscriber {
 
 	public void SetTransparency(float level){
 		transparency = level;
+
+		if(level<=0)
+			gameObject.SetActive(false);
+
 		spriteRenderer.color = new Color(1f,1f,1f,level);
 	}
 
