@@ -94,6 +94,7 @@ public class Melodies : Subscriber {
 			if(noteToPlay != 0)
 				PlaceSatellite(noteToPlay, GetIndex(noteToPlay));
 		}
+
 		// Else play the user's recorded melody
 		else
 			noteToPlay = playerNotes[index];
