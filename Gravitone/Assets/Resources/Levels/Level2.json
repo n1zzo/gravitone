@@ -22,8 +22,7 @@
         "star": {
             "bpm": 80,
             "beatsPerBar": 4,
-            "subBeatsPerBeat": 4,
-            "granularity": 1
+            "subBeatsPerBeat": 4
         },
         "chords": [
             {

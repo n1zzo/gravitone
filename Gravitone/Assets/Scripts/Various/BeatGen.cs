@@ -21,9 +21,12 @@ public class BeatGen : MonoBehaviour {
 
 		// Time s=peed is derived from BPMs
 		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
-    granularity = beatsPerBar * subBeatsPerBeat;
 
   }
+
+	public void CalculateGranularity(){
+		granularity=subBeatsPerBeat*beatsPerBar;
+	}
 
 	// Each GameObject that calls this is adddded to a list
 	public void Subscribe (Subscriber subscriber) {

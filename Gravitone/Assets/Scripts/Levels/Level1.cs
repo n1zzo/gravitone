@@ -58,8 +58,6 @@ public class Level1 : Subscriber {
 			if(targetDrumArray[i])
 				totalBeats++;
 
-
-
 		trail.SetActive(true);
 		trail.GetComponent<Trail>().SetInitialPosition();
 

@@ -46,7 +46,8 @@ public class LevelParser : MonoBehaviour {
 		star.GetComponent<BeatGen>().bpm = N["data"]["star"]["bpm"].AsInt;
 		star.GetComponent<BeatGen>().beatsPerBar = N["data"]["star"]["beatsPerBar"].AsInt;
 		star.GetComponent<BeatGen>().subBeatsPerBeat = N["data"]["star"]["subBeatsPerBeat"].AsInt;
-		star.GetComponent<BeatGen>().granularity = N["data"]["star"]["granularity"].AsInt;
+		star.GetComponent<BeatGen>().CalculateGranularity();
+
 		// Fill in the chords
 		for (int i = 0; i < 4; i++) {
 			// Planets
