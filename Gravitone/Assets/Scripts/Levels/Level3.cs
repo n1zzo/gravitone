@@ -34,7 +34,6 @@ public class Level3 : MonoBehaviour {
 		GameObject[] planetCopy=planets;
 
 		foreach(GameObject planet in planets){
-			Debug.Log(planet);
 			planet.GetComponent<SpriteRenderer>().enabled=false;
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<Drag>().enabled=false;

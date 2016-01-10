@@ -54,10 +54,6 @@ public class Level1 : Subscriber {
 
 		targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 
-		for(int i=0; i<granularity; i++)
-			if(targetDrumArray[i])
-				totalBeats++;
-
 		trail.SetActive(true);
 		trail.GetComponent<Trail>().SetInitialPosition();
 
@@ -141,6 +137,12 @@ public class Level1 : Subscriber {
 
 	}
 
+	public void CalculateTotalBeats(){
+		for(int i=0; i<granularity; i++)
+			if(targetDrumArray[i])
+				totalBeats++;
+	}
+
 	public void SetRecord () {
 		currentInstrument.GetComponent<Drum>().ToggleRecord();
 	}
@@ -180,9 +182,7 @@ public class Level1 : Subscriber {
 				targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 				totalBeats=0;
 
-				for(int i=0; i<granularity; i++)
-					if(targetDrumArray[i])
-						totalBeats++;
+				CalculateTotalBeats();
 
 			} else{
 				currentBar=0;

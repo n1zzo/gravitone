@@ -16,6 +16,9 @@ public class LevelParser : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		 LoadLevel();
+
+		 // Start computing totalBeats in Level1
+		 this.GetComponent<Level1>().CalculateTotalBeats();
 	}
 
 	void LoadLevel() {
