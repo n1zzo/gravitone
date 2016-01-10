@@ -5,23 +5,30 @@ public class AlphaColor : MonoBehaviour {
 
 	private SpriteRenderer spriteRenderer;
 	private float transparency;
+	private float r;
+	private float g;
+	private float b;
+
 
 	// Use this for initialization
 	void Start () {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
-	}
-
-	// Update is called once per frame
-	void Update () {
-
+		// Get original color values and transparency
+		r = spriteRenderer.color.r;
+		g = spriteRenderer.color.g;
+		b = spriteRenderer.color.b;
+		transparency = spriteRenderer.color.a;
 	}
 
 	public void SetTransparency(float level){
 		transparency = level;
-		spriteRenderer.color = new Color(1f,1f,1f,level);
+		spriteRenderer.color = new Color(r, g, b, level);
 	}
 
 	public void SetColor(float r, float g, float b) {
+		this.r = r;
+		this.g = g;
+		this.b = b;
 		spriteRenderer.color = new Color(r, g, b, transparency);
 	}
 
