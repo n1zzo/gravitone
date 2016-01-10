@@ -68,12 +68,13 @@ public class Level2 : Subscriber {
 				if(isWaiting) {
 
 					// The player has placed all the planets check the score
-					if(score < notes.Length)
+					if(score < notes.Length){
 						CollapsePlanets();
+						isPreview=true;
+					}
 					else
 						NextLevel();
 
-					isPreview=true;
 				}
 
 				if(!isPreview)
