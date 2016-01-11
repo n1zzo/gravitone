@@ -5,14 +5,12 @@ using LibPDBinding;
 public class ChordPlanet : MonoBehaviour {
 
 	public GameObject audioManager;
-
+	public GameObject[] orbits;
 	public string chordName="M";
-
 	public bool active=false;
-
 	public int baseNote;
-
 	public int order;
+	private float baseAlpha = 0.2f;
 
 	// Use audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
 	// to play a chord, 57 is the target midi note, "M" is the chord type.
