@@ -8,6 +8,7 @@ public class AlphaColor : MonoBehaviour {
 	private float r;
 	private float g;
 	private float b;
+	private float baseAlpha = 0.6f;
 
 
 	// Use this for initialization
@@ -18,6 +19,8 @@ public class AlphaColor : MonoBehaviour {
 		g = spriteRenderer.color.g;
 		b = spriteRenderer.color.b;
 		transparency = spriteRenderer.color.a;
+		// Set initial transparency
+		SetTransparency(baseAlpha);
 	}
 
 	public void SetTransparency(float level){

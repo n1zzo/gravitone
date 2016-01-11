@@ -10,21 +10,11 @@ public class ChordPlanet : MonoBehaviour {
 	public bool active=false;
 	public int baseNote;
 	public int order;
-	private float baseAlpha = 0.2f;
+
 
 	// Use audioManager.GetComponent<AudioManager>().PlayChord(57, "M");
 	// to play a chord, 57 is the target midi note, "M" is the chord type.
 	// Possible choices are: M, m, M7, m7, 7, dim.
-
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if(active && other.gameObject.tag=="wave"){
@@ -54,6 +44,10 @@ public class ChordPlanet : MonoBehaviour {
 
 		// Disable the drag function
 		GetComponent<Drag>().enabled=false;
+	}
+
+	public void SetOpaqueOrbit(int number) {
+		orbits[number].GetComponent<AlphaColor>().SetTransparency(1);
 	}
 
 }

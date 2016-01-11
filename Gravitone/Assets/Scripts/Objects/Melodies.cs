@@ -140,8 +140,13 @@ public class Melodies : Subscriber {
 	private void Verify() {
 		int matching = 0;
 		for (int i=currentBar*granularity ; i<(granularity + currentBar*granularity); i++)
-				if(melodyNotes[i]!=0 && melodyNotes[i]==playerNotes[i])
+				if(melodyNotes[i]!=0 && melodyNotes[i]==playerNotes[i]) {
+					// A note is the correct one in the correct place
 					matching++;
+					// Make the corresponding orbit opaque
+					int o = GetSatellite(playerNotes[i]);
+					planets[currentPlanet].GetComponent<ChordPlanet>().SetOpaqueOrbit(o);
+				}
 				else if(melodyNotes[i]==0 && playerNotes[i]!=0)
 					matching--;
 
@@ -149,6 +154,17 @@ public class Melodies : Subscriber {
 
 		if(correctness==1)
 			NextBar();
+	}
+
+	// Get the number of the satellite by its played note
+	private int GetSatellite(int target) {
+		int i = 0;
+		foreach (int note in notes) {
+			if (note == target)
+				return i;
+			i++;
+		}
+		return -1;
 	}
 
 	public void NextBar() {
