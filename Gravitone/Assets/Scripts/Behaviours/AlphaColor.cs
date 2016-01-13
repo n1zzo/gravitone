@@ -8,7 +8,7 @@ public class AlphaColor : MonoBehaviour {
 	private float r;
 	private float g;
 	private float b;
-	private float baseAlpha = 0.6f;
+	public float baseAlpha = 0.8f;
 
 
 	// Use this for initialization
