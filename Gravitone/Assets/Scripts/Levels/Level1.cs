@@ -10,6 +10,7 @@ public class Level1 : Subscriber {
 	public GameObject textField;
 	public GameObject trail;
 	public GameObject[] dotPrefab;
+	public GameObject metronome;
 
 	GameObject audioManager;
 	GameObject currentInstrument;
@@ -56,6 +57,8 @@ public class Level1 : Subscriber {
 
 		trail.SetActive(true);
 		trail.GetComponent<Trail>().SetInitialPosition();
+
+		metronome.GetComponent<MetroDot>().PlaceDots(4, 3, 4f);
 
 	}
 

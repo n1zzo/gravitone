@@ -2283,6 +2283,7 @@ MonoBehaviour:
   - {fileID: 125730, guid: 51b2089e8609bb945b169bbe6adb6c85, type: 2}
   - {fileID: 154746, guid: 3ede296a787e8354888adb9893463f65, type: 2}
   - {fileID: 119786, guid: 0beed8062b9eb0148a8075b3655ddec6, type: 2}
+  metronome: {fileID: 1411902450}
 --- !u!114 &721453213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3342,7 +3343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8233220, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_Volume
-      value: .610000014
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 11463168, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: targetDrumArray.Array.data[9]
@@ -3355,6 +3356,14 @@ Prefab:
     - target: {fileID: 21227058, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
       propertyPath: m_SortingLayerID
       value: -534905837
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233220, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233220, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11475198, guid: d4bb1d0724038af4395c285d81e32fbd, type: 2}
@@ -6364,7 +6373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae8b9a10a8d84ff4bf27aca5efe820a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 0}
+  pointPrefab: {fileID: 136468, guid: f3c92d4e01a5445268f6ee10c740c0d7, type: 2}
 --- !u!1 &1460377457
 GameObject:
   m_ObjectHideFlags: 0
