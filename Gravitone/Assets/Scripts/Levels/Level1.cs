@@ -58,7 +58,7 @@ public class Level1 : Subscriber {
 		trail.SetActive(true);
 		trail.GetComponent<Trail>().SetInitialPosition();
 
-		metronome.GetComponent<MetroDot>().PlaceDots(4, 3, 4f);
+		metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
 
 	}
 

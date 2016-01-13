@@ -20,6 +20,7 @@ public class MetroDot : MonoBehaviour {
 
 	// Instantiate the dots into the scene at the correct position
 	public void PlaceDots(int beatsPerBar, int subBeatsPerBeat, float radius) {
+		int count = 0;
 		float angleQuantum = (Mathf.PI * 2) / beatsPerBar;
 		float offsetQuantum = Mathf.PI / (2 * subBeatsPerBeat);
 		float currentAngle = 0;
@@ -29,7 +30,8 @@ public class MetroDot : MonoBehaviour {
 				for (int j = 0; j < subBeatsPerBeat; j++) {
 					float x = radius * Mathf.Sin(currentAngle + currentOffset);
 					float y = radius * Mathf.Cos(currentAngle + currentOffset);
-					points[i+j] = (GameObject)Instantiate(pointPrefab, new Vector3(x, y, 0), Quaternion.identity);
+					points[count] = (GameObject)Instantiate(pointPrefab, new Vector3(x, y, 0), Quaternion.identity);
+					count++;
 					currentOffset += offsetQuantum;
 				}
 				currentAngle += angleQuantum;
@@ -37,8 +39,8 @@ public class MetroDot : MonoBehaviour {
 	}
 
 	public void FillDot(int number) {
-		GameObject fullDot = points[number].transform.GetChild(0).gameObject;
-		GameObject emptyDot = points[number].transform.GetChild(1).gameObject;
+		GameObject fullDot = points[number].GetComponent<DotGroup>().fullDot;
+		GameObject emptyDot = points[number].GetComponent<DotGroup>().emptyDot;
 		fullDot.GetComponent<DotManager>().Fill();
 	}
 }
