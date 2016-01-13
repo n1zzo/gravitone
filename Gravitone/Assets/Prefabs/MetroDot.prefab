@@ -40,6 +40,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 453206}
   - 212: {fileID: 21225906}
+  - 114: {fileID: 11494024}
+  - 114: {fileID: 11448862}
   m_Layer: 11
   m_Name: FullDot
   m_TagString: Untagged
@@ -85,6 +87,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 430226}
   m_RootOrder: 0
+--- !u!114 &11448862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11494024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e709cd08a2c4bf689830c381ead891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeSpeed: 1
+  alphaTreshold: 0.2
 --- !u!212 &21225906
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -172,6 +198,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fadeSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

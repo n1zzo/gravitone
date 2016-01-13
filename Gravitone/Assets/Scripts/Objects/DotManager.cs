@@ -3,8 +3,8 @@ using System.Collections;
 
 public class DotManager : MonoBehaviour {
 
-	private float alphaTreshold = 0.2f;
-	private float fadeSpeed = 0.1f;
+	public float fadeSpeed = 2f;
+	public float alphaTreshold = 0.2f;
 	private float transparency = 0f;
 
 	// Use this for initialization

@@ -29,8 +29,7 @@ public class MetroDot : MonoBehaviour {
 				for (int j = 0; j < subBeatsPerBeat; j++) {
 					float x = radius * Mathf.Sin(currentAngle + currentOffset);
 					float y = radius * Mathf.Cos(currentAngle + currentOffset);
-					Transform dotTransform = Instantiate(pointPrefab, new Vector3(x, y, 0), Quaternion.identity) as Transform;
-					points[i+j] = dotTransform.gameObject;
+					points[i+j] = (GameObject)Instantiate(pointPrefab, new Vector3(x, y, 0), Quaternion.identity);
 					currentOffset += offsetQuantum;
 				}
 				currentAngle += angleQuantum;
@@ -38,8 +37,8 @@ public class MetroDot : MonoBehaviour {
 	}
 
 	public void FillDot(int number) {
-		GameObject emptyDot = points[number].transform.GetChild(0).gameObject;
-		GameObject fullDot = points[number].transform.GetChild(1).gameObject;
+		GameObject fullDot = points[number].transform.GetChild(0).gameObject;
+		GameObject emptyDot = points[number].transform.GetChild(1).gameObject;
 		fullDot.GetComponent<DotManager>().Fill();
 	}
 }
