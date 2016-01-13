@@ -114,29 +114,31 @@ public class Level1 : Subscriber {
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
+		// Fill the current metronome dot
+		metronome.GetComponent<MetroDot>().FillDot(currentSlot);
 
-			if ( currentSlot==granularity-1) {
+		if ( currentSlot==granularity-1) {
 
-				if(!checkInput){
-					SetPlayPreview();
-					if(currentBar>0)
-						textField.GetComponent<Text>().text = "Tap to Play!";
-				} else{
-					GetComponent<LevelManager>().SetGreenBackground();
-				}
+			if(!checkInput){
+				SetPlayPreview();
+				if(currentBar>0)
+					textField.GetComponent<Text>().text = "Tap to Play!";
+			} else{
+				GetComponent<LevelManager>().SetGreenBackground();
+			}
 
-				currentBar++;
+			currentBar++;
 
-			} else if(currentSlot==0)
-					audioManager.GetComponent<AudioManager>().HighBeat();
+		} else if(currentSlot==0)
+				audioManager.GetComponent<AudioManager>().HighBeat();
 
 
-			else if(currentSlot%subBeatsPerBeat==0)
-					audioManager.GetComponent<AudioManager>().LowBeat();
+		else if(currentSlot%subBeatsPerBeat==0)
+				audioManager.GetComponent<AudioManager>().LowBeat();
 
-			// SetS the target drum dots
-			if(targetDrumArray[currentSlot])
-					Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
+		// SetS the target drum dots
+		if(targetDrumArray[currentSlot])
+				Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
 
 	}
 

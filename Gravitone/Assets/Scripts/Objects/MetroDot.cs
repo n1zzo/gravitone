@@ -4,7 +4,7 @@ using System.Collections;
 public class MetroDot : MonoBehaviour {
 
 	public Object pointPrefab;
-	private Object[] points = new GameObject[64];
+	private GameObject[] points = new GameObject[64];
 	private float radius;
 	private float dotOffset = 0.1f;
 
@@ -29,10 +29,17 @@ public class MetroDot : MonoBehaviour {
 				for (int j = 0; j < subBeatsPerBeat; j++) {
 					float x = radius * Mathf.Sin(currentAngle + currentOffset);
 					float y = radius * Mathf.Cos(currentAngle + currentOffset);
-					points[i+j] = Instantiate(pointPrefab, new Vector3(x, y, 0), Quaternion.identity);
+					Transform dotTransform = Instantiate(pointPrefab, new Vector3(x, y, 0), Quaternion.identity) as Transform;
+					points[i+j] = dotTransform.gameObject;
 					currentOffset += offsetQuantum;
 				}
 				currentAngle += angleQuantum;
 		}
+	}
+
+	public void FillDot(int number) {
+		GameObject emptyDot = points[number].transform.GetChild(0).gameObject;
+		GameObject fullDot = points[number].transform.GetChild(1).gameObject;
+		fullDot.GetComponent<DotManager>().Fill();
 	}
 }
