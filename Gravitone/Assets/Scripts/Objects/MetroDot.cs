@@ -22,8 +22,8 @@ public class MetroDot : MonoBehaviour {
 	public void PlaceDots(int beatsPerBar, int subBeatsPerBeat, float radius) {
 		int count = 0;
 		float angleQuantum = (Mathf.PI * 2) / beatsPerBar;
-		float offsetQuantum = Mathf.PI / (2 * subBeatsPerBeat);
-		float currentAngle = 0;
+		float offsetQuantum = Mathf.PI / (3 * subBeatsPerBeat);
+		float currentAngle = - 0.5f;
 		float currentOffset = 0;
 		for (int i = 0; i < beatsPerBar; i++) {
 			currentOffset = - ((offsetQuantum * subBeatsPerBeat) / 2);
