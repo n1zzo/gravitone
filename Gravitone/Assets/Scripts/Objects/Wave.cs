@@ -56,7 +56,7 @@ public class Wave : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		if(currentSlot==levelManager.GetComponent<Level2>().GetNumberOfThirdBeat()){
+		if(currentSlot==levelManager.GetComponent<FreeLevel2>().GetNumberOfThirdBeat()){
 			active=true;
 		}
 
@@ -76,17 +76,17 @@ public class Wave : Subscriber {
 						if(!isFreeMode)
 							// Pass the current ring position to the preview object and create a planet
 							Preview.GetComponent<HarmonyPreview>().PlayPlanet(orbitsRadius[currentOrbits]);
-							
+
 						// Increment orbit number
 						currentOrbits++;
 					}
 			}
 
 			if(currentBar==bars){
-								levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
-								star.GetComponent<BeatGen>().Unsubscribe(this);
-								//gameObject.SetActive(false);
-								active=false;
+						levelManager.GetComponent<FreeLevel2>().setRadiusPlanets(orbitsRadius);
+						star.GetComponent<BeatGen>().Unsubscribe(this);
+						//gameObject.SetActive(false);
+						active=false;
 			}
 
 		}

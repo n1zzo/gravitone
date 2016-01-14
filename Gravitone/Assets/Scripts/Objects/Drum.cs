@@ -19,6 +19,7 @@ public class Drum : Subscriber {
 	bool isActive=false;
 	Vector3 maxScale = new Vector3 (1f,1f,1f);
 	float maxSize=0.95f;
+	bool skipPlay=false;
 
 	string currentState = "drumPlay";
 
@@ -61,8 +62,12 @@ public class Drum : Subscriber {
 
 		// This is executed at every beat.
 		if (lastBeat && currentSlot != lastSlot) {
-			if (slots[currentSlot])
+
+			if (slots[currentSlot] && !skipPlay)
 				PlayDrum();
+			else
+				skipPlay=false;
+
 			lastSlot=currentSlot;
 			lastBeat = false;
 		}
@@ -95,6 +100,9 @@ public class Drum : Subscriber {
 	public int UpdateRecord() {
 
 			int index = Mathf.RoundToInt(progress * (float) granularity);
+
+			if(index != (int) progress*granularity)
+				skipPlay=true;
 
 			if(!targetDrumArray[index])
 				PlayDrum();

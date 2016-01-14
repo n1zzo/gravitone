@@ -23,16 +23,16 @@ public class FreeLevelManager : MonoBehaviour {
 		level++;
 		if(level==2){
 			GetComponent<FreeLevel1>().enabled=false;
-			GetComponent<Level2>().enabled=true;
+			GetComponent<FreeLevel2>().enabled=true;
 			GetComponent<Level3>().enabled=false;
 		}
 		else if(level==3){
 			GetComponent<FreeLevel1>().enabled=false;
-			GetComponent<Level2>().enabled=false;
+			GetComponent<FreeLevel2>().enabled=false;
 			GetComponent<Level3>().enabled=true;
 		} else if (level==4) {
 			GetComponent<FreeLevel1>().enabled=false;
-			GetComponent<Level2>().enabled=false;
+			GetComponent<FreeLevel2>().enabled=false;
 			GetComponent<Level3>().enabled=false;
 		}
 	}
@@ -40,7 +40,7 @@ public class FreeLevelManager : MonoBehaviour {
 	public void Restart(){
 		switch(level){
 			case 1: GetComponent<FreeLevel1>().Restart(); break;
-			case 2: GetComponent<Level2>().Restart(); break;
+			case 2: GetComponent<FreeLevel2>().Restart(); break;
 			case 3: GetComponent<Level3>().Restart(); break;
 			default: break;
 		}
