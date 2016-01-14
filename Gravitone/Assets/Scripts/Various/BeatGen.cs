@@ -11,7 +11,7 @@ public class BeatGen : MonoBehaviour {
 	public int subBeatsPerBeat = 4;
 	public int granularity = 0;
 	public int lastSlot = 0;
-	float timeSpeed = 0f;
+  float timeSpeed = 0f;
 
 	// While progress goes from 0 to 1 we complete one bar
   public float progress = 0f;
@@ -19,8 +19,10 @@ public class BeatGen : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		// Time s=peed is derived from BPMs
-		timeSpeed = (float) bpm / (60 * (float) beatsPerBar);
+    // Time s=peed is derived from BPMs
+    timeSpeed = (float)bpm / (60 * (float)beatsPerBar);
+
+    CalculateGranularity();
 
   }
 

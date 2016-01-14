@@ -21,7 +21,8 @@ public class Wave : Subscriber {
 	float cameraWidth;
 	bool active=false;
 	public GameObject Preview;
-	public GameObject levelManager;
+  public GameObject levelManager;
+	public bool isFreeMode;
 
 
 	// Use this for initialization
@@ -71,8 +72,11 @@ public class Wave : Subscriber {
 						orbitsRadius[currentOrbits] = spriteRenderer.bounds.extents.x;
 						rings[currentOrbits].SetActive(true);
 						rings[currentOrbits].GetComponent<Ring>().SetSize(transform.localScale);
-						// Pass the current ring position to the preview object and create a planet
-						Preview.GetComponent<HarmonyPreview>().PlayPlanet(orbitsRadius[currentOrbits]);
+
+						if(!isFreeMode)
+							// Pass the current ring position to the preview object and create a planet
+							Preview.GetComponent<HarmonyPreview>().PlayPlanet(orbitsRadius[currentOrbits]);
+							
 						// Increment orbit number
 						currentOrbits++;
 					}
