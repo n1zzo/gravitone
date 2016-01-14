@@ -23,7 +23,7 @@ public class MetroDot : MonoBehaviour {
 		int count = 0;
 		float angleQuantum = (Mathf.PI * 2) / beatsPerBar;
 		float offsetQuantum = Mathf.PI / (3 * subBeatsPerBeat);
-		float currentAngle = - 0.5f;
+		float currentAngle = 0;
 		float currentOffset = 0;
 		for (int i = 0; i < beatsPerBar; i++) {
 			currentOffset = - ((offsetQuantum * subBeatsPerBeat) / 2);
@@ -42,5 +42,10 @@ public class MetroDot : MonoBehaviour {
 		GameObject fullDot = points[number].GetComponent<DotGroup>().fullDot;
 		GameObject emptyDot = points[number].GetComponent<DotGroup>().emptyDot;
 		fullDot.GetComponent<DotManager>().Fill();
+	}
+
+	public void ColorDot(int number) {
+		GameObject fullDot = points[number].GetComponent<DotGroup>().fullDot;
+		fullDot.GetComponent<DotManager>().MakePink();
 	}
 }

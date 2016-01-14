@@ -6391,7 +6391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae8b9a10a8d84ff4bf27aca5efe820a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 136468, guid: f3c92d4e01a5445268f6ee10c740c0d7, type: 2}
+  pointPrefab: {fileID: 134130, guid: f3c92d4e01a5445268f6ee10c740c0d7, type: 2}
 --- !u!1 &1460377457
 GameObject:
   m_ObjectHideFlags: 0

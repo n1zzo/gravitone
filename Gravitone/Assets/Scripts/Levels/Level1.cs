@@ -136,10 +136,11 @@ public class Level1 : Subscriber {
 		else if(currentSlot%subBeatsPerBeat==0)
 				audioManager.GetComponent<AudioManager>().LowBeat();
 
-		// SetS the target drum dots
-		if(targetDrumArray[currentSlot])
-				Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
-
+		// Sets the target drum dots into the metronome
+		if(targetDrumArray[currentSlot]) {
+			Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
+			metronome.GetComponent<MetroDot>().ColorDot(currentSlot);
+		}
 	}
 
 	public void CalculateTotalBeats(){
