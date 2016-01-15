@@ -231,6 +231,7 @@ public class Melodies : Subscriber {
 			prefab = satellitePrefab[number];
 
     GameObject newSatellite = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+		newSatellite.GetComponent<SatRotate>().initialProgress=star.GetComponent<BeatGen>().progress;
 		newSatellite.GetComponent<SatRotate>().index=index;
 
 		float radius = 2f + (number*0.25f);
