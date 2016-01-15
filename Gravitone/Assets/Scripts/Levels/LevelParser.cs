@@ -15,10 +15,15 @@ public class LevelParser : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		 LoadLevel();
+        // Fetch level number from globals object
+        GameObject globals = GameObject.FindGameObjectsWithTag("Globals")[0];
+        levelNumber = globals.GetComponent<Globals>().GetLevelNumber();
 
-		 // Start computing totalBeats in Level1
-		 this.GetComponent<Level1>().CalculateTotalBeats();
+        // Loat the target level
+        LoadLevel();
+
+		// Start computing totalBeats in Level1
+		this.GetComponent<Level1>().CalculateTotalBeats();
 	}
 
 	void LoadLevel() {
