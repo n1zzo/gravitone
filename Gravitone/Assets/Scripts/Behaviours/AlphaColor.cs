@@ -28,10 +28,10 @@ public class AlphaColor : MonoBehaviour {
 		spriteRenderer.color = new Color(r, g, b, level);
 	}
 
-	public void SetColor(float r, float g, float b) {
-		this.r = r;
-		this.g = g;
-		this.b = b;
+	public void SetColor(float rr, float gg, float bb) {
+		this.r = rr;
+		this.g = gg;
+		this.b = bb;
 		spriteRenderer.color = new Color(r, g, b, transparency);
 	}
 

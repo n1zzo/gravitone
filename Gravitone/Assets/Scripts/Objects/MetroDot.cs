@@ -7,6 +7,7 @@ public class MetroDot : MonoBehaviour {
 	private GameObject[] points = new GameObject[64];
 	private float radius;
 	private float dotOffset = 0.1f;
+    private int totalDots = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -36,6 +37,7 @@ public class MetroDot : MonoBehaviour {
 				}
 				currentAngle += angleQuantum;
 		}
+        totalDots = count;
 	}
 
 	public void FillDot(int number) {
@@ -48,4 +50,33 @@ public class MetroDot : MonoBehaviour {
 		GameObject fullDot = points[number].GetComponent<DotGroup>().fullDot;
 		fullDot.GetComponent<DotManager>().MakePink();
 	}
+
+    public void HitDot(int number) {
+		GameObject fullDot = points[number].GetComponent<DotGroup>().fullDot;
+		fullDot.GetComponent<DotManager>().Hit();
+	}
+
+    public void ResetDot() {
+        // Resets all the dots
+        for(int i=0; i < totalDots; i++) {
+            GameObject fullDot = points[i].GetComponent<DotGroup>().fullDot;
+            fullDot.GetComponent<DotManager>().Reset();
+        }
+	}
+
+    public void ResetPink() {
+        // Resets all the dots
+        for(int i=0; i < totalDots; i++) {
+            GameObject fullDot = points[i].GetComponent<DotGroup>().fullDot;
+            fullDot.GetComponent<DotManager>().ResetPink();
+        }
+    }
+
+    public void DestroyAll() {
+        for(int i=0; i < totalDots; i++) {
+            Destroy(points[i].GetComponent<DotGroup>().fullDot);
+            Destroy(points[i].GetComponent<DotGroup>().emptyDot);
+            Destroy(points[i]);
+        }
+    }
 }
