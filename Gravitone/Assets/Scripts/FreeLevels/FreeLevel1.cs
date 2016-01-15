@@ -5,9 +5,9 @@ public class FreeLevel1 : Subscriber {
 
 	public GameObject[] drums;
 	public GameObject star;
-	public GameObject trail;
 	public GameObject[] dotPrefab;
 	public GameObject canvas;
+    public GameObject metronome;
 
 	GameObject audioManager;
 	GameObject currentInstrument;
@@ -39,11 +39,9 @@ public class FreeLevel1 : Subscriber {
 		currentInstrument.GetComponent<Drum>().SetActiveness(true);
 
 		audioManager = GetComponent<FreeLevelManager>().audioManager;
-
-		trail.SetActive(true);
-
 		currentInstrument.GetComponent<Drum>().widenEffect(0.95f);
 
+        metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
 	}
 
 	// Update is called once per frame
@@ -54,8 +52,6 @@ public class FreeLevel1 : Subscriber {
 				// call the Recording drum state and returns the memorized slot
 				currentInstrument.GetComponent<Drum>().UpdateRecord();
 
-				Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
-
 			}
 
 			//call the function to give a limit to the planet's size according to the correctness
@@ -65,17 +61,14 @@ public class FreeLevel1 : Subscriber {
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
+        // Fill the current metronome dot
+		metronome.GetComponent<MetroDot>().FillDot(currentSlot);
 
-
-			if ( currentSlot==0) {
-
-				audioManager.GetComponent<AudioManager>().HighBeat();
-
-			}
-
-			else if(currentSlot%subBeatsPerBeat==0)
-					audioManager.GetComponent<AudioManager>().LowBeat();
-
+		if ( currentSlot==0) {
+		    audioManager.GetComponent<AudioManager>().HighBeat();
+		}
+		else if(currentSlot%subBeatsPerBeat==0)
+		    audioManager.GetComponent<AudioManager>().LowBeat();
 	}
 
 
@@ -104,7 +97,6 @@ public class FreeLevel1 : Subscriber {
 				foreach(GameObject drum in drums)
 					drum.GetComponent<Drum>().SetSecondPhase();
 
-				trail.SetActive(false);
 				canvas.SetActive(false);
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				GetComponent<FreeLevelManager>().goToNextLevel();

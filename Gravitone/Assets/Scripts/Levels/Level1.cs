@@ -11,7 +11,7 @@ public class Level1 : Subscriber {
 	public GameObject metronome;
 
 	GameObject audioManager;
-  GameObject currentInstrument;
+    GameObject currentInstrument;
 
 	int beatsPerBar = 4;
 	int subBeatsPerBeat = 4;
