@@ -8,12 +8,10 @@ public class Level1 : Subscriber {
 	public GameObject[] drums;
 	public GameObject star;
 	public GameObject textField;
-	public GameObject trail;
-	public GameObject[] dotPrefab;
 	public GameObject metronome;
 
 	GameObject audioManager;
-	GameObject currentInstrument;
+  GameObject currentInstrument;
 
 	int beatsPerBar = 4;
 	int subBeatsPerBeat = 4;
@@ -55,9 +53,6 @@ public class Level1 : Subscriber {
 
 		targetDrumArray = currentInstrument.GetComponent<Drum>().targetDrumArray;
 
-		trail.SetActive(true);
-		trail.GetComponent<Trail>().SetInitialPosition();
-
 		metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
 
 	}
@@ -71,7 +66,7 @@ public class Level1 : Subscriber {
 
 				if(!checkInput){
 					textField.GetComponent<Text>().text = "";
-					GetComponent<LevelManager>().SetGreenBackground();
+					//GetComponent<LevelManager>().SetGreenBackground();
 					SetRecord();
 
 					// recognize if there has Been a Tap from when it was false
@@ -87,20 +82,22 @@ public class Level1 : Subscriber {
 				the effective correctness*/
 				if(targetDrumArray[slot] && checkInput){
 
-					Instantiate(dotPrefab[2], trail.transform.position, Quaternion.identity);
 					GetComponent<BloomControl>().BloomPulse();
 
 					if(!playerDrumArray[slot])
 						correctness += 1/(float)totalBeats;
 
-					GetComponent<LevelManager>().SetGreenBackground();
+					//GetComponent<LevelManager>().SetGreenBackground();
+
+					metronome.GetComponent<MetroDot>().HitDot(slot);
 
 				}	else if(checkInput) {
 
-					Instantiate(dotPrefab[1], trail.transform.position, Quaternion.identity);
 					correctness=0;
 					currentInstrument.GetComponent<Drum>().Reset();
-					GetComponent<LevelManager>().SetRedBackground();
+					//GetComponent<LevelManager>().SetRedBackground();
+					metronome.GetComponent<MetroDot>().ResetDot();
+					metronome.GetComponent<MetroDot>().HitDot(slot);
 				}
 
 				if(correctness>0.95 || totalBeats==0)
@@ -124,7 +121,7 @@ public class Level1 : Subscriber {
 				if(currentBar>0)
 					textField.GetComponent<Text>().text = "Tap to Play!";
 			} else{
-				GetComponent<LevelManager>().SetGreenBackground();
+				//GetComponent<LevelManager>().SetGreenBackground();
 			}
 
 			currentBar++;
@@ -138,7 +135,6 @@ public class Level1 : Subscriber {
 
 		// Sets the target drum dots into the metronome
 		if(targetDrumArray[currentSlot]) {
-			Instantiate(dotPrefab[0], trail.transform.position, Quaternion.identity);
 			metronome.GetComponent<MetroDot>().ColorDot(currentSlot);
 		}
 	}
@@ -180,6 +176,7 @@ public class Level1 : Subscriber {
 			checkInput=false;
 
 			if((currentIndex < drums.Length)){
+				metronome.GetComponent<MetroDot>().ResetPink();
 				currentBar=0;
 				correctness=0;
 				currentInstrument=drums[currentIndex];
@@ -196,7 +193,7 @@ public class Level1 : Subscriber {
 				foreach(GameObject drum in drums)
 					drum.GetComponent<Drum>().SetSecondPhase();
 
-				trail.SetActive(false);
+				metronome.GetComponent<MetroDot>().DestroyAll();
 				textField.GetComponent<Text>().text = "";
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				GetComponent<LevelManager>().goToNextLevel();
