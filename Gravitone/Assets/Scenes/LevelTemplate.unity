@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &144119777
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -561,6 +561,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -768,6 +772,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -971,6 +979,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.39
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -1146,6 +1158,7 @@ MonoBehaviour:
   star: {fileID: 810106420}
   radius: 1
   clockwise: 1
+  currentBar: 0
 --- !u!50 &447429931
 Rigidbody2D:
   serializedVersion: 2
@@ -1379,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &485404019
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1692,7 +1705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &620872455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2056,7 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &681161889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2282,11 +2295,6 @@ MonoBehaviour:
   - {fileID: 407480667}
   star: {fileID: 810106420}
   textField: {fileID: 1642648028}
-  trail: {fileID: 1494388173}
-  dotPrefab:
-  - {fileID: 125730, guid: 51b2089e8609bb945b169bbe6adb6c85, type: 2}
-  - {fileID: 154746, guid: 3ede296a787e8354888adb9893463f65, type: 2}
-  - {fileID: 119786, guid: 0beed8062b9eb0148a8075b3655ddec6, type: 2}
   metronome: {fileID: 1411902450}
 --- !u!114 &721453213
 MonoBehaviour:
@@ -3048,7 +3056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &849601300
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3151,7 +3159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!1 &881019577 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 196342, guid: 3fa2452fa1a7e4ea591cf17c4bd8a62f, type: 2}
@@ -3239,6 +3247,10 @@ Prefab:
     - target: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
       propertyPath: m_Name
       value: orbit (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -3472,6 +3484,7 @@ MonoBehaviour:
   star: {fileID: 810106420}
   radius: 1
   clockwise: 1
+  currentBar: 0
 --- !u!50 &928358814
 Rigidbody2D:
   serializedVersion: 2
@@ -3628,7 +3641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &937185647
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3735,6 +3748,10 @@ Prefab:
     - target: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -4193,6 +4210,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -4366,6 +4387,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -4448,6 +4473,10 @@ Prefab:
     - target: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
       propertyPath: m_LocalScale.y
       value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -4689,6 +4718,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -4749,6 +4782,7 @@ MonoBehaviour:
   star: {fileID: 810106420}
   radius: 1
   clockwise: 0
+  currentBar: 0
 --- !u!50 &1136896605
 Rigidbody2D:
   serializedVersion: 2
@@ -4905,7 +4939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &1147389274
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5662,6 +5696,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.39
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -5961,7 +5999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!1001 &1336620324
 Prefab:
   m_ObjectHideFlags: 0
@@ -6041,6 +6079,10 @@ Prefab:
     - target: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
       propertyPath: m_Name
       value: orbit (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -6235,7 +6277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &1384391401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6607,6 +6649,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -6773,7 +6819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!212 &1495959553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6935,6 +6981,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -6995,6 +7045,7 @@ MonoBehaviour:
   star: {fileID: 810106420}
   radius: 1
   clockwise: 0
+  currentBar: 0
 --- !u!50 &1589684509
 Rigidbody2D:
   serializedVersion: 2
@@ -7397,6 +7448,10 @@ Prefab:
       propertyPath: m_Name
       value: orbit (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_IsPrefabParent: 0
@@ -7517,6 +7572,10 @@ Prefab:
     - target: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
       propertyPath: m_Name
       value: orbit (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -7691,7 +7750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAlpha: 0.8
+  baseAlpha: 0.5
 --- !u!4 &1829251992 stripped
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -8163,6 +8222,10 @@ Prefab:
     - target: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
       propertyPath: m_Name
       value: orbit (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11441048, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+      propertyPath: baseAlpha
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fcc57731932b460982e319b9d09411e, type: 2}

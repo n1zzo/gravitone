@@ -63,7 +63,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void SetGreyBackground(){
-		background.GetComponent<SpriteRenderer>().color=Color.grey;
+		background.GetComponent<SpriteRenderer>().color=new Color(0.8f,0.8f,0.8f,1f);
 	}
 
 	public void ResetBackground(){

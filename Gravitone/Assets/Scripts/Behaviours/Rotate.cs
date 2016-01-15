@@ -7,7 +7,7 @@ public class Rotate : Subscriber {
 	public float radius;
 	public bool clockwise;
 	private float offsetAngle;
-	private int currentBar=0;
+	public int currentBar=0;
 	private int bars=4;
 	private const float TWO_PI = 2*Mathf.PI;
 	private bool dirtyOffset = true;

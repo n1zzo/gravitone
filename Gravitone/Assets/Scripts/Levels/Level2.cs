@@ -148,6 +148,7 @@ public class Level2 : Subscriber {
 		float offset=Screen.height*6/100;
 		foreach(GameObject planet in planets){
 			planet.SetActive(true);
+			planet.GetComponent<Rotate>().SetDirtyOffset();
 			planet.GetComponent<Drag>().radiusOrbits=radius;
 			switch(ind){
 				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;

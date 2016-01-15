@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 159890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .064000003, y: .064000003, z: 1}
+  m_LocalScale: {x: 0.064, y: 0.064, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6db9439e3d146979172a45fc0963e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseAlpha: 0.5
 --- !u!212 &21261562
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -61,20 +62,26 @@ SpriteRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -922746523
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4ada536a41a99c549b6c61f2588a21be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: baseAlpha
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159890}
