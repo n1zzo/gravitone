@@ -292,7 +292,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 671294612}
+      - m_Target: {fileID: 0}
         m_MethodName: NextLevelButton
         m_Mode: 5
         m_Arguments:
@@ -346,8 +346,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439537915}
+  - 114: {fileID: 439537916}
   m_Layer: 0
-  m_Name: Screen
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -367,6 +368,18 @@ Transform:
   - {fileID: 671294611}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &439537916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 439537914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c00da455feba31149be54a6a0bd803c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globals: {fileID: 1542139175}
 --- !u!1 &621216499
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,7 +462,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 671294611}
   - 212: {fileID: 671294610}
-  - 114: {fileID: 671294612}
   - 114: {fileID: 671294613}
   m_Layer: 0
   m_Name: Background
@@ -500,17 +512,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 439537915}
   m_RootOrder: 1
---- !u!114 &671294612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 671294609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c00da455feba31149be54a6a0bd803c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &671294613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +689,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497906401}
+--- !u!1 &1542139175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1542139177}
+  - 114: {fileID: 1542139176}
+  m_Layer: 0
+  m_Name: Globals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1542139176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542139175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea85e63e12dbb40aaa33959bb9d16e7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 0
+--- !u!4 &1542139177
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542139175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.40841997, y: -0.46106043, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &1661419013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,13 +1105,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 671294612}
+      - m_Target: {fileID: 439537916}
         m_MethodName: NextLevelButton
-        m_Mode: 5
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Easy Level
           m_BoolArgument: 0
