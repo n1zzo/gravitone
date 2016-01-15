@@ -3,9 +3,9 @@ interface Bass {
 
 	void Play(int note);
 
-  void Stop();
+    void Stop();
 
-  void SetDecay(int decay);
+    void SetDecay(int decay);
 
 	void SetVolume(float value);
 
