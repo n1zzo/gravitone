@@ -50,7 +50,11 @@ public class FreeLevel1 : Subscriber {
 			if(currentInstrument.GetComponent<Drum>().CheckFire()){
 
 				// call the Recording drum state and returns the memorized slot
-				currentInstrument.GetComponent<Drum>().UpdateRecord();
+				int slot = currentInstrument.GetComponent<Drum>().UpdateRecord();
+
+				metronome.GetComponent<MetroDot>().ColorDot(slot);
+
+				metronome.GetComponent<MetroDot>().HitDot(slot);
 
 			}
 
@@ -61,8 +65,12 @@ public class FreeLevel1 : Subscriber {
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
-        // Fill the current metronome dot
+
+		// Fill the current metronome dot
 		metronome.GetComponent<MetroDot>().FillDot(currentSlot);
+
+		if(currentInstrument.GetComponent<Drum>().GetDrumArray()[currentSlot])
+			metronome.GetComponent<MetroDot>().HitDot(currentSlot);
 
 		if ( currentSlot==0) {
 		    audioManager.GetComponent<AudioManager>().HighBeat();
@@ -86,7 +94,7 @@ public class FreeLevel1 : Subscriber {
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
 
 			if((currentIndex < drums.Length)){
-
+				metronome.GetComponent<MetroDot>().ResetPink();
 				currentInstrument=drums[currentIndex];
 				currentInstrument.SetActive(true);
 				currentInstrument.GetComponent<Drum>().SetActiveness(true);
@@ -96,7 +104,7 @@ public class FreeLevel1 : Subscriber {
 
 				foreach(GameObject drum in drums)
 					drum.GetComponent<Drum>().SetSecondPhase();
-
+				metronome.GetComponent<MetroDot>().DestroyAll();
 				canvas.SetActive(false);
 				star.GetComponent<BeatGen>().Unsubscribe(this);
 				GetComponent<FreeLevelManager>().goToNextLevel();
@@ -120,6 +128,7 @@ public class FreeLevel1 : Subscriber {
 	public void Redo(){
 		currentInstrument.GetComponent<Drum>().Reset();
 		currentInstrument.GetComponent<Drum>().SetActiveness(true);
+		metronome.GetComponent<MetroDot>().ResetPink();
 	}
 
 }

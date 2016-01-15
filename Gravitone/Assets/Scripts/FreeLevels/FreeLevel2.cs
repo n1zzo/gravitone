@@ -55,7 +55,8 @@ public class FreeLevel2 : Subscriber {
 
 		if(currentSlot==numberOfThirdBeat){
 			if (currentBar==bars) {
-
+				if(placed==bars)
+					NextLevel();
 				actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
 				currentBar=0;
@@ -66,9 +67,13 @@ public class FreeLevel2 : Subscriber {
 
 	}
 
+	public void increasePlaced(){
+		placed++;
+	}
+
 
 	bool CheckPlanet(GameObject planet){
-		int num=planet.GetComponent<Drag>().orbitNumber;
+		int num=planet.GetComponent<FreeDrag>().orbitNumber;
 
 		return planet.GetComponent<ChordPlanet>().chordName==types[num] &&
 			planet.GetComponent<ChordPlanet>().baseNote==notes[num];
@@ -88,7 +93,7 @@ public class FreeLevel2 : Subscriber {
 		float offset=Screen.height*6/100;
 		foreach(GameObject planet in planets){
 			planet.SetActive(true);
-			planet.GetComponent<Drag>().radiusOrbits=radius;
+			planet.GetComponent<FreeDrag>().radiusOrbits=radius;
 			switch(ind){
 				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;
 				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
@@ -142,7 +147,7 @@ public class FreeLevel2 : Subscriber {
 		foreach(GameObject planet in planets){
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<SelfRotate>().enabled=false;
-			planet.GetComponent<Drag>().enabled=true;
+			planet.GetComponent<FreeDrag>().enabled=true;
 			planet.GetComponent<ChordPlanet>().active=false;
 			planet.GetComponent<CircleCollider2D>().radius=2.5f;
 			switch(ind){
@@ -161,7 +166,7 @@ public class FreeLevel2 : Subscriber {
 
 	GameObject GetFirstOrbitPlanet(){
 		foreach (GameObject planet in planets)
-			if(planet.GetComponent<Drag>().orbitNumber==0)
+			if(planet.GetComponent<FreeDrag>().orbitNumber==0)
 				return planet;
 
 		return null;

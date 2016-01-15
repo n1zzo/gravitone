@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class Drag : MonoBehaviour {
+public class FreeDrag : MonoBehaviour {
 
 	private Vector3 screenPoint;
 	private Vector3 offset;
@@ -23,7 +23,7 @@ public class Drag : MonoBehaviour {
 			if(orbitNumber!=-1){
 				GetComponent<Rotate>().enabled=false;
 
-				levelManager.GetComponent<Level2>().RemovePlaced();
+				levelManager.GetComponent<FreeLevel2>().RemovePlaced();
 
 				GameObject[] previews = GameObject.FindWithTag("Preview").GetComponent<HarmonyPreview>().GetPreviews();
 				foreach (GameObject preview in previews)
@@ -43,8 +43,8 @@ public class Drag : MonoBehaviour {
 
 	}
 
-	void OnMouseDrag () {
-		if(GetComponent<Drag>().enabled){
+	void OnMouseFreeDrag () {
+		if(GetComponent<FreeDrag>().enabled){
 			Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 			Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
 			transform.position = cursorPosition;
@@ -52,7 +52,7 @@ public class Drag : MonoBehaviour {
 	}
 
 	void OnMouseUp () {
-		if(GetComponent<Drag>().enabled){
+		if(GetComponent<FreeDrag>().enabled){
 
 					orbitNumber=-1;
 
@@ -60,25 +60,16 @@ public class Drag : MonoBehaviour {
 
 					// Assign the planet to the nearest orbit.
 					// Get the radius from the orbit and give it to Rotate.cs
-					// Deactivate the drag functionality
+					// Deactivate the FreeDrag functionality
 					int count=0;
 					foreach (float orbit in radiusOrbits){
 						float x=transform.position.x;
 						float y=transform.position.y;
 						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
 
-
-							GameObject[] previews = GameObject.FindGameObjectsWithTag("PreviewPlanet");
-
-							foreach (GameObject preview in previews)
-								if(preview.GetComponent<PrevPlanet>().position==count && preview.activeSelf){
 									AssignToOrbit(orbit, count);
-									preview.SetActive(false);
-									levelManager.GetComponent<Level2>().CheckCorrectness();
+									levelManager.GetComponent<FreeLevel2>().increasePlaced();
 									break;
-								}
-
-							break;
 
 						}
 						count++;

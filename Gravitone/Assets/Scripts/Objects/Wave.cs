@@ -56,7 +56,9 @@ public class Wave : Subscriber {
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
 
-		if(currentSlot==levelManager.GetComponent<Level2>().GetNumberOfThirdBeat()){
+		if( (!isFreeMode &&
+			currentSlot==levelManager.GetComponent<Level2>().GetNumberOfThirdBeat()) ||
+				(isFreeMode && currentSlot==levelManager.GetComponent<FreeLevel2>().GetNumberOfThirdBeat())){
 			active=true;
 		}
 
@@ -83,10 +85,14 @@ public class Wave : Subscriber {
 			}
 
 			if(currentBar==bars){
-						levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
-						star.GetComponent<BeatGen>().Unsubscribe(this);
-						//gameObject.SetActive(false);
-						active=false;
+				if(!isFreeMode)
+					levelManager.GetComponent<Level2>().setRadiusPlanets(orbitsRadius);
+				else
+					levelManager.GetComponent<FreeLevel2>().setRadiusPlanets(orbitsRadius);
+
+				star.GetComponent<BeatGen>().Unsubscribe(this);
+				//gameObject.SetActive(false);
+				active=false;
 			}
 
 		}
