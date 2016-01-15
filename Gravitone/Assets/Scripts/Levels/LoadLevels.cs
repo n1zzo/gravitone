@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class LoadLevels : MonoBehaviour {
 
-	public void NextLevelButton(string levelName)
-     {
-         Application.LoadLevel(levelName);
-     }
-		 
+    public GameObject globals;
+
+	public void NextLevelButton(int level) {
+         globals.GetComponent<Globals>().SetLevelNumber(level);
+         Application.LoadLevel("LevelTemplate");
+    }
+
 }
