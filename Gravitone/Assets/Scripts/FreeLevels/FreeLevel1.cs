@@ -7,7 +7,7 @@ public class FreeLevel1 : Subscriber {
 	public GameObject star;
 	public GameObject[] dotPrefab;
 	public GameObject canvas;
-    public GameObject metronome;
+  public GameObject metronome;
 
 	GameObject audioManager;
 	GameObject currentInstrument;
@@ -24,11 +24,20 @@ public class FreeLevel1 : Subscriber {
 	bool[] playerDrumArray;
 	bool checkInput;
 
+	float[][] colors=new float[3][];
+
+	int currentColor=1;
+
 
 	// Use this for initialization
 	void Start () {
 
 		star.GetComponent<BeatGen>().Subscribe(this);
+
+		fillColors();
+
+		canvas.transform.GetChild(1).gameObject.GetComponent<CanvasRenderer>().SetColor(
+			new Color(colors[currentColor][0],colors[currentColor][1],colors[currentColor][2],1));
 
 		beatsPerBar = star.GetComponent<BeatGen>().beatsPerBar;
 		subBeatsPerBeat = star.GetComponent<BeatGen>().subBeatsPerBeat;
@@ -41,7 +50,7 @@ public class FreeLevel1 : Subscriber {
 		audioManager = GetComponent<FreeLevelManager>().audioManager;
 		currentInstrument.GetComponent<Drum>().widenEffect(0.95f);
 
-        metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
+    metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
 	}
 
 	// Update is called once per frame
@@ -61,6 +70,21 @@ public class FreeLevel1 : Subscriber {
 			//call the function to give a limit to the planet's size according to the correctness
 			currentInstrument.GetComponent<Drum>().widenEffect(0.95f);
 
+	}
+
+	void fillColors(){
+			colors[0]=new float[3];
+			colors[0][0]=255;
+			colors[0][1]=255;
+			colors[0][2]=255;
+			colors[1]=new float[3];
+			colors[1][0]=1;
+			colors[1][1]=0.663f;
+			colors[1][2]=0.663f;
+			colors[2]=new float[3];
+			colors[2][0]=0;
+			colors[2][1]=1;
+			colors[2][2]=0.835f;
 	}
 
 	// This method is called for each beat
