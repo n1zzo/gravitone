@@ -118,6 +118,10 @@ public class FreeLevel1 : Subscriber {
 			currentInstrument.GetComponent<CenterRotation>().enabled=true;
 
 			if((currentIndex < drums.Length)){
+				currentColor++;
+				if(currentColor<colors.Length)
+					canvas.transform.GetChild(1).gameObject.GetComponent<CanvasRenderer>().SetColor(
+						new Color(colors[currentColor][0],colors[currentColor][1],colors[currentColor][2],1));
 				metronome.GetComponent<MetroDot>().ResetPink();
 				currentInstrument=drums[currentIndex];
 				currentInstrument.SetActive(true);

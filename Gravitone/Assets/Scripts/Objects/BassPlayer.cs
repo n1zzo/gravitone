@@ -11,6 +11,7 @@ public class BassPlayer : Subscriber {
 	int currentBar=-1;
 	int bars=4;
 	int granularity;
+	public bool isFreeMode=false;
 
 	// Use this for initialization
 	void Start () {
@@ -34,12 +35,18 @@ public class BassPlayer : Subscriber {
 		if(kick.GetComponent<Drum>().GetDrumArray()[currentSlot] && currentBar!=-1){
 			int note;
 
-			if(levelManager.GetComponent<LevelManager>().GetLevel()!=3)
+			if(!isFreeMode && levelManager.GetComponent<LevelManager>().GetLevel()!=3)
 				note=levelManager.GetComponent<Level2>().notes[currentBar];
-			else{
+			else if(isFreeMode && levelManager.GetComponent<FreeLevelManager>().GetLevel()!=3)
+				note=levelManager.GetComponent<FreeLevel2>().notes[currentBar];
+			else if(!isFreeMode){
 				int currentPlanet=melody.GetComponent<Melodies>().GetCurrentPlanetNum();
 
 				note=levelManager.GetComponent<Level2>().notes[currentPlanet];
+			} else {
+				int currentPlanet=melody.GetComponent<FreeMelody>().GetCurrentPlanetNum();
+
+				note=levelManager.GetComponent<FreeLevel2>().notes[currentPlanet];
 			}
 
 

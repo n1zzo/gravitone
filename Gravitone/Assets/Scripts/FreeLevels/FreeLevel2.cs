@@ -47,6 +47,8 @@ public class FreeLevel2 : Subscriber {
 
 		NextButton.SetActive(false);
 
+		notes= new int[4];
+
 	}
 
 	// Update is called once per frame
@@ -133,6 +135,11 @@ public class FreeLevel2 : Subscriber {
 
 
 	public void NextLevel() {
+		foreach(GameObject planet in planets){
+			int orbitNumber= planet.GetComponent<FreeDrag>().orbitNumber;
+			if(orbitNumber!=-1)
+				notes[orbitNumber]=planet.GetComponent<ChordPlanet>().baseNote;
+		}
 		Destroy(actualWave);
 		star.GetComponent<BeatGen>().Unsubscribe(this);
 		GetComponent<FreeLevelManager>().goToNextLevel();

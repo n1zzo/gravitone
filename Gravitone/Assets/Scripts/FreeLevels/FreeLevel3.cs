@@ -15,7 +15,7 @@ public class FreeLevel3 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		audioManager = GetComponent<LevelManager>().audioManager;
+		audioManager = GetComponent<FreeLevelManager>().audioManager;
 
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
@@ -36,9 +36,9 @@ public class FreeLevel3 : MonoBehaviour {
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=false;
 			planet.GetComponent<Rotate>().enabled=false;
-			planet.GetComponent<Drag>().enabled=false;
-			if(planet.GetComponent<Drag>().orbitNumber!=-1)
-				planetCopy[planet.GetComponent<Drag>().orbitNumber]=planet;
+			planet.GetComponent<FreeDrag>().enabled=false;
+			if(planet.GetComponent<FreeDrag>().orbitNumber!=-1)
+				planetCopy[planet.GetComponent<FreeDrag>().orbitNumber]=planet;
 		}
 
 		planets=planetCopy;
@@ -53,9 +53,7 @@ public class FreeLevel3 : MonoBehaviour {
 
 		planets[0].SetActiveRecursively(true);
 
-		melody.GetComponent<Melodies>().planets=planets;
-
-		melody.GetComponent<Melodies>().TogglePreview();
+		melody.GetComponent<FreeMelody>().planets=planets;
 
 	}
 
@@ -65,7 +63,7 @@ public class FreeLevel3 : MonoBehaviour {
 	}
 
 	public void Restart(){
-		melody.GetComponent<Melodies>().TogglePreview();
+
 	}
 
 	public void ChangeCamera(int number){
@@ -86,7 +84,7 @@ public class FreeLevel3 : MonoBehaviour {
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=true;
 			planet.GetComponent<Rotate>().enabled=true;
-			planet.GetComponent<Drag>().enabled=false;
+			planet.GetComponent<FreeDrag>().enabled=false;
 		}
 		// Set the camera and menu to follow the first planet.
 		cam.GetComponent<SmoothFollow2D>().enabled = false;
