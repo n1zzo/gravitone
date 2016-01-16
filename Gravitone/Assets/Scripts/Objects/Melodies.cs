@@ -226,6 +226,7 @@ public class Melodies : Subscriber {
 		if(preview){
 			prefab = satelliteDark;
 			Color satelliteColor = GetCurrentPlanet().transform.GetChild(number).gameObject.GetComponent<SpriteRenderer>().color;
+			satelliteColor.a=1;
 			prefab.GetComponent<SpriteRenderer>().color=satelliteColor;
 			Destroy(satellites[index]);
 		}
