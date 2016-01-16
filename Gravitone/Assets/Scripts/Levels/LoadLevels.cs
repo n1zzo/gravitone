@@ -8,6 +8,7 @@ public class LoadLevels : MonoBehaviour {
     public GameObject playButton;
     public GameObject[] levelButtons;
     public GameObject globals;
+    public GameObject back;
 
     public void ShowLevels() {
         title.SetActive(false);
@@ -15,9 +16,11 @@ public class LoadLevels : MonoBehaviour {
         foreach(GameObject button in levelButtons) {
                 button.SetActive(true);
         }
+        back.SetActive(true);
     }
 
     public void Back() {
+        back.SetActive(false);
         foreach(GameObject button in levelButtons) {
                 button.SetActive(false);
         }
