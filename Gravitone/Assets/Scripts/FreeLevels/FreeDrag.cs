@@ -21,7 +21,7 @@ public class FreeDrag : MonoBehaviour {
 	public void handleMouseDown () {
 
 			if(orbitNumber!=-1){
-				
+
 				GetComponent<Rotate>().enabled=false;
 
 				levelManager.GetComponent<FreeLevel2>().RemovePlaced();
@@ -76,10 +76,10 @@ public class FreeDrag : MonoBehaviour {
 
 		orbitNumber=count;
 
-		// Enable the rotation with the right radius
-		GetComponent<Rotate>().SetRadius(orbit);
 		// Force offset angle refresh
 		GetComponent<Rotate>().SetDirtyOffset();
+		// Enable the rotation with the right radius
+		GetComponent<Rotate>().SetRadius(orbit);
 		// Enable the planet rotation
 		GetComponent<Rotate>().enabled=true;
 		// Enable the planet revolution

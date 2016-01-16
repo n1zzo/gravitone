@@ -31,7 +31,7 @@ public class BassPlayer : Subscriber {
 		if (currentBar==bars)
 			currentBar=0;
 
-		if(kick.GetComponent<Drum>().targetDrumArray[currentSlot] && currentBar!=-1){
+		if(kick.GetComponent<Drum>().GetDrumArray()[currentSlot] && currentBar!=-1){
 			int note;
 
 			if(levelManager.GetComponent<LevelManager>().GetLevel()!=3)
@@ -48,7 +48,7 @@ public class BassPlayer : Subscriber {
 
 			audioManager.GetComponent<AudioManager>().PlayBass(note);
 
-		} else if ( kick.GetComponent<Drum>().targetDrumArray[currentSlot+1] || currentSlot==granularity-1 ) {
+		} else if ( kick.GetComponent<Drum>().GetDrumArray()[currentSlot+1] || currentSlot==granularity-1 ) {
 			audioManager.GetComponent<AudioManager>().StopBass();
 		}
 
