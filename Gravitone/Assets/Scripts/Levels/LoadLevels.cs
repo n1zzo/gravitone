@@ -12,10 +12,21 @@ public class LoadLevels : MonoBehaviour {
     public void ShowLevels() {
         title.SetActive(false);
         playButton.SetActive(false);
-        Debug.Log("LOL");
         foreach(GameObject button in levelButtons) {
                 button.SetActive(true);
         }
+    }
+
+    public void Back() {
+        foreach(GameObject button in levelButtons) {
+                button.SetActive(false);
+        }
+        title.SetActive(true);
+        playButton.SetActive(true);
+    }
+
+    public void StartFreeMode() {
+        Application.LoadLevel("FreePlay");
     }
 
 	public void StartLevel(int level) {
