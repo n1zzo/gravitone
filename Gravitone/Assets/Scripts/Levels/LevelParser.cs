@@ -16,8 +16,10 @@ public class LevelParser : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // Fetch level number from globals object
-        GameObject globals = GameObject.FindGameObjectsWithTag("Globals")[0];
-        levelNumber = globals.GetComponent<Globals>().GetLevelNumber();
+        GameObject[] global = GameObject.FindGameObjectsWithTag("Globals");
+
+				if(global.Length!=0)
+        	levelNumber = global[0].GetComponent<Globals>().GetLevelNumber();
 
         // Loat the target level
         LoadLevel();

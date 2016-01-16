@@ -43,7 +43,7 @@ public class FreeDrag : MonoBehaviour {
 
 	}
 
-	void OnMouseFreeDrag () {
+	void OnMouseDrag () {
 		if(GetComponent<FreeDrag>().enabled){
 			Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 			Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;

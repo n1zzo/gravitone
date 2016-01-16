@@ -7,7 +7,6 @@ public class Wave : Subscriber {
 	public GameObject[] rings;
 	SpriteRenderer spriteRenderer;
 	public float[] orbitsRadius;
-	public bool[] orbitSlots;
 	int currentOrbits=0;
 	int currentBar=-1;
 	public int bars=4;
@@ -30,6 +29,7 @@ public class Wave : Subscriber {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		star.GetComponent<BeatGen>().Subscribe(this);
 		newGranularity = star.GetComponent<BeatGen>().granularity/newGranularityDivision;
+		Debug.Log(newGranularity);
 		circleCollider = this.GetComponent<CircleCollider2D>();
 		// The first float is half of the scale of the wave, 128 is our standard bpm.
 		scaleSpeed=star.GetComponent<BeatGen>().bpm * 0.0757f / 128f;
@@ -70,7 +70,7 @@ public class Wave : Subscriber {
 			if(currentBar!=-1 && currentBar < bars){
 					int currentIndex=Mathf.CeilToInt(currentSlot/newGranularityDivision) + (newGranularity*currentBar);
 
-					if(currentOrbits<rings.Length && orbitSlots[currentIndex] && currentSlot%newGranularity==0){
+					if(currentOrbits<rings.Length && currentSlot==0){
 						orbitsRadius[currentOrbits] = spriteRenderer.bounds.extents.x;
 						rings[currentOrbits].SetActive(true);
 						rings[currentOrbits].GetComponent<Ring>().SetSize(transform.localScale);
