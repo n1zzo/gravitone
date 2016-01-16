@@ -2344,6 +2344,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c00da455feba31149be54a6a0bd803c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 0}
+  playButton: {fileID: 0}
+  levelButtons: []
+  globals: {fileID: 0}
+  back: {fileID: 0}
 --- !u!114 &721453216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3259,6 +3264,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 902322079}
+--- !u!1 &902322081 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 902322079}
 --- !u!1001 &906869226
 Prefab:
   m_ObjectHideFlags: 0
@@ -3531,7 +3540,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  orbits: []
+  orbits:
+  - {fileID: 1055465042}
+  - {fileID: 144119774}
+  - {fileID: 620872452}
+  - {fileID: 681161886}
+  - {fileID: 1047165245}
+  - {fileID: 1108566711}
+  - {fileID: 1029347632}
   chordName: M
   active: 0
   baseNote: 60
@@ -4221,6 +4237,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1029347630}
+--- !u!1 &1029347632 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1029347630}
 --- !u!1 &1043019052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4398,6 +4418,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1047165243}
+--- !u!1 &1047165245 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1047165243}
 --- !u!1001 &1055465040
 Prefab:
   m_ObjectHideFlags: 0
@@ -4484,6 +4508,10 @@ Prefab:
 --- !u!4 &1055465041 stripped
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1055465040}
+--- !u!1 &1055465042 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1055465040}
 --- !u!1 &1072373395
 GameObject:
@@ -4729,6 +4757,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1108566709}
+--- !u!1 &1108566711 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1108566709}
 --- !u!1 &1136896602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4829,7 +4861,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
-  orbits: []
+  orbits:
+  - {fileID: 1247370071}
+  - {fileID: 1147389271}
+  - {fileID: 849601297}
+  - {fileID: 1495959550}
+  - {fileID: 1723029196}
+  - {fileID: 1935772396}
+  - {fileID: 902322081}
   chordName: m
   active: 0
   baseNote: 60
@@ -5706,6 +5745,10 @@ Prefab:
 --- !u!4 &1247370070 stripped
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1247370069}
+--- !u!1 &1247370071 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1247370069}
 --- !u!1 &1250394221
 GameObject:
@@ -7584,6 +7627,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1723029194}
+--- !u!1 &1723029196 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1723029194}
 --- !u!1 &1770329130
 GameObject:
   m_ObjectHideFlags: 0
@@ -8233,6 +8280,10 @@ Prefab:
 --- !u!4 &1935772395 stripped
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
+  m_PrefabInternal: {fileID: 1935772394}
+--- !u!1 &1935772396 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 159890, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
   m_PrefabInternal: {fileID: 1935772394}
 --- !u!1 &1955263615
 GameObject:
