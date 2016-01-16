@@ -16,9 +16,11 @@ public class FreeLevel2 : Subscriber {
 	private int placed;
 	public int[] notes;
 	public string[] types;
+	bool isListening=false;
 	int restoreCount=0;
 	GameObject actualWave;
   GameObject audioManager;
+	public GameObject NextButton;
 
 	// Use this for initialization
 	void Start () {
@@ -43,6 +45,8 @@ public class FreeLevel2 : Subscriber {
 
 		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat);
 
+		NextButton.SetActive(false);
+
 	}
 
 	// Update is called once per frame
@@ -55,8 +59,7 @@ public class FreeLevel2 : Subscriber {
 
 		if(currentSlot==numberOfThirdBeat){
 			if (currentBar==bars) {
-				if(placed==bars)
-					NextLevel();
+
 				actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
 				currentBar=0;
@@ -69,6 +72,17 @@ public class FreeLevel2 : Subscriber {
 
 	public void increasePlaced(){
 		placed++;
+
+		if(placed==bars){
+			isListening=true;
+			planets[0].GetComponent<ChordPlanet>().Stop();
+			foreach (GameObject planet in planets){
+				if(planet.GetComponent<FreeDrag>().orbitNumber!=-1)
+					planet.GetComponent<ChordPlanet>().active=true;
+			}
+			GetComponent<FreeLevelManager>().SetGreyBackground();
+			NextButton.SetActive(true);
+		}
 	}
 
 
@@ -81,6 +95,15 @@ public class FreeLevel2 : Subscriber {
 
 	public void RemovePlaced(){
 		placed --;
+		if(isListening){
+			isListening=false;
+			planets[0].GetComponent<ChordPlanet>().Stop();
+			foreach (GameObject planet in planets){
+				planet.GetComponent<ChordPlanet>().active=false;
+			}
+			GetComponent<FreeLevelManager>().ResetBackground();
+			NextButton.SetActive(false);
+		}
 	}
 
 	protected void DisablePlanets(){

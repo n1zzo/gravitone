@@ -21,16 +21,11 @@ public class FreeDrag : MonoBehaviour {
 	public void handleMouseDown () {
 
 			if(orbitNumber!=-1){
+				
 				GetComponent<Rotate>().enabled=false;
 
 				levelManager.GetComponent<FreeLevel2>().RemovePlaced();
 
-				GameObject[] previews = GameObject.FindWithTag("Preview").GetComponent<HarmonyPreview>().GetPreviews();
-				foreach (GameObject preview in previews)
-					if(preview.GetComponent<PrevPlanet>().position==orbitNumber){
-						preview.SetActive(true);
-						break;
-					}
 			}
 
 			screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);

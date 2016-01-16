@@ -29,7 +29,6 @@ public class Wave : Subscriber {
 		spriteRenderer = this.GetComponent<SpriteRenderer>();
 		star.GetComponent<BeatGen>().Subscribe(this);
 		newGranularity = star.GetComponent<BeatGen>().granularity/newGranularityDivision;
-		Debug.Log(newGranularity);
 		circleCollider = this.GetComponent<CircleCollider2D>();
 		// The first float is half of the scale of the wave, 128 is our standard bpm.
 		scaleSpeed=star.GetComponent<BeatGen>().bpm * 0.0757f / 128f;
