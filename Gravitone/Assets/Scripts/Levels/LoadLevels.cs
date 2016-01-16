@@ -9,6 +9,17 @@ public class LoadLevels : MonoBehaviour {
     public GameObject[] levelButtons;
     public GameObject globals;
     public GameObject back;
+    public GameObject banner;
+
+    public void Start() {
+        StartCoroutine(HideBanner());
+    }
+
+    IEnumerator HideBanner() {
+        yield return new WaitForSeconds(2.0f);
+        banner.SetActive(false);
+        playButton.SetActive(true);
+    }
 
     public void ShowLevels() {
         title.SetActive(false);
