@@ -66,6 +66,7 @@ public class LibPdFilterRead : MonoBehaviour
 
 	public void OnDestroy()
 	{
+		OnApplicationQuit();
 		dataHandle.Free();
 		dataPtr = IntPtr.Zero;
 	}

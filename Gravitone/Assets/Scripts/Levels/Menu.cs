@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.ImageEffects;
+using LibPDBinding;
 
 public class Menu : MonoBehaviour {
 
@@ -70,6 +71,7 @@ public class Menu : MonoBehaviour {
 	public void ReturnToMainMenu() {
 			Destroy(GameObject.FindWithTag("Globals"));
 			Time.timeScale=1f;
+			int count=0;
 			Application.LoadLevel("menu");
 	}
 
