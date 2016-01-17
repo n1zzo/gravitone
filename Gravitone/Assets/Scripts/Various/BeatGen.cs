@@ -20,7 +20,7 @@ public class BeatGen : MonoBehaviour {
 	void Start () {
 
     // Time s=peed is derived from BPMs
-    timeSpeed = (float)bpm / (60 * (float)beatsPerBar);
+    timeSpeed = ((float)bpm * 4) / (60 * (float)beatsPerBar * (float) subBeatsPerBeat);
 
     CalculateGranularity();
 
