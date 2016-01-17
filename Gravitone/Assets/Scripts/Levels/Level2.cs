@@ -73,25 +73,29 @@ public class Level2 : Subscriber {
 					if(score < notes.Length){
 						CollapsePlanets();
 						isPreview=true;
+						InstantiateWave();
 					}
 					else
 						NextLevel();
 
-				}
-
-				if(!isPreview)
-					actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-				else {
-						isPreview=false;
-						wave.SetActive(true);
-						wave.GetComponent<Wave>().Restart();
-						isWaiting=false;
-				}
+				} else
+					InstantiateWave();
 
 				currentBar=0;
 
 			}
 			currentBar++;
+		}
+	}
+
+	void InstantiateWave(){
+		if(!isPreview)
+			actualWave=Instantiate(wavePrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+		else {
+				isPreview=false;
+				wave.SetActive(true);
+				wave.GetComponent<Wave>().Restart();
+				isWaiting=false;
 		}
 	}
 
@@ -187,8 +191,8 @@ public class Level2 : Subscriber {
 	}
 
 	public void NextLevel() {
-		Destroy(actualWave);
 		star.GetComponent<BeatGen>().Unsubscribe(this);
+		Destroy(actualWave);
 		GetComponent<LevelManager>().goToNextLevel();
 	}
 

@@ -20,7 +20,7 @@ public class Level3 : MonoBehaviour {
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
 		audioManager.GetComponent<AudioManager>().SetChordsVolume(0.6f);
-		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.8f);
+		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
 		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
 
 		melody.SetActive(true);
