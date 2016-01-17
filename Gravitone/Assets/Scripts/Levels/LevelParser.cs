@@ -23,9 +23,6 @@ public class LevelParser : MonoBehaviour {
 
         // Loat the target level
         LoadLevel();
-
-		// Start computing totalBeats in Level1
-		this.GetComponent<Level1>().CalculateTotalBeats();
 	}
 
 	void LoadLevel() {
@@ -75,6 +72,9 @@ public class LevelParser : MonoBehaviour {
 		for (int i = 0; i < 64; i++) {
 			melody.GetComponent<Melodies>().melodyNotes[i] = N["data"]["melody"][i].AsInt;
 		}
+
+		GetComponent<Level1>().enabled=true;
+
 	}
 
 }

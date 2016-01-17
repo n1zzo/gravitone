@@ -81,11 +81,6 @@ public class Drum : Subscriber {
 
 			if (targetDrumArray[currentSlot]){
 
-				if(currentState=="drumRecord" && !slots[currentSlot])
-					sound.volume=0.3f;
-				else
-					SetInitialVolume();
-
 				PlayDrum();
 
 			}
@@ -95,6 +90,10 @@ public class Drum : Subscriber {
 
 		}
 
+	}
+
+	public void SetLowVolume(){
+		sound.volume=0.3f;
 	}
 
 	public int UpdateRecord() {

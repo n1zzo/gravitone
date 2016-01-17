@@ -16,7 +16,7 @@ public class LoadLevels : MonoBehaviour {
     }
 
     IEnumerator HideBanner() {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
         banner.SetActive(false);
         playButton.SetActive(true);
     }

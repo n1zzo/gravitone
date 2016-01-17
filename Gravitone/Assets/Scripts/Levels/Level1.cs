@@ -13,8 +13,8 @@ public class Level1 : Subscriber {
 	GameObject audioManager;
     GameObject currentInstrument;
 
-	int beatsPerBar = 4;
-	int subBeatsPerBeat = 4;
+	int beatsPerBar;
+	int subBeatsPerBeat;
 	int granularity = 0;
 	int currentIndex;
 	int totalBeats;
@@ -55,6 +55,8 @@ public class Level1 : Subscriber {
 
 		metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
 
+		CalculateTotalBeats();
+
 	}
 
 	// Update is called once per frame
@@ -91,13 +93,19 @@ public class Level1 : Subscriber {
 
 					metronome.GetComponent<MetroDot>().HitDot(slot);
 
+					currentInstrument.GetComponent<Drum>().SetInitialVolume();
+
 				}	else if(checkInput) {
 
 					correctness=0;
 					currentInstrument.GetComponent<Drum>().Reset();
+
+					currentInstrument.GetComponent<Drum>().SetLowVolume();
+
 					//GetComponent<LevelManager>().SetRedBackground();
 					metronome.GetComponent<MetroDot>().ResetDot();
 					metronome.GetComponent<MetroDot>().HitDot(slot);
+
 				}
 
 				if(correctness>0.95 || totalBeats==0)

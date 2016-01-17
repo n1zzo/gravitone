@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 721453208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ae00f18d97ce24a46b7fddba35d66309, type: 3}
   m_Name: 
@@ -2349,6 +2349,7 @@ MonoBehaviour:
   levelButtons: []
   globals: {fileID: 0}
   back: {fileID: 0}
+  banner: {fileID: 0}
 --- !u!114 &721453216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,7 +2373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32b4ae8a9ca3f4b1795808a66484f581, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: 1
+  levelNumber: 2
   planetKick: {fileID: 1190351175}
   planetSnare: {fileID: 952765397}
   planetHat: {fileID: 407480667}
@@ -3428,6 +3429,7 @@ MonoBehaviour:
   star: {fileID: 810106420}
   audioManager: {fileID: 1590554890}
   melody: {fileID: 1043019052}
+  isFreeMode: 0
 --- !u!4 &907238195
 Transform:
   m_ObjectHideFlags: 0
