@@ -647,12 +647,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 102900000, guid: b692d308aef49144b99ca43e22e4183e, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 721453214}
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2470,7 +2470,6 @@ MonoBehaviour:
   levelButtons: []
   globals: {fileID: 0}
   back: {fileID: 0}
-  banner: {fileID: 0}
 --- !u!114 &721453216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7829,7 +7828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1871253827
 RectTransform:
   m_ObjectHideFlags: 0

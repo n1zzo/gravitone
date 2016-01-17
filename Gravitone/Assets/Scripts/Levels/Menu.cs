@@ -68,6 +68,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	public void ReturnToMainMenu() {
+			Destroy(GameObject.FindWithTag("Globals"));
 			Application.LoadLevel("menu");
 	}
 
