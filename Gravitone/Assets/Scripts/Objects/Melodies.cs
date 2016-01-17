@@ -60,6 +60,27 @@ public class Melodies : Subscriber {
 	// Update is called once per frame
 	void Update () {
 
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+			RecordNote(0);
+
+		if(Input.GetKeyDown(KeyCode.Alpha2))
+			RecordNote(1);
+
+		if(Input.GetKeyDown(KeyCode.Alpha3))
+			RecordNote(2);
+
+		if(Input.GetKeyDown(KeyCode.Alpha4))
+			RecordNote(3);
+
+		if(Input.GetKeyDown(KeyCode.Alpha5))
+			RecordNote(4);
+
+		if(Input.GetKeyDown(KeyCode.Alpha6))
+			RecordNote(5);
+
+		if(Input.GetKeyDown(KeyCode.Alpha7))
+			RecordNote(6);
+
 	}
 
 	// currentSlot ranges from 0 to 15
@@ -292,5 +313,9 @@ public class Melodies : Subscriber {
 		preview = true;
 		star.GetComponent<BeatGen>().progress=1f;
 
+	}
+
+	public int GetCurrentBar(){
+		return currentBar;
 	}
 }

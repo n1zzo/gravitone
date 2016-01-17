@@ -77,6 +77,8 @@ public class Level2 : Subscriber {
 					else
 						NextLevel();
 
+					isWaiting=false;
+
 				} else
 					InstantiateWave();
 

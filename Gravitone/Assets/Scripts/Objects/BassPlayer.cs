@@ -26,13 +26,11 @@ public class BassPlayer : Subscriber {
 
 	// This method is called for each beat
 	public override void Beat(int currentSlot) {
-		if(currentSlot==0 && currentBar!=bars)
-			currentBar++;
 
-		if (currentBar==bars){
-			currentBar=0;
-		}
-
+		if(!isFreeMode)
+			currentBar=melody.GetComponent<Melodies>().GetCurrentBar();
+		else
+			currentBar=melody.GetComponent<FreeMelody>().GetCurrentBar();
 
 		if(kick.GetComponent<Drum>().GetDrumArray()[currentSlot] && currentBar!=-1){
 			int note;

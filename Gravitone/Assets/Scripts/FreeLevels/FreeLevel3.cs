@@ -31,7 +31,7 @@ public class FreeLevel3 : MonoBehaviour {
 		background.GetComponent<Fade>().final=0.8f;
 		background.GetComponent<SpriteRenderer>().enabled=true;
 
-		GameObject[] planetCopy=planets;
+		GameObject[] planetCopy=new GameObject[4];
 
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=false;

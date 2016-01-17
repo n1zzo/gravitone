@@ -20,7 +20,7 @@ public class Level3 : MonoBehaviour {
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
 		audioManager.GetComponent<AudioManager>().SetChordsVolume(0.6f);
-		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
+		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.4f);
 		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
 
 		melody.SetActive(true);
@@ -31,7 +31,7 @@ public class Level3 : MonoBehaviour {
 		background.GetComponent<Fade>().final=0.8f;
 		background.GetComponent<SpriteRenderer>().enabled=true;
 
-		GameObject[] planetCopy=planets;
+		GameObject[] planetCopy=new GameObject[4];
 
 		foreach(GameObject planet in planets){
 			planet.GetComponent<SpriteRenderer>().enabled=false;

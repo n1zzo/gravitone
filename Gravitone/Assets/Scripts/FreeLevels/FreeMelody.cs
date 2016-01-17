@@ -206,4 +206,8 @@ public class FreeMelody : Subscriber {
 		}
 	}
 
+	public int GetCurrentBar(){
+		return currentBar;
+	}
+
 }

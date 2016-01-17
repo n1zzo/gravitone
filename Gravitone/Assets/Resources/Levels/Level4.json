@@ -26,10 +26,6 @@
         },
         "chords": [
             {
-                "name": "m7",
-                "note": 49
-            },
-            {
                 "name": "m",
                 "note": 49
             },
@@ -40,6 +36,10 @@
             {
                 "name": "M",
                 "note": 55
+            },
+            {
+                "name": "m",
+                "note": 52
             }
         ],
         "notes": [
