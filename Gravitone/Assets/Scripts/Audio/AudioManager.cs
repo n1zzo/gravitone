@@ -21,10 +21,6 @@ public class AudioManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		// Get drum audiosources
-		foreach (GameObject element in GameObject.FindGameObjectsWithTag("Drum")) {
-			drum.Add(element.GetComponent<AudioSource>());
-		}
 
 		if(online) {
 			OnlineMetronome.SetActive(true);
@@ -109,6 +105,13 @@ public class AudioManager : MonoBehaviour {
 	public void setOffline(){
 		online=false;
 		Start();
+	}
+
+	public void GetDrums(){
+		// Get drum audiosources
+		foreach (GameObject element in GameObject.FindGameObjectsWithTag("Drum")) {
+			drum.Add(element.GetComponent<AudioSource>());
+		}
 	}
 
 }

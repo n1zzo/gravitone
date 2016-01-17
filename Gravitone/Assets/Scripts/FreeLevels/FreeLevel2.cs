@@ -27,8 +27,10 @@ public class FreeLevel2 : Subscriber {
 
     audioManager = GetComponent<FreeLevelManager>().audioManager;
 
+		audioManager.GetComponent<AudioManager>().GetDrums();
+
 		// Set intruments gain levels
-		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.2f);
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
 		audioManager.GetComponent<AudioManager>().SetChordsVolume(1f);
 		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
 		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);

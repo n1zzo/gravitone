@@ -29,8 +29,10 @@ public class BassPlayer : Subscriber {
 		if(currentSlot==0 && currentBar!=bars)
 			currentBar++;
 
-		if (currentBar==bars)
+		if (currentBar==bars){
 			currentBar=0;
+		}
+
 
 		if(kick.GetComponent<Drum>().GetDrumArray()[currentSlot] && currentBar!=-1){
 			int note;

@@ -7,8 +7,8 @@ public class BeatGen : MonoBehaviour {
 	List<Subscriber> subscribers = new List<Subscriber>();
 
 	public int bpm = 60;
-	public int beatsPerBar = 4;
-	public int subBeatsPerBeat = 4;
+	public int beatsPerBar;
+	public int subBeatsPerBeat;
 	public int granularity = 0;
 	public int lastSlot = 0;
   float timeSpeed = 0f;
