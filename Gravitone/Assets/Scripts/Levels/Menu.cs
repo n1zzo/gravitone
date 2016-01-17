@@ -67,4 +67,8 @@ public class Menu : MonoBehaviour {
 		Time.timeScale=1f;
 	}
 
+	public void ReturnToMainMenu() {
+			Application.LoadLevel("menu");
+	}
+
 }
