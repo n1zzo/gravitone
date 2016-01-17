@@ -55,16 +55,36 @@ public class LevelParser : MonoBehaviour {
 		star.GetComponent<BeatGen>().subBeatsPerBeat = N["data"]["star"]["subBeatsPerBeat"].AsInt;
 		star.GetComponent<BeatGen>().CalculateGranularity();
 
-		// Fill in the chords
-		for (int i = 0; i < 4; i++) {
+		bool[] assigned=new bool[4];
+
+		int counter=0;
+
+		foreach (GameObject planet in chordPlanet){
+			int num;
+
+			if(counter<3)
+				do{
+					num=(int) Random.Range(0f,4f);
+				} while(assigned[num]);
+			else{
+				num=0;
+				while(assigned[num]){
+					num++;
+				}
+			}
 			// Planets
-			chordPlanet[i].GetComponent<ChordPlanet>().chordName = N["data"]["chords"][i]["name"];
-			chordPlanet[i].GetComponent<ChordPlanet>().baseNote = N["data"]["chords"][i]["note"].AsInt;
-			chordPlanet[i].GetComponent<ChordPlanet>().order = i;
+			chordPlanet[counter].GetComponent<ChordPlanet>().chordName = N["data"]["chords"][num]["name"];
+			chordPlanet[counter].GetComponent<ChordPlanet>().baseNote = N["data"]["chords"][num]["note"].AsInt;
+			chordPlanet[counter].GetComponent<ChordPlanet>().order = num;
+
 			// Level2
-			this.GetComponent<Level2>().notes[i] = N["data"]["chords"][i]["note"].AsInt;
-			this.GetComponent<Level2>().types[i] = N["data"]["chords"][i]["name"];
+			this.GetComponent<Level2>().notes[counter] = N["data"]["chords"][counter]["note"].AsInt;
+			this.GetComponent<Level2>().types[counter] = N["data"]["chords"][counter]["name"];
+
+			assigned[num]=true;
+			counter++;
 		}
+
 		// ...And the melody
 		for (int i = 0; i < 7; i++) {
 			melody.GetComponent<Melodies>().notes[i] = N["data"]["notes"][i].AsInt;

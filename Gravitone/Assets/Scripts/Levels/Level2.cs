@@ -23,6 +23,7 @@ public class Level2 : Subscriber {
 	bool isPreview=false;
 	GameObject actualWave;
 	GameObject audioManager;
+	bool[] assigned = new bool[4];
 
 
 	// Use this for initialization
@@ -33,7 +34,7 @@ public class Level2 : Subscriber {
 		audioManager.GetComponent<AudioManager>().GetDrums();
 
 		// Set intruments gain levels
-		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.4f);
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.3f);
 		audioManager.GetComponent<AudioManager>().SetChordsVolume(1f);
 		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
 		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
@@ -51,8 +52,6 @@ public class Level2 : Subscriber {
 		wave.SetActive(true);
 
 		numberOfThirdBeat=star.GetComponent<BeatGen>().granularity-(star.GetComponent<BeatGen>().subBeatsPerBeat);
-
-
 
 	}
 
