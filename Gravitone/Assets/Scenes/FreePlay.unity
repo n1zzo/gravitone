@@ -6447,7 +6447,7 @@ GameObject:
   - 114: {fileID: 1190954484}
   - 114: {fileID: 1190954483}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7457,7 +7457,7 @@ GameObject:
   - 114: {fileID: 1361991375}
   - 114: {fileID: 1361991374}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Cancel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8505,7 +8505,7 @@ GameObject:
   - 114: {fileID: 1590554892}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
