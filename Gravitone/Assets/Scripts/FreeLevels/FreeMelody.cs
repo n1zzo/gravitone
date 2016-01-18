@@ -25,6 +25,9 @@ public class FreeMelody : Subscriber {
 	// Use this for initialization
 	void Start () {
 
+        // Get notes from selected chords
+        GetNotesFromChords();
+
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
 
@@ -210,4 +213,38 @@ public class FreeMelody : Subscriber {
 		return currentBar;
 	}
 
+    public void GetNotesFromChords() {
+        HashSet chordsNotes = new HashSet<int>();
+        // Fill in all the notes of the chords
+        foreach (GameObject planet in planets) {
+            // Add the fundamental note
+            chordsNotes.Add(baseNote);
+            // Add the third and fifth notes
+            switch(planet.GetComponent<ChordPlanet>().chordName) {
+                case "M":
+                case "M7":
+                case "7":
+                    chordsNotes.Add(baseNote + 4);
+                    chordsNotes.Add(baseNote + 7);
+                    break;
+                case "m":
+                case "m7":
+                    chordsNotes.Add(baseNote + 3);
+                    chordsNotes.Add(baseNote + 7);
+                    break;
+                case "dim":
+                    chordsNotes.Add(baseNote + 3);
+                    chordsNotes.Add(baseNote + 6);
+                    break;
+                default:
+                    break;
+            }
+        }
+        // Assign first 7 values to notes
+        int i = 0;
+        foreach (int note in chordsNotes) {
+            notes[i] = note;
+            i++;
+        }
+    }
 }
