@@ -3695,6 +3695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
   background: {fileID: 1148231658}
+  star: {fileID: 810106420}
 --- !u!114 &721453214
 MonoBehaviour:
   m_ObjectHideFlags: 0
