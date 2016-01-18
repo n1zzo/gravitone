@@ -4,23 +4,26 @@ using System.Collections;
 public class Globals : MonoBehaviour {
 
     public int number = 0;
+    public int bpm;
+    public int beatsPerBar;
+    public int subBeatsPerBeat;
 
 	// Use this for initialization
 	void Start () {
         // Make this object persistent across level loadings
         DontDestroyOnLoad(this);
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-	
+
 	}
 
     public void SetLevelNumber(int number) {
-        this.number = number;    
+        this.number = number;
     }
-   
+
     public int GetLevelNumber() {
         return number;
     }

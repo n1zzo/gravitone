@@ -5,12 +5,21 @@ public class FreeLevelManager : MonoBehaviour {
 
 	public GameObject audioManager;
 	public GameObject background;
+	public GameObject star;
 
 	int level=1;
 
 	// Use this for initialization
 	void Start () {
 			Screen.orientation = ScreenOrientation.LandscapeLeft ;
+
+			Globals global= GameObject.FindWithTag("Globals").GetComponent<Globals>();
+
+			star.GetComponent<BeatGen>().bpm=global.bpm;
+			star.GetComponent<BeatGen>().beatsPerBar=global.beatsPerBar;
+			star.GetComponent<BeatGen>().subBeatsPerBeat=global.subBeatsPerBeat;
+
+			star.GetComponent<BeatGen>().CalculateGranularity();
 	}
 
 	// Update is called once per frame
