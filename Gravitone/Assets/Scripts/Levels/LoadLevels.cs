@@ -9,6 +9,7 @@ public class LoadLevels : MonoBehaviour {
     public GameObject[] levelButtons;
     public GameObject globals;
     public GameObject back;
+    public List<GameObject> BPM;
     private List<GameObject> titles = new List<GameObject>();
     private List<GameObject> toRemove = new List<GameObject>();
 
@@ -46,6 +47,20 @@ public class LoadLevels : MonoBehaviour {
             Destroy(t);
         }
         titles = new List<GameObject>();
+    }
+
+    public void ShowBPMSelect() {
+        foreach(GameObject button in levelButtons) {
+                button.SetActive(false);
+        }
+        back.SetActive(false);
+        foreach(GameObject element in BPM) {
+            element.SetActive(true);
+        }
+    }
+
+    public void BackToLevels() {
+        
     }
 
     public void Back() {
