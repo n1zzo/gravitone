@@ -718,7 +718,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 319658643}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439537916}
+        m_MethodName: TempoRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &319658643
@@ -821,10 +832,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 352102952}
---- !u!1 &355646247 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 152170, guid: e659149ab6915e1498ce23b33faf3488, type: 2}
-  m_PrefabInternal: {fileID: 1202828807}
 --- !u!1001 &400701746
 Prefab:
   m_ObjectHideFlags: 0
@@ -963,8 +970,9 @@ MonoBehaviour:
   - {fileID: 319216888}
   globals: {fileID: 1542139175}
   back: {fileID: 803716474}
-  metronome: {fileID: 355646247}
   bpmValue: {fileID: 713178534}
+  tempoNumValue: {fileID: 1368438601}
+  tempoDetValue: {fileID: 1757380888}
   BPM:
   - {fileID: 401267826}
   - {fileID: 1203331066}
@@ -1681,7 +1689,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 943753702}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439537916}
+        m_MethodName: TempoLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &943753702
@@ -2028,6 +2047,10 @@ Prefab:
     - target: {fileID: 11415124, guid: e659149ab6915e1498ce23b33faf3488, type: 2}
       propertyPath: bpm
       value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229368, guid: e659149ab6915e1498ce23b33faf3488, type: 2}
+      propertyPath: m_Volume
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e659149ab6915e1498ce23b33faf3488, type: 2}
