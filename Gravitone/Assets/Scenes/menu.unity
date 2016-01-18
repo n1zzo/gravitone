@@ -959,6 +959,7 @@ MonoBehaviour:
   - {fileID: 319216888}
   globals: {fileID: 1542139175}
   back: {fileID: 803716474}
+  bpmValue: {fileID: 713178534}
   BPM:
   - {fileID: 401267826}
   - {fileID: 1203331066}
@@ -1035,7 +1036,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 548572870}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439537916}
+        m_MethodName: IncrementBPM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &548572870
@@ -1285,7 +1297,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 180
+  m_Text: 128
 --- !u!222 &713178537
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2432,7 +2444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   number: 0
-  bpm: 0
+  bpm: 128
   beatsPerBar: 0
   subBeatsPerBeat: 0
 --- !u!4 &1542139177
@@ -3020,7 +3032,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2088811793}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 439537916}
+        m_MethodName: DecrementBPM
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2088811793

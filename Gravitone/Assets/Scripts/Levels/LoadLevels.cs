@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class LoadLevels : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class LoadLevels : MonoBehaviour {
     public GameObject[] levelButtons;
     public GameObject globals;
     public GameObject back;
+    public GameObject bpmValue;
     public List<GameObject> BPM;
     private List<GameObject> titles = new List<GameObject>();
     private List<GameObject> toRemove = new List<GameObject>();
@@ -85,6 +87,18 @@ public class LoadLevels : MonoBehaviour {
 	public void StartLevel(int level) {
          globals.GetComponent<Globals>().SetLevelNumber(level);
          Application.LoadLevel("LevelTemplate");
+    }
+
+    public void IncrementBPM() {
+        int newValue = globals.GetComponent<Globals>().bpm + 1;
+        globals.GetComponent<Globals>().bpm = newValue;
+        bpmValue.GetComponent<Text>().text = newValue.ToString();
+    }
+
+    public void DecrementBPM() {
+        int newValue = globals.GetComponent<Globals>().bpm - 1;
+        globals.GetComponent<Globals>().bpm = newValue;
+        bpmValue.GetComponent<Text>().text = newValue.ToString();
     }
 
 }

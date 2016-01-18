@@ -27,5 +27,5 @@ public class Globals : MonoBehaviour {
     public int GetLevelNumber() {
         return number;
     }
-
+    
 }
