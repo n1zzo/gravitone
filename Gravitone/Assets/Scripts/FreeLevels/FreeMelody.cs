@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class FreeMelody : Subscriber {
 
@@ -214,9 +215,10 @@ public class FreeMelody : Subscriber {
 	}
 
     public void GetNotesFromChords() {
-        HashSet chordsNotes = new HashSet<int>();
+        HashSet<int> chordsNotes = new HashSet<int>();
         // Fill in all the notes of the chords
         foreach (GameObject planet in planets) {
+            int baseNote = planet.GetComponent<ChordPlanet>().baseNote;
             // Add the fundamental note
             chordsNotes.Add(baseNote);
             // Add the third and fifth notes
@@ -245,6 +247,9 @@ public class FreeMelody : Subscriber {
         foreach (int note in chordsNotes) {
             notes[i] = note;
             i++;
+            if(i > 6)
+                break;
         }
+        System.Array.Sort(notes);
     }
 }
