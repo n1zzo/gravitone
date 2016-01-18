@@ -2343,7 +2343,6 @@ GameObject:
   - 114: {fileID: 721453213}
   - 114: {fileID: 721453218}
   - 114: {fileID: 721453214}
-  - 114: {fileID: 721453215}
   - 114: {fileID: 721453216}
   - 114: {fileID: 721453217}
   m_Layer: 0
@@ -2465,22 +2464,6 @@ MonoBehaviour:
   menutree: {fileID: 1871253826}
   text: {fileID: 1642648028}
   melodyCanvas: {fileID: 1250394221}
---- !u!114 &721453215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 721453208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c00da455feba31149be54a6a0bd803c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: {fileID: 0}
-  playButton: {fileID: 0}
-  levelButtons: []
-  globals: {fileID: 0}
-  back: {fileID: 0}
 --- !u!114 &721453216
 MonoBehaviour:
   m_ObjectHideFlags: 0
