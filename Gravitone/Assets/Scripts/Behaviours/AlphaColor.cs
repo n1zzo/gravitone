@@ -28,6 +28,16 @@ public class AlphaColor : MonoBehaviour {
 		spriteRenderer.color = new Color(r, g, b, level);
 	}
 
+    public void DecreaseTransparency(float level) {
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        transparency -= level;
+		spriteRenderer.color = new Color(r, g, b, transparency);
+    }
+
+    public bool isInvisible() {
+        return transparency < 0;
+    }
+
 	public void SetColor(float rr, float gg, float bb) {
 		this.r = rr;
 		this.g = gg;
