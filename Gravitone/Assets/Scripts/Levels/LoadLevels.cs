@@ -10,6 +10,7 @@ public class LoadLevels : MonoBehaviour {
     public GameObject[] levelButtons;
     public GameObject globals;
     public GameObject back;
+    public GameObject metronome;
     public GameObject bpmValue;
     public List<GameObject> BPM;
     private List<GameObject> titles = new List<GameObject>();
@@ -59,6 +60,7 @@ public class LoadLevels : MonoBehaviour {
         foreach(GameObject element in BPM) {
             element.SetActive(true);
         }
+        metronome.SetActive(true);
     }
 
     public void BackToLevels() {
@@ -69,6 +71,7 @@ public class LoadLevels : MonoBehaviour {
                 button.SetActive(true);
         }
         back.SetActive(true);
+        metronome.SetActive(false);
     }
 
     public void Back() {
@@ -94,6 +97,8 @@ public class LoadLevels : MonoBehaviour {
         int newValue = globals.GetComponent<Globals>().bpm + 10;
         globals.GetComponent<Globals>().bpm = newValue;
         bpmValue.GetComponent<Text>().text = newValue.ToString();
+        metronome.GetComponent<BeatGen>().bpm+=10;
+        metronome.GetComponent<BeatGen>().CalculateGranularity();
       }
     }
 
@@ -102,6 +107,8 @@ public class LoadLevels : MonoBehaviour {
         int newValue = globals.GetComponent<Globals>().bpm - 10;
         globals.GetComponent<Globals>().bpm = newValue;
         bpmValue.GetComponent<Text>().text = newValue.ToString();
+        metronome.GetComponent<BeatGen>().bpm-=10;
+        metronome.GetComponent<BeatGen>().CalculateGranularity();
       }
     }
 

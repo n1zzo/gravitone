@@ -17,6 +17,8 @@ public class MenuMetronome : Subscriber {
 	public override void Beat(int cs) {
 		if(cs==0)
 			LibPD.SendBang("highBeat");
+		else if(cs%GetComponent<BeatGen>().subBeatsPerBeat==0)
+			LibPD.SendBang("lowBeat");
 	}
 
 }
