@@ -5056,7 +5056,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 1590554890}
   orbits: []
-  chordName: M
+  chordName: M7
   active: 0
   baseNote: 60
   order: 2
