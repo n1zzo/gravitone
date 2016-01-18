@@ -60,7 +60,13 @@ public class LoadLevels : MonoBehaviour {
     }
 
     public void BackToLevels() {
-        
+        foreach(GameObject element in BPM) {
+            element.SetActive(false);
+        }
+        foreach(GameObject button in levelButtons) {
+                button.SetActive(true);
+        }
+        back.SetActive(true);
     }
 
     public void Back() {
