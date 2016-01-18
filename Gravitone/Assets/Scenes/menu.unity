@@ -968,6 +968,7 @@ MonoBehaviour:
   - {fileID: 1150072878}
   - {fileID: 1915953947}
   - {fileID: 319216888}
+  metronome: {fileID: 588836440}
   globals: {fileID: 1542139175}
   back: {fileID: 803716474}
   bpmValue: {fileID: 713178534}
@@ -1096,6 +1097,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 548572867}
+--- !u!1 &588836440 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 152170, guid: e659149ab6915e1498ce23b33faf3488, type: 2}
+  m_PrefabInternal: {fileID: 1202828807}
 --- !u!1 &640403293
 GameObject:
   m_ObjectHideFlags: 0

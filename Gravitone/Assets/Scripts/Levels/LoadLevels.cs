@@ -8,6 +8,7 @@ public class LoadLevels : MonoBehaviour {
     public GameObject title;
     public GameObject playButton;
     public GameObject[] levelButtons;
+    public GameObject metronome;
     public GameObject globals;
     public GameObject back;
     public GameObject bpmValue;
@@ -64,6 +65,7 @@ public class LoadLevels : MonoBehaviour {
         foreach(GameObject element in BPM) {
             element.SetActive(true);
         }
+        metronome.SetActive(true);
     }
 
     public void BackToLevels() {
@@ -74,6 +76,7 @@ public class LoadLevels : MonoBehaviour {
                 button.SetActive(true);
         }
         back.SetActive(true);
+        metronome.SetActive(false);
     }
 
     public void Back() {
@@ -95,20 +98,27 @@ public class LoadLevels : MonoBehaviour {
     }
 
     public void IncrementBPM() {
-        int newValue = globals.GetComponent<Globals>().bpm + 1;
+        int newValue = globals.GetComponent<Globals>().bpm + 10;
         globals.GetComponent<Globals>().bpm = newValue;
         bpmValue.GetComponent<Text>().text = newValue.ToString();
+        metronome.GetComponent<BeatGen>().bpm+=10;
+        metronome.GetComponent<BeatGen>().CalculateGranularity();
     }
 
     public void DecrementBPM() {
-        int newValue = globals.GetComponent<Globals>().bpm - 1;
+        int newValue = globals.GetComponent<Globals>().bpm - 10;
         globals.GetComponent<Globals>().bpm = newValue;
         bpmValue.GetComponent<Text>().text = newValue.ToString();
+        metronome.GetComponent<BeatGen>().bpm-=10;
+        metronome.GetComponent<BeatGen>().CalculateGranularity();
     }
 
     public void TempoLeft() {
         globals.GetComponent<Globals>().beatsPerBar = tempoNum[tempoIndex%3];
         globals.GetComponent<Globals>().subBeatsPerBeat = tempoDet[tempoIndex%3];
+        metronome.GetComponent<BeatGen>().beatsPerBar=tempoNum[tempoIndex%3];
+        metronome.GetComponent<BeatGen>().subBeatsPerBeat = tempoDet[tempoIndex%3];
+        metronome.GetComponent<BeatGen>().CalculateGranularity();
         tempoNumValue.GetComponent<Text>().text = tempoNum[tempoIndex%3].ToString();
         tempoDetValue.GetComponent<Text>().text = tempoDet[tempoIndex%3].ToString();
         if(tempoDet[tempoIndex%3] == 2)
@@ -119,6 +129,9 @@ public class LoadLevels : MonoBehaviour {
     public void TempoRight() {
         globals.GetComponent<Globals>().beatsPerBar = tempoNum[tempoIndex%3];
         globals.GetComponent<Globals>().subBeatsPerBeat = tempoDet[tempoIndex%3];
+        metronome.GetComponent<BeatGen>().beatsPerBar=tempoNum[tempoIndex%3];
+        metronome.GetComponent<BeatGen>().subBeatsPerBeat = tempoDet[tempoIndex%3];
+        metronome.GetComponent<BeatGen>().CalculateGranularity();
         tempoNumValue.GetComponent<Text>().text = tempoNum[tempoIndex%3].ToString();
         tempoDetValue.GetComponent<Text>().text = tempoDet[tempoIndex%3].ToString();
         if(tempoDet[tempoIndex%3] == 2)
