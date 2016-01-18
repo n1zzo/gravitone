@@ -26,8 +26,8 @@ public class FreeMelody : Subscriber {
 	// Use this for initialization
 	void Start () {
 
-        // Get notes from selected chords
-        GetNotesFromChords();
+    // Get notes from selected chords
+    GetNotesFromChords();
 
 		// Subscribe to the star
 		star.GetComponent<BeatGen>().Subscribe(this);
@@ -54,7 +54,26 @@ public class FreeMelody : Subscriber {
 
 	// Update is called once per frame
 	void Update () {
+				if(Input.GetKeyDown(KeyCode.Alpha1))
+					RecordNote(0);
 
+				if(Input.GetKeyDown(KeyCode.Alpha2))
+					RecordNote(1);
+
+				if(Input.GetKeyDown(KeyCode.Alpha3))
+					RecordNote(2);
+
+				if(Input.GetKeyDown(KeyCode.Alpha4))
+					RecordNote(3);
+
+				if(Input.GetKeyDown(KeyCode.Alpha5))
+					RecordNote(4);
+
+				if(Input.GetKeyDown(KeyCode.Alpha6))
+					RecordNote(5);
+
+				if(Input.GetKeyDown(KeyCode.Alpha7))
+					RecordNote(6);
 	}
 
 	// currentSlot ranges from 0 to 15
@@ -212,6 +231,20 @@ public class FreeMelody : Subscriber {
 
 	public int GetCurrentBar(){
 		return currentBar;
+	}
+
+	public void Restart(){
+		currentBar=0;
+		playerNotes = new int[64];
+		foreach(GameObject satellite in satellites)
+			if(satellite)
+				Destroy(satellite);
+		planets[currentPlanet].SetActive(false);
+		bars[currentPlanet].SetActive(false);
+		currentPlanet=0;
+		planets[currentPlanet].SetActiveRecursively(true);
+		bars[currentPlanet].SetActive(true);
+		levelManager.GetComponent<FreeLevel3>().ChangeCamera(currentPlanet);
 	}
 
     public void GetNotesFromChords() {

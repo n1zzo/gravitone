@@ -63,7 +63,7 @@ public class FreeLevel3 : MonoBehaviour {
 	}
 
 	public void Restart(){
-
+		melody.GetComponent<FreeMelody>().Restart();
 	}
 
 	public void ChangeCamera(int number){
