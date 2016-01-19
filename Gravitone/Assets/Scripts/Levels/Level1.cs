@@ -127,7 +127,7 @@ public class Level1 : Subscriber {
 			if(!checkInput){
 				SetPlayPreview();
 				if(currentBar>0)
-					textField.GetComponent<Text>().text = "Tap to Play!";
+					textField.GetComponent<Text>().text = "Follow the rhythm!";
 			} else{
 				//GetComponent<LevelManager>().SetGreenBackground();
 			}

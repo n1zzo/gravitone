@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Level2 : Subscriber {
@@ -9,6 +10,7 @@ public class Level2 : Subscriber {
 	public GameObject wave;
 	public GameObject wavePrefab;
 	public GameObject prev;
+    public GameObject textField;
 	public bool autocomplete=false;
 	public int numberOfThirdBeat=0;
 	public int currentBar=0;
@@ -28,6 +30,8 @@ public class Level2 : Subscriber {
 
 	// Use this for initialization
 	void Start () {
+        // Set GUI text field
+        textField.GetComponent<Text>().text = "Put the planets in place.";
 
 		audioManager = GetComponent<LevelManager>().audioManager;
 
@@ -101,6 +105,8 @@ public class Level2 : Subscriber {
 	}
 
 	public void CheckCorrectness(){
+
+        textField.GetComponent<Text>().text = "";
 
 		placed ++;
 

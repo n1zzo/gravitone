@@ -2393,6 +2393,7 @@ MonoBehaviour:
   wave: {fileID: 881019577}
   wavePrefab: {fileID: 196342, guid: ec2a33cfe0187b64dbfd455cdae53bd5, type: 2}
   prev: {fileID: 714782745}
+  textField: {fileID: 1642648028}
   autocomplete: 0
   numberOfThirdBeat: 0
   currentBar: 0
@@ -2447,6 +2448,7 @@ MonoBehaviour:
   melody: {fileID: 1043019052}
   canvas: {fileID: 1250394221}
   bass: {fileID: 907238193}
+  textField: {fileID: 1642648028}
 --- !u!114 &721453214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,6 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c32a83259a24f4469d2c8f79dca1bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFreeMode: 0
 --- !u!4 &730069540
 Transform:
   m_ObjectHideFlags: 0

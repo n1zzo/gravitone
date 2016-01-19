@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Level3 : MonoBehaviour {
@@ -9,11 +10,14 @@ public class Level3 : MonoBehaviour {
 	public GameObject melody;
 	public GameObject canvas;
 	public GameObject bass;
+    public GameObject textField;
 	private GameObject audioManager;
 
 
 	// Use this for initialization
 	void Start () {
+
+        textField.GetComponent<Text>().text = "Play the melody.";
 
 		audioManager = GetComponent<LevelManager>().audioManager;
 
@@ -81,6 +85,9 @@ public class Level3 : MonoBehaviour {
 	}
 
 	public void NextLevel(){
+
+        textField.GetComponent<Text>().text = "";
+
 		EliminateBars();
 
 		foreach(GameObject planet in planets){
