@@ -98,19 +98,23 @@ public class LoadLevels : MonoBehaviour {
     }
 
     public void IncrementBPM() {
+      if(globals.GetComponent<Globals>().bpm<180){
         int newValue = globals.GetComponent<Globals>().bpm + 10;
         globals.GetComponent<Globals>().bpm = newValue;
         bpmValue.GetComponent<Text>().text = newValue.ToString();
         metronome.GetComponent<BeatGen>().bpm+=10;
         metronome.GetComponent<BeatGen>().CalculateGranularity();
+      }
     }
 
     public void DecrementBPM() {
+      if(globals.GetComponent<Globals>().bpm>60){
         int newValue = globals.GetComponent<Globals>().bpm - 10;
         globals.GetComponent<Globals>().bpm = newValue;
         bpmValue.GetComponent<Text>().text = newValue.ToString();
         metronome.GetComponent<BeatGen>().bpm-=10;
         metronome.GetComponent<BeatGen>().CalculateGranularity();
+      }
     }
 
     public void TempoLeft() {
