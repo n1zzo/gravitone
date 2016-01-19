@@ -146,7 +146,7 @@ public class Drum : Subscriber {
 				if(Input.GetTouch(i).phase == TouchPhase.Began) {
 					Vector2 position = Input.GetTouch(i).position;
 
-					if(position.x > Screen.width*15/100 && position.x < (Screen.width-Screen.width*15/100))
+					if(position.x > Screen.width*10/100 && position.x < (Screen.width-Screen.width*10/100))
 						return true;
 				}
 		}
