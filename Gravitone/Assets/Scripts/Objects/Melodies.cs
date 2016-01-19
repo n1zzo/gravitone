@@ -135,7 +135,7 @@ public class Melodies : Subscriber {
 
 		int note=notes[number];
 
-		index = Mathf.RoundToInt(star.GetComponent<BeatGen>().progress * (float) granularity);
+		index = Mathf.RoundToInt((star.GetComponent<BeatGen>().progress-0.01f) * (float) granularity);
 
 		// If it's divided in N, then the Nth beat is the initial 0
 		if(index == granularity)

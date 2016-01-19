@@ -4,11 +4,15 @@ using System.Collections;
 public class Level4 : MonoBehaviour {
 
 	private GameObject audioManager;
+	public bool isFreeMode;
 
 	// Use this for initialization
 	void Start () {
 
-		audioManager = GetComponent<FreeLevelManager>().audioManager;
+		if(isFreeMode)
+			audioManager = GetComponent<FreeLevelManager>().audioManager;
+		else
+			audioManager = GetComponent<LevelManager>().audioManager;
 
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.6f);
