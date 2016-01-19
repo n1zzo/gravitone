@@ -98,7 +98,7 @@ public class Drum : Subscriber {
 
 	public int UpdateRecord() {
 
-			int index = Mathf.RoundToInt(progress * (float) granularity);
+			int index = Mathf.RoundToInt((progress-0.01f) * (float) granularity);
 
 			if(index != (int) progress*granularity)
 				skipPlay=true;
