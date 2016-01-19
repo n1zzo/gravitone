@@ -43,6 +43,7 @@ public class FreeLevelManager : MonoBehaviour {
 			GetComponent<FreeLevel1>().enabled=false;
 			GetComponent<FreeLevel2>().enabled=false;
 			GetComponent<FreeLevel3>().enabled=false;
+			GetComponent<Level4>().enabled=true;
 		}
 	}
 

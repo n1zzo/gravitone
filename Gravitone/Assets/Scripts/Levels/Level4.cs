@@ -8,7 +8,7 @@ public class Level4 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		audioManager = GetComponent<LevelManager>().audioManager;
+		audioManager = GetComponent<FreeLevelManager>().audioManager;
 
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.6f);
