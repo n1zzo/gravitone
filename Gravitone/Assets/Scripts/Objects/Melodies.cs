@@ -131,22 +131,24 @@ public class Melodies : Subscriber {
 
 	public void RecordNote(int number) {
 
-		preview=false;
+		if(!preview){
 
-		int note=notes[number];
+			int note=notes[number];
 
-		index = Mathf.RoundToInt((star.GetComponent<BeatGen>().progress-0.01f) * (float) granularity);
+			index = Mathf.RoundToInt((star.GetComponent<BeatGen>().progress-0.01f) * (float) granularity);
 
-		// If it's divided in N, then the Nth beat is the initial 0
-		if(index == granularity)
-			index = 0;
+			// If it's divided in N, then the Nth beat is the initial 0
+			if(index == granularity)
+				index = 0;
 
-		// Find current index of array
-		index = index+currentBar*granularity;
+			// Find current index of array
+			index = index+currentBar*granularity;
 
-		playerNotes[index] = note;
-		audioManager.GetComponent<AudioManager>().PlayStrings(note);
-		PlaceSatellite(note, number);
+			playerNotes[index] = note;
+			audioManager.GetComponent<AudioManager>().PlayStrings(note);
+			PlaceSatellite(note, number);
+				
+		}
 
 	}
 
