@@ -11,7 +11,7 @@ GameObject:
   - 212: {fileID: 21294782}
   - 114: {fileID: 11407676}
   - 58: {fileID: 5887864}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Satellite2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -922746523
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 6655d59a72f28491c8ff78d6801e4416, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,7 +137,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
