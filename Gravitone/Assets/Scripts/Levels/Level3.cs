@@ -73,7 +73,8 @@ public class Level3 : MonoBehaviour {
 	}
 
 	public void ChangeCamera(int number){
-		planets[number-1].GetComponent<SpriteRenderer>().enabled=false;
+		if(number!=0)
+			planets[number-1].GetComponent<SpriteRenderer>().enabled=false;
 		planets[number].GetComponent<SpriteRenderer>().enabled=true;
 		cam.GetComponent<SmoothFollow2D>().target = planets[number].transform;
 	}
