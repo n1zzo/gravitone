@@ -13,7 +13,7 @@ public class FreeLevel2 : Subscriber {
 	public int bars=4;
 	public GameObject[] planets;
 	private int score;
-	private int placed;
+	private bool[] placed;
 	public int[] notes;
 	public string[] types;
 	bool isListening=false;
@@ -51,6 +51,8 @@ public class FreeLevel2 : Subscriber {
 
 		notes= new int[4];
 
+		placed=new bool[4];
+
 	}
 
 	// Update is called once per frame
@@ -74,10 +76,18 @@ public class FreeLevel2 : Subscriber {
 
 	}
 
-	public void increasePlaced(){
-		placed++;
+	public void increasePlaced(int number){
+		placed[number]=true;
 
-		if(placed==bars){
+		bool allPlaced=true;
+
+		foreach(bool p in placed)
+			if(!p){
+				allPlaced=false;
+				break;
+			}
+
+		if(allPlaced){
 			isListening=true;
 			planets[0].GetComponent<ChordPlanet>().Stop();
 			foreach (GameObject planet in planets){
@@ -89,6 +99,10 @@ public class FreeLevel2 : Subscriber {
 		}
 	}
 
+	public bool IsPlaced(int number){
+		return placed[number];
+	}
+
 
 	bool CheckPlanet(GameObject planet){
 		int num=planet.GetComponent<FreeDrag>().orbitNumber;
@@ -97,8 +111,9 @@ public class FreeLevel2 : Subscriber {
 			planet.GetComponent<ChordPlanet>().baseNote==notes[num];
 	}
 
-	public void RemovePlaced(){
-		placed --;
+	public void RemovePlaced(int number){
+		placed[number]=false;
+
 		if(isListening){
 			isListening=false;
 			planets[0].GetComponent<ChordPlanet>().Stop();
@@ -165,7 +180,7 @@ public class FreeLevel2 : Subscriber {
 
 		restoreCount=0;
 
-		placed=0;
+		placed=new bool[4];
 
 	}
 
@@ -180,6 +195,7 @@ public class FreeLevel2 : Subscriber {
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<SelfRotate>().enabled=false;
 			planet.GetComponent<FreeDrag>().enabled=true;
+			planet.GetComponent<FreeDrag>().orbitNumber=-1;
 			planet.GetComponent<ChordPlanet>().active=false;
 			planet.GetComponent<CircleCollider2D>().radius=2.5f;
 			switch(ind){
@@ -193,7 +209,7 @@ public class FreeLevel2 : Subscriber {
 			}
 			ind++;
 		}
-		placed=0;
+		placed=new bool[4];
 	}
 
 	GameObject GetFirstOrbitPlanet(){

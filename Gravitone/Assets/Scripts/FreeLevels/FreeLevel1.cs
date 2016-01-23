@@ -141,16 +141,17 @@ public class FreeLevel1 : Subscriber {
 	}
 
 	public void Restart(){
-		star.GetComponent<BeatGen>().Unsubscribe(this);
-
 		foreach (GameObject drum in drums){
 			drum.SetActive(false);
+			drum.GetComponent<CenterRotation>().enabled=false;
 			drum.GetComponent<Drum>().Reset();
 		}
-
-		star.GetComponent<BeatGen>().progress=0;
 		currentIndex=0;
-		Start();
+		metronome.GetComponent<MetroDot>().ResetPink();
+		currentInstrument=drums[currentIndex];
+		currentInstrument.SetActive(true);
+		currentInstrument.GetComponent<Drum>().SetActiveness(true);
+
 	}
 
 	public void Redo(){

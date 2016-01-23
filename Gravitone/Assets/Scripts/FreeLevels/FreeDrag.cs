@@ -24,7 +24,7 @@ public class FreeDrag : MonoBehaviour {
 
 				GetComponent<Rotate>().enabled=false;
 
-				levelManager.GetComponent<FreeLevel2>().RemovePlaced();
+				levelManager.GetComponent<FreeLevel2>().RemovePlaced(orbitNumber);
 
 			}
 
@@ -60,10 +60,10 @@ public class FreeDrag : MonoBehaviour {
 					foreach (float orbit in radiusOrbits){
 						float x=transform.position.x;
 						float y=transform.position.y;
-						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f){
+						if(Mathf.Abs(orbit-Mathf.Sqrt(x*x + y*y))<1f && !levelManager.GetComponent<FreeLevel2>().IsPlaced(count)){
 
 									AssignToOrbit(orbit, count);
-									levelManager.GetComponent<FreeLevel2>().increasePlaced();
+									levelManager.GetComponent<FreeLevel2>().increasePlaced(count);
 									break;
 
 						}

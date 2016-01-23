@@ -269,6 +269,7 @@ public class Level2 : Subscriber {
 			planet.GetComponent<Rotate>().enabled=false;
 			planet.GetComponent<SelfRotate>().enabled=false;
 			planet.GetComponent<Drag>().enabled=true;
+			planet.GetComponent<Drag>().orbitNumber=-1;
 			planet.GetComponent<ChordPlanet>().active=false;
 			planet.GetComponent<CircleCollider2D>().radius=2.5f;
 			switch(ind){
