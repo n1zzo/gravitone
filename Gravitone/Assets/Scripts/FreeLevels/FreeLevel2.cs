@@ -8,6 +8,7 @@ public class FreeLevel2 : Subscriber {
 	public GameObject star;
 	public GameObject wave;
 	public GameObject wavePrefab;
+	public GameObject shuffle;
 	public int numberOfThirdBeat=0;
 	public int currentBar=0;
 	public int bars=4;
@@ -53,6 +54,8 @@ public class FreeLevel2 : Subscriber {
 
 		placed=new bool[4];
 
+		shuffle.SetActive(true);
+
 	}
 
 	// Update is called once per frame
@@ -88,6 +91,7 @@ public class FreeLevel2 : Subscriber {
 			}
 
 		if(allPlaced){
+			shuffle.SetActive(false);
 			isListening=true;
 			planets[0].GetComponent<ChordPlanet>().Stop();
 			foreach (GameObject planet in planets){
@@ -113,7 +117,7 @@ public class FreeLevel2 : Subscriber {
 
 	public void RemovePlaced(int number){
 		placed[number]=false;
-
+		shuffle.SetActive(true);
 		if(isListening){
 			isListening=false;
 			planets[0].GetComponent<ChordPlanet>().Stop();
@@ -137,9 +141,9 @@ public class FreeLevel2 : Subscriber {
 			planet.SetActive(true);
 			planet.GetComponent<FreeDrag>().radiusOrbits=radius;
 			switch(ind){
-				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;
+				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - (offset*3), 1f)); break;
 				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
-				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - offset, 1f)); break;
+				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - (offset*3), 1f)); break;
 				case 3: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  offset, 1f)); break;
 				case 4: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height/2 - offset, 1f)); break;
 				case 5: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height/2 - offset, 1f)); break;
@@ -184,6 +188,12 @@ public class FreeLevel2 : Subscriber {
 
 	}
 
+	public void Shuffle(){
+		foreach(GameObject planet in planets)
+			if(planet.GetComponent<FreeDrag>().orbitNumber==-1)
+				planet.GetComponent<RandomizeNote>().Randomize();
+	}
+
 	public int GetNumberOfThirdBeat(){
 		return numberOfThirdBeat;
 	}
@@ -199,12 +209,12 @@ public class FreeLevel2 : Subscriber {
 			planet.GetComponent<ChordPlanet>().active=false;
 			planet.GetComponent<CircleCollider2D>().radius=2.5f;
 			switch(ind){
-				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - offset - 100f, 1f)); break;
+				case 0: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height - (offset*2), 1f)); break;
 				case 1: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, offset, 1f)); break;
-				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - offset, 1f)); break;
+				case 2: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height - (offset*2), 1f)); break;
 				case 3: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  offset, 1f)); break;
-				case 4: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height/2 - offset, 1f)); break;
-				case 5: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height/2 - offset, 1f)); break;
+				case 4: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(offset, Screen.height/2, 1f)); break;
+				case 5: planet.transform.position=Camera.main.ScreenToWorldPoint(new Vector3(Screen.width - offset,  Screen.height/2, 1f)); break;
 				default: break;
 			}
 			ind++;

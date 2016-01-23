@@ -5,6 +5,10 @@ public class RandomizeNote : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Randomize();
+	}
+
+	public void Randomize(){
 		int num=(int) Random.Range(0f,12f);
 		GetComponent<ChordPlanet>().baseNote=num + 12*4;
 	}
