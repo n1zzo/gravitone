@@ -233,6 +233,15 @@ public class FreeMelody : Subscriber {
 		return currentBar;
 	}
 
+	public void RestartPlanet(){
+		for(int i=currentPlanet*granularity; i<granularity*(currentPlanet+1); i++) {
+			if(satellites[i]){
+				playerNotes[i]=0;
+				Destroy(satellites[i]);
+			}
+		}
+	}
+
 	public void Restart(){
 		currentBar=0;
 		playerNotes = new int[64];
