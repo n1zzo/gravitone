@@ -8,16 +8,7 @@ public class MetroDot : MonoBehaviour {
 	private float radius;
 	private float dotOffset = 0.1f;
     private int totalDots = 0;
-
-	// Use this for initialization
-	void Start () {
-
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
+    public int phase = 0;
 
 	// Instantiate the dots into the scene at the correct position
 	public void PlaceDots(int beatsPerBar, int subBeatsPerBeat, float radius) {
@@ -48,7 +39,20 @@ public class MetroDot : MonoBehaviour {
 
 	public void ColorDot(int number) {
 		GameObject fullDot = points[number].GetComponent<DotGroup>().fullDot;
-		fullDot.GetComponent<DotManager>().MakePink();
+        switch(phase) {
+            case 0:
+                fullDot.GetComponent<DotManager>().MakePink();
+                break;
+            case 1:
+                fullDot.GetComponent<DotManager>().MakeYellow();
+                break;
+            case 2:
+                fullDot.GetComponent<DotManager>().MakeBlue();
+                break;
+            default:
+                fullDot.GetComponent<DotManager>().MakePink();
+                break;
+        }
 	}
 
     public void HitDot(int number) {
@@ -78,5 +82,9 @@ public class MetroDot : MonoBehaviour {
             Destroy(points[i].GetComponent<DotGroup>().emptyDot);
             Destroy(points[i]);
         }
+    }
+
+    public void SwitchColor() {
+        phase++;
     }
 }

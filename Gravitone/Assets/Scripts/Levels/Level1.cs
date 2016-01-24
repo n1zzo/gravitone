@@ -173,6 +173,8 @@ public class Level1 : Subscriber {
 	}
 
 	void ChangeState() {
+            // Change metronome dots color
+            metronome.GetComponent<MetroDot>().SwitchColor();
 			GetComponent<LevelManager>().ResetBackground();
 			textField.GetComponent<Text>().text = "Amazing!";
 			//currentInstrument.GetComponent<Drum>().SetInitialVolume();
