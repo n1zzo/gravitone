@@ -48,7 +48,7 @@ public class DotManager : MonoBehaviour {
 
     public void MakeYellow() {
 		if(!isPink) {
-			this.GetComponent<AlphaColor>().SetColor(0.90f, 0.75f, 0.62f);
+			this.GetComponent<AlphaColor>().SetColor(0.80f, 0.65f, 0.52f);
 			transform.localScale += new Vector3(0.8f, 0.8f, 0);
 			originalScale=transform.localScale;
 			alphaTreshold = 0.4f;
@@ -87,7 +87,7 @@ public class DotManager : MonoBehaviour {
                     this.GetComponent<AlphaColor>().SetColor(0.95f, 0.57f, 0.72f);
                     break;
                 case 1:
-                    this.GetComponent<AlphaColor>().SetColor(0.93f, 0.79f, 0.66f);
+                    this.GetComponent<AlphaColor>().SetColor(0.80f, 0.65f, 0.52f);
                     break;
                 case 2:
                     this.GetComponent<AlphaColor>().SetColor(0.51f, 0.73f, 0.67f);

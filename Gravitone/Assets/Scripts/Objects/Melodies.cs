@@ -147,7 +147,6 @@ public class Melodies : Subscriber {
 			playerNotes[index] = note;
 			audioManager.GetComponent<AudioManager>().PlayStrings(note);
 			PlaceSatellite(note, number);
-				
 		}
 
 	}
