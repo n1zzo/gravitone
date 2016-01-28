@@ -239,7 +239,8 @@ public class Melodies : Subscriber {
 	}
 
 	private void PlaceSatellite(int note, int number) {
-		if(playerNotes[index]!=0 && !completed && (melodyNotes[index]==0 || melodyNotes[index]==note)){
+
+		if((playerNotes[index]!=0 && !completed) || (melodyNotes[index]!=0)){
 			Destroy(satellites[index]);
 		}
 
@@ -255,19 +256,18 @@ public class Melodies : Subscriber {
 		else
 			prefab = satellitePrefab[number];
 
-		if(melodyNotes[index]==0 || melodyNotes[index]==note){
-				GameObject newSatellite = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-				newSatellite.GetComponent<SatRotate>().initialProgress=star.GetComponent<BeatGen>().progress;
-				newSatellite.GetComponent<SatRotate>().index=index;
+		GameObject newSatellite = Instantiate(prefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+		newSatellite.GetComponent<SatRotate>().initialProgress=star.GetComponent<BeatGen>().progress;
+		newSatellite.GetComponent<SatRotate>().index=index;
 
-				float radius = 2f + (number*0.25f);
+		float radius = 2f + (number*0.25f);
 
-				// Set satellite rotation parameters
-				newSatellite.GetComponent<SatRotate>().star = this.star;
-				newSatellite.GetComponent<SatRotate>().planet = planets[currentPlanet];
-				newSatellite.GetComponent<SatRotate>().SetRadius(radius);
-		    satellites[index]=newSatellite;
-		}
+		// Set satellite rotation parameters
+		newSatellite.GetComponent<SatRotate>().star = this.star;
+		newSatellite.GetComponent<SatRotate>().planet = planets[currentPlanet];
+		newSatellite.GetComponent<SatRotate>().SetRadius(radius);
+		satellites[index]=newSatellite;
+
   }
 
 	public void DestroySat(int index){
