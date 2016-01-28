@@ -87,4 +87,9 @@ public class MetroDot : MonoBehaviour {
     public void SwitchColor() {
         phase++;
     }
+
+		public void ResetLevel() {
+				DestroyAll();
+				phase = 0;
+		}
 }

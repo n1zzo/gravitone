@@ -237,6 +237,7 @@ public class Level1 : Subscriber {
 			drum.GetComponent<Drum>().Reset();
 		}
 		star.GetComponent<BeatGen>().progress=0;
+		metronome.GetComponent<MetroDot>().ResetLevel();
 		Start();
 	}
 
