@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour {
 	public GameObject OfflineChord;
 	public GameObject OnlineStrings;
 	public GameObject OfflineStrings;
-	public GameObject onlineButton;
 	public GameObject OnlineBass;
 	Metronome currentMetronome;
 	Chord currentChord;
@@ -36,8 +35,6 @@ public class AudioManager : MonoBehaviour {
 			//[TODO] Implement offline bass
 			currentBass = OnlineBass.GetComponent<OnlineBass>();
 
-			//Set the Button on if the online is selected
-			onlineButton.SetActive(online);
 		}
 		else {
 			OfflineMetronome.SetActive(true);
