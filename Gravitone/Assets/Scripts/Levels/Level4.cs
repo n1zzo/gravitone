@@ -15,10 +15,10 @@ public class Level4 : MonoBehaviour {
 			audioManager = GetComponent<LevelManager>().audioManager;
 
 		// Set intruments gain levels
-		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.6f);
-		audioManager.GetComponent<AudioManager>().SetChordsVolume(0.8f);
-		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.4f);
-		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.5f);
+		audioManager.GetComponent<AudioManager>().SetChordsVolume(0.9f);
+		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.3f);
+		audioManager.GetComponent<AudioManager>().SetBassVolume(0.5f);
 
 	}
 
