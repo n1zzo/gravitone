@@ -31,7 +31,7 @@ public class Level2 : Subscriber {
 	// Use this for initialization
 	void Start () {
         // Set GUI text field
-        textField.GetComponent<Text>().text = "Listen to the chords.";
+        textField.GetComponent<Text>().text = "Listen to the chords";
 
 		audioManager = GetComponent<LevelManager>().audioManager;
 
@@ -157,7 +157,7 @@ public class Level2 : Subscriber {
 	}
 
 	public void setRadiusPlanets(float[] radius){
-        textField.GetComponent<Text>().text = "Place the planets.";
+        textField.GetComponent<Text>().text = "Place the planets";
 		int ind=0;
 		float offset=Screen.height*6/100;
 		foreach(GameObject planet in planets){

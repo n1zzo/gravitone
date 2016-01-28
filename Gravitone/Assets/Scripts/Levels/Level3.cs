@@ -17,7 +17,7 @@ public class Level3 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        textField.GetComponent<Text>().text = "Play the melody.";
+        textField.GetComponent<Text>().text = "Play the melody";
 
 		audioManager = GetComponent<LevelManager>().audioManager;
 
