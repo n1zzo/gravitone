@@ -40,8 +40,8 @@ public class Level2 : Subscriber {
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.3f);
 		audioManager.GetComponent<AudioManager>().SetChordsVolume(1f);
-		audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
-		audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
+		//audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
+		//audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);
 
 		// Adjust the main cam and menu cam to the second level position
 		cam.GetComponent<SmoothCamera>().enabled = true;

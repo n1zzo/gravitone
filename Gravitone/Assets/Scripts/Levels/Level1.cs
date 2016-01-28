@@ -31,7 +31,7 @@ public class Level1 : Subscriber {
 		audioManager = GetComponent<LevelManager>().audioManager;
 
 		// Set intruments gain levels
-		audioManager.GetComponent<AudioManager>().SetDrumVolume(1f);
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.9f);
 		//audioManager.GetComponent<AudioManager>().SetChordsVolume(0.6f);
 		//audioManager.GetComponent<AudioManager>().SetStringsVolume(0.6f);
 		//audioManager.GetComponent<AudioManager>().SetBassVolume(0.6f);

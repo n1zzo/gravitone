@@ -48,6 +48,7 @@ public class FreeLevel1 : Subscriber {
 		currentInstrument.GetComponent<Drum>().SetActiveness(true);
 
 		audioManager = GetComponent<FreeLevelManager>().audioManager;
+		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.9f);
 		currentInstrument.GetComponent<Drum>().widenEffect(0.95f);
 
     metronome.GetComponent<MetroDot>().PlaceDots(beatsPerBar, subBeatsPerBeat, 4f);
