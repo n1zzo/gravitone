@@ -2120,6 +2120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59c476e86c2fdd4697a570b2fbe1c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 1
 --- !u!114 &447429927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4922,6 +4923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59c476e86c2fdd4697a570b2fbe1c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 6
 --- !u!1001 &906869226
 Prefab:
   m_ObjectHideFlags: 0
@@ -5239,6 +5241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59c476e86c2fdd4697a570b2fbe1c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 3
 --- !u!4 &937916134 stripped
 Transform:
   m_PrefabParentObject: {fileID: 434094, guid: 6fcc57731932b460982e319b9d09411e, type: 2}
@@ -6211,6 +6214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59c476e86c2fdd4697a570b2fbe1c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 4
 --- !u!1 &1148231658
 GameObject:
   m_ObjectHideFlags: 0
@@ -8623,6 +8627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59c476e86c2fdd4697a570b2fbe1c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 2
 --- !u!1 &1590554890
 GameObject:
   m_ObjectHideFlags: 0
@@ -10341,6 +10346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59c476e86c2fdd4697a570b2fbe1c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetNumber: 5
 --- !u!114 &2048897486
 MonoBehaviour:
   m_ObjectHideFlags: 0

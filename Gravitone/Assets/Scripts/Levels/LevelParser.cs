@@ -60,6 +60,10 @@ public class LevelParser : MonoBehaviour {
 		int counter=0;
 
 		foreach (GameObject planet in chordPlanet){
+
+            // Load the planet sprite
+            planet.GetComponent<SpriteRenderer>().sprite = Resources.Load<UnityEngine.Sprite>("Planets/"+levelNumber+"/"+(counter+1));
+
 			int num;
 
 			if(counter<3)
