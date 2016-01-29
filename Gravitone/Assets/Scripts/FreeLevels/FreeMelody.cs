@@ -197,6 +197,7 @@ public class FreeMelody : Subscriber {
 
 		// Set satellite rotation parameters
 		newSatellite.GetComponent<SatRotate>().star = this.star;
+		newSatellite.GetComponent<SatRotate>().isFreeMode=true;
 		newSatellite.GetComponent<SatRotate>().planet = planets[currentPlanet];
 		newSatellite.GetComponent<SatRotate>().SetRadius(radius);
     satellites[index]=newSatellite;
@@ -294,4 +295,11 @@ public class FreeMelody : Subscriber {
         }
         System.Array.Sort(notes);
     }
+
+		public void DestroySat(int index){
+
+				playerNotes[index] = 0;
+				Destroy(satellites[index]);
+
+		}
 }

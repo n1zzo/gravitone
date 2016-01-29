@@ -15,6 +15,7 @@ public class SatRotate : MonoBehaviour {
 	public bool prev;
 	public int index;
 	GameObject melody;
+	public bool isFreeMode;
 
 	void Start(){
 		melody=GameObject.FindWithTag("Melody");
@@ -68,8 +69,11 @@ public class SatRotate : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		if(!prev)
+		if(!prev && !isFreeMode)
 			melody.GetComponent<Melodies>().DestroySat(index);
+		else if(!prev){
+			melody.GetComponent<FreeMelody>().DestroySat(index);
+		}
 	}
 
 }
