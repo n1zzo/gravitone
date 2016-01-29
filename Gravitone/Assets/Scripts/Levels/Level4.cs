@@ -12,12 +12,10 @@ public class Level4 : MonoBehaviour {
 
 		if(isFreeMode)
 			audioManager = GetComponent<FreeLevelManager>().audioManager;
-		else{
+		else
 			audioManager = GetComponent<LevelManager>().audioManager;
-			LevelComplete.SetActive(true);
-		}
 
-		ReturnToMM.SetActive(true);
+		ShowButtons();
 
 		// Set intruments gain levels
 		audioManager.GetComponent<AudioManager>().SetDrumVolume(0.5f);
@@ -27,8 +25,19 @@ public class Level4 : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
-	void Update () {
+	public void ShowButtons(){
 
+		if(!isFreeMode)
+			LevelComplete.SetActive(true);
+
+		ReturnToMM.SetActive(true);
+
+	}
+
+	public void HideButtons(){
+		if(!isFreeMode)
+			LevelComplete.SetActive(false);
+
+		ReturnToMM.SetActive(false);
 	}
 }

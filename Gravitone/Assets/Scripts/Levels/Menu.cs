@@ -41,6 +41,10 @@ public class Menu : MonoBehaviour {
 		audioManager.GetComponent<AudioManager>().StopBass();
 
 		Time.timeScale=0f;
+
+		if(GetComponent<Level4>().enabled)
+			GetComponent<Level4>().HideButtons();
+
 	}
 
 	public void Disable() {
@@ -66,6 +70,10 @@ public class Menu : MonoBehaviour {
 		}
 
 		Time.timeScale=1f;
+
+		if(GetComponent<Level4>().enabled)
+			GetComponent<Level4>().ShowButtons();
+
 	}
 
 	public void ReturnToMainMenu() {
