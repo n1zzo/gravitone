@@ -10,7 +10,9 @@ public class Menu : MonoBehaviour {
 	public GameObject menutree;
 	public GameObject text;
 	public GameObject melodyCanvas;
+	public GameObject spaceText;
 	private bool isCanvas;
+	private bool isSpaceText;
 	private GameObject audioManager;
 
 	void Start(){
@@ -34,6 +36,11 @@ public class Menu : MonoBehaviour {
 			melodyCanvas.SetActive(false);
 		} else
 			isCanvas=false;
+
+			if(spaceText.activeSelf){
+				spaceText.SetActive(false);
+				isSpaceText=true;
+			}
 
 		//Turn off the text on the first phase
 		text.SetActive(false);
@@ -67,6 +74,11 @@ public class Menu : MonoBehaviour {
 		if(isCanvas){
 			melodyCanvas.SetActive(true);
 			isCanvas=false;
+		}
+
+		if(isSpaceText){
+			spaceText.SetActive(true);
+			isSpaceText=false;
 		}
 
 		Time.timeScale=1f;
