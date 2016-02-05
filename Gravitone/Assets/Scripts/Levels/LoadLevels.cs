@@ -143,4 +143,11 @@ public class LoadLevels : MonoBehaviour {
         tempoIndex++;
     }
 
+    public void disableTitle(){
+      foreach(GameObject t in titles) {
+          Destroy(t);
+      }
+      titles = new List<GameObject>();
+    }
+
 }
