@@ -4,7 +4,6 @@ using System.Collections;
 public class Drum : Subscriber {
 
 	public GameObject star;
-	string fireKey="m";
 	protected float scaleStep=0.5f;
 	protected int currentSlot = 0;
 	protected int lastSlot = -1;
@@ -133,10 +132,11 @@ public class Drum : Subscriber {
 	public bool CheckFire(){
 
 		if(isActive){
+
 			//check if our current system info equals a desktop
 		 if(SystemInfo.deviceType == DeviceType.Desktop)
 		     //we are on a desktop device, so don't use touch
-		     return Input.GetKeyDown(fireKey);
+		     return Input.GetKeyDown(KeyCode.Space);
 
 		 //if it isn't a desktop, lets see if our device is a handheld device aka a mobile device
 		 else if(SystemInfo.deviceType == DeviceType.Handheld)

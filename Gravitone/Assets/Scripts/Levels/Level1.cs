@@ -8,6 +8,7 @@ public class Level1 : Subscriber {
 	public GameObject[] drums;
 	public GameObject star;
 	public GameObject textField;
+	public GameObject pressSpace;
 	public GameObject metronome;
 
 	GameObject audioManager;
@@ -68,6 +69,10 @@ public class Level1 : Subscriber {
 
 				if(!checkInput){
 					textField.GetComponent<Text>().text = "";
+
+				 if(pressSpace.activeSelf)
+				 		pressSpace.SetActive(false);
+
 					//GetComponent<LevelManager>().SetGreenBackground();
 					SetRecord();
 
@@ -126,8 +131,12 @@ public class Level1 : Subscriber {
 
 			if(!checkInput){
 				SetPlayPreview();
-				if(currentBar>0)
+				if(currentBar>0){
 					textField.GetComponent<Text>().text = "Follow the rhythm!";
+					if(currentIndex==0 && SystemInfo.deviceType == DeviceType.Desktop)
+						pressSpace.SetActive(true);
+				}
+
 			} else{
 				//GetComponent<LevelManager>().SetGreenBackground();
 			}

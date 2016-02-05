@@ -61,6 +61,7 @@ MonoBehaviour:
   planet: {fileID: 0}
   prev: 1
   index: 0
+  isFreeMode: 0
 --- !u!212 &21233060
 SpriteRenderer:
   m_ObjectHideFlags: 1

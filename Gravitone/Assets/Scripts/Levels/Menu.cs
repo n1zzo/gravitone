@@ -82,5 +82,4 @@ public class Menu : MonoBehaviour {
 			int count=0;
 			Application.LoadLevel("menu");
 	}
-
 }

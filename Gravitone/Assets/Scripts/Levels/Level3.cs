@@ -28,7 +28,12 @@ public class Level3 : MonoBehaviour {
 		audioManager.GetComponent<AudioManager>().SetBassVolume(0.5f);
 
 		melody.SetActive(true);
-		canvas.SetActive(true);
+
+		if(SystemInfo.deviceType == DeviceType.Desktop)
+			canvas.SetActiveRecursively(true);
+		else
+			canvas.SetActive(true);
+
 		bass.SetActive(true);
 
 		background.GetComponent<Fade>().enabled=true;
