@@ -173,7 +173,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: a410f83f1937946ada64e65e9fd5e9dc, type: 3}
+      m_Icon: {fileID: 2800000, guid: 6a1870df0d71d2740a2dacc86f449d68, type: 3}
       m_Width: 128
       m_Height: 128
   m_BuildTargetBatching: []
@@ -332,6 +332,7 @@ PlayerSettings:
   spritePackerPolicy: 
   scriptingDefineSymbols:
     1: 
+    7: 
   metroPackageName: Gravitone
   metroPackageVersion: 
   metroCertificatePath: 
