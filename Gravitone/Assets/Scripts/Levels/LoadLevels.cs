@@ -143,11 +143,15 @@ public class LoadLevels : MonoBehaviour {
         tempoIndex++;
     }
 
-    public void disableTitle(){
+    public void DisableTitle(){
       foreach(GameObject t in titles) {
           Destroy(t);
       }
       titles = new List<GameObject>();
+    }
+
+    public void Quit(){
+      Application.Quit();
     }
 
 }

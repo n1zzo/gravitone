@@ -2632,6 +2632,7 @@ MonoBehaviour:
   menutree: {fileID: 1871253826}
   text: {fileID: 1642648028}
   melodyCanvas: {fileID: 1250394221}
+  spaceText: {fileID: 561727538}
 --- !u!114 &721453216
 MonoBehaviour:
   m_ObjectHideFlags: 0
