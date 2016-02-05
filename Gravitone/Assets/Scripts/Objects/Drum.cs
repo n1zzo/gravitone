@@ -136,7 +136,7 @@ public class Drum : Subscriber {
 			//check if our current system info equals a desktop
 		 if(SystemInfo.deviceType == DeviceType.Desktop)
 		     //we are on a desktop device, so don't use touch
-		     return Input.GetKeyDown(KeyCode.Space);
+		     return Input.GetKeyDown(KeyCode.LeftControl);
 
 		 //if it isn't a desktop, lets see if our device is a handheld device aka a mobile device
 		 else if(SystemInfo.deviceType == DeviceType.Handheld)
