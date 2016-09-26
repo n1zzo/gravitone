@@ -1,16 +1,16 @@
 ﻿/*
- * 
+ *
  * For information on usage and redistribution, and for a DISCLAIMER OF ALL
  * WARRANTIES, see the file, "LICENSE.txt," in this distribution.
- * 
- * 
+ *
+ *
  * Created by SharpDevelop.
  * User: Tebjan Halm
  * Date: 11.04.2012
  * Time: 11:40
- * 
+ *
  */
- 
+
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
@@ -18,13 +18,13 @@ namespace LibPDBinding
 {
 	public static partial class LibPD
 	{
-		
-		#region Send Midi
-		
 
-		[DllImport("libpdcsharp", EntryPoint="libpd_noteon")]
+		#region Send Midi
+
+
+		[DllImport("__Internal", EntryPoint="libpd_noteon")]
 		private static extern  int noteon(int channel, int pitch, int velocity) ;
-		
+
 		/// <summary>
 		/// sends a note on event to pd
 		/// </summary>
@@ -42,7 +42,7 @@ namespace LibPDBinding
 		}
 
 
-		[DllImport("libpdcsharp", EntryPoint="libpd_controlchange")]
+		[DllImport("__Internal", EntryPoint="libpd_controlchange")]
 		private static extern  int controlchange(int channel, int controller, int value) ;
 
 		/// <summary>
@@ -60,9 +60,9 @@ namespace LibPDBinding
 		{
 			return controlchange(channel, controller, value);
 		}
-		
-		
-		[DllImport("libpdcsharp", EntryPoint="libpd_programchange")]
+
+
+		[DllImport("__Internal", EntryPoint="libpd_programchange")]
 		private static extern  int programchange(int channel, int value) ;
 
 		/// <summary>
@@ -78,9 +78,9 @@ namespace LibPDBinding
 		{
 			return programchange(channel, value);
 		}
-		
-	
-		[DllImport("libpdcsharp", EntryPoint="libpd_pitchbend")]
+
+
+		[DllImport("__Internal", EntryPoint="libpd_pitchbend")]
 		private static extern  int pitchbend(int channel, int value) ;
 
 		/// <summary>
@@ -97,9 +97,9 @@ namespace LibPDBinding
 		{
 			return pitchbend(channel, value);
 		}
-		
-	
-		[DllImport("libpdcsharp", EntryPoint="libpd_aftertouch")]
+
+
+		[DllImport("__Internal", EntryPoint="libpd_aftertouch")]
 		private static extern  int aftertouch(int channel, int value) ;
 
 		/// <summary>
@@ -115,11 +115,11 @@ namespace LibPDBinding
 		{
 			return aftertouch(channel, value);
 		}
-		
-	
-		[DllImport("libpdcsharp", EntryPoint="libpd_polyaftertouch")]
+
+
+		[DllImport("__Internal", EntryPoint="libpd_polyaftertouch")]
 		private static extern  int polyaftertouch(int channel, int pitch, int value) ;
-		
+
 		/// <summary>
 		/// sends a polyphonic aftertouch event to pd
 		/// </summary>
@@ -136,10 +136,10 @@ namespace LibPDBinding
 			return polyaftertouch(channel, pitch, value);
 		}
 
-		
-		[DllImport("libpdcsharp", EntryPoint="libpd_midibyte")]
+
+		[DllImport("__Internal", EntryPoint="libpd_midibyte")]
 		private static extern  int midibyte(int port, int value) ;
-		
+
 		/// <summary>
 		/// sends one raw MIDI byte to pd
 		/// </summary>
@@ -153,9 +153,9 @@ namespace LibPDBinding
 		{
 			return midibyte(port, value);
 		}
-		
-		
-		[DllImport("libpdcsharp", EntryPoint="libpd_sysex")]
+
+
+		[DllImport("__Internal", EntryPoint="libpd_sysex")]
 		private static extern  int sysex(int port, int value) ;
 
 		/// <summary>
@@ -171,11 +171,11 @@ namespace LibPDBinding
 		{
 			return sysex(port, value);
 		}
-		
-		
-		[DllImport("libpdcsharp", EntryPoint="libpd_sysrealtime")]
+
+
+		[DllImport("__Internal", EntryPoint="libpd_sysrealtime")]
 		private static extern  int sysrealtime(int port, int value) ;
-		
+
 		/// <summary>
 		/// sends one byte to the realtimein object of pd
 		/// </summary>
@@ -189,8 +189,8 @@ namespace LibPDBinding
 		{
 			return sysrealtime(port, value);
 		}
-		
+
 		#endregion Send Midi
-		
+
 	}
 }
