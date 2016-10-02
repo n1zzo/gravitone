@@ -42,14 +42,8 @@ public class LibPdFilterRead : MonoBehaviour
 	// Unity audio callback
 	public void OnAudioFilterRead (float[] data, int channels)
 	{
-		if(dataPtr == IntPtr.Zero)
-		{
-			dataHandle = GCHandle.Alloc(data,GCHandleType.Pinned);
-			dataPtr = dataHandle.AddrOfPinnedObject();
-		}
-
 		if (islibpdready) {
-			LibPD.Process(numberOfTicks, dataPtr, dataPtr);
+			LibPD.Process(numberOfTicks, data, data);
 		}
 	}
 
