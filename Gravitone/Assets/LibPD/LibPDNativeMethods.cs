@@ -58,7 +58,8 @@ namespace LibPDBinding
 	/// </summary>
 	public static partial class LibPD
 	{
-	    const string DllName = "__Internal";
+			// Set this to __Internal for iOS, to libpdcsharp for other platforms
+	    const string DllName = "libpdcsharp";
 	    const CallingConvention CallingConvention = System.Runtime.InteropServices.CallingConvention.Cdecl;
         //only call this once
         static LibPD()
